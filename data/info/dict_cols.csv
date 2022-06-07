@@ -1,0 +1,40 @@
+,Coluna,Tipo,Descrição
+1,ANO_CMPT,int64,Ano de processamento da AIH
+4,CGC_HOSP,object,CNPJ do estabelecimento
+11,MUNIC_RES,int64,Município de residência do paciente
+12,cod_uf_res,int64,Código da UF de residência do paciente
+13,NASC,int64,Data de nascimento do paciente
+31,PROC_REA,object,Procedimento realizado
+46,DT_INTER,int64,Data de internação
+61,MUNIC_MOV,int64,Município do estabelecimento
+62,cod_uf_mov,int64,Código da UF do estabelecimento
+65,IDADE,int64,Idade
+80,INSTRU,int64,Grau de instrução do paciente
+100,CNES,int64,Código CNES do hospital
+114,RACA_COR,object,Raça/cor do paciente
+155,res_MUNCOD,int64,Código do município de residência do paciente
+157,res_MUNNOMEX,object,"Nome (sem acentos, em maiúsculas) do Município de residência do paciente"
+162,res_MSAUDCOD,int64,Código da Regional de Saúde a que o Município de residência do paciente pertence
+163,res_RSAUDCOD,int64,Código da Microrregional de Saúde a que o Município de residência do paciente pertence
+165,res_LATITUDE,float32,Longitude da sede do Município de residência do paciente
+166,res_LONGITUDE,float32,"Altitude, em metros, da sede do Município de residência do paciente"
+172,int_MUNNOMEX,object,"Nome (sem acentos, em maiúsculas) do Município do estabelecimento de internação"
+177,int_MSAUDCOD,int64,Código da Regional de Saúde a que o Município do estabelecimento de internação
+178,int_RSAUDCOD,int64,Código da Microrregional de Saúde a que o Município do estabelecimento de internação
+180,int_LATITUDE,float32,Longitude da sede do Município do estabelecimento de internação
+181,int_LONGITUDE,float32,"Altitude, em metros, da sede do Município do estabelecimento de internação"
+186,res_uf_CODIGO_UF,int64,Código IBGE da Unidade da Federação de residência do paciente
+192,def_regiao_int,object,Região do estabelecimento de internação
+193,def_regiao_res,object,Região de residência do pacient
+194,def_uf_int,object,Unidade da federação do estabelecimento de internação
+195,def_uf_sigla_int,object,Sigla da unidade da federação do estabelecimeto de internação
+196,def_uf_res,object,Unidade da federação de residência do paciente
+197,def_uf_sigla_res,object,Sigla da unidade da federação de residência do paciente
+198,def_municipio_int,object,Município do estabelecimento de internação
+199,def_municipio_res,object,Município de residência do paciente
+209,def_rsaud_int,object,Região de saúde do estabelecimento de internação
+210,def_rsaud_res,object,Região de saúde de residência do paciente
+219,def_procedimento_realizado,object,Definição do procedimento realizado
+221,def_idade_anos,int64,Idade em anos
+234,ano_internacao,int64,Ano de internação
+239,idade_nascimento_anos,int64,Idade em anos pelo ano de nascimento
