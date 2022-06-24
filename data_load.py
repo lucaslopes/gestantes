@@ -3,10 +3,11 @@ import pandas as pd
 import config
 import utils
 
-from os.path import isfile
+from os.path import isfile, exists
 from gdown import download
 from zipfile import ZipFile
 from datatable import dt, f
+from tqdm.notebook import tqdm
 
 
 def download_database(
@@ -32,7 +33,7 @@ def get_datasets(
                 ) if fname[0] == 'E'
         ])
         .sort_values(
-            by = config.FNAME_COLS[1:],
+            by = config.FNAME_COLS[1:4],
             ignore_index = True,
         )
     )
@@ -41,32 +42,34 @@ def get_datasets(
 def dump_data(
         tabelas = get_datasets(),
         path_db = config.PATH_DB,
+        col_names = config.FNAME_COLS,
     ):
 
     new_tables = list()
 
-    for row in tabelas.iterows():
+    for _, row in tqdm(tabelas.iterrows(), total=tabelas.shape[0]):
         arquivo = row['Arquivo']
         current_path = f'{path_db}/{arquivo}'
         procs = config.RENAME['PROC_REA'].items()
         output = utils.get_path(arquivo, path_db)
-        print(output, '\n', current_path)
         
         df = dt.fread(current_path)
         for cod, proc_name in procs:
-            new_path =  f'{output}_{proc_name}.jay'
             df_proc = df[
                 f['PROC_REA'] == cod,
                 df.names,
             ]
+            sufix = f'{proc_name}_{df_proc.nrows}_{df_proc.ncols}'
+            extention = f'{sufix}.jay'
+            new_path =  f'{output}_{extention}'
             new_tables.append({
-                'Arquivo' : f'{output.split("/")[-1]}_{proc_name}.jay',
-                'UF' : row['UF'],
-                'Ano' : row['Ano'],
-                'Mês' : row['Mês'],
-                'Parto' : proc_name,
-                'Linhas' : df_proc.nrows,
-                'Colunas' : df_proc.ncols,
+                col_names[0] : f'{output.split("/")[-1]}_{extention}',
+                col_names[1] : row['UF'],
+                col_names[2] : row['Ano'],
+                col_names[3] : row['Mês'],
+                col_names[4] : proc_name,
+                col_names[5] : df_proc.nrows,
+                col_names[6] : df_proc.ncols,
             })
             df_proc.to_jay(new_path)
     
@@ -77,10 +80,29 @@ def load_sihsus(
         url = config.URL_DB,
         path_db = config.PATH_DB,
     ):
-    
+
     download_database(url, path_db)
-    tabelas = get_datasets(path_db)
-    tabelas = dump_data(tabelas)
+
+    data_dir = f'{path_db.split("/")[0]}/sihsus'
+    if exists(data_dir):
+        files = utils.get_files()
+        tabelas = pd.DataFrame([
+            (
+                [file] + (
+                    file
+                    .split('.')[0]
+                    .split('_')
+                )
+            ) for file in files
+            ],
+            columns = config.FNAME_COLS,
+        ).sort_values(config.FNAME_COLS[0])
+        month = config.FNAME_COLS[3]
+        tabelas[month] = tabelas[month].astype(int)
+    else:
+        tabelas = dump_data(
+            get_datasets(path_db)
+        )
 
     return tabelas
 
@@ -94,7 +116,6 @@ def get_dict(
         f'{path_db}/{file_name}',
         sep = ';',
     )
-
 
 
 def get_dict_zf(
@@ -134,13 +155,13 @@ def get_columns(
     )
 
 
-
-
 # Main
 
 def main():
     
-    return dump_data()
+    load_sihsus().to_csv(
+        'data/info/tabelas.csv',
+        index = False)
 
 
 __name__ == '__main__' and main()

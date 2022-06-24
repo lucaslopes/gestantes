@@ -131,3 +131,4 @@ dmypy.json
 # Project
 data/*.zip
 data/test/
+data/sihsus/

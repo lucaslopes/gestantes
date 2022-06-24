@@ -25,6 +25,17 @@ def name_to_dict(
     }
 
 
+def name_to_dir(
+        file_name,
+    ):
+
+    path_dir = '/'.join(
+        file_name.split('_')[:3]
+    )
+
+    return f'{config.PATH_SIHSUS}/{path_dir}/'
+
+
 def get_path(
         file_name,
         path_db = config.PATH_DB,
@@ -47,12 +58,42 @@ def get_path(
         os.makedirs(path_dir)
     
     file_path = (
-        path_dir + '_'.join(path_list[1:])
+        path_dir + '_'.join(path_list[2:])
     )
 
     return file_path
 
 
-def isin(column, sequence_of_labels):
+def get_files(
+        path_dir = 'data/sihsus'
+    ):
+
+    fs = []
+
+    for (dirpath, dirnames, filenames) in os.walk(path_dir):
+        fs.extend(filenames)
+
+    return fs
+
+
+def isin(
+        column,
+        sequence_of_labels,
+    ):
+    
     func = lambda x: f[column] == x
+    
     return reduce(or_, map(func, sequence_of_labels))
+
+
+
+# Main
+
+def main():
+    
+    fs = get_files()
+    print(fs[:24])
+
+
+__name__ == '__main__' and main()
+
