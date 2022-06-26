@@ -30,9 +30,15 @@ def download_database(
 
 
 def get_datasets_info(
-		path_db = download_database(),
+		path_db = None,
 		col_names = config.FNAME_COLS[1:4],
 	):
+
+	path_db = (
+		download_database()
+		if path_db is None
+		else path_db
+	)
 
 	return (
 		pd.DataFrame([
@@ -51,10 +57,16 @@ def get_datasets_info(
 
 
 def datasets_to_jay(
-		datasets = get_datasets_info(),
+		datasets = None,
 		path_db = config.PATH_DB,
 		path_jay = config.PATH_JAY,
 	):
+
+	datasets = (
+		get_datasets_info()
+		if datasets is None
+		else datasets
+	)
 
 	if exists(path_jay):
 		return path_jay
@@ -95,10 +107,16 @@ def datasets_to_jay(
 
 
 def get_jay_info(
-		path_jay = datasets_to_jay(),
+		path_jay = None,
 		col_names = config.FNAME_COLS[:7],
 	):
 	
+	path_jay = (
+		datasets_to_jay()
+		if path_jay is None
+		else path_jay
+	)
+
 	values = [
 		([file] + (
 			file
@@ -142,21 +160,99 @@ def open_jay_dataset(
 		)
 	)
 
+#############################################
+
+def prefix_same_pair(
+        arqv,
+        pair = ['res', 'int'],
+		col_names = config.FNAME_COLS[-2:],
+    ):
+
+    df = open_jay_dataset(arqv)
+
+    pair_names = {n[len(p)+1:]
+        for p in pair
+            for n in df.names if (
+                n[:len(p)] == p
+            ) 
+    }
+
+    diffs = list()
+    for col in pair_names:
+        pair_a = f'{pair[0]}_{col}'
+        pair_b = f'{pair[1]}_{col}'
+        diff = df[
+            f[pair_a] != f[pair_b],
+            [pair_a, pair_b]
+        ].shape[0]
+        diffs.append({
+            col_names[0] : col,
+            col_names[1] : diff,
+        })
+
+    return pd.DataFrame(diffs)
+
+
+def get_columns_info(
+		datasets = None,
+		col_names = config.FNAME_COLS,
+	):
+	
+	datasets = (
+		get_jay_info()
+		if datasets is None
+		else datasets
+	)
+
+	new_dts = list()
+	for _, row in tqdm(
+			datasets.iterrows(),
+			total = datasets.shape[0],
+		):
+		df = prefix_same_pair(row[col_names[0]])
+		for col in col_names[:-2]:
+			df[col] = row[col]
+		new_dts.append(df)
+	df = pd.concat(new_dts)[col_names]
+
+	return df.sort_values(
+		by = [col_names[0], col_names[-1]],
+		ascending = [True, False],
+	)
+
 
 def open_dict(
 		file_name = 'dict_SIH.csv',
 		path_db = config.PATH_DB,
 	):
 
-	return dt.fread(
-		f'{path_db}/{file_name}',
-		sep = ';',
+	return (
+		dt.fread(
+			f'{path_db}/{file_name}',
+			sep = ';',
+		)
+		.to_pandas()
 	)
 
 
-def load_sihsus():
+def load_sihsus(
+		sihsus_path = config.LOCAL_SIHSUS,
+		dict_path = config.LOCAL_DICT,
+	):
 
-	return open_dict(), get_jay_info()
+	if isfile(sihsus_path):
+		sihsus = pd.read_pickle(sihsus_path)
+	else:
+		sihsus = get_columns_info()
+		sihsus.to_pickle(sihsus_path)
+	
+	if isfile(dict_path):
+		dicio = pd.read_pickle(dict_path)
+	else:
+		dicio = open_dict()
+		dicio.to_pickle(dict_path)
+
+	return sihsus, dicio
 
 
 #############################################
@@ -166,7 +262,8 @@ def main():
 	
 	load_sihsus()[1].to_csv(
 		'data/info/tabelas.csv',
-		index = False)
+		index = False
+	)
 
 
 __name__ == '__main__' and main()

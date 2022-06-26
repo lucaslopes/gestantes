@@ -2,13 +2,14 @@ __author__ = 'https://lucaslopes.me/'
 
 # Imports
 
-import data_load
+from data_load import load_sihsus
 
 # Main
 
 def main():
 	
-	data_load.load_sihsus()
+	sihsus, dicio = load_sihsus()
+	return sihsus, dicio
 
 
 __name__ == '__main__' and main()

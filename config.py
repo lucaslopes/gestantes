@@ -37,7 +37,41 @@ LOCAL_DATA = os.path.join(*[
 ])
 
 
-# PATH_DICT = 'data/info/dict_cols.csv'
+LOCAL_SIHSUS = os.path.join(*[
+		LOCAL_DATA,
+		'info',
+
+])
+
+
+LOCAL_FILES = {
+	'format' : 'pkl',
+	'compression' : 'xz',
+}
+
+
+LOCAL_SIHSUS = os.path.join(*[
+	LOCAL_DATA,
+	'info',
+	'.'.join([
+		'sihsus',
+		LOCAL_FILES['format'],
+		LOCAL_FILES['compression'],
+	])
+])
+
+
+LOCAL_DICT = os.path.join(*[
+	LOCAL_DATA,
+	'info',
+	'.'.join([
+		'dict',
+		LOCAL_FILES['format'],
+		LOCAL_FILES['compression'],
+	])
+])
+
+
 FNAME_PAT = '_(.*)_t.csv$'
 
 
@@ -50,7 +84,6 @@ FNAME_COLS = [
 	'Linhas',
 	'Colunas',
 	'Variável',
-	'Iguais',
 	'Diferentes',
 ]
 
