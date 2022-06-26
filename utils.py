@@ -1,98 +1,133 @@
 
+
 import os
+import re
+
 import config
 
-from functools import reduce
+from zipfile import ZipFile
+
 from datatable import f
+from functools import reduce
 from operator import and_, or_, xor, eq
 
 
+def get_filenames_from_zip(
+		path_zip = config.PATH_DB
+	):
+
+	return (
+		ZipFile(path_zip)
+		.namelist()
+	)
+
+
 def name_to_dict(
-        file_name,
-        col_names = config.FNAME_COLS,
-    ):
-    
-    name = (file_name
-        .split('.')[1]
-        .split('_')
-    )
-    
-    return {
-        col_names[0] : file_name,
-        col_names[1] : name[1],
-        col_names[2] : int(name[2]),
-        col_names[3] : int(name[3]),
-    }
+		file_name,
+		pattern = config.FNAME_PAT,
+		col_names = config.FNAME_COLS[:4],
+	):
+
+	name = (re
+		.search(pattern, file_name)
+		.group(1)
+		.split('_')
+	)
+
+	return {
+		col_names[0] : file_name,
+		col_names[1] : name[0],
+		col_names[2] : int(name[1]),
+		col_names[3] : int(name[2]),
+	}
 
 
-def name_to_dir(
-        file_name,
-    ):
+def get_jay_dir(
+		file_name,
+		path_jay = config.PATH_JAY,
+		col_names = config.FNAME_COLS[1:4],
+	):
 
-    path_dir = '/'.join(
-        file_name.split('_')[:3]
-    )
+	d = name_to_dict(file_name)
 
-    return f'{config.PATH_SIHSUS}/{path_dir}/'
+	jay_dir = os.path.join(*[
+		path_jay,
+		d[col_names[0]],
+		str(d[col_names[1]]),
+		str(d[col_names[2]]).zfill(2),
+	])
+	if not os.path.exists(jay_dir):
+		os.makedirs(jay_dir)
 
-
-def get_path(
-        file_name,
-        path_db = config.PATH_DB,
-        col_names = config.FNAME_COLS,
-    ):
-
-    d = name_to_dict(file_name)
-    data_dir = path_db.split('/')[0]
-
-    path_list = [
-        data_dir,
-        'sihsus', 
-        f'{d[col_names[1]]}',
-        f'{d[col_names[2]]}',
-        f'{d[col_names[3]]:02d}',
-    ]
-
-    path_dir = '/'.join(path_list) + '/'
-    if not os.path.exists(path_dir):
-        os.makedirs(path_dir)
-    
-    file_path = (
-        path_dir + '_'.join(path_list[2:])
-    )
-
-    return file_path
+	return jay_dir
 
 
-def get_files(
-        path_dir = 'data/sihsus'
-    ):
+def get_jay_files(
+		path_jay = config.PATH_JAY,
+	):
 
-    fs = []
+	return [f
+		for (_, _, filenames) in (
+			os.walk(path_jay)
+		) for f in (
+			filenames
+		)
+	]
 
-    for (dirpath, dirnames, filenames) in os.walk(path_dir):
-        fs.extend(filenames)
 
-    return fs
+def get_jay_path(
+		file_name,
+		path_jay = config.PATH_JAY,
+	):
 
+	values = (
+		file_name
+		.split('_')
+		[:3]
+	)
+
+	values[2] = values[2].zfill(2)
+	path_dir = '/'.join(values)
+
+	return f'{path_jay}/{path_dir}/{file_name}'
+
+
+def get_columns(
+		file_name = 'dict_SIH.csv',
+		path_db = config.PATH_DB,
+	):
+
+	return (
+		(
+			ZipFile(path_db)
+			.open(
+				file_name,
+			)
+		)
+		.readline()
+		.decode('utf-8')
+		.strip()
+		.split(',')
+	)
+
+#############################################
 
 def isin(
-        column,
-        sequence_of_labels,
-    ):
-    
-    func = lambda x: f[column] == x
-    
-    return reduce(or_, map(func, sequence_of_labels))
+		column,
+		sequence_of_labels,
+	):
 
+	func = lambda x: f[column] == x
 
+	return reduce(or_, map(func, sequence_of_labels))
 
+#############################################
 # Main
 
 def main():
-    
-    fs = get_files()
-    print(fs[:24])
+
+	fs = get_filenames_from_zip()
+	print(fs[:12*2])
 
 
 __name__ == '__main__' and main()
