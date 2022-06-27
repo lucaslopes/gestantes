@@ -137,26 +137,34 @@ def dict_type_count(
 #############################################
 
 
-def ncols_per_year_uf(df):
-    cols = ['UF', 'Ano', 'Colunas']
+def ncols_per_year_uf(
+        df,
+        cols = ['UF', 'Ano', 'Colunas']
+    ):
+    
     return (
-        df[cols]
+        df
+        [cols]
         .groupby(
             cols,
-            as_index=False
+            as_index = False,
         )
         .count()
         .pivot(
-            *['Ano', 'UF', 'Colunas']
+            *[cols[1], cols[0], cols[-1]]
         )
         .sort_values(
-            by = 'Ano',
+            by = cols[1],
             ascending = False,
         )
     )
 
-def nrows_per_year_uf(df):
-    cols = ['UF', 'Ano', 'Mês', 'Parto', 'Linhas']
+
+def nrows_per_year_uf(
+        df,
+        cols = ['UF', 'Ano', 'Mês', 'Parto', 'Linhas']
+    ):
+
     colunas = (
         df
         [cols]
@@ -165,219 +173,209 @@ def nrows_per_year_uf(df):
             as_index=False
         )
         .count()
-        [['UF', 'Ano', 'Linhas']]
+        [[cols[0], cols[1], cols[-1]]]
         .groupby(
             cols[:2],
-            as_index=False
+            as_index = False,
         )
         .sum()
     )
     ufs_order = (
         colunas
-        [['UF', 'Linhas']]
-        .groupby('UF')
+        [[cols[0], cols[-1]]]
+        .groupby(cols[0])
         .sum()
         .sort_values(
-            'Linhas',
-            ascending=False
+            cols[-1],
+            ascending = False,
         )
         .index
     )
     return (
         colunas
         .pivot(
-            *['Ano', 'UF', 'Linhas']
+            *[cols[1], cols[0], cols[-1]]
         )
         .sort_values(
-            by = 'Ano',
+            by = cols[1],
             ascending = False,
         )
         [ufs_order]
     )
 
 
-def calc_prop(df):
-    cols = ['UF', 'Ano', 'Mês', 'Parto', 'Linhas']
+def calc_prop(
+        df,
+        cols = ['UF', 'Ano', 'Mês', 'Parto', 'Linhas']
+    ):
+    
     columns = (
         df
         [cols]
         .groupby(
             cols,
-            as_index=False
+            as_index = False,
         )
         .count()
-        [['UF', 'Ano', 'Parto', 'Linhas']]
+        [[cols[0], cols[1], cols[-2], cols[-1]]]
         .groupby(
-            ['UF', 'Ano', 'Parto'],
-            as_index=False
+            [cols[0], cols[1], cols[-2]],
+            as_index = False,
         )
         .sum()
     )
     nor = columns[columns['Parto'] == 'NORMAL']['Linhas'].values
     ces = columns[columns['Parto'] == 'CESARIANO']['Linhas'].values
     nor_prop = nor / (nor + ces)
-    cls = columns[['UF', 'Ano']].groupby(['UF', 'Ano'], as_index=False).count()
-    cls['prop'] = nor_prop
+    cls = (
+        columns
+        [cols[:2]]
+        .groupby(
+            cols[:2],
+            as_index = False,
+        )
+        .count()
+    )
+    cols.append('Prop')
+    cls[cols[-1]] = nor_prop
     ufs_order = (
         cls
-        [['UF', 'prop']]
-        .groupby('UF')
+        [[cols[0], cols[-1]]]
+        .groupby(
+            by = cols[0],
+        )
         .sum()
         .sort_values(
-            'prop',
-            ascending=False
+            by = cols[-1],
+            ascending = False,
         )
         .index
     )
+    
     return (
         cls
         .pivot(
-            *['Ano', 'UF', 'prop']
+            *[cols[1], cols[0], cols[-1]]
         )
         .sort_values(
-            by = 'Ano',
+            by = cols[1],
             ascending = False,
         )
         [ufs_order]
     )
 
 
+def var_diff_per_year_uf(
+        df,
+        var,
+        cols = None,
+    ):
+    
+    cols = ['UF', 'Ano', 'Linhas', 'Variável', 'Diferentes'] if cols is None else cols
 
-def var_diff_per_year_uf(df, var):
-    cols = ['Variável', 'Diferentes']
     res = (
         df
-        [cols]
+        [cols[-2:]]
         .groupby(
-            cols[0],
-            as_index = False
+            by = cols[-2],
+            as_index = False,
         )
         .sum()
         .sort_values(
-            cols[1],
+            by = cols[-1],
             ascending = False,
         )
     )
-    relevantes = [
-        [
-            'codigo_adotado',
-            'Armazena o código atribuído ao município, tratando os casos em que múltiplos códigos tenham sido utilizados para um mesmo município ao longo do tempo',
-        ],
-        [
-            'MUNNOMEX',
-            'Nome (sem acentos, em maiúsculas) do Município',
-        ],
-        [
-            'REGIAO',
-            'Região do Brasil (Norte, Nordeste, Centro-Oeste, Sudeste, Sul)'
-        ],
-        [
-            'FRONTEIRA',
-            'Indica (S ou N) se o município faz parte da faixa de fronteira (conforme IBGE)',
-        ],
-        [
-            'AMAZONIA',
-            'Indica (S ou N) se o município faz parte da Amazônia Legal (conforme IBGE)',  # Diferentes significa quantos links entre Amazônia Legal com demais regiões
-        ],
-        [
-            'SIGLA_UF',
-            'Sigla da unidade da federação',
-        ],
-        [
-            'CAPITAL',
-            'Indica (S ou N) se o município é capital da UF', # Diferentes significa quantos links entre capital com demais municípios
-        ],
-        [
-            'MSAUDCOD',
-            'Código da Macrorregional de Saúde a que o Município pertence',
-        ],
-        [
-            'RSAUDCOD',
-            'Código da Regional de Saúde a que o Município pertence',
-        ],
-        [
-            'CSAUDCOD',
-            'Código da Microrregional de Saúde a que o Município pertence'
-        ],
-    ]
-    rel = pd.DataFrame(relevantes, columns=['Variável', 'Descrição'])
-    variaveis = res[res['Variável'].isin(rel['Variável'])]
+    rel = pd.DataFrame(
+        config.RES_INT_VARS,
+        columns = cols[-2:]
+    )
+    variaveis = (
+        res
+        [res[cols[-2]].isin(rel[cols[-2]])]
+    )
     variaveis.merge(
         rel,
-        on = 'Variável',
+        on = cols[-2],
     )
-    cols = ['UF', 'Ano', 'Linhas', 'Diferentes']
     diffs = (
         df
-        [df['Variável'] == var]
+        [df[cols[-2]] == var]
         [cols]
         .groupby(
-            by=cols[:2],
-            as_index=False,
+            by = cols[:2],
+            as_index = False,
         )
         .sum()
     )
-    diffs['Prop'] = diffs['Diferentes'] / diffs['Linhas']
+    cols.append('Prop')
+    diffs[cols[-1]] = diffs[cols[-2]] / diffs[cols[2]]
     ufs_order = (
         diffs
         .groupby(
-            'UF',
-            as_index=False
+            by = cols[0],
+            as_index = False,
         )
         .mean()
         .sort_values(
-            'Prop',
-            ascending=False,
+            by = cols[-1],
+            ascending = False,
         )
-        ['UF']
+        [cols[0]]
         .values
     )
     return (
         diffs
         .pivot(
-            *['Ano', 'UF', 'Prop']
+            *[cols[1], cols[0], cols[-1]]
         )
         .sort_values(
-            by = 'Ano',
+            by = cols[1],
             ascending = False,
         )
         [ufs_order]
     )
 
 
+def var_prop_per_parto(
+        df,
+        var,
+        ufs_order,
+        partos = {'ces' : 'CESARIANO', 'nor' : 'NORMAL'},
+        cols = None,
+    ):
 
+    cols = ['UF', 'Ano', 'Parto', 'Linhas', 'Diferentes'] if cols is None else cols
 
-def var_prop_per_parto(df, var, ufs_order):
-    cols = ['UF', 'Ano', 'Parto', 'Linhas', 'Diferentes']
     df_diffs = (
         df
         [df['Variável'] == var]
         [cols]
         .groupby(
-            cols[:3],
-            as_index=False,
+            by = cols[:3],
+            as_index = False,
         )
         .sum()
     )
-    diff_ces = df_diffs[df_diffs['Parto'] == 'CESARIANO'].copy()
-    diff_nor = df_diffs[df_diffs['Parto'] == 'NORMAL'].copy()
 
-    diff_ces['Prop'] = diff_ces['Diferentes'] / diff_ces['Linhas']
-    diff_nor['Prop'] = diff_nor['Diferentes'] / diff_nor['Linhas']
-
-    ces_vals = diff_ces['Prop'].values
-    nor_vals = diff_nor['Prop'].values
+    diff_ces = df_diffs[df_diffs[cols[2]] == partos['ces']].copy()
+    diff_nor = df_diffs[df_diffs[cols[2]] == partos['nor']].copy()
+    cols.append('Prop')
+    diff_ces[cols[-1]] = diff_ces[cols[-2]] / diff_ces[cols[-3]]
+    diff_nor[cols[-1]] = diff_nor[cols[-2]] / diff_nor[cols[-3]]
+    ces_vals = diff_ces[cols[-1]].values
+    nor_vals = diff_nor[cols[-1]].values
     prop_prop = nor_vals / (nor_vals + ces_vals)
-
     diff_final = diff_ces[cols[:2]].copy()
-    diff_final['Prop'] = prop_prop
+    diff_final[cols[-1]] = prop_prop
+    
     return (
         diff_final
         .pivot(
-            *['Ano', 'UF', 'Prop']
+            *[cols[1], cols[0], cols[-1]]
         )
         .sort_values(
-            by = 'Ano',
+            by = cols[1],
             ascending = False,
         )
         [ufs_order]

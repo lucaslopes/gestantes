@@ -104,6 +104,50 @@ RENAME = {
 }
 
 
+RES_INT_VARS = [
+	[
+		'REGIAO',
+		'Região do Brasil (Norte, Nordeste, Centro-Oeste, Sudeste, Sul)'
+	],
+	[
+		'SIGLA_UF',
+		'Sigla da unidade da federação',
+	],
+	[
+		'MSAUDCOD',
+		'Código da Macrorregional de Saúde a que o Município pertence',
+	],
+	[
+		'RSAUDCOD',
+		'Código da Regional de Saúde a que o Município pertence',
+	],
+	[
+		'CSAUDCOD',
+		'Código da Microrregional de Saúde a que o Município pertence'
+	],
+	[
+		'MUNNOMEX',
+		'Nome (sem acentos, em maiúsculas) do Município',
+	],
+	[
+		'codigo_adotado',
+		'Armazena o código atribuído ao município, tratando os casos em que múltiplos códigos tenham sido utilizados para um mesmo município ao longo do tempo',
+	],
+	[
+		'CAPITAL',
+		'Indica (S ou N) se o município é capital da UF', # Diferentes significa quantos links entre capital com demais municípios
+	],
+	[
+		'FRONTEIRA',
+		'Indica (S ou N) se o município faz parte da faixa de fronteira (conforme IBGE)',
+	],
+	[
+		'AMAZONIA',
+		'Indica (S ou N) se o município faz parte da Amazônia Legal (conforme IBGE)',  # Diferentes significa quantos links entre Amazônia Legal com demais regiões
+	],
+]
+
+
 #############################################
 # Main
 
