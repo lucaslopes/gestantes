@@ -32,3 +32,52 @@ def pie_chart(df):
 		x = df['Coluna'],
 		labels = df['Tipo'],
 	)
+
+def line_chart(
+		df,
+		x = 'Ano',
+		y = 'n_cols',
+		hue = None,
+	):
+
+	f, axe = plt.subplots(1, 1, figsize=(15, 7))
+	# axe.set_title(f'Número de {value} por Ano x UF')
+
+	return sns.lineplot(
+		data = df,
+		x = 'Ano',
+		y = 'n_cols',
+		ax = axe,
+		hue=hue,
+	)
+
+
+def rel_plot(df,
+		x='Ano', y='Linhas', hue='Parto',
+	):
+
+	f, axe = plt.subplots(1, 1, figsize=(15, 7))
+
+	return sns.lineplot(
+		data=df,
+		x=x, y=y, hue=hue,
+		# kind='line',
+		ax = axe,
+
+	)
+
+
+def bar_plot(df, order,
+		x="UF", y="Linhas", hue="Parto",
+	):
+		
+	f, axe = plt.subplots(1, 1, figsize=(15, 7))
+	
+	return sns.barplot(
+		data=df,
+		# palette="dark",
+		x=x, y=y, hue=hue,
+		ax=axe,
+		orient='v',
+		order=order,
+	)

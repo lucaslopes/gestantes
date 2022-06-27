@@ -379,4 +379,65 @@ def var_prop_per_parto(
             ascending = False,
         )
         [ufs_order]
-    )  
+    )
+
+
+########
+
+def ncols_per_year(df):
+    cols = ['Arquivo', 'Ano']
+    df = df[cols].groupby(cols, as_index=False).count()
+    ll = list()
+    for i, row in df.iterrows():
+        df = data_load.open_jay_dataset(row['Arquivo'])
+        d = {
+            'n_cols' : df.shape[1],
+            'Ano' : row['Ano']
+        }
+        ll.append(d)
+    res = pd.DataFrame(ll)
+    res = res.groupby(['n_cols', 'Ano'], as_index=False).count()
+    return res.sort_values('Ano')
+
+def n_row_per_year_parto(df):
+    cols = ['Ano', 'Parto', 'Linhas']
+    return (
+        df
+        [cols]
+        .groupby(
+            by = cols[:2],
+            as_index=False,
+        )
+        .sum()
+    )
+
+def n_rows_per_uf(df,
+        cols = ['UF', 'Parto', 'Linhas']
+    ):
+    
+    res = (
+        df
+        [cols]
+        .groupby(
+            by=cols[:2],
+            as_index=False
+        )
+        .sum()
+    )
+    ufs_order = (
+        res
+        [[cols[0], cols[-1]]]
+        .groupby(
+            by=cols[0],
+            as_index=False,
+        )
+        .sum()
+        .sort_values(
+            by=cols[-1],
+            ascending=False,
+        )
+        ['UF']
+        .values
+    )
+
+    return res, ufs_order
