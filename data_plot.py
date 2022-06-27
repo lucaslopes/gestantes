@@ -5,20 +5,23 @@ from matplotlib import pyplot as plt
 
 
 def heatmap(
-		df
+		df,
+		value = 'meses',
+		annot = False,
+		cmap = 'Greens',
 	):
 	
 	f, axe = plt.subplots(1, 1, figsize=(15, 7))
-	axe.set_title('Número de meses por Ano x UF')
+	axe.set_title(f'Número de {value} por Ano x UF')
 
 	return sns.heatmap(
 		data = df,
-		cmap = 'Greens',
+		cmap = cmap,
 		linewidths = .5,
 		linecolor = 'black',
 		vmin = 0,
 		square = True,
-		annot = True,
+		annot = annot,
 		ax = axe,   
 	)
 
