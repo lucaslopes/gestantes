@@ -79,6 +79,48 @@ COLUMNS = {
 }
 
 
+UF_REGIAO = {
+  'BR': 'BR',
+  'RO': 'NT',
+	'AC': 'NT',
+	'AM': 'NT',
+	'RR': 'NT',
+	'PA': 'NT',
+	'AP': 'NT',
+	'TO': 'NT',
+ 	'MA': 'ND',
+	'PI': 'ND',
+	'CE': 'ND',
+	'RN': 'ND',
+	'PB': 'ND',
+	'PE': 'ND',
+	'AL': 'ND',
+	'SE': 'ND',
+	'BA': 'ND',
+	'MG': 'SD',
+	'ES': 'SD',
+	'RJ': 'SD',
+	'SP': 'SD',
+	'PR': 'SL',
+	'SC': 'SL',
+	'RS': 'SL',
+	'MS': 'CO',
+	'MT': 'CO',
+	'GO': 'CO',
+	'DF': 'CO',
+}
+
+
+REGIAO_COR = {
+	'BR': 'k',
+	'NT': 'g',
+	'ND': 'r',
+	'SD': 'm',
+	'SL': 'c',
+	'CO': 'y',
+}
+
+
 def main():
 	print(PARTO)
 
