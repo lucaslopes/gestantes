@@ -60,8 +60,8 @@ def get_ano_partos(df, uf=None):
     columns=['partos']
   ).reset_index(level=0)
   ano = np.linspace(
-    0, 1, len(df['ano'])
-  ).reshape(-1, 1)[::-1]
+    0, 1, 2 + len(df['ano'])
+  ).reshape(-1, 1)[1:-1][::-1]
   partos = normalize(
     df['partos'].array.reshape(-1, 1),
     norm='max',

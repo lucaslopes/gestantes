@@ -111,7 +111,7 @@ UF_REGIAO = {
 }
 
 
-REGIAO_COR = {
+REGIAO_COR = { # https://matplotlib.org/stable/gallery/color/named_colors.html
 	'BR': 'k',
 	'NT': 'g',
 	'ND': 'r',
