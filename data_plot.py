@@ -52,7 +52,7 @@ def plot_scatter(df, ax):
    )
   p.set(
     xlim=(-1, 1),
-    ylim=(-.25, 1.25),
+    ylim=(-.1, 1.1),
   )
   p.legend(
     fontsize=14,
@@ -70,13 +70,12 @@ def plot_lin(x, y, reg, ax):
 	)
   p.set(
     xlim=(0, 1),
-    ylim=(-.25, 1.25),
+    ylim=(-.1, 1.1),
   )
   return p
 
 
-# uf	regiao	angle	intercept
-def plot_linreg(dfs):
+def plot_linreg(dfs): # uf, regiao, angle, intercept
   f, axes = plt.subplots(
     3, 2, figsize=[14,14],
     gridspec_kw={'width_ratios': [2, 1]}
@@ -88,17 +87,27 @@ def plot_linreg(dfs):
       x = np.linspace(0, 1, len(df))
       y = x * row['angle'] + row['intercept']
       plot_lin(x, y, row['regiao'], axes[i][0])
-  # sns.set(font_scale=5)
+  axes[0][0].set_ylabel('ambos')
+  axes[1][0].set_ylabel('normal')
+  axes[2][0].set_ylabel('cesaria')
   f.tight_layout()
 
 
 def generate_plots(fnames):
-	d = dict()
-	for fname in fnames:
-		label = fname.split('_')[-2]
-		df = pd.read_csv(
+  d = dict()
+  for fname in fnames:
+    df = pd.read_csv(
 			f'data/xz/{fname}.csv.xz',
 			index_col=0)
-		d[label] = (
-			data_info.get_params_per_uf(df))
-	return d
+    if fname[-2] == 'c':
+      base = pd.read_csv(
+				f'data/xz/{fname[:-2]}.csv.xz',
+				index_col=0)[df.columns]
+      df = pd.DataFrame(
+				df.values / base.values,
+				columns=base.columns,
+				index=base.index)
+    label = fname.split('_')[-2]
+    d[label] = (
+      data_info.get_params_per_uf(df))
+  return d

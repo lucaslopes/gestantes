@@ -62,10 +62,8 @@ def get_ano_partos(df, uf=None):
   ano = np.linspace(
     0, 1, 2 + len(df['ano'])
   ).reshape(-1, 1)[1:-1][::-1]
-  partos = normalize(
-    df['partos'].array.reshape(-1, 1),
-    norm='max',
-    axis=0)
+  partos = df['partos'].array.reshape(-1, 1)
+  partos = normalize(partos, norm='max', axis=0)
   return ano, partos
 
 
