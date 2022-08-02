@@ -80,6 +80,48 @@ def get_params_per_uf(df):
   return pd.DataFrame(inputs)
 
 
+def generate_plots(fnames):
+  d = dict()
+  for fname in fnames:
+    df = pd.read_csv(
+			f'data/xz/{fname}.csv.xz',
+			index_col=0)
+    if fname[-2] == 'c':
+      base = pd.read_csv(
+				f'data/xz/{fname[:-2]}.csv.xz',
+				index_col=0)[df.columns]
+      df = pd.DataFrame(
+				df.values / base.values,
+				columns=base.columns,
+				index=base.index)
+    label = fname.split('_')[-2]
+    d[label] = (
+      get_params_per_uf(df))
+  return d
+
+
+def get_data_matrix(fnames):
+  d = dict()
+  r_labels = ['todos', 'mun diff', 'reg sau diff']
+  c_labels = ['ambos', 'normal', 'cesaria']
+  for r_label, df_names in zip(r_labels, fnames):
+    d[r_label] = dict()
+    for c_label, df_name in zip(c_labels, df_names):
+      df = pd.read_csv(
+        f'data/xz/{df_name}.csv.xz',
+        index_col=0)
+      if df_name[-2] == 'c':
+        base = pd.read_csv(
+          f'data/xz/{df_name[:-2]}.csv.xz',
+          index_col=0)[df.columns]
+        df = pd.DataFrame(
+          df.values / base.values,
+          columns=base.columns,
+          index=base.index)
+      d[r_label][c_label] = get_params_per_uf(df)
+  return d
+
+
 def main():
 	return save_queries_result()
 

@@ -1,5 +1,6 @@
 
 
+from cProfile import label
 import config
 import data_info
 import pandas as pd
@@ -57,7 +58,7 @@ def plot_scatter(df, ax):
   p.legend(
     fontsize=14,
     loc='lower left')
-  ax.yaxis.set_label_position("right")
+  # ax.yaxis.set_label_position("right")
   ax.yaxis.tick_right()
   return p
 
@@ -93,21 +94,17 @@ def plot_linreg(dfs): # uf, regiao, angle, intercept
   f.tight_layout()
 
 
-def generate_plots(fnames):
-  d = dict()
-  for fname in fnames:
-    df = pd.read_csv(
-			f'data/xz/{fname}.csv.xz',
-			index_col=0)
-    if fname[-2] == 'c':
-      base = pd.read_csv(
-				f'data/xz/{fname[:-2]}.csv.xz',
-				index_col=0)[df.columns]
-      df = pd.DataFrame(
-				df.values / base.values,
-				columns=base.columns,
-				index=base.index)
-    label = fname.split('_')[-2]
-    d[label] = (
-      data_info.get_params_per_uf(df))
-  return d
+def plot_scatter_matrix(data): # uf, regiao, angle, intercept
+  f, axes = plt.subplots(
+    3, 3, figsize=[14,14],
+	)
+  for row, (r_label, dfs) in (
+    enumerate(data.items())):
+    axes[row][0].set_ylabel(r_label)
+    for col, (c_label, df) in (
+      enumerate(dfs.items())):
+      plot_scatter(df, axes[row][col])
+      axes[0][col].set_title(c_label)
+      axes[0][col].set_xlabel('angle')
+  f.tight_layout()
+
