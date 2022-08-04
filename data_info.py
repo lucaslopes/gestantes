@@ -220,6 +220,7 @@ def get_rank(df, dist_asc=True):
 
 
 def matrix_rank(matrix, ys):
+  states = set()
   asc = [
     [True,True,True],
     [False,False,False],
@@ -232,8 +233,10 @@ def matrix_rank(matrix, ys):
       data = matrix[i][j]
       dist_asc = asc[i][j]
       rank = get_rank(data, dist_asc)
-      while len(rank) < 27:
-        rank = np.append(rank, [None])
+      states.update(set(rank))
+      missing = states - set(rank)
+      if len(missing) > 0:
+        rank = np.append(rank, list(missing))
       df[label] = rank
   return df
 
