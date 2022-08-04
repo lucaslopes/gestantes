@@ -48,9 +48,9 @@ def aggregate_matrix_pairs(cs=range(6)):
 
 def get_linreg_params(x, y):
 	reg = LinearRegression().fit(x, y)
-	angle = reg.coef_[0][0]
+	slope = reg.coef_[0][0]
 	intercept = reg.intercept_[0]
-	return angle, intercept
+	return slope, intercept
 
 
 def get_ano_partos(df, uf=None):
@@ -62,19 +62,21 @@ def get_ano_partos(df, uf=None):
   ano = np.linspace(
     0, 1, 2 + len(df['ano'])
   ).reshape(-1, 1)[1:-1][::-1]
+  mean = df['partos'].mean()
   partos = df['partos'].array.reshape(-1, 1)
   partos = normalize(partos, norm='max', axis=0)
-  return ano, partos
+  return ano, partos, mean
 
 
 def get_params_per_uf(df):
   inputs = list()
-  ufs = np.append(df.columns, [None])
+  ufs = df.columns # np.append(df.columns, [None])
   for uf in ufs:
-    ano, partos = get_ano_partos(df, uf)
+    ano, partos, mean = get_ano_partos(df, uf)
     d = {'uf' : uf if uf else 'BR'}
     d['regiao'] = config.UF_REGIAO[d['uf']]
-    d['angle'], d['intercept'] = (
+    d['mean'] = mean
+    d['slope'], d['intercept'] = (
       get_linreg_params(ano, partos))
     inputs.append(d)
   return pd.DataFrame(inputs)
@@ -120,6 +122,86 @@ def get_data_matrix(fnames):
           index=base.index)
       d[r_label][c_label] = get_params_per_uf(df)
   return d
+
+
+def get_data_matrix(fnames):
+  data = dict()
+  partos = set()
+  critic_labels = {
+    '': 'todos', 'c1': 'mun diff', 'c3': 'reg sau diff'}
+  divisors = [
+    ['mun diff', 'todos'],
+    ['reg sau diff', 'mun diff']]
+  for fname in fnames:
+    infos = fname.split('_')
+    parto, critic = infos[-2], critic_labels[infos[-1]]
+    if critic not in data: data[critic] = dict()
+    partos.add(parto)
+    df = pd.read_csv(
+      f'data/xz/{fname}.csv.xz',
+      index_col=0)
+    data[critic][parto] = df
+  for parto in partos:
+    for num, div in divisors:
+      df = data[num][parto]
+      base = data[div][parto][df.columns]
+      data[num][parto] = pd.DataFrame(
+        df.values / base.values,
+        columns=base.columns,
+        index=base.index)
+  for critic in critic_labels.values():
+    for parto in partos:
+      data[critic][parto] = get_params_per_uf(
+        data[critic][parto])
+  return data
+
+
+def get_files_path(folder):
+  return [f'{dir}/{dt}'
+    for dir, _, datasets in os.walk(folder)
+      for dt in datasets if (
+        dt.endswith('csv.xz'))]
+
+
+def dict_data_to_matrix(dict_data):
+  matrix = [[None for _ in range(3)]
+		for _ in range(3)]
+  col = {'ambos':0, 'normal':1, 'cesariano':2}
+  row = {'':0, 'municipio':1, 'regsau':2}
+  for name, data in dict_data.items():
+    infos = name.split('.')[0].split('_')
+    parto, local = infos[-2], infos[-1]
+    matrix[row[local]][col[parto]] = data
+  return matrix
+
+
+def matrix_fraction(m):
+	dens = [2, 1]
+	for den in dens:
+		for i in range(3):
+			m[den][i] = m[den][i] / m[den-1][i]
+	for j in dens:
+		m[0][j] = m[0][j] / m[0][0]
+	br = pd.DataFrame(index=m[0][0].index)
+	brasil = m[0][0].sum(axis=1)
+	for uf in m[0][0].columns:
+		br[uf] = brasil
+	m[0][0] = m[0][0] / br
+	return m
+
+
+def matrix_info(m):
+  for row, dfs in enumerate(m):
+    for col, df in enumerate(dfs):
+      m[row][col] = get_params_per_uf(df)
+  return m
+
+
+def get_matrix_data(data):
+  return (
+    matrix_info(
+      matrix_fraction(
+        dict_data_to_matrix(data))))
 
 
 def main():

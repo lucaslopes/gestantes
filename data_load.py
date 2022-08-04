@@ -3,6 +3,7 @@
 import sys
 import config
 import sqlite3
+import pandas as pd
 
 from zipfile import ZipFile
 from datatable import dt, f
@@ -57,6 +58,15 @@ def zip_csv_to_sqlite(
 			if_exists='append', # append replace
 			index=False,
 		)
+
+
+def load_files_to_dict(files):
+  d = dict()
+  for file in files:
+    d[file] = pd.read_csv(
+      file,
+      index_col=0)
+  return d
 
 
 def main():

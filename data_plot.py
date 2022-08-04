@@ -40,7 +40,7 @@ def plot_scatter(df, ax):
   ax.axvline(x=0, ls='--', c='k', alpha=.5)
   ax.axhline(y=.5, ls='--', c='k', alpha=.5)
   p = sns.scatterplot(
-		x='angle', y='intercept',
+		x='slope', y='mean',
 		data=df, hue='regiao',
   	palette=config.REGIAO_COR,
 		s=600, alpha=.6,
@@ -48,18 +48,21 @@ def plot_scatter(df, ax):
 	)
   for i in range(df.shape[0]):
     ax.text(
-      x=df.angle[i]-.045,y=df.intercept[i]-.015,s=df.uf[i], 
+      # x=df.slope[i]-.045, y=df['mean'][i]-.015, s=df.uf[i],
+      x=df.slope[i]-.015, y=df['mean'][i]-.005, s=df.uf[i],
 			fontdict=dict(color='w',size=8.5),
    )
-  p.set(
-    xlim=(-1, 1),
-    ylim=(-.1, 1.1),
-  )
+  # p.set(
+  #   xlim=(-1, 1),
+  #   ylim=(-.1, 1.1),
+  # )
   p.legend(
     fontsize=14,
-    loc='lower left')
+    # loc='upper right',
+    # loc='lower left',
+  )
   # ax.yaxis.set_label_position("right")
-  ax.yaxis.tick_right()
+  # ax.yaxis.tick_right()
   return p
 
 
@@ -76,7 +79,7 @@ def plot_lin(x, y, reg, ax):
   return p
 
 
-def plot_linreg(dfs): # uf, regiao, angle, intercept
+def plot_linreg(dfs): # uf, regiao, slope, intercept
   f, axes = plt.subplots(
     3, 2, figsize=[14,14],
     gridspec_kw={'width_ratios': [2, 1]}
@@ -86,7 +89,7 @@ def plot_linreg(dfs): # uf, regiao, angle, intercept
     axes[i][0].set_xlabel('time')
     for _, row in df.iterrows():
       x = np.linspace(0, 1, len(df))
-      y = x * row['angle'] + row['intercept']
+      y = x * row['slope'] + row['intercept']
       plot_lin(x, y, row['regiao'], axes[i][0])
   axes[0][0].set_ylabel('ambos')
   axes[1][0].set_ylabel('normal')
@@ -94,17 +97,20 @@ def plot_linreg(dfs): # uf, regiao, angle, intercept
   f.tight_layout()
 
 
-def plot_scatter_matrix(data): # uf, regiao, angle, intercept
+def plot_scatter_matrix(m): # uf, regiao, mean, slope, intercept
   f, axes = plt.subplots(
     3, 3, figsize=[14,14],
 	)
-  for row, (r_label, dfs) in (
-    enumerate(data.items())):
-    axes[row][0].set_ylabel(r_label)
-    for col, (c_label, df) in (
-      enumerate(dfs.items())):
+  for row, dfs in enumerate(m):
+    for col, df in enumerate(dfs):
       plot_scatter(df, axes[row][col])
-      axes[0][col].set_title(c_label)
-      axes[0][col].set_xlabel('angle')
+  # for row, (r_label, dfs) in (
+  #   enumerate(m.items())):
+  #   axes[row][0].set_ylabel(r_label)
+  #   for col, (c_label, df) in (
+  #     enumerate(dfs.items())):
+  #     plot_scatter(df, axes[row][col])
+  #     axes[0][col].set_title(c_label)
+  #     axes[0][col].set_xlabel('slope')
   f.tight_layout()
 
