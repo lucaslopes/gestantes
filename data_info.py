@@ -204,6 +204,40 @@ def get_matrix_data(data):
         dict_data_to_matrix(data))))
 
 
+def distance(x1, y1, x2, y2):
+  dx = (x2 - x1) ** 2
+  dy = (y2 - y1) ** 2
+  return np.sqrt(dx + dy)
+
+
+def get_rank(df, dist_asc=True):
+  mean, slope = df['mean'], df['slope']
+  df['dist'] = distance(slope, mean, 1, 1)
+  rank = df.sort_values(
+    by='dist', ascending=dist_asc
+  )['uf'].values
+  return rank
+
+
+def matrix_rank(matrix, ys):
+  asc = [
+    [True,True,True],
+    [False,False,False],
+    [False,False,False]]
+  df = pd.DataFrame(index=range(1,28))
+  df.index.name = 'rank'
+  for i in range(3):
+    for j in range(3):
+      label = ys[i][j]
+      data = matrix[i][j]
+      dist_asc = asc[i][j]
+      rank = get_rank(data, dist_asc)
+      while len(rank) < 27:
+        rank = np.append(rank, [None])
+      df[label] = rank
+  return df
+
+
 def main():
 	return save_queries_result()
 
