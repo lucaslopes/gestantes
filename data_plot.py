@@ -80,6 +80,29 @@ def plot_lin(x, y, reg, ax):
   return p
 
 
+def plot_line(df, ax):
+  p = sns.pointplot(
+    x='period', y='value', hue='uf', data=df, legend=False, ax=ax)
+  leg_handles = p.get_legend_handles_labels()[0]
+  p.legend(leg_handles, ['UF'], title='legend')
+
+
+def plot_lines(m, ys): # uf, regiao, slope, intercept
+  f, axes = plt.subplots(
+    3, 3, figsize=[14,14],
+	)
+  for i, dfs in enumerate(m):
+    for j, df in enumerate(dfs):
+      plot_line(df, axes[i][j])
+  for i, labels in enumerate(ys):
+    for j, label in enumerate(labels):
+      axes[i][j].set_ylabel(label)
+  axes[0][0].set_title('ambos')
+  axes[0][1].set_title('normal')
+  axes[0][2].set_title('cesaria')
+  f.tight_layout()
+
+
 def plot_linreg(dfs): # uf, regiao, slope, intercept
   f, axes = plt.subplots(
     3, 2, figsize=[14,14],

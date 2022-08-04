@@ -1,6 +1,7 @@
 
 
 import os
+import copy
 import sqlite3
 import numpy as np
 import pandas as pd
@@ -60,7 +61,7 @@ def get_ano_partos(df, uf=None):
     columns=['partos']
   ).reset_index(level=0)
   ano = np.linspace(
-    0, 1, 2 + len(df['ano'])
+    0, 1, 2 + len(df['partos'])
   ).reshape(-1, 1)[1:-1][::-1]
   mean = df['partos'].mean()
   partos = df['partos'].array.reshape(-1, 1)
@@ -79,6 +80,15 @@ def get_params_per_uf(df):
     d['slope'], d['intercept'] = (
       get_linreg_params(ano, partos))
     inputs.append(d)
+  return pd.DataFrame(inputs)
+
+
+def uf_ano_to_list_lines(df):
+  inputs = list()
+  for uf in df.columns:
+    for i, value in zip(df.index, df[uf]):
+      inputs.append({
+        'period':i, 'uf':uf, 'value':value})
   return pd.DataFrame(inputs)
 
 
@@ -175,25 +185,35 @@ def dict_data_to_matrix(dict_data):
   return matrix
 
 
-def matrix_fraction(m):
-	dens = [2, 1]
-	for den in dens:
-		for i in range(3):
-			m[den][i] = m[den][i] / m[den-1][i]
-	for j in dens:
-		m[0][j] = m[0][j] / m[0][0]
-	br = pd.DataFrame(index=m[0][0].index)
-	brasil = m[0][0].sum(axis=1)
-	for uf in m[0][0].columns:
-		br[uf] = brasil
-	m[0][0] = m[0][0] / br
-	return m
+def matrix_fraction(matrix):
+  m = copy.deepcopy(matrix)
+  dens = [2, 1]
+  for den in dens:
+    for i in range(3):
+      m[den][i] = m[den][i] / m[den-1][i]
+  for j in dens:
+    m[0][j] = m[0][j] / m[0][0]
+  br = pd.DataFrame(index=m[0][0].index)
+  brasil = m[0][0].sum(axis=1)
+  for uf in m[0][0].columns:
+    br[uf] = brasil
+  m[0][0] = m[0][0] / br
+  return m
 
 
-def matrix_info(m):
+def matrix_info(matrix):
+  m = copy.deepcopy(matrix)
   for row, dfs in enumerate(m):
     for col, df in enumerate(dfs):
       m[row][col] = get_params_per_uf(df)
+  return m
+
+
+def matrix_info_lines(matrix):
+  m = copy.deepcopy(matrix)
+  for row, dfs in enumerate(m):
+    for col, df in enumerate(dfs):
+      m[row][col] = uf_ano_to_list_lines(df)
   return m
 
 
@@ -241,7 +261,7 @@ def matrix_rank(matrix, ys):
   return df
 
 
-def group_years_by_period(df, years=None):
+def group_years_by_period(df, years=None, time='period'):
   years = (
 		[y for years in config.PERIODS for y in years]
 		if years is None
@@ -257,7 +277,7 @@ def group_years_by_period(df, years=None):
     df.index = [i + 1]
     dfs.append(df)
   df = pd.concat(dfs)
-  df.index.names = ['ano']
+  df.index.names = [time]
   return df
 
 
