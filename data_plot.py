@@ -1,6 +1,7 @@
 
 
 from cProfile import label
+import enum
 import config
 import data_info
 import pandas as pd
@@ -97,13 +98,18 @@ def plot_linreg(dfs): # uf, regiao, slope, intercept
   f.tight_layout()
 
 
-def plot_scatter_matrix(m): # uf, regiao, mean, slope, intercept
+def plot_scatter_matrix(m, ys): # uf, regiao, mean, slope, intercept
   f, axes = plt.subplots(
     3, 3, figsize=[14,14],
 	)
   for row, dfs in enumerate(m):
     for col, df in enumerate(dfs):
       plot_scatter(df, axes[row][col])
+  for i, labels in enumerate(ys):
+    for j, label in enumerate(labels):
+      axes[i][j].set_ylabel(label)
+  for col, parto in enumerate(['ambos', 'normal', 'cesaria']):
+    axes[0][col].set_title(parto)
   # for row, (r_label, dfs) in (
   #   enumerate(m.items())):
   #   axes[row][0].set_ylabel(r_label)
