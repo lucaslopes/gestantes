@@ -56,7 +56,7 @@ def get_linreg_params(x, y):
 def get_ano_partos(df, uf=None):
   cols = [uf] if uf else df.columns
   df = pd.DataFrame(
-    df[cols].sum(axis=1)[1:-1],
+    df[cols].sum(axis=1), # [1:-1] TODO: remove 2007 and 2021
     columns=['partos']
   ).reset_index(level=0)
   ano = np.linspace(
@@ -238,6 +238,26 @@ def matrix_rank(matrix, ys):
       if len(missing) > 0:
         rank = np.append(rank, list(missing))
       df[label] = rank
+  return df
+
+
+def group_years_by_period(df, years=None):
+  years = (
+		[y for years in config.PERIODS for y in years]
+		if years is None
+		else years)
+  df_cut = df.loc[years,:]
+  groups = list()
+  for years in config.PERIODS:
+    p = df_cut.loc[years,:]
+    groups.append(p.sum(axis=0))
+  dfs = list()
+  for i, g in enumerate(groups):
+    df = pd.DataFrame(g).transpose()
+    df.index = [i + 1]
+    dfs.append(df)
+  df = pd.concat(dfs)
+  df.index.names = ['ano']
   return df
 
 

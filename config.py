@@ -28,6 +28,9 @@ PARTO = { # http://sigtap.datasus.gov.br/tabela-unificada/app/sec/inicio.jsp
 }
 
 
+PERIODS = [[2010, 2011], [2014, 2015], [2018,2019]]
+
+
 ESCOLARIDADE = {
 	0 : 'NaN',
 	1 : 'Analfabeto',
