@@ -1,5 +1,6 @@
 
 
+import re
 import sys
 import config
 import sqlite3
@@ -13,8 +14,8 @@ def zip_csv_to_sqlite(
 		path_zip = None,
 		conn = None,
 		partos = config.PARTO,
-		escolaridade = config.ESCOLARIDADE,
-		etnia = config.ETNIA,
+		# escolaridade = config.ESCOLARIDADE,
+		# etnia = config.ETNIA,
 		cols = config.COLUMNS,
 	):
 
@@ -32,25 +33,38 @@ def zip_csv_to_sqlite(
 
 	files = ZipFile(path_zip).namelist()
 	for fname in tqdm(files):
-		if 'dict' in fname:
+		year = bool(re.search('20(18|19|20|21)', fname))
+		if 'dict' in fname or not year:
 			continue
 		cod_partos = list(partos)
 		dataset_path = f'{path_zip}/{fname}'
 		df = dt.fread(dataset_path)
 		df = df[
-			(
+			((
 				(f['PROC_REA'] == cod_partos[0])
 				|
 				(f['PROC_REA'] == cod_partos[1])
-			),
+				) & (
+				(f['ano_internacao'] == 2019)
+				|
+				(f['ano_internacao'] == 2020)
+    		) & (
+				(f['IDADE'] > 10)
+				&
+				(f['IDADE'] < 50)
+				&
+				(f['RACA_COR'] != 99)
+				&
+				(f['res_RSAUDCOD'] != 0)
+			)),
 			list(cols)
 		]
 		df = df.to_pandas()
-		df['PROC_REA'] = df['PROC_REA'].map(partos)
-		df['INSTRU'] = df['INSTRU'].map(escolaridade)
-		df['RACA_COR'] = df['RACA_COR'].map(etnia)
+		# df['PROC_REA'] = df['PROC_REA'].map(partos)
+		# df['INSTRU'] = df['INSTRU'].map(escolaridade)
+		# df['RACA_COR'] = df['RACA_COR'].map(etnia)
 		df = df.rename(columns=cols)
-		
+		df['deslocou'] = df['res_regiao_saude'] == df['int_regiao_saude']
 		df.to_sql(
 			name='partos',
 			con=conn,
