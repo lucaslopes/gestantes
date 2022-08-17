@@ -1,0 +1,13 @@
+Característica,Variável,Renomear,Definição
+hospital,ano_internacao,ano,"Ano de internação"
+hospital,PROC_REA,parto,"Procedimento realizado"
+hospital,CNES,cod_hosp,"Código CNES do hospital"
+gestantante,IDADE,idade,"Idade"
+gestantante,def_raca_cor,raca_cor,"Definição de raça/cor do paciente"
+localidade,codigo_adotado,cod_municipio,"Armazena o código atribuído ao município"
+localidade,MUNNOMEX,municipio,"Nome (sem acentos, em maiúsculas) do Município"
+localidade,RSAUDCOD,regiao_saude,"Código da Regional de Saúde a que o Município pertence"
+localidade,SIGLA_UF,uf,"Sigla da unidade da federação a que o Município pertence"
+localidade,REGIAO,regiao,"Região do Brasil a que o Município pertence"
+localidade,LATITUDE,latitude,"Latitude da sede do Município"
+localidade,LONGITUDE,longitude,"Longitude da sede do Município"

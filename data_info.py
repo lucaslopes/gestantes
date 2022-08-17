@@ -15,9 +15,10 @@ from sklearn.linear_model import LinearRegression
 CONX = sqlite3.connect(config.PATH_DB)
 
 
-def save_queries_result():
-  for query in tqdm(os.listdir(config.PATH_QUERIES)):
-    with open(f'{config.PATH_QUERIES}/{query}') as f:
+def save_queries_result(queries='uf_ano'):
+  path_queries = f'{config.PATH_QUERIES}/{queries}'
+  for query in tqdm(os.listdir(path_queries)):
+    with open(f'{path_queries}/{query}') as f:
       q = f.read()
       df = pd.read_sql(q, con=CONX)
       df = df.pivot(*['ano', 'res_uf', 'partos'])

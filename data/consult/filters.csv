@@ -1,0 +1,6 @@
+Filtro,Registros
+"PROC_REA in ('0310010039', '0411010034')",23302307
+"ano_internacao between 2010 and 2019",17109256
+"res_RSAUDCOD != 0",17106725
+"res_SIGLA_UF != 'DF'",16817215
+"IDADE > 10",16816186
