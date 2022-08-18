@@ -15,6 +15,14 @@ from sklearn.linear_model import LinearRegression
 CONX = sqlite3.connect(config.PATH_DB)
 
 
+def run_info_query(fname):
+  path_filters = f'queries/info/{fname}.sql'
+  with open(path_filters) as f:
+    query_filters = f.read()
+  return data_load.df_query(
+    query_filters)
+
+
 def save_queries_result(queries='uf_ano'):
   path_queries = f'{config.PATH_QUERIES}/{queries}'
   for query in tqdm(os.listdir(path_queries)):

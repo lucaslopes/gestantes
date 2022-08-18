@@ -1,14 +1,12 @@
 
 
 import os
-import re
 import sys
 import config
 import sqlite3
 import requests
 import numpy as np
 import pandas as pd
-import elasticsearch
 
 from zipfile import ZipFile
 from datatable import dt, f
@@ -57,7 +55,7 @@ def df_query(query):
 
 
 def create_connection(
-		db_file=None,
+		db_file = None,
 	):
 
 	db_file = (db_file
@@ -80,14 +78,13 @@ def sql_execute(
 	cur.close()
 
 
-def adjust_dataset(
+def filter_dataset(
 		dataset,
 		cols,
-		years=np.arange(*config.YEAR_RANGE),
-		places=['municipio', 'regiao_saude'], # 'regiao', 'uf', 
+		years,
+		cod_partos = list(config.PARTO),
 	):
-
-	cod_partos = list(config.PARTO)
+	
 	df = dataset[
 		(
 			(f['PROC_REA'] == cod_partos[0])
@@ -98,7 +95,7 @@ def adjust_dataset(
 		) & (
 			f['res_SIGLA_UF'] != 'DF'
 		) & (
-			f['IDADE'] > 10
+			f['IDADE'] >= 10
 		),
 		list(cols)
 	]
@@ -106,13 +103,41 @@ def adjust_dataset(
 	df = df[
 		[y in years for y in years_col], :
 	].to_pandas().rename(columns=cols)
+
+	return df
+
+
+def get_criticidade_col(
+		df,
+		levels = [[0, 3], [1, 2]],
+		places = ['cod_municipio', 'regiao_saude'], # 'regiao', 'uf', 
+	):
+	
+	d = dict()
 	for place in places:
 		resid = df[f'res_{place}']
 		inter = df[f'int_{place}']
-		df[f'mov_{place}'] = resid != inter
+		d[place] = (resid != inter).astype(int)
+	criticidade = [
+		levels[i][j] for i, j in zip(
+			d[places[0]], d[places[1]])]
+	
+	return criticidade
+
+
+def adjust_dataset(
+		dataset,
+		cols,
+		years=list(np.arange(*config.YEAR_RANGE)),
+	):
+
+	df = filter_dataset(dataset, cols, years)
+	df['criticidade'] = get_criticidade_col(df)
+	# df = df[df['criticidade'] != 3]
 	df['parto'] = df['parto'].map(config.PARTO)
-	df['period'] = df['ano'].map(
-		config.PERIODS).fillna('other')
+	df['momento'] = df['ano'].map(
+		config.PERIODS).fillna(config.PERIODS['outros'])
+	
 	return df
 
 
@@ -134,42 +159,106 @@ def register_location(
 	return df[infos], locations
 
 
+def load_health_regions(
+		csv_name = 'health_regions',
+	):
+	
+	csv_path = f'{config.PATH_DATA}consult/{csv_name}.csv'
+	
+	return pd.read_csv(csv_path)
+
+
+def get_col_names_of_places(
+		cols
+	):
+
+	return [col[4:]
+		for col in cols.values() if (
+			col[:3] == 'res')]
+
+
+def get_namelist_in_zip(
+		path_zip,
+		ignore_dict = True
+	):
+	
+	namelist = list()
+	files = ZipFile(path_zip).namelist()
+	for fname in files:
+		if ignore_dict and 'dict' in fname:
+			continue
+		namelist.append(fname)
+	
+	return namelist
+
+
+def append_table_to_con(
+		df,
+		con,
+		table = 'partos',
+	):
+	
+	df.to_sql(
+		name = table,
+		con = con,
+		if_exists = 'append', # append | replace
+		index = False,
+	)
+
+
+def df_places_from_locations(
+		places,
+		locations
+	):
+	
+	regions = load_health_regions()
+	df = pd.DataFrame(
+		locations, columns=places)
+	df['grupo'] = df.merge(
+		regions,
+		how='left',
+		left_on='cod_municipio',
+		right_on='Cód IBGE',
+	)['Grupo']
+	
+	return df.drop_duplicates()
+
+
+def get_df_locations_from_fname(
+		path_name,
+		cols,
+		places,
+		locations=set(),
+	):
+	
+	df = dt.fread(path_name)
+	df = adjust_dataset(df, cols)
+	df, locations = register_location(
+		df, places, locations)
+	
+	return df, locations
+
+
 def zip_to_sqlite(
 		path_zip,
 		conn,
 		cols = config.COLUMNS,
 	):
 	
-	regions = pd.read_csv('data/consult/health_regions.csv')
-	locations = set()
-	places = [col[4:]
-		for col in config.COLUMNS.values() if (
-			col[:3] == 'res')]
-	files = ZipFile(path_zip).namelist()
+	dfs, locations = list(), set()
+	places = get_col_names_of_places(cols)
+	files = get_namelist_in_zip(path_zip)
 	for fname in tqdm(files):
-		if 'dict' in fname: continue
-		df = dt.fread(f'{path_zip}/{fname}')
-		df = adjust_dataset(df, cols)
-		df, locations = register_location(
-			df, places, locations)
-		df.to_sql(
-			name='partos',
-			con=conn,
-			if_exists='append', # append | replace
-			index=False)
-	df_places = pd.DataFrame(
-		locations, columns=places)
-	df_places['grupo'] = df_places.merge(
-		regions,
-		left_on='cod_municipio',
-		right_on='Cód IBGE'
-	)['Grupo']
-	print(df_places['grupo'].value_counts())
-	df_places.to_sql(
-			name='places',
-			con=conn,
-			if_exists='append', # append | replace
-			index=False)
+		df, locations = get_df_locations_from_fname(
+			f'{path_zip}/{fname}', cols, places, locations)
+		dfs.append(df)
+		if len(dfs) > 100:
+			append_table_to_con(pd.concat(dfs),conn)
+			dfs = list()
+	append_table_to_con(pd.concat(dfs),conn)
+	df_places = df_places_from_locations(
+		places, locations)
+	append_table_to_con(df_places, conn, 'places')
 
 
 def main(

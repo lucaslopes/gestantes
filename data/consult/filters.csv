@@ -3,4 +3,4 @@ Filtro,Registros
 "ano_internacao between 2010 and 2019",17109256
 "res_RSAUDCOD != 0",17106725
 "res_SIGLA_UF != 'DF'",16817215
-"IDADE > 10",16816186
+"IDADE >= 10",16816760

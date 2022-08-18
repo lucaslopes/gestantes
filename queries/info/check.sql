@@ -1,7 +1,9 @@
 select
-	count(*)
+	IDADE,
+	count(IDADE) as records
 from
 	"datasus-sih"
+	-- partos
 where -- 157033546
 	PROC_REA in ('0310010039', '0411010034') -- 23302307
 	and
@@ -11,4 +13,14 @@ where -- 157033546
 	and
 	res_SIGLA_UF != 'DF' -- 16817215
 	and
-	IDADE >= 10 -- 16816760
+	IDADE <= 18
+group by
+	IDADE
+order by
+	IDADE asc
+-- select
+-- 	count(*) as records
+-- from
+-- 	partos
+-- where
+-- 	not (mov_municipio = 0 and mov_regiao_saude = 1)

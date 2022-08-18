@@ -35,8 +35,9 @@ YEAR_RANGE = [2010, 2020]  # Last not included
 
 
 PERIODS = {
-	2010 : 'past', 2011 : 'past',
- 	2018 : 'present', 2019 : 'present',
+	2010 : 'antes', 2011 : 'antes',
+ 	2018 : 'depois', 2019 : 'depois',
+	'outros' : 'durante',
 }
 
 
@@ -51,7 +52,7 @@ COLUMNS = {
 	'ano_internacao' : 'ano', # Ano de internação	
 	# 'def_procedimento_realizado' : 'procedimento', # PARTO NORMAL / PARTO CESARIANO
 	'PROC_REA' : 'parto', # Procedimento realizado	
-	'CNES' : 'cod_hosp', # Código CNES do hospital
+	'CNES' : 'cnes', # Código do Cadastro Nacional de Estabelecimentos de Saúde
 	# Características da gestantante:
 	'IDADE'	: 'idade', # Idade
 	'def_raca_cor' : 'raca_cor', #	Definição de raça/cor do paciente
