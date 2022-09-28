@@ -13,6 +13,7 @@ website:
     contents:
       - index.qmd
       - data_load.ipynb
+      - cnes.ipynb
 
 format:
   html:
