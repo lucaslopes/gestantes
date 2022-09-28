@@ -133,3 +133,8 @@ dmypy.json
 
 # Project
 secret.py
+data/
+
+# Quarto
+/.quarto/
+/website/_site

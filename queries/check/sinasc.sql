@@ -1,21 +1,24 @@
 select
-	CODMUNNASC, -- CODMUNRES CODMUNNASC
-	count(CODMUNNASC) as records
+	count(*) as records
 from
 	"datasus-sinasc"
-group by
-	CODMUNNASC
-order by
-	count(CODMUNNASC) desc
--- where -- 74398079
--- 	ano_internacao between 2010 and 2019 -- 17109256
--- 	and
--- 	res_RSAUDCOD != 0 -- 17106725
--- 	and
--- 	res_SIGLA_UF != 'DF' -- 16817215
--- 	and
--- 	IDADE <= 18
--- group by
--- 	IDADE
--- order by
--- 	IDADE asc
+where -- 74398079
+	ano_nasc between 2010 and 2019 -- 29157184
+	and
+	IDADEMAE between 10 and 49 -- 29152867
+	and
+	PARTO != 9 -- 29113721
+	and
+	LOCNASC = 1 -- Hospital -- 28633228
+	and
+	CODESTAB is not null -- 28631784
+	and
+	nasc_codigo_adotado is not null -- 28631784
+	and
+	nasc_RSAUDCOD is not null -- 28631784
+	and
+	res_codigo_adotado is not null -- 28631784
+	and
+	res_RSAUDCOD is not null -- 28631784
+	and
+	res_RSAUDCOD != 5301 -- 28197164

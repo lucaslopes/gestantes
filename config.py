@@ -7,28 +7,31 @@ from pathlib import Path
 URL_API = 'https://bigdata-api.fiocruz.br'
 
 
-PATH_SIHSUS = os.path.join(*[
+PATH_DATABASES = os.path.join(*[
 	str(Path.home()),
 	'Databases',
-	'SIHSUS',
+])
+
+PATH_DATABASE = os.path.join(*[
+	PATH_DATABASES,
+	'SINASC',
 ])
 
 
 PATH_DB = os.path.join(*[
-  PATH_SIHSUS,
-  'partos.db',
+  PATH_DATABASE,
+  'sinasc.db',
 ])
 
 
-PATH_SIHSUS_ZIP = '/Volumes/SanDisk/SIHSUS.zip'
+PATH_DATABASE_ZIP = os.path.join(*[
+  PATH_DATABASE,
+  'SINASC.zip',
+])
+
+
 PATH_DATA = 'data/'
 PATH_QUERIES = 'queries/'
-
-
-with open(
-  	PATH_QUERIES + 'modify/delete.sql'
-  ) as f:
-	FILTER_QUERY = f.read()
 
 
 YEAR_RANGE = [2010, 2020]  # Last not included
@@ -49,29 +52,22 @@ PARTO = { # http://sigtap.datasus.gov.br/tabela-unificada/app/sec/inicio.jsp
 
 COLUMNS = {
 	# Características do hospital:
-	'ano_internacao' : 'ano', # Ano de internação	
-	# 'def_procedimento_realizado' : 'procedimento', # PARTO NORMAL / PARTO CESARIANO
-	'PROC_REA' : 'parto', # Procedimento realizado	
-	'CNES' : 'cnes', # Código do Cadastro Nacional de Estabelecimentos de Saúde
+	'ano_nasc' : 'ano', # Ano do nascimento
+	'def_parto' : 'tipo_parto', # Tipo de parto (Nominal, com as seguintes classificações: Vaginal; Cesáreo; Ignorado)
+	'CODESTAB' : 'cnes_hosp', # Código de estabelecimento https://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp?search=
 	# Características da gestantante:
-	'IDADE'	: 'idade', # Idade
-	'def_raca_cor' : 'raca_cor', #	Definição de raça/cor do paciente
+	'IDADEMAE'	: 'idade', # Idade da mãe em anos
+	'RACACORMAE' : 'raca_cor', # Raça/cor da mãe
+	'def_est_civil' : 'estado_civil', # Estado civil (Situação conjugal: Solteiro; Casado; Viúvo; Separado judicialmente/divorciado; União estável; Ignorado)
+	'def_escol_mae' : 'escolaridade', # (Nenhuma; de 1 a 3 anos; de 4 a 7 anos; 8 a 11 anos; 12 anos e mais; Ignorado)
+	'ESCMAE2010' : 'escolaridade_2010', # Escolaridade 2010. Valores: 0 – Sem escolaridade; 1 –Fundamental I (1a a 4a série); 2 – Fundamental II (5a a 8a série); 3 – Médio (antigo 2o Grau); 4 – Superior incompleto; 5 –Superior completo; 9 – Ignorado.
+	'ESCMAEAGR1' : 'escolaridade_agg', # Escolaridade 2010 agregada. Valores: 00 – Sem Escolaridade; 01 – Fundamental I Incompleto; 02 – Fundamental I Completo; 03 – Fundamental II Incompleto; 04 – Fundamental II Completo; 05 – Ensino Médio Incompleto; 06 – Ensino Médio Completo; 07 – Superior Incompleto; 08 – Superior Completo; 09 – Ignorado; 10 – Fundamental I Incompleto ou Inespecífico; 11 – Fundamental II Incompleto ou Inespecífico; 12 – EnsinoMédio Incompleto ou Inespecífico.
+	'SERIESCMAE' : 'serie_escolar', # Série escolar da mãe. Valores de 1 a 8.
+	'CODOCUPMAE' : 'ocupacao', # Ocupação, conforme a Classificação Brasileira de Ocupações (CBO-2002)
 	# Características do município de residencia:
-	'res_codigo_adotado'	: 'res_cod_municipio', # Armazena o código atribuído ao município do estabelecimento de internação
-	'res_MUNNOMEX' : 'res_municipio', # Nome (sem acentos, em maiúsculas) do Município de residência do paciente
-	'res_RSAUDCOD' : 'res_regiao_saude', # Código da Regional de Saúde a que o Município de residência do paciente pertence
-	'res_SIGLA_UF' : 'res_uf', # Sigla da unidade da federação de residência do paciente
-	'res_REGIAO' : 'res_regiao', # Região de residência do paciente
-	'res_LATITUDE' : 'res_latitude', # Latitude da sede do Município de residência do paciente
-	'res_LONGITUDE'	: 'res_longitude', # Longitude da sede do Município de residência do paciente
-	# Características do município de internação:
-	'int_codigo_adotado'	: 'int_cod_municipio', # Armazena o código atribuído ao município de residência do paciente
-	'int_MUNNOMEX'	: 'int_municipio', # Nome (sem acentos, em maiúsculas) do Município do estabelecimento de internação
-	'int_RSAUDCOD'	: 'int_regiao_saude', # Código da Regional de Saúde a que o Município do estabelecimento de internação
-	'int_SIGLA_UF'	: 'int_uf', # Sigla da unidade da federação do estabelecimento de internação
-	'int_REGIAO'	: 'int_regiao', # Região do estabelecimento de internação
-	'int_LATITUDE'	: 'int_latitude', # Latitude da sede do Município do estabelecimento de internação
-	'int_LONGITUDE'	: 'int_longitude', # Longitude da sede do Município do estabelecimento de internação
+	'CODMUNRES'	: 'res_cod_municipio', # Município de residência da mãe, em codificação idêntica a deCODMUNNASC, conforme tabela TABMUN
+	# Características do município de nascimento:
+	'CODMUNNASC'	: 'nasc_cod_municipio', # 	Município de ocorrência, em codificação idêntica a de CODMUNRES, conforme tabela TABMUN
 }
 
 

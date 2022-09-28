@@ -40,13 +40,14 @@ def sql_query(
 
 def json_to_df(resp):
 	resp = resp.json()
-	if 'RequestError' in resp or 'columns' not in resp:
-		df = pd.DataFrame()
-		print(resp)
-	else:
+	try:
 		columns = [col['name'] for col in resp['columns']]
 		values = resp['rows']
 		df = pd.DataFrame(values, columns=columns)
+	except Exception as E:
+		df = pd.DataFrame()
+		print(E)
+		print(resp)
 	return df
 
 
@@ -197,13 +198,17 @@ def append_table_to_con(
 		con,
 		table = 'partos',
 	):
-	
-	df.to_sql(
-		name = table,
-		con = con,
-		if_exists = 'append', # append | replace
-		index = False,
-	)
+
+	try:
+		df.to_sql(
+			name = table,
+			con = con,
+			if_exists = 'append', # append | replace
+			index = False,
+		)
+	except Exception as excep:
+		print(excep)
+		print(df.columns)
 
 
 def df_places_from_locations(
@@ -267,7 +272,7 @@ def main(
   ):
 
 	path_zip = (
-		config.PATH_SIHSUS_ZIP
+		config.PATH_DATABASE_ZIP
 		if arc == 1 else argv[1])
 
 	conn = create_connection()
