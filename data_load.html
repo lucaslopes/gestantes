@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Deslocamento de Gestantes - Coleta dos Dados</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Coleta dos Dados</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Deslocamento de Gestantes</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lucaslopes/gestantes" title="" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Introdução</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_load.html" class="sidebar-item-text sidebar-link active">Coleta dos Dados</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#funções-auxiliares" id="toc-funções-auxiliares" class="nav-link active" data-scroll-target="#funções-auxiliares">Funções Auxiliares</a>
+  <ul class="collapse">
+  <li><a href="#sql" id="toc-sql" class="nav-link" data-scroll-target="#sql">SQL</a></li>
+  </ul></li>
+  <li><a href="#fonte-de-dados" id="toc-fonte-de-dados" class="nav-link" data-scroll-target="#fonte-de-dados">Fonte de Dados</a>
+  <ul class="collapse">
+  <li><a href="#cnes" id="toc-cnes" class="nav-link" data-scroll-target="#cnes">CNES</a>
+  <ul class="collapse">
+  <li><a href="#descrição" id="toc-descrição" class="nav-link" data-scroll-target="#descrição">Descrição</a></li>
+  <li><a href="#selecionar" id="toc-selecionar" class="nav-link" data-scroll-target="#selecionar">Selecionar</a></li>
+  <li><a href="#carregar-dados" id="toc-carregar-dados" class="nav-link" data-scroll-target="#carregar-dados">Carregar dados</a></li>
+  </ul></li>
+  <li><a href="#sinasc" id="toc-sinasc" class="nav-link" data-scroll-target="#sinasc">SINASC</a>
+  <ul class="collapse">
+  <li><a href="#descrição-1" id="toc-descrição-1" class="nav-link" data-scroll-target="#descrição-1">Descrição</a></li>
+  <li><a href="#selecionar-1" id="toc-selecionar-1" class="nav-link" data-scroll-target="#selecionar-1">Selecionar</a></li>
+  <li><a href="#carregar-dados-1" id="toc-carregar-dados-1" class="nav-link" data-scroll-target="#carregar-dados-1">Carregar dados</a></li>
+  </ul></li>
+  <li><a href="#sih" id="toc-sih" class="nav-link" data-scroll-target="#sih">SIH</a>
+  <ul class="collapse">
+  <li><a href="#descrição-2" id="toc-descrição-2" class="nav-link" data-scroll-target="#descrição-2">Descrição</a></li>
+  <li><a href="#selecionar-2" id="toc-selecionar-2" class="nav-link" data-scroll-target="#selecionar-2">Selecionar</a></li>
+  <li><a href="#carregar-dados-2" id="toc-carregar-dados-2" class="nav-link" data-scroll-target="#carregar-dados-2">Carregar dados</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Coleta dos Dados</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> zipfile <span class="im">import</span> ZipFile</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style type="text/css">
+.datatable table.frame { margin-bottom: 0; }
+.datatable table.frame thead { border-bottom: none; }
+.datatable table.frame tr.coltypes td {  color: #FFFFFF;  line-height: 6px;  padding: 0 0.5em;}
+.datatable .bool    { background: #DDDD99; }
+.datatable .object  { background: #565656; }
+.datatable .int     { background: #5D9E5D; }
+.datatable .float   { background: #4040CC; }
+.datatable .str     { background: #CC4040; }
+.datatable .row_index {  background: var(--jp-border-color3);  border-right: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  font-size: 9px;}
+.datatable .frame tr.coltypes .row_index {  background: var(--jp-border-color0);}
+.datatable th:nth-child(2) { padding-left: 12px; }
+.datatable .hellipsis {  color: var(--jp-cell-editor-border-color);}
+.datatable .vellipsis {  background: var(--jp-layout-color0);  color: var(--jp-cell-editor-border-color);}
+.datatable .na {  color: var(--jp-cell-editor-border-color);  font-size: 80%;}
+.datatable .footer { font-size: 9px; }
+.datatable .frame_dimensions {  background: var(--jp-border-color3);  border-top: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  display: inline-block;  opacity: 0.6;  padding: 1px 10px 1px 5px;}
+</style>
+</div>
+</div>
+<section id="funções-auxiliares" class="level1">
+<h1>Funções Auxiliares</h1>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_zip_namelist(zip_path):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  files <span class="op">=</span> ZipFile(zip_path).namelist()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  files <span class="op">=</span> [<span class="ss">f'</span><span class="sc">{</span>zip_path<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>f<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="kw">in</span> files <span class="cf">if</span> <span class="st">'dict'</span> <span class="kw">not</span> <span class="kw">in</span> f]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> files</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_table(table_path, columns):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  cols_order <span class="op">=</span> <span class="bu">list</span>(columns.values())</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  columns[...] <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> dt.fread(table_path, columns<span class="op">=</span>columns)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> data_load(zip_path, cols, filter_func):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  files <span class="op">=</span> get_zip_namelist(zip_path)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  dfs <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> file_path <span class="kw">in</span> tqdm(files):</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> read_table(file_path, cols)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> filter_func(df)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    dfs.append(df)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> dt.rbind(<span class="op">*</span>dfs)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="sql" class="level3">
+<h3 class="anchored" data-anchor-id="sql">SQL</h3>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_connection(db_file):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  conn <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">try</span>:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    conn <span class="op">=</span> sqlite3.<span class="ex">connect</span>(db_file)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">except</span> sqlite3.Error <span class="im">as</span> e:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(e)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> conn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> append_table_to_con(df, con, table):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">try</span>:</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    df.to_sql(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      name <span class="op">=</span> table,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>      con <span class="op">=</span> con,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      if_exists <span class="op">=</span> <span class="st">'append'</span>, <span class="co"># append | replace</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      index <span class="op">=</span> <span class="va">False</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> excep:</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(excep)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># conn = create_connection('gestantes.db')</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># with conn:</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   for df, table in zip([df_sinasc, df_cnes], ['sinasc', 'cnes']):</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#     append_table_to_con(df.to_pandas(), conn, table)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="fonte-de-dados" class="level1">
+<h1>Fonte de Dados</h1>
+<p>Utilizamos algumas fontes para compor nossa base de dados de análise, abaixo descrevemos cada uma delas:</p>
+<section id="cnes" class="level2">
+<h2 class="anchored" data-anchor-id="cnes">CNES</h2>
+<section id="descrição" class="level3">
+<h3 class="anchored" data-anchor-id="descrição">Descrição</h3>
+<p>Dados do Cadastro Nacional de Estabelecimentos de Saúde (CNES) reunidos pela Plataforma de Ciência de Dados aplicada à Saúde (PCDaS). Os dados foram obtidos junto ao DATASUS (Ministério da Saúde), tratados e enriquecidos seguindo uma metodologia própria de ETL da PCDaS, resultando em um dataset mensal com todos os registros de estabelecimentos de saúde contidos no CNES à partir de agosto de 2005. A atualização dos dados é realizada pelo DATASUS e a PCDaS extrai os registros mensais assim que disponibilizados. As colunas com nomes em MAIÚSCULO representam dados originais advindos do DATASUS e colunas com nomes iniciando em minúsculo representam dados resultantes de transformação ou enriquecimento.</p>
+</section>
+<section id="selecionar" class="level3">
+<h3 class="anchored" data-anchor-id="selecionar">Selecionar</h3>
+<section id="colunas" class="level4">
+<h4 class="anchored" data-anchor-id="colunas">Colunas</h4>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cols_cnes <span class="op">=</span> {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'CNES'</span>: <span class="st">'cnes'</span>, <span class="co"># Número nacional do estabelecimento de saúde</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'uf_SIGLA_UF'</span>: <span class="st">'uf'</span>, <span class="co"># Sigla da unidade da federação do estabelecimento</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'mun_codigo_adotado'</span>: <span class="st">'cod_mun'</span>, <span class="co"># Armazena o código atribuído ao município do estabelecimento, tratando os casos em que múltiplos códigos tenham sido utilizados para um mesmo município ao longo do tempo</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'def_esfera_a'</span>: <span class="st">'esfera_adm'</span>, <span class="co"># Código da esfera administrativa</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'def_retencao'</span>: <span class="st">'retencao_tributos'</span>, <span class="co"># Código de retenção de tributos</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'def_cod_ir'</span>: <span class="st">'tipo_retenção'</span>, <span class="co"># Indica o tipo de retenção de tributos da mantenedora</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'def_natureza'</span>: <span class="st">'natureza'</span>, <span class="co"># Código da natureza da organização</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">'VINC_SUS'</span>: <span class="st">'sus'</span>, <span class="co"># Vínculo com SUS: 1-Sim 0-Não</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="linhas" class="level4">
+<h4 class="anchored" data-anchor-id="linhas">Linhas</h4>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_cnes(df):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> <span class="bu">list</span>(cols_cnes.values())[:<span class="op">-</span><span class="dv">2</span>]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df[(f[<span class="st">'sus'</span>] <span class="op">==</span> <span class="dv">1</span>), cols]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="carregar-dados" class="level3">
+<h3 class="anchored" data-anchor-id="carregar-dados">Carregar dados</h3>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>path_zip_cnes <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/CNES/CNES.zip'</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>output_cnes <span class="op">=</span> path_zip_cnes.replace(<span class="st">'zip'</span>, <span class="st">'csv.gzip'</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># df_cnes = data_load(path_zip_cnes, cols_cnes, filter_cnes)</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># df_cnes.to_csv(output_cnes)</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>df_cnes <span class="op">=</span> dt.fread(output_cnes)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>df_cnes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>cnes</th><th>uf</th><th>cod_mun</th><th>esfera_adm</th><th>retencao_tributos</th><th>tipo_retenção</th><th>natureza</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>2786052</td><td>SP</td><td>350410</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">1</td><td>2814714</td><td>SP</td><td>355030</td><td>PRIVADA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td></td><td>Empresa Privada</td></tr>
+    <tr><td class="row_index">2</td><td>2784769</td><td>SP</td><td>351880</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">3</td><td>2051001</td><td>SP</td><td>350440</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">4</td><td>8012806</td><td>SP</td><td>352390</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">5</td><td>2028476</td><td>SP</td><td>355030</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">6</td><td>2093731</td><td>SP</td><td>355030</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td></td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">7</td><td>2093766</td><td>SP</td><td>354090</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">8</td><td>2093871</td><td>SP</td><td>354090</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">9</td><td>2088894</td><td>SP</td><td>351340</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">10</td><td>2088908</td><td>SP</td><td>350860</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">11</td><td>2060701</td><td>SP</td><td>351620</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Adm Indireta - Organização Social Pública</td></tr>
+    <tr><td class="row_index">12</td><td>2050455</td><td>SP</td><td>350450</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">13</td><td>2094010</td><td>SP</td><td>353530</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">14</td><td>2804794</td><td>SP</td><td>354980</td><td>PRIVADA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td>Empresa Privada</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">13,327,506</td><td>3742822</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">13,327,507</td><td>5447410</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">13,327,508</td><td>7022204</td><td>DF</td><td>530010</td><td>PRIVADA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td></td><td>Empresa Privada</td></tr>
+    <tr><td class="row_index">13,327,509</td><td>7108923</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">13,327,510</td><td>7238703</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">13,327,511 rows × 7 columns</div>
+  </div>
+</div>
+</div>
+</div>
+<p>100%|██████████| 4374/4374 [05:40&lt;00:00, 12.86it/s]</p>
+</section>
+</section>
+<section id="sinasc" class="level2">
+<h2 class="anchored" data-anchor-id="sinasc">SINASC</h2>
+<section id="descrição-1" class="level3">
+<h3 class="anchored" data-anchor-id="descrição-1">Descrição</h3>
+<p>Dados do Sistema de Informações sobre Nascidos Vivos (SINASC) reunidos pela Plataforma de Ciência de Dados aplicada à Saúde (PCDaS). Os dados foram obtidos junto ao DATASUS (Ministério da Saúde), tratados e enriquecidos seguindo uma metodologia própria de ETL da PCDaS, resultando em um dataset anual com todos os registros das declarações de nascidos vivos contidas no SINASC à partir de 1996. A atualização dos dados é realizada pelo DATASUS e a PCDaS extrai os registros anuais assim que disponibilizados. As colunas com nomes em MAIÚSCULO representam dados originais advindos do DATASUS e colunas com nomes iniciando em minúsculo representam dados resultantes de transformação ou enriquecimento.</p>
+</section>
+<section id="selecionar-1" class="level3">
+<h3 class="anchored" data-anchor-id="selecionar-1">Selecionar</h3>
+<section id="colunas-1" class="level4">
+<h4 class="anchored" data-anchor-id="colunas-1">Colunas</h4>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>cols_sinasc <span class="op">=</span> {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'ano_nasc'</span>: <span class="st">'ano'</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'CODESTAB'</span>: <span class="st">'cnes'</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'nasc_codigo_adotado'</span>: <span class="st">'hosp_municipio'</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_codigo_adotado'</span>: <span class="st">'res_municipio'</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'nasc_RSAUDCOD'</span>: <span class="st">'hosp_regiao_saude'</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_RSAUDCOD'</span>: <span class="st">'res_regiao_saude'</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'def_parto'</span>: <span class="st">'tipo_parto'</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">'GRAVIDEZ'</span>: <span class="st">'n_gestados'</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">'CONSULTAS'</span>: <span class="st">'n_pre_natal'</span>,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">'IDADEMAE'</span>: <span class="st">'idade'</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">'ESCMAE'</span>: <span class="st">'nivel_escolaridade'</span>,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">'RACACORMAE'</span>: <span class="st">'raca_cor'</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">'def_raca_cor'</span>: <span class="st">'nasc_raca_cor'</span>,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">'def_sexo'</span>: <span class="st">'nasc_sexo'</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">'PESO'</span>: <span class="st">'nasc_peso'</span>,</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">'APGAR1'</span>: <span class="st">'nasc_apgar1'</span>,</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">'APGAR5'</span>: <span class="st">'nasc_apgar5'</span>,</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">'LOCNASC'</span>: <span class="st">'local_nasc'</span>,</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="linhas-1" class="level4">
+<h4 class="anchored" data-anchor-id="linhas-1">Linhas</h4>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_sinasc(df):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> <span class="bu">list</span>(cols_sinasc.values())[:<span class="op">-</span><span class="dv">2</span>]</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> cols <span class="cf">if</span> c <span class="kw">in</span> df.names]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="st">'cnes'</span> <span class="kw">in</span> df.names:</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    df_filtered <span class="op">=</span> df[</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>      (</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        (f[<span class="st">'ano'</span>] <span class="op">&gt;</span> <span class="dv">2009</span>) <span class="op">&amp;</span> (f[<span class="st">'ano'</span>] <span class="op">&lt;</span> <span class="dv">2020</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>      ) <span class="op">&amp;</span> (</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        (f[<span class="st">'idade'</span>] <span class="op">&gt;</span> <span class="dv">9</span>) <span class="op">&amp;</span> (f[<span class="st">'idade'</span>] <span class="op">&lt;</span> <span class="dv">50</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>      ) <span class="op">&amp;</span> (</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        (f[<span class="st">'tipo_parto'</span>] <span class="op">!=</span> <span class="st">'Ignorado'</span>) <span class="co"># tipo parto</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>      ) <span class="op">&amp;</span> (</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        (f[<span class="st">'cnes'</span>] <span class="op">!=</span> <span class="va">None</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>      ) <span class="op">&amp;</span> (</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        (f[<span class="st">'local_nasc'</span>] <span class="op">==</span> <span class="dv">1</span>) <span class="co"># Hospital</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>      ) <span class="op">&amp;</span> (</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        (f[<span class="st">'res_regiao_saude'</span>] <span class="op">!=</span> <span class="dv">5301</span>) <span class="co"># DF</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>      ) <span class="op">&amp;</span> (</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>        (f[<span class="st">'res_regiao_saude'</span>] <span class="op">!=</span> <span class="va">None</span>)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>      ) <span class="op">&amp;</span> (</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>        (f[<span class="st">'hosp_regiao_saude'</span>] <span class="op">!=</span> <span class="va">None</span>)</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>      ) <span class="op">&amp;</span> (</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>        (f[<span class="st">'res_municipio'</span>] <span class="op">!=</span> <span class="va">None</span>)</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>      ) <span class="op">&amp;</span> (</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>        (f[<span class="st">'hosp_municipio'</span>] <span class="op">!=</span> <span class="va">None</span>)</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>      ), cols]</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    df_filtered <span class="op">=</span> dt.Frame()</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df_filtered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="carregar-dados-1" class="level3">
+<h3 class="anchored" data-anchor-id="carregar-dados-1">Carregar dados</h3>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>path_zip_sinasc <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/SINASC/SINASC.zip'</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>output_sinasc <span class="op">=</span> path_zip_sinasc.replace(<span class="st">'zip'</span>, <span class="st">'csv.gzip'</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># df_sinasc = data_load(path_zip_sinasc, cols_sinasc, filter_sinasc)</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># df_sinasc.to_csv(output_sinasc)</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>df_sinasc <span class="op">=</span> dt.fread(output_sinasc)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>df_sinasc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>ano</th><th>cnes</th><th>hosp_municipio</th><th>res_municipio</th><th>hosp_regiao_saude</th><th>res_regiao_saude</th><th>tipo_parto</th><th>n_gestados</th><th>n_pre_natal</th><th>idade</th><th class="vellipsis">…</th><th>nasc_raca_cor</th><th>nasc_sexo</th><th>nasc_peso</th><th>nasc_apgar1</th><th>nasc_apgar5</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td></td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>2010</td><td>2515598</td><td>110002</td><td>120040</td><td>1104</td><td>1201</td><td>Cesáreo</td><td>1</td><td>4</td><td>24</td><td class="vellipsis">…</td><td>Branca</td><td>Masculino</td><td>3400</td><td>9</td><td>10</td></tr>
+    <tr><td class="row_index">1</td><td>2010</td><td>3792595</td><td>110011</td><td>120040</td><td>1101</td><td>1201</td><td>Cesáreo</td><td>1</td><td>3</td><td>22</td><td class="vellipsis">…</td><td>Parda</td><td>Masculino</td><td>3950</td><td>8</td><td>9</td></tr>
+    <tr><td class="row_index">2</td><td>2010</td><td>2798484</td><td>110030</td><td>120040</td><td>1103</td><td>1201</td><td>Vaginal</td><td>1</td><td>4</td><td>20</td><td class="vellipsis">…</td><td>Branca</td><td>Masculino</td><td>3550</td><td>8</td><td>9</td></tr>
+    <tr><td class="row_index">3</td><td>2010</td><td>5701929</td><td>120001</td><td>120001</td><td>1201</td><td>1201</td><td>Vaginal</td><td>1</td><td>3</td><td>21</td><td class="vellipsis">…</td><td>Parda</td><td>Feminino</td><td>3000</td><td>9</td><td>10</td></tr>
+    <tr><td class="row_index">4</td><td>2010</td><td>5701929</td><td>120001</td><td>120001</td><td>1201</td><td>1201</td><td>Vaginal</td><td>1</td><td>3</td><td>31</td><td class="vellipsis">…</td><td>Parda</td><td>Feminino</td><td>3000</td><td>9</td><td>10</td></tr>
+    <tr><td class="row_index">5</td><td>2010</td><td>5701929</td><td>120001</td><td>120001</td><td>1201</td><td>1201</td><td>Vaginal</td><td>1</td><td>4</td><td>23</td><td class="vellipsis">…</td><td>Parda</td><td>Masculino</td><td>3900</td><td>7</td><td>9</td></tr>
+    <tr><td class="row_index">6</td><td>2010</td><td>5701929</td><td>120001</td><td>120001</td><td>1201</td><td>1201</td><td>Vaginal</td><td>1</td><td>4</td><td>26</td><td class="vellipsis">…</td><td>Parda</td><td>Feminino</td><td>3250</td><td>7</td><td>10</td></tr>
+    <tr><td class="row_index">7</td><td>2010</td><td>5701929</td><td>120001</td><td>120001</td><td>1201</td><td>1201</td><td>Vaginal</td><td>1</td><td>4</td><td>21</td><td class="vellipsis">…</td><td>Parda</td><td>Masculino</td><td>3500</td><td>8</td><td>10</td></tr>
+    <tr><td class="row_index">8</td><td>2010</td><td>5701929</td><td>120001</td><td>120001</td><td>1201</td><td>1201</td><td>Vaginal</td><td>1</td><td>4</td><td>20</td><td class="vellipsis">…</td><td>Parda</td><td>Feminino</td><td>2900</td><td>8</td><td>9</td></tr>
+    <tr><td class="row_index">9</td><td>2010</td><td>5701929</td><td>120001</td><td>120001</td><td>1201</td><td>1201</td><td>Vaginal</td><td>1</td><td>4</td><td>31</td><td class="vellipsis">…</td><td>Parda</td><td>Masculino</td><td>3400</td><td>8</td><td>10</td></tr>
+    <tr><td class="row_index">10</td><td>2010</td><td>5701929</td><td>120001</td><td>120001</td><td>1201</td><td>1201</td><td>Vaginal</td><td>1</td><td>4</td><td>28</td><td class="vellipsis">…</td><td>Parda</td><td>Feminino</td><td>3900</td><td>8</td><td>9</td></tr>
+    <tr><td class="row_index">11</td><td>2010</td><td>5701929</td><td>120001</td><td>120001</td><td>1201</td><td>1201</td><td>Vaginal</td><td>1</td><td>9</td><td>23</td><td class="vellipsis">…</td><td>Parda</td><td>Feminino</td><td>3200</td><td>8</td><td>9</td></tr>
+    <tr><td class="row_index">12</td><td>2010</td><td>5701929</td><td>120001</td><td>120001</td><td>1201</td><td>1201</td><td>Vaginal</td><td>1</td><td>2</td><td>30</td><td class="vellipsis">…</td><td>Parda</td><td>Masculino</td><td>3050</td><td>8</td><td>9</td></tr>
+    <tr><td class="row_index">13</td><td>2010</td><td>5701929</td><td>120001</td><td>120001</td><td>1201</td><td>1201</td><td>Vaginal</td><td>1</td><td>3</td><td>21</td><td class="vellipsis">…</td><td>Branca</td><td>Masculino</td><td>3500</td><td>8</td><td>9</td></tr>
+    <tr><td class="row_index">14</td><td>2010</td><td>5701929</td><td>120001</td><td>120001</td><td>1201</td><td>1201</td><td>Vaginal</td><td>1</td><td>3</td><td>34</td><td class="vellipsis">…</td><td>Branca</td><td>Masculino</td><td>4000</td><td>10</td><td><span class="na">NA</span></td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">28,197,159</td><td>2019</td><td>3427633</td><td>520870</td><td>170950</td><td>5201</td><td>1707</td><td>Cesáreo</td><td>1</td><td>4</td><td>29</td><td class="vellipsis">…</td><td>Parda</td><td>Feminino</td><td>1700</td><td>7</td><td>8</td></tr>
+    <tr><td class="row_index">28,197,160</td><td>2019</td><td>10537</td><td>530010</td><td>170240</td><td>5301</td><td>1709</td><td>Cesáreo</td><td>1</td><td>3</td><td>36</td><td class="vellipsis">…</td><td>Ignorado</td><td>Ignorado</td><td>2870</td><td>8</td><td>9</td></tr>
+    <tr><td class="row_index">28,197,161</td><td>2019</td><td>5717515</td><td>530010</td><td>170610</td><td>5301</td><td>1710</td><td>Cesáreo</td><td>1</td><td>3</td><td>21</td><td class="vellipsis">…</td><td>Parda</td><td>Masculino</td><td>2554</td><td>8</td><td>9</td></tr>
+    <tr><td class="row_index">28,197,162</td><td>2019</td><td>5717515</td><td>530010</td><td>172100</td><td>5301</td><td>1705</td><td>Vaginal</td><td>1</td><td>4</td><td>21</td><td class="vellipsis">…</td><td>Parda</td><td>Feminino</td><td>2610</td><td>8</td><td>9</td></tr>
+    <tr><td class="row_index">28,197,163</td><td>2019</td><td>3019608</td><td>530010</td><td>170240</td><td>5301</td><td>1709</td><td>Vaginal</td><td>1</td><td>4</td><td>30</td><td class="vellipsis">…</td><td>Parda</td><td>Masculino</td><td>2975</td><td>9</td><td>10</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">28,197,164 rows × 17 columns</div>
+  </div>
+</div>
+</div>
+</div>
+<p>100%|██████████| 675/675 [03:03&lt;00:00, 3.69it/s]</p>
+</section>
+</section>
+<section id="sih" class="level2">
+<h2 class="anchored" data-anchor-id="sih">SIH</h2>
+<section id="descrição-2" class="level3">
+<h3 class="anchored" data-anchor-id="descrição-2">Descrição</h3>
+<p>Dados do Sistema de Informações Hospitalares do SUS (SIHSUS) reunidos pela Plataforma de Ciência de Dados aplicada à Saúde (PCDaS). Os dados foram obtidos junto ao DATASUS (Ministério da Saúde), tratados e enriquecidos seguindo uma metodologia própria de ETL (processo de extração, transformação e carga dos dados) da PCDaS, resultando em um dataset mensal com todos os registros de internações hospitalares contidos no SIHSUS à partir de janeiro de 2008.</p>
+<p>A atualização dos dados é realizada pelo DATASUS e a PCDaS extrai os registros mensais referentes aos arquivos <code>RD_UF_ANO_MÊS.dbc</code> (Reduzidos de AIH) assim que disponibilizados. As colunas com nomes em MAIÚSCULO representam dados originais advindos do DATASUS e colunas com nomes iniciando em minúsculo representam dados resultantes de transformação ou enriquecimento.</p>
+</section>
+<section id="selecionar-2" class="level3">
+<h3 class="anchored" data-anchor-id="selecionar-2">Selecionar</h3>
+<section id="colunas-2" class="level4">
+<h4 class="anchored" data-anchor-id="colunas-2">Colunas</h4>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>cols_sih <span class="op">=</span> {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'ano_internacao'</span>: <span class="st">'ano'</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'CNES'</span>: <span class="st">'cnes'</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'int_codigo_adotado'</span>: <span class="st">'hosp_municipio'</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_codigo_adotado'</span>: <span class="st">'res_municipio'</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'int_RSAUDCOD'</span>: <span class="st">'hosp_regiao_saude'</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_RSAUDCOD'</span>: <span class="st">'res_regiao_saude'</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'PROC_REA'</span>: <span class="st">'tipo_parto'</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">'def_idade_anos'</span>: <span class="st">'idade'</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="linhas-2" class="level4">
+<h4 class="anchored" data-anchor-id="linhas-2">Linhas</h4>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_sih(df):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> <span class="bu">list</span>(cols_sinasc.values())[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> cols <span class="cf">if</span> c <span class="kw">in</span> df.names]</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  df_filtered <span class="op">=</span> df[</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    (</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'ano'</span>] <span class="op">&gt;</span> <span class="dv">2009</span>) <span class="op">&amp;</span> (f[<span class="st">'ano'</span>] <span class="op">&lt;</span> <span class="dv">2020</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'idade'</span>] <span class="op">&gt;</span> <span class="dv">9</span>) <span class="op">&amp;</span> (f[<span class="st">'idade'</span>] <span class="op">&lt;</span> <span class="dv">50</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'tipo_parto'</span>] <span class="op">==</span> <span class="dv">310010039</span>) <span class="op">|</span> (f[<span class="st">'tipo_parto'</span>] <span class="op">==</span> <span class="dv">411010034</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'cnes'</span>] <span class="op">!=</span> <span class="va">None</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'res_regiao_saude'</span>] <span class="op">!=</span> <span class="dv">5301</span>) <span class="co"># DF</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'res_regiao_saude'</span>] <span class="op">!=</span> <span class="va">None</span>)</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'hosp_regiao_saude'</span>] <span class="op">!=</span> <span class="va">None</span>)</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'res_municipio'</span>] <span class="op">!=</span> <span class="va">None</span>)</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    ), cols]</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df_filtered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="carregar-dados-2" class="level3">
+<h3 class="anchored" data-anchor-id="carregar-dados-2">Carregar dados</h3>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>path_zip_sih <span class="op">=</span> <span class="st">'/Volumes/SanDisk/SIHSUS.zip'</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>output_sih <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/CNES/CNES.csv.gzip'</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># df_sih = data_load(path_zip_sih, cols_sih, filter_sih)</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># df_sih.to_csv(output_sih)</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> dt.fread(output_sih)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>cnes</th><th>uf</th><th>cod_mun</th><th>esfera_adm</th><th>retencao_tributos</th><th>tipo_retenção</th><th>natureza</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>2786052</td><td>SP</td><td>350410</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">1</td><td>2814714</td><td>SP</td><td>355030</td><td>PRIVADA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td></td><td>Empresa Privada</td></tr>
+    <tr><td class="row_index">2</td><td>2784769</td><td>SP</td><td>351880</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">3</td><td>2051001</td><td>SP</td><td>350440</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">4</td><td>8012806</td><td>SP</td><td>352390</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">5</td><td>2028476</td><td>SP</td><td>355030</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">6</td><td>2093731</td><td>SP</td><td>355030</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td></td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">7</td><td>2093766</td><td>SP</td><td>354090</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">8</td><td>2093871</td><td>SP</td><td>354090</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">9</td><td>2088894</td><td>SP</td><td>351340</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">10</td><td>2088908</td><td>SP</td><td>350860</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">11</td><td>2060701</td><td>SP</td><td>351620</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Adm Indireta - Organização Social Pública</td></tr>
+    <tr><td class="row_index">12</td><td>2050455</td><td>SP</td><td>350450</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">13</td><td>2094010</td><td>SP</td><td>353530</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">14</td><td>2804794</td><td>SP</td><td>354980</td><td>PRIVADA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td>Empresa Privada</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">13,327,506</td><td>3742822</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">13,327,507</td><td>5447410</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">13,327,508</td><td>7022204</td><td>DF</td><td>530010</td><td>PRIVADA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td></td><td>Empresa Privada</td></tr>
+    <tr><td class="row_index">13,327,509</td><td>7108923</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">13,327,510</td><td>7238703</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">13,327,511 rows × 7 columns</div>
+  </div>
+</div>
+</div>
+</div>
+<p>100%|██████████| 4400/4400 [24:46&lt;00:00, 2.96it/s]</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
