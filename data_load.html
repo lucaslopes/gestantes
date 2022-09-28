@@ -196,24 +196,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#fonte-de-dados" id="toc-fonte-de-dados" class="nav-link" data-scroll-target="#fonte-de-dados">Fonte de Dados</a>
   <ul class="collapse">
-  <li><a href="#cnes" id="toc-cnes" class="nav-link" data-scroll-target="#cnes">CNES</a>
-  <ul class="collapse">
   <li><a href="#descrição" id="toc-descrição" class="nav-link" data-scroll-target="#descrição">Descrição</a></li>
   <li><a href="#selecionar" id="toc-selecionar" class="nav-link" data-scroll-target="#selecionar">Selecionar</a></li>
   <li><a href="#carregar-dados" id="toc-carregar-dados" class="nav-link" data-scroll-target="#carregar-dados">Carregar dados</a></li>
-  </ul></li>
+  <li><a href="#sih" id="toc-sih" class="nav-link" data-scroll-target="#sih">SIH</a></li>
   <li><a href="#sinasc" id="toc-sinasc" class="nav-link" data-scroll-target="#sinasc">SINASC</a>
   <ul class="collapse">
   <li><a href="#descrição-1" id="toc-descrição-1" class="nav-link" data-scroll-target="#descrição-1">Descrição</a></li>
   <li><a href="#selecionar-1" id="toc-selecionar-1" class="nav-link" data-scroll-target="#selecionar-1">Selecionar</a></li>
   <li><a href="#carregar-dados-1" id="toc-carregar-dados-1" class="nav-link" data-scroll-target="#carregar-dados-1">Carregar dados</a></li>
-  </ul></li>
-  <li><a href="#sih" id="toc-sih" class="nav-link" data-scroll-target="#sih">SIH</a>
-  <ul class="collapse">
   <li><a href="#descrição-2" id="toc-descrição-2" class="nav-link" data-scroll-target="#descrição-2">Descrição</a></li>
   <li><a href="#selecionar-2" id="toc-selecionar-2" class="nav-link" data-scroll-target="#selecionar-2">Selecionar</a></li>
   <li><a href="#carregar-dados-2" id="toc-carregar-dados-2" class="nav-link" data-scroll-target="#carregar-dados-2">Carregar dados</a></li>
   </ul></li>
+  <li><a href="#cnes" id="toc-cnes" class="nav-link" data-scroll-target="#cnes">CNES</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -329,8 +325,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="fonte-de-dados" class="level1">
 <h1>Fonte de Dados</h1>
 <p>Utilizamos algumas fontes para compor nossa base de dados de análise, abaixo descrevemos cada uma delas:</p>
-<section id="cnes" class="level2">
-<h2 class="anchored" data-anchor-id="cnes">CNES</h2>
 <section id="descrição" class="level3">
 <h3 class="anchored" data-anchor-id="descrição">Descrição</h3>
 <p>Dados do Cadastro Nacional de Estabelecimentos de Saúde (CNES) reunidos pela Plataforma de Ciência de Dados aplicada à Saúde (PCDaS). Os dados foram obtidos junto ao DATASUS (Ministério da Saúde), tratados e enriquecidos seguindo uma metodologia própria de ETL da PCDaS, resultando em um dataset mensal com todos os registros de estabelecimentos de saúde contidos no CNES à partir de agosto de 2005. A atualização dos dados é realizada pelo DATASUS e a PCDaS extrai os registros mensais assim que disponibilizados. As colunas com nomes em MAIÚSCULO representam dados originais advindos do DATASUS e colunas com nomes iniciando em minúsculo representam dados resultantes de transformação ou enriquecimento.</p>
@@ -377,7 +371,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <table class="frame">
   <thead>
     <tr class="colnames"><td class="row_index"></td><th>cnes</th><th>uf</th><th>cod_mun</th><th>esfera_adm</th><th>retencao_tributos</th><th>tipo_retenção</th><th>natureza</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
     <tr><td class="row_index">0</td><td>2786052</td><td>SP</td><td>350410</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
@@ -396,21 +390,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <tr><td class="row_index">13</td><td>2094010</td><td>SP</td><td>353530</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
     <tr><td class="row_index">14</td><td>2804794</td><td>SP</td><td>354980</td><td>PRIVADA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td>Empresa Privada</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">13,327,506</td><td>3742822</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">13,327,507</td><td>5447410</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">13,327,508</td><td>7022204</td><td>DF</td><td>530010</td><td>PRIVADA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td></td><td>Empresa Privada</td></tr>
-    <tr><td class="row_index">13,327,509</td><td>7108923</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">13,327,510</td><td>7238703</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">233,306</td><td>3475840</td><td>MG</td><td>314310</td><td>PRIVADA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td></td><td>Empresa Privada</td></tr>
+    <tr><td class="row_index">233,307</td><td>3933067</td><td>MG</td><td>314310</td><td>PRIVADA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td></td><td>Empresa Privada</td></tr>
+    <tr><td class="row_index">233,308</td><td>6094325</td><td>MG</td><td>315540</td><td>PRIVADA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td>Empresa Privada</td></tr>
+    <tr><td class="row_index">233,309</td><td>6563775</td><td>PR</td><td>410540</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="row_index">233,310</td><td>7843135</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">13,327,511 rows × 7 columns</div>
+    <div class="frame_dimensions">233,311 rows × 7 columns</div>
   </div>
 </div>
 </div>
 </div>
 <p>100%|██████████| 4374/4374 [05:40&lt;00:00, 12.86it/s]</p>
 </section>
+<section id="sih" class="level2">
+<h2 class="anchored" data-anchor-id="sih">SIH</h2>
 </section>
 <section id="sinasc" class="level2">
 <h2 class="anchored" data-anchor-id="sinasc">SINASC</h2>
@@ -529,9 +525,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>100%|██████████| 675/675 [03:03&lt;00:00, 3.69it/s]</p>
 </section>
-</section>
-<section id="sih" class="level2">
-<h2 class="anchored" data-anchor-id="sih">SIH</h2>
 <section id="descrição-2" class="level3">
 <h3 class="anchored" data-anchor-id="descrição-2">Descrição</h3>
 <p>Dados do Sistema de Informações Hospitalares do SUS (SIHSUS) reunidos pela Plataforma de Ciência de Dados aplicada à Saúde (PCDaS). Os dados foram obtidos junto ao DATASUS (Ministério da Saúde), tratados e enriquecidos seguindo uma metodologia própria de ETL (processo de extração, transformação e carga dos dados) da PCDaS, resultando em um dataset mensal com todos os registros de internações hospitalares contidos no SIHSUS à partir de janeiro de 2008.</p>
@@ -584,14 +577,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="carregar-dados-2" class="level3">
 <h3 class="anchored" data-anchor-id="carregar-dados-2">Carregar dados</h3>
-<div class="cell" data-execution_count="18">
+<div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>path_zip_sih <span class="op">=</span> <span class="st">'/Volumes/SanDisk/SIHSUS.zip'</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>output_sih <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/SIHSUS/SIHSUS.csv.gzip'</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># df_sih = data_load(path_zip_sih, cols_sih, filter_sih)</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># df_sih.to_csv(output_sih)</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> dt.fread(output_sih)</span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="16">
 
 <div class="datatable">
   <table class="frame">
@@ -630,9 +623,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>100%|██████████| 4400/4400 [24:46&lt;00:00, 2.96it/s]</p>
-
-
 </section>
+</section>
+<section id="cnes" class="level2">
+<h2 class="anchored" data-anchor-id="cnes">CNES</h2>
+
+
 </section>
 </section>
 
