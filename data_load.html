@@ -573,47 +573,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="carregar-dados-2" class="level3">
 <h3 class="anchored" data-anchor-id="carregar-dados-2">Carregar dados</h3>
-<div class="cell" data-execution_count="17">
+<div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>path_zip_sih <span class="op">=</span> <span class="st">'/Volumes/SanDisk/SIHSUS.zip'</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>output_sih <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/CNES/CNES.csv.gzip'</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>output_sih <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/SIHSUS/SIHSUS.csv.gzip'</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># df_sih = data_load(path_zip_sih, cols_sih, filter_sih)</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># df_sih.to_csv(output_sih)</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> dt.fread(output_sih)</span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="18">
 
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>cnes</th><th>uf</th><th>cod_mun</th><th>esfera_adm</th><th>retencao_tributos</th><th>tipo_retenção</th><th>natureza</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>ano</th><th>cnes</th><th>hosp_municipio</th><th>res_municipio</th><th>hosp_regiao_saude</th><th>res_regiao_saude</th><th>tipo_parto</th><th>idade</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>2786052</td><td>SP</td><td>350410</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">1</td><td>2814714</td><td>SP</td><td>355030</td><td>PRIVADA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td></td><td>Empresa Privada</td></tr>
-    <tr><td class="row_index">2</td><td>2784769</td><td>SP</td><td>351880</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">3</td><td>2051001</td><td>SP</td><td>350440</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">4</td><td>8012806</td><td>SP</td><td>352390</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">5</td><td>2028476</td><td>SP</td><td>355030</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">6</td><td>2093731</td><td>SP</td><td>355030</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td></td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">7</td><td>2093766</td><td>SP</td><td>354090</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">8</td><td>2093871</td><td>SP</td><td>354090</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">9</td><td>2088894</td><td>SP</td><td>351340</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">10</td><td>2088908</td><td>SP</td><td>350860</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">11</td><td>2060701</td><td>SP</td><td>351620</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Adm Indireta - Organização Social Pública</td></tr>
-    <tr><td class="row_index">12</td><td>2050455</td><td>SP</td><td>350450</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">13</td><td>2094010</td><td>SP</td><td>353530</td><td>MUNICIPAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">14</td><td>2804794</td><td>SP</td><td>354980</td><td>PRIVADA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td>Empresa Privada</td></tr>
-    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">13,327,506</td><td>3742822</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">13,327,507</td><td>5447410</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">13,327,508</td><td>7022204</td><td>DF</td><td>530010</td><td>PRIVADA</td><td>Estabelecimento PRIVADO LUCRATIVA</td><td></td><td>Empresa Privada</td></tr>
-    <tr><td class="row_index">13,327,509</td><td>7108923</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
-    <tr><td class="row_index">13,327,510</td><td>7238703</td><td>DF</td><td>530010</td><td>ESTADUAL</td><td>Estabelecimento PUBLICO</td><td>Estabelecimento PUBLICO</td><td>Administração Direta da Saúde (MS, SES, e SMS)</td></tr>
+    <tr><td class="row_index">0</td><td>2010</td><td>2001020</td><td>120005</td><td>120005</td><td>1202</td><td>1202</td><td>310010039</td><td>23</td></tr>
+    <tr><td class="row_index">1</td><td>2010</td><td>2000733</td><td>120040</td><td>120040</td><td>1201</td><td>1201</td><td>310010039</td><td>28</td></tr>
+    <tr><td class="row_index">2</td><td>2010</td><td>2000733</td><td>120040</td><td>120040</td><td>1201</td><td>1201</td><td>310010039</td><td>38</td></tr>
+    <tr><td class="row_index">3</td><td>2010</td><td>2000733</td><td>120040</td><td>120040</td><td>1201</td><td>1201</td><td>310010039</td><td>16</td></tr>
+    <tr><td class="row_index">4</td><td>2010</td><td>2000733</td><td>120040</td><td>120040</td><td>1201</td><td>1201</td><td>310010039</td><td>26</td></tr>
+    <tr><td class="row_index">5</td><td>2010</td><td>2000733</td><td>120040</td><td>120040</td><td>1201</td><td>1201</td><td>310010039</td><td>26</td></tr>
+    <tr><td class="row_index">6</td><td>2010</td><td>2000733</td><td>120040</td><td>120040</td><td>1201</td><td>1201</td><td>310010039</td><td>27</td></tr>
+    <tr><td class="row_index">7</td><td>2010</td><td>2001020</td><td>120005</td><td>120005</td><td>1202</td><td>1202</td><td>310010039</td><td>31</td></tr>
+    <tr><td class="row_index">8</td><td>2010</td><td>2000733</td><td>120040</td><td>120040</td><td>1201</td><td>1201</td><td>310010039</td><td>30</td></tr>
+    <tr><td class="row_index">9</td><td>2010</td><td>2000733</td><td>120040</td><td>120040</td><td>1201</td><td>1201</td><td>310010039</td><td>18</td></tr>
+    <tr><td class="row_index">10</td><td>2010</td><td>2001020</td><td>120005</td><td>120005</td><td>1202</td><td>1202</td><td>310010039</td><td>28</td></tr>
+    <tr><td class="row_index">11</td><td>2010</td><td>2000733</td><td>120040</td><td>120038</td><td>1201</td><td>1201</td><td>310010039</td><td>32</td></tr>
+    <tr><td class="row_index">12</td><td>2010</td><td>2000733</td><td>120040</td><td>120040</td><td>1201</td><td>1201</td><td>310010039</td><td>30</td></tr>
+    <tr><td class="row_index">13</td><td>2010</td><td>2000733</td><td>120040</td><td>120001</td><td>1201</td><td>1201</td><td>310010039</td><td>26</td></tr>
+    <tr><td class="row_index">14</td><td>2010</td><td>2000733</td><td>120040</td><td>120040</td><td>1201</td><td>1201</td><td>310010039</td><td>26</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">16,816,986</td><td>2019</td><td>2765640</td><td>170930</td><td>171840</td><td>1704</td><td>1704</td><td>411010034</td><td>24</td></tr>
+    <tr><td class="row_index">16,816,987</td><td>2019</td><td>2765640</td><td>170930</td><td>171670</td><td>1704</td><td>1704</td><td>411010034</td><td>27</td></tr>
+    <tr><td class="row_index">16,816,988</td><td>2019</td><td>2765640</td><td>170930</td><td>171670</td><td>1704</td><td>1704</td><td>411010034</td><td>22</td></tr>
+    <tr><td class="row_index">16,816,989</td><td>2019</td><td>2765640</td><td>170930</td><td>170930</td><td>1704</td><td>1704</td><td>411010034</td><td>25</td></tr>
+    <tr><td class="row_index">16,816,990</td><td>2019</td><td>2755149</td><td>171610</td><td>171250</td><td>1708</td><td>1708</td><td>411010034</td><td>21</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">13,327,511 rows × 7 columns</div>
+    <div class="frame_dimensions">16,816,991 rows × 8 columns</div>
   </div>
 </div>
 </div>
