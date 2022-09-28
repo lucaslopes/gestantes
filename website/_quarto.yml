@@ -14,6 +14,7 @@ website:
       - index.qmd
       - data_load.ipynb
       - cnes.ipynb
+      - data_compare.ipynb
 
 format:
   html:
