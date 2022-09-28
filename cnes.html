@@ -208,7 +208,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#lista-dos-cnes-2" id="toc-lista-dos-cnes-2" class="nav-link" data-scroll-target="#lista-dos-cnes-2">Lista dos CNES</a></li>
   <li><a href="#venn-2" id="toc-venn-2" class="nav-link" data-scroll-target="#venn-2">Venn</a></li>
   </ul></li>
-  <li><a href="#sinasc-cnes-not-in-sih" id="toc-sinasc-cnes-not-in-sih" class="nav-link" data-scroll-target="#sinasc-cnes-not-in-sih">(SINASC &amp; CNES) not in SIH</a></li>
+  <li><a href="#sinasc-cnes-not-in-sih" id="toc-sinasc-cnes-not-in-sih" class="nav-link" data-scroll-target="#sinasc-cnes-not-in-sih">(SINASC &amp; CNES) not in SIH</a>
+  <ul class="collapse">
+  <li><a href="#repetidos" id="toc-repetidos" class="nav-link" data-scroll-target="#repetidos">Repetidos</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -1004,6 +1007,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inpect_cnes.to_excel('inspect_cnes.xlsx')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="repetidos" class="level3">
+<h3 class="anchored" data-anchor-id="repetidos">Repetidos</h3>
 <div class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>inpect_cnes[<span class="st">'cnes'</span>].value_counts().hist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1037,6 +1042,7 @@ if (outputEl) {{
 </div>
 
 
+</section>
 </section>
 </section>
 
