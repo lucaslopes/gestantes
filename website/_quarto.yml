@@ -1,0 +1,24 @@
+project:
+  type: website
+
+website:
+  title: "Deslocamento de Gestantes"
+  sidebar:
+    search: true
+    style: "docked"
+    background: info
+    tools:
+      - icon: github
+        href: https://github.com/lucaslopes/gestantes
+    contents:
+      - index.qmd
+      - data_load.ipynb
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+
