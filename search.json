@@ -102,13 +102,13 @@
     "href": "data_compare.html#contagem",
     "title": "Comparação",
     "section": "Contagem",
-    "text": "Contagem\n\nall_: Base original sem mudanças\nflt_: Base com filtros básicos\nsus_: Base filtrada e com CNES de VINC_SUS=1\n\n\nall_sih = 157033546\nall_sinasc = 74398079\nflt_sih = 16816991 # dt.fread(path_zip_sihsus).shape[0]\nflt_sinasc = 28197164 # dt.fread(path_zip_sinasc).shape[0]\nsus_sih = 16816117\nsih_sinasc = 24494524"
+    "text": "Contagem\n\nall_: Base original sem mudanças\nflt_: Base com filtros básicos\nsus_: Base filtrada e com CNES de VINC_SUS=1\n\n\nall_sih = 157033546\nall_sinasc = 74398079\nflt_sih = 16816991 # dt.fread(path_zip_sihsus).shape[0]\nflt_sinasc = 28197164 # dt.fread(path_zip_sinasc).shape[0]\nsus_sih = 16816117\nsus_sinasc = 24494524"
   },
   {
     "objectID": "data_compare.html#barplot",
     "href": "data_compare.html#barplot",
     "title": "Comparação",
     "section": "Barplot",
-    "text": "Barplot\n\ndf_filter = pd.DataFrame([\n    ['SIH', 'all', all_sih],\n    ['SINASC', 'all', all_sinasc],\n    ['SIH', 'filter', flt_sih],\n    ['SINASC', 'filter', flt_sinasc],\n    ['SIH', 'sus', sus_sih],\n    ['SINASC', 'sus', sih_sinasc],\n], columns=['database', 'selection', 'records'])\nfig = px.bar(df_filter, x='database', y='records', color='selection', barmode='overlay')\nfig.show()\n\n\n                                                \n\n\n\nflt_sinasc - sih_sinasc == 3702640\n\nTrue\n\n\n\n3702640 / flt_sinasc * 100\n\n13.131249653333931"
+    "text": "Barplot\n\ndf_filter = pd.DataFrame([\n    ['SIH', 'all', all_sih],\n    ['SINASC', 'all', all_sinasc],\n    ['SIH', 'filter', flt_sih],\n    ['SINASC', 'filter', flt_sinasc],\n    ['SIH', 'sus', sus_sih],\n    ['SINASC', 'sus', sus_sinasc],\n], columns=['database', 'selection', 'records'])\nfig = px.bar(df_filter, x='database', y='records', color='selection', barmode='overlay')\nfig.show()\n\n\n                                                \n\n\n\nflt_sinasc - sus_sinasc == 3702640\n\nTrue\n\n\n\n3702640 / flt_sinasc * 100\n\n13.131249653333931"
   }
 ]
