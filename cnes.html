@@ -193,9 +193,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#interseção" id="toc-interseção" class="nav-link" data-scroll-target="#interseção">Interseção</a>
   <ul class="collapse">
-  <li><a href="#sinasc-sih" id="toc-sinasc-sih" class="nav-link" data-scroll-target="#sinasc-sih">SINASC &amp; SIH</a></li>
-  <li><a href="#sinasc-cnes" id="toc-sinasc-cnes" class="nav-link" data-scroll-target="#sinasc-cnes">SINASC &amp; CNES</a></li>
+  <li><a href="#sinasc-sih" id="toc-sinasc-sih" class="nav-link" data-scroll-target="#sinasc-sih">SINASC &amp; SIH</a>
+  <ul class="collapse">
+  <li><a href="#lista-dos-cnes" id="toc-lista-dos-cnes" class="nav-link" data-scroll-target="#lista-dos-cnes">Lista dos CNES</a></li>
+  <li><a href="#venn" id="toc-venn" class="nav-link" data-scroll-target="#venn">Venn</a></li>
+  </ul></li>
+  <li><a href="#sinasc-cnes" id="toc-sinasc-cnes" class="nav-link" data-scroll-target="#sinasc-cnes">SINASC &amp; CNES</a>
+  <ul class="collapse">
+  <li><a href="#lista-dos-cnes-1" id="toc-lista-dos-cnes-1" class="nav-link" data-scroll-target="#lista-dos-cnes-1">Lista dos CNES</a></li>
+  <li><a href="#venn-1" id="toc-venn-1" class="nav-link" data-scroll-target="#venn-1">Venn</a></li>
   <li><a href="#sih-cnes" id="toc-sih-cnes" class="nav-link" data-scroll-target="#sih-cnes">SIH &amp; CNES</a></li>
+  <li><a href="#lista-dos-cnes-2" id="toc-lista-dos-cnes-2" class="nav-link" data-scroll-target="#lista-dos-cnes-2">Lista dos CNES</a></li>
+  <li><a href="#venn-2" id="toc-venn-2" class="nav-link" data-scroll-target="#venn-2">Venn</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -230,10 +240,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib_venn <span class="im">import</span> venn2, venn3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="bases-de-dados" class="level2">
-<h2 class="anchored" data-anchor-id="bases-de-dados">Bases de Dados</h2>
-<section id="cnes" class="level3">
-<h3 class="anchored" data-anchor-id="cnes">CNES</h3>
+<section id="bases-de-dados" class="level1">
+<h1>Bases de Dados</h1>
+<section id="cnes" class="level2">
+<h2 class="anchored" data-anchor-id="cnes">CNES</h2>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path_zip_cnes <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/CNES/CNES.csv.gzip'</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_cnes <span class="op">=</span> dt.fread(path_zip_cnes)</span>
@@ -315,8 +325,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="sinasc" class="level3">
-<h3 class="anchored" data-anchor-id="sinasc">SINASC</h3>
+<section id="sinasc" class="level2">
+<h2 class="anchored" data-anchor-id="sinasc">SINASC</h2>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>path_zip_sinasc <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/SINASC/SINASC.csv.gzip'</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_cnes_sinasc <span class="op">=</span> dt.fread(path_zip_sinasc)</span>
@@ -398,8 +408,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="sih" class="level3">
-<h3 class="anchored" data-anchor-id="sih">SIH</h3>
+<section id="sih" class="level2">
+<h2 class="anchored" data-anchor-id="sih">SIH</h2>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>path_zip_sih <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/SIHSUS/SIHSUS.csv.gzip'</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_cnes_sih <span class="op">=</span> dt.fread(path_zip_sih)</span>
@@ -482,10 +492,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="interseção" class="level2">
-<h2 class="anchored" data-anchor-id="interseção">Interseção</h2>
-<section id="sinasc-sih" class="level3">
-<h3 class="anchored" data-anchor-id="sinasc-sih">SINASC &amp; SIH</h3>
+<section id="interseção" class="level1">
+<h1>Interseção</h1>
+<section id="sinasc-sih" class="level2">
+<h2 class="anchored" data-anchor-id="sinasc-sih">SINASC &amp; SIH</h2>
+<section id="lista-dos-cnes" class="level3">
+<h3 class="anchored" data-anchor-id="lista-dos-cnes">Lista dos CNES</h3>
 <div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sinasc_sih <span class="op">=</span> df_cnes_sinasc.merge(df_cnes_sih, on<span class="op">=</span><span class="st">'cnes'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>n_sinasc_sih <span class="op">=</span> sinasc_sih.shape[<span class="dv">0</span>]</span>
@@ -576,6 +588,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
+</section>
+<section id="venn" class="level3">
+<h3 class="anchored" data-anchor-id="venn">Venn</h3>
 <div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> venn2(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  subsets <span class="op">=</span> (</span>
@@ -593,8 +608,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="sinasc-cnes" class="level3">
-<h3 class="anchored" data-anchor-id="sinasc-cnes">SINASC &amp; CNES</h3>
+</section>
+<section id="sinasc-cnes" class="level2">
+<h2 class="anchored" data-anchor-id="sinasc-cnes">SINASC &amp; CNES</h2>
+<section id="lista-dos-cnes-1" class="level3">
+<h3 class="anchored" data-anchor-id="lista-dos-cnes-1">Lista dos CNES</h3>
 <div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sinasc_cnes <span class="op">=</span> df_cnes_sinasc.merge(df_cnes, on<span class="op">=</span><span class="st">'cnes'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>n_sinasc_cnes <span class="op">=</span> sinasc_cnes.shape[<span class="dv">0</span>]</span>
@@ -685,6 +703,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
+</section>
+<section id="venn-1" class="level3">
+<h3 class="anchored" data-anchor-id="venn-1">Venn</h3>
 <div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> venn2(</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  subsets <span class="op">=</span> (</span>
@@ -704,6 +725,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="sih-cnes" class="level3">
 <h3 class="anchored" data-anchor-id="sih-cnes">SIH &amp; CNES</h3>
+</section>
+<section id="lista-dos-cnes-2" class="level3">
+<h3 class="anchored" data-anchor-id="lista-dos-cnes-2">Lista dos CNES</h3>
 <div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sih_cnes <span class="op">=</span> df_cnes_sih.merge(df_cnes, on<span class="op">=</span><span class="st">'cnes'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>n_sih_cnes <span class="op">=</span> sih_cnes.shape[<span class="dv">0</span>]</span>
@@ -794,6 +818,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
+</section>
+<section id="venn-2" class="level3">
+<h3 class="anchored" data-anchor-id="venn-2">Venn</h3>
 <div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> venn2(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  subsets <span class="op">=</span> (</span>
@@ -812,6 +839,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 
 
+</section>
 </section>
 </section>
 
