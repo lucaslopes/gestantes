@@ -211,6 +211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#nasc_peso" id="toc-nasc_peso" class="nav-link" data-scroll-target="#nasc_peso"><code>nasc_peso</code></a></li>
   <li><a href="#nasc_apgar1" id="toc-nasc_apgar1" class="nav-link" data-scroll-target="#nasc_apgar1"><code>nasc_apgar1</code></a></li>
   <li><a href="#nasc_apgar5" id="toc-nasc_apgar5" class="nav-link" data-scroll-target="#nasc_apgar5"><code>nasc_apgar5</code></a></li>
+  <li><a href="#periodo" id="toc-periodo" class="nav-link" data-scroll-target="#periodo"><code>periodo</code></a></li>
   </ul></li>
   <li><a href="#dataset-final" id="toc-dataset-final" class="nav-link" data-scroll-target="#dataset-final">Dataset final</a></li>
   </ul>
@@ -1036,12 +1037,29 @@ Name: nasc_apgar5, dtype: Int64</code></pre>
 </div>
 </div>
 </section>
+<section id="periodo" class="level3">
+<h3 class="anchored" data-anchor-id="periodo"><code>periodo</code></h3>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus.loc[:, <span class="st">'periodo'</span>] <span class="op">=</span> df_sinasc_sus[<span class="st">'ano'</span>].<span class="bu">apply</span>(</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">lambda</span> x: <span class="st">'antes'</span> <span class="cf">if</span> (x <span class="op">==</span> <span class="dv">2010</span>) <span class="op">|</span> (x <span class="op">==</span> <span class="dv">2011</span>) <span class="cf">else</span> (<span class="st">'depois'</span> <span class="cf">if</span> (x <span class="op">==</span> <span class="dv">2018</span>) <span class="op">|</span> (x <span class="op">==</span> <span class="dv">2019</span>) <span class="cf">else</span> <span class="st">'durante'</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus[<span class="st">'periodo'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>durante    13682037
+depois      4573711
+antes       4517834
+Name: periodo, dtype: int64</code></pre>
+</div>
+</div>
+</section>
 </section>
 <section id="dataset-final" class="level2">
 <h2 class="anchored" data-anchor-id="dataset-final">Dataset final</h2>
-<div class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
 
 <div>
 
@@ -1066,6 +1084,7 @@ Name: nasc_apgar5, dtype: Int64</code></pre>
       <th>nasc_peso</th>
       <th>nasc_apgar1</th>
       <th>nasc_apgar5</th>
+      <th>periodo</th>
     </tr>
   </thead>
   <tbody>
@@ -1088,6 +1107,7 @@ Name: nasc_apgar5, dtype: Int64</code></pre>
       <td>3550</td>
       <td>8</td>
       <td>9</td>
+      <td>antes</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1108,6 +1128,7 @@ Name: nasc_apgar5, dtype: Int64</code></pre>
       <td>3000</td>
       <td>9</td>
       <td>10</td>
+      <td>antes</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1128,6 +1149,7 @@ Name: nasc_apgar5, dtype: Int64</code></pre>
       <td>3000</td>
       <td>9</td>
       <td>10</td>
+      <td>antes</td>
     </tr>
     <tr>
       <th>5</th>
@@ -1148,6 +1170,7 @@ Name: nasc_apgar5, dtype: Int64</code></pre>
       <td>3900</td>
       <td>7</td>
       <td>9</td>
+      <td>antes</td>
     </tr>
     <tr>
       <th>6</th>
@@ -1168,9 +1191,11 @@ Name: nasc_apgar5, dtype: Int64</code></pre>
       <td>3250</td>
       <td>7</td>
       <td>10</td>
+      <td>antes</td>
     </tr>
     <tr>
       <th>...</th>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -1208,6 +1233,7 @@ Name: nasc_apgar5, dtype: Int64</code></pre>
       <td>2840</td>
       <td>8</td>
       <td>9</td>
+      <td>depois</td>
     </tr>
     <tr>
       <th>28197149</th>
@@ -1228,6 +1254,7 @@ Name: nasc_apgar5, dtype: Int64</code></pre>
       <td>3082</td>
       <td>8</td>
       <td>9</td>
+      <td>depois</td>
     </tr>
     <tr>
       <th>28197160</th>
@@ -1248,6 +1275,7 @@ Name: nasc_apgar5, dtype: Int64</code></pre>
       <td>2870</td>
       <td>8</td>
       <td>9</td>
+      <td>depois</td>
     </tr>
     <tr>
       <th>28197161</th>
@@ -1268,6 +1296,7 @@ Name: nasc_apgar5, dtype: Int64</code></pre>
       <td>2554</td>
       <td>8</td>
       <td>9</td>
+      <td>depois</td>
     </tr>
     <tr>
       <th>28197162</th>
@@ -1288,16 +1317,17 @@ Name: nasc_apgar5, dtype: Int64</code></pre>
       <td>2610</td>
       <td>8</td>
       <td>9</td>
+      <td>depois</td>
     </tr>
   </tbody>
 </table>
-<p>22773582 rows × 17 columns</p>
+<p>22773582 rows × 18 columns</p>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>path_sinasc_sus <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/SINASC/sinasc_sus.csv.gzip'</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus.to_csv(path_sinasc_sus, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>path_sinasc_sus <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/SINASC/sinasc_sus.csv.gzip'</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus.to_csv(path_sinasc_sus, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
