@@ -1114,30 +1114,106 @@ memory usage: 946.8 MB</code></pre>
 </div>
 </div>
 </div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_socioeco[[<span class="st">'Cód IBGE'</span>, <span class="st">'Grupo'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Cód IBGE</th>
+      <th>Grupo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>120001</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>120005</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>120010</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>120013</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>120017</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>172120</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5567</th>
+      <td>172125</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5568</th>
+      <td>172130</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5569</th>
+      <td>172208</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>5570</th>
+      <td>172210</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+<p>5571 rows × 2 columns</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="tabela-deslocamento" class="level1">
 <h1>Tabela Deslocamento</h1>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> merge_lat_lon(df_left, df_right, left_on, right_on):</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  prefix <span class="op">=</span> left_on.split(<span class="st">'_'</span>)[<span class="dv">0</span>]</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> pd.merge(df_left, df_right, how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span>left_on, right_on<span class="op">=</span>right_on)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df.rename(columns<span class="op">=</span>{</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'latitude'</span>: <span class="ss">f'</span><span class="sc">{</span>prefix<span class="sc">}</span><span class="ss">_latitude'</span>,</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'longitude'</span>: <span class="ss">f'</span><span class="sc">{</span>prefix<span class="sc">}</span><span class="ss">_longitude'</span>})</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df.drop(right_on, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> merge_lat_lon(df_left, df_right, left_on, right_on):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  prefix <span class="op">=</span> left_on.split(<span class="st">'_'</span>)[<span class="dv">0</span>]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> pd.merge(df_left, df_right, how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span>left_on, right_on<span class="op">=</span>right_on)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df.rename(columns<span class="op">=</span>{</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'latitude'</span>: <span class="ss">f'</span><span class="sc">{</span>prefix<span class="sc">}</span><span class="ss">_latitude'</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'longitude'</span>: <span class="ss">f'</span><span class="sc">{</span>prefix<span class="sc">}</span><span class="ss">_longitude'</span>})</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df.drop(right_on, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">'periodo'</span>, <span class="st">'res_municipio'</span>, <span class="st">'hosp_municipio'</span>, <span class="st">'res_regiao_saude'</span>, <span class="st">'hosp_regiao_saude'</span>, <span class="st">'cnes'</span>]</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_sinasc[cols]</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc[df_deslc[<span class="st">'periodo'</span>] <span class="op">!=</span> <span class="st">'durante'</span>]</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc.groupby(</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  cols, as_index<span class="op">=</span><span class="va">False</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>).size().sort_values(<span class="st">'size'</span>, ascending<span class="op">=</span><span class="va">False</span>, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc.rename(columns<span class="op">=</span>{<span class="st">'size'</span>: <span class="st">'nascimentos'</span>})</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">'periodo'</span>, <span class="st">'parto_normal'</span>, <span class="st">'res_municipio'</span>, <span class="st">'hosp_municipio'</span>, <span class="st">'res_regiao_saude'</span>, <span class="st">'hosp_regiao_saude'</span>, <span class="st">'cnes'</span>]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_sinasc[cols]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc[df_deslc[<span class="st">'periodo'</span>] <span class="op">!=</span> <span class="st">'durante'</span>]</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc.groupby(</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  cols, as_index<span class="op">=</span><span class="va">False</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>).size().sort_values(<span class="st">'size'</span>, ascending<span class="op">=</span><span class="va">False</span>, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc.rename(columns<span class="op">=</span>{<span class="st">'size'</span>: <span class="st">'nascimentos'</span>})</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
 
 <div>
 
@@ -1146,6 +1222,7 @@ memory usage: 946.8 MB</code></pre>
     <tr>
       <th></th>
       <th>periodo</th>
+      <th>parto_normal</th>
       <th>res_municipio</th>
       <th>hosp_municipio</th>
       <th>res_regiao_saude</th>
@@ -1158,52 +1235,57 @@ memory usage: 946.8 MB</code></pre>
     <tr>
       <th>0</th>
       <td>antes</td>
+      <td>True</td>
       <td>130260</td>
       <td>130260</td>
       <td>1301</td>
       <td>1301</td>
       <td>3151794</td>
-      <td>16810</td>
+      <td>11011</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>depois</td>
-      <td>140010</td>
-      <td>140010</td>
-      <td>1401</td>
-      <td>1401</td>
-      <td>2566168</td>
-      <td>15461</td>
+      <td>antes</td>
+      <td>True</td>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
+      <td>2077388</td>
+      <td>10426</td>
     </tr>
     <tr>
       <th>2</th>
       <td>depois</td>
+      <td>False</td>
       <td>500270</td>
       <td>500270</td>
       <td>5011</td>
       <td>5011</td>
       <td>9768</td>
-      <td>14811</td>
+      <td>10012</td>
     </tr>
     <tr>
       <th>3</th>
       <td>depois</td>
-      <td>350950</td>
-      <td>350950</td>
-      <td>3512</td>
-      <td>3512</td>
-      <td>2022621</td>
-      <td>14690</td>
+      <td>True</td>
+      <td>140010</td>
+      <td>140010</td>
+      <td>1401</td>
+      <td>1401</td>
+      <td>2566168</td>
+      <td>9647</td>
     </tr>
     <tr>
       <th>4</th>
       <td>antes</td>
+      <td>True</td>
       <td>292740</td>
       <td>292740</td>
       <td>2901</td>
       <td>2901</td>
       <td>3956369</td>
-      <td>14540</td>
+      <td>9109</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1214,50 +1296,56 @@ memory usage: 946.8 MB</code></pre>
       <td>...</td>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>115861</th>
+      <th>169160</th>
       <td>antes</td>
-      <td>520815</td>
-      <td>520870</td>
-      <td>5211</td>
-      <td>5201</td>
-      <td>2339196</td>
+      <td>True</td>
+      <td>510622</td>
+      <td>510267</td>
+      <td>5114</td>
+      <td>5107</td>
+      <td>2396106</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>115862</th>
+      <th>169161</th>
       <td>antes</td>
-      <td>520830</td>
-      <td>170240</td>
-      <td>5208</td>
-      <td>1709</td>
-      <td>2792451</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510340</td>
+      <td>5104</td>
+      <td>5101</td>
+      <td>2659107</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>115863</th>
+      <th>169162</th>
       <td>antes</td>
-      <td>520830</td>
-      <td>520800</td>
-      <td>5208</td>
-      <td>5206</td>
-      <td>2361477</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510340</td>
+      <td>5104</td>
+      <td>5101</td>
+      <td>2311682</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>115864</th>
+      <th>169163</th>
       <td>antes</td>
-      <td>520830</td>
-      <td>520870</td>
-      <td>5208</td>
-      <td>5201</td>
-      <td>2338424</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510025</td>
+      <td>5104</td>
+      <td>5104</td>
+      <td>2471345</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>115865</th>
+      <th>169164</th>
       <td>depois</td>
+      <td>True</td>
       <td>522230</td>
       <td>530010</td>
       <td>5212</td>
@@ -1267,23 +1355,23 @@ memory usage: 946.8 MB</code></pre>
     </tr>
   </tbody>
 </table>
-<p>115866 rows × 7 columns</p>
+<p>169165 rows × 8 columns</p>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_deslc[<span class="st">'periodo'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
-<pre><code>depois    58080
-antes     57786
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_deslc[<span class="st">'periodo'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>antes     85023
+depois    84142
 Name: periodo, dtype: int64</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_deslc[<span class="st">'mun_diff'</span>] <span class="op">=</span> df_deslc[<span class="st">'res_municipio'</span>] <span class="op">!=</span> df_deslc[<span class="st">'hosp_municipio'</span>]</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df_deslc[<span class="st">'regsau_diff'</span>] <span class="op">=</span> df_deslc[<span class="st">'res_regiao_saude'</span>] <span class="op">!=</span> df_deslc[<span class="st">'hosp_regiao_saude'</span>]</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_deslc[<span class="st">'mun_diff'</span>] <span class="op">=</span> df_deslc[<span class="st">'res_municipio'</span>] <span class="op">!=</span> df_deslc[<span class="st">'hosp_municipio'</span>]</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df_deslc[<span class="st">'regsau_diff'</span>] <span class="op">=</span> df_deslc[<span class="st">'res_regiao_saude'</span>] <span class="op">!=</span> df_deslc[<span class="st">'hosp_regiao_saude'</span>]</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
 
 <div>
 
@@ -1292,6 +1380,7 @@ Name: periodo, dtype: int64</code></pre>
     <tr>
       <th></th>
       <th>periodo</th>
+      <th>parto_normal</th>
       <th>res_municipio</th>
       <th>hosp_municipio</th>
       <th>res_regiao_saude</th>
@@ -1306,60 +1395,65 @@ Name: periodo, dtype: int64</code></pre>
     <tr>
       <th>0</th>
       <td>antes</td>
+      <td>True</td>
       <td>130260</td>
       <td>130260</td>
       <td>1301</td>
       <td>1301</td>
       <td>3151794</td>
-      <td>16810</td>
+      <td>11011</td>
       <td>False</td>
       <td>False</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>depois</td>
-      <td>140010</td>
-      <td>140010</td>
-      <td>1401</td>
-      <td>1401</td>
-      <td>2566168</td>
-      <td>15461</td>
+      <td>antes</td>
+      <td>True</td>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
+      <td>2077388</td>
+      <td>10426</td>
       <td>False</td>
       <td>False</td>
     </tr>
     <tr>
       <th>2</th>
       <td>depois</td>
+      <td>False</td>
       <td>500270</td>
       <td>500270</td>
       <td>5011</td>
       <td>5011</td>
       <td>9768</td>
-      <td>14811</td>
+      <td>10012</td>
       <td>False</td>
       <td>False</td>
     </tr>
     <tr>
       <th>3</th>
       <td>depois</td>
-      <td>350950</td>
-      <td>350950</td>
-      <td>3512</td>
-      <td>3512</td>
-      <td>2022621</td>
-      <td>14690</td>
+      <td>True</td>
+      <td>140010</td>
+      <td>140010</td>
+      <td>1401</td>
+      <td>1401</td>
+      <td>2566168</td>
+      <td>9647</td>
       <td>False</td>
       <td>False</td>
     </tr>
     <tr>
       <th>4</th>
       <td>antes</td>
+      <td>True</td>
       <td>292740</td>
       <td>292740</td>
       <td>2901</td>
       <td>2901</td>
       <td>3956369</td>
-      <td>14540</td>
+      <td>9109</td>
       <td>False</td>
       <td>False</td>
     </tr>
@@ -1374,58 +1468,64 @@ Name: periodo, dtype: int64</code></pre>
       <td>...</td>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>115861</th>
+      <th>169160</th>
       <td>antes</td>
-      <td>520815</td>
-      <td>520870</td>
-      <td>5211</td>
-      <td>5201</td>
-      <td>2339196</td>
+      <td>True</td>
+      <td>510622</td>
+      <td>510267</td>
+      <td>5114</td>
+      <td>5107</td>
+      <td>2396106</td>
       <td>1</td>
       <td>True</td>
       <td>True</td>
     </tr>
     <tr>
-      <th>115862</th>
+      <th>169161</th>
       <td>antes</td>
-      <td>520830</td>
-      <td>170240</td>
-      <td>5208</td>
-      <td>1709</td>
-      <td>2792451</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510340</td>
+      <td>5104</td>
+      <td>5101</td>
+      <td>2659107</td>
       <td>1</td>
       <td>True</td>
       <td>True</td>
     </tr>
     <tr>
-      <th>115863</th>
+      <th>169162</th>
       <td>antes</td>
-      <td>520830</td>
-      <td>520800</td>
-      <td>5208</td>
-      <td>5206</td>
-      <td>2361477</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510340</td>
+      <td>5104</td>
+      <td>5101</td>
+      <td>2311682</td>
       <td>1</td>
       <td>True</td>
       <td>True</td>
     </tr>
     <tr>
-      <th>115864</th>
+      <th>169163</th>
       <td>antes</td>
-      <td>520830</td>
-      <td>520870</td>
-      <td>5208</td>
-      <td>5201</td>
-      <td>2338424</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510025</td>
+      <td>5104</td>
+      <td>5104</td>
+      <td>2471345</td>
       <td>1</td>
       <td>True</td>
-      <td>True</td>
+      <td>False</td>
     </tr>
     <tr>
-      <th>115865</th>
+      <th>169164</th>
       <td>depois</td>
+      <td>True</td>
       <td>522230</td>
       <td>530010</td>
       <td>5212</td>
@@ -1437,30 +1537,1250 @@ Name: periodo, dtype: int64</code></pre>
     </tr>
   </tbody>
 </table>
-<p>115866 rows × 9 columns</p>
+<p>169165 rows × 10 columns</p>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>res_cols <span class="op">=</span> [</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_ibge'</span>,</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'regiao'</span>,</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'uf'</span>,</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'capital'</span>,</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'fronteira'</span>,</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'amazonia'</span>,</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'latitude'</span>,</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">'longitude'</span>,]</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>hosp_cols <span class="op">=</span> [</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_ibge'</span>,</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">'latitude'</span>,</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">'longitude'</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>res_cols <span class="op">=</span> [</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_ibge'</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'regiao'</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'uf'</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'capital'</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'fronteira'</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'amazonia'</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'latitude'</span>,</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">'longitude'</span>,]</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>hosp_cols <span class="op">=</span> [</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_ibge'</span>,</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">'latitude'</span>,</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">'longitude'</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> merge_lat_lon(df_deslc, df_muns[res_cols], <span class="st">'res_municipio'</span>, <span class="st">'cod_ibge'</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> merge_lat_lon(df_deslc, df_muns[hosp_cols], <span class="st">'hosp_municipio'</span>, <span class="st">'cod_ibge'</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>periodo</th>
+      <th>parto_normal</th>
+      <th>res_municipio</th>
+      <th>hosp_municipio</th>
+      <th>res_regiao_saude</th>
+      <th>hosp_regiao_saude</th>
+      <th>cnes</th>
+      <th>nascimentos</th>
+      <th>mun_diff</th>
+      <th>regsau_diff</th>
+      <th>regiao</th>
+      <th>uf</th>
+      <th>capital</th>
+      <th>fronteira</th>
+      <th>amazonia</th>
+      <th>res_latitude</th>
+      <th>res_longitude</th>
+      <th>hosp_latitude</th>
+      <th>hosp_longitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>130260</td>
+      <td>130260</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>3151794</td>
+      <td>11011</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Norte</td>
+      <td>AM</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-3.102000</td>
+      <td>-60.025002</td>
+      <td>-3.102000</td>
+      <td>-60.025002</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
+      <td>2077388</td>
+      <td>10426</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>depois</td>
+      <td>False</td>
+      <td>500270</td>
+      <td>500270</td>
+      <td>5011</td>
+      <td>5011</td>
+      <td>9768</td>
+      <td>10012</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Centro-Oeste</td>
+      <td>MS</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>depois</td>
+      <td>True</td>
+      <td>140010</td>
+      <td>140010</td>
+      <td>1401</td>
+      <td>1401</td>
+      <td>2566168</td>
+      <td>9647</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Norte</td>
+      <td>RR</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>2.820000</td>
+      <td>-60.673000</td>
+      <td>2.820000</td>
+      <td>-60.673000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>292740</td>
+      <td>292740</td>
+      <td>2901</td>
+      <td>2901</td>
+      <td>3956369</td>
+      <td>9109</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>169163</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>510622</td>
+      <td>510267</td>
+      <td>5114</td>
+      <td>5107</td>
+      <td>2396106</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Centro-Oeste</td>
+      <td>MT</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-13.838000</td>
+      <td>-56.084000</td>
+      <td>-15.547000</td>
+      <td>-55.168999</td>
+    </tr>
+    <tr>
+      <th>169164</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510340</td>
+      <td>5104</td>
+      <td>5101</td>
+      <td>2659107</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Centro-Oeste</td>
+      <td>MT</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-10.558000</td>
+      <td>-55.952999</td>
+      <td>-15.596000</td>
+      <td>-56.097000</td>
+    </tr>
+    <tr>
+      <th>169165</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510340</td>
+      <td>5104</td>
+      <td>5101</td>
+      <td>2311682</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Centro-Oeste</td>
+      <td>MT</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-10.558000</td>
+      <td>-55.952999</td>
+      <td>-15.596000</td>
+      <td>-56.097000</td>
+    </tr>
+    <tr>
+      <th>169166</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510025</td>
+      <td>5104</td>
+      <td>5104</td>
+      <td>2471345</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>Centro-Oeste</td>
+      <td>MT</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-10.558000</td>
+      <td>-55.952999</td>
+      <td>-9.876000</td>
+      <td>-56.085999</td>
+    </tr>
+    <tr>
+      <th>169167</th>
+      <td>depois</td>
+      <td>True</td>
+      <td>522230</td>
+      <td>530010</td>
+      <td>5212</td>
+      <td>5301</td>
+      <td>10545</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Centro-Oeste</td>
+      <td>GO</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-15.457000</td>
+      <td>-48.889000</td>
+      <td>-15.780000</td>
+      <td>-47.930000</td>
+    </tr>
+  </tbody>
+</table>
+<p>169168 rows × 19 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> pd.merge(df_deslc, df_dist, how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span>[<span class="st">'res_municipio'</span>, <span class="st">'hosp_municipio'</span>], right_on<span class="op">=</span>[<span class="st">'origem'</span>, <span class="st">'destino'</span>])</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc.drop([<span class="st">'origem'</span>, <span class="st">'destino'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>periodo</th>
+      <th>parto_normal</th>
+      <th>res_municipio</th>
+      <th>hosp_municipio</th>
+      <th>res_regiao_saude</th>
+      <th>hosp_regiao_saude</th>
+      <th>cnes</th>
+      <th>nascimentos</th>
+      <th>mun_diff</th>
+      <th>regsau_diff</th>
+      <th>...</th>
+      <th>uf</th>
+      <th>capital</th>
+      <th>fronteira</th>
+      <th>amazonia</th>
+      <th>res_latitude</th>
+      <th>res_longitude</th>
+      <th>hosp_latitude</th>
+      <th>hosp_longitude</th>
+      <th>distancia</th>
+      <th>tempo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>130260</td>
+      <td>130260</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>3151794</td>
+      <td>11011</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>AM</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-3.102000</td>
+      <td>-60.025002</td>
+      <td>-3.102000</td>
+      <td>-60.025002</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
+      <td>2077388</td>
+      <td>10426</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>SP</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>depois</td>
+      <td>False</td>
+      <td>500270</td>
+      <td>500270</td>
+      <td>5011</td>
+      <td>5011</td>
+      <td>9768</td>
+      <td>10012</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>MS</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>depois</td>
+      <td>True</td>
+      <td>140010</td>
+      <td>140010</td>
+      <td>1401</td>
+      <td>1401</td>
+      <td>2566168</td>
+      <td>9647</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>RR</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>2.820000</td>
+      <td>-60.673000</td>
+      <td>2.820000</td>
+      <td>-60.673000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>292740</td>
+      <td>292740</td>
+      <td>2901</td>
+      <td>2901</td>
+      <td>3956369</td>
+      <td>9109</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>169163</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>510622</td>
+      <td>510267</td>
+      <td>5114</td>
+      <td>5107</td>
+      <td>2396106</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>...</td>
+      <td>MT</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-13.838000</td>
+      <td>-56.084000</td>
+      <td>-15.547000</td>
+      <td>-55.168999</td>
+      <td>391.9461</td>
+      <td>4.769250</td>
+    </tr>
+    <tr>
+      <th>169164</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510340</td>
+      <td>5104</td>
+      <td>5101</td>
+      <td>2659107</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>...</td>
+      <td>MT</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-10.558000</td>
+      <td>-55.952999</td>
+      <td>-15.596000</td>
+      <td>-56.097000</td>
+      <td>701.7827</td>
+      <td>9.122222</td>
+    </tr>
+    <tr>
+      <th>169165</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510340</td>
+      <td>5104</td>
+      <td>5101</td>
+      <td>2311682</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>...</td>
+      <td>MT</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-10.558000</td>
+      <td>-55.952999</td>
+      <td>-15.596000</td>
+      <td>-56.097000</td>
+      <td>701.7827</td>
+      <td>9.122222</td>
+    </tr>
+    <tr>
+      <th>169166</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510025</td>
+      <td>5104</td>
+      <td>5104</td>
+      <td>2471345</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>...</td>
+      <td>MT</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-10.558000</td>
+      <td>-55.952999</td>
+      <td>-9.876000</td>
+      <td>-56.085999</td>
+      <td>117.8282</td>
+      <td>1.871250</td>
+    </tr>
+    <tr>
+      <th>169167</th>
+      <td>depois</td>
+      <td>True</td>
+      <td>522230</td>
+      <td>530010</td>
+      <td>5212</td>
+      <td>5301</td>
+      <td>10545</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>...</td>
+      <td>GO</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-15.457000</td>
+      <td>-48.889000</td>
+      <td>-15.780000</td>
+      <td>-47.930000</td>
+      <td>190.0009</td>
+      <td>3.216083</td>
+    </tr>
+  </tbody>
+</table>
+<p>169168 rows × 21 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> pd.merge(df_deslc, df_socioeco[[<span class="st">'Cód IBGE'</span>, <span class="st">'Grupo'</span>]], how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span><span class="st">'res_municipio'</span>, right_on<span class="op">=</span><span class="st">'Cód IBGE'</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc.rename(columns<span class="op">=</span>{<span class="st">'Grupo'</span>: <span class="st">'socioeconomico'</span>})</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc.drop([<span class="st">'Cód IBGE'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>periodo</th>
+      <th>parto_normal</th>
+      <th>res_municipio</th>
+      <th>hosp_municipio</th>
+      <th>res_regiao_saude</th>
+      <th>hosp_regiao_saude</th>
+      <th>cnes</th>
+      <th>nascimentos</th>
+      <th>mun_diff</th>
+      <th>regsau_diff</th>
+      <th>...</th>
+      <th>capital</th>
+      <th>fronteira</th>
+      <th>amazonia</th>
+      <th>res_latitude</th>
+      <th>res_longitude</th>
+      <th>hosp_latitude</th>
+      <th>hosp_longitude</th>
+      <th>distancia</th>
+      <th>tempo</th>
+      <th>socioeconomico</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>130260</td>
+      <td>130260</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>3151794</td>
+      <td>11011</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-3.102000</td>
+      <td>-60.025002</td>
+      <td>-3.102000</td>
+      <td>-60.025002</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
+      <td>2077388</td>
+      <td>10426</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>depois</td>
+      <td>False</td>
+      <td>500270</td>
+      <td>500270</td>
+      <td>5011</td>
+      <td>5011</td>
+      <td>9768</td>
+      <td>10012</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>depois</td>
+      <td>True</td>
+      <td>140010</td>
+      <td>140010</td>
+      <td>1401</td>
+      <td>1401</td>
+      <td>2566168</td>
+      <td>9647</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>2.820000</td>
+      <td>-60.673000</td>
+      <td>2.820000</td>
+      <td>-60.673000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>292740</td>
+      <td>292740</td>
+      <td>2901</td>
+      <td>2901</td>
+      <td>3956369</td>
+      <td>9109</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>169163</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>510622</td>
+      <td>510267</td>
+      <td>5114</td>
+      <td>5107</td>
+      <td>2396106</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-13.838000</td>
+      <td>-56.084000</td>
+      <td>-15.547000</td>
+      <td>-55.168999</td>
+      <td>391.9461</td>
+      <td>4.769250</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>169164</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510340</td>
+      <td>5104</td>
+      <td>5101</td>
+      <td>2659107</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-10.558000</td>
+      <td>-55.952999</td>
+      <td>-15.596000</td>
+      <td>-56.097000</td>
+      <td>701.7827</td>
+      <td>9.122222</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>169165</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510340</td>
+      <td>5104</td>
+      <td>5101</td>
+      <td>2311682</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-10.558000</td>
+      <td>-55.952999</td>
+      <td>-15.596000</td>
+      <td>-56.097000</td>
+      <td>701.7827</td>
+      <td>9.122222</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>169166</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510025</td>
+      <td>5104</td>
+      <td>5104</td>
+      <td>2471345</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-10.558000</td>
+      <td>-55.952999</td>
+      <td>-9.876000</td>
+      <td>-56.085999</td>
+      <td>117.8282</td>
+      <td>1.871250</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>169167</th>
+      <td>depois</td>
+      <td>True</td>
+      <td>522230</td>
+      <td>530010</td>
+      <td>5212</td>
+      <td>5301</td>
+      <td>10545</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-15.457000</td>
+      <td>-48.889000</td>
+      <td>-15.780000</td>
+      <td>-47.930000</td>
+      <td>190.0009</td>
+      <td>3.216083</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>169168 rows × 22 columns</p>
+</div>
+</div>
+</div>
+<section id="tabela-final" class="level2">
+<h2 class="anchored" data-anchor-id="tabela-final">Tabela Final</h2>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>path_deslc <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/GESTANTES/deslocamento.csv.gzip'</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df_deslc.to_csv(path_deslc, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(path_deslc, low_memory<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/9d/972tfrtd01z2hhl836z97zdr0000gn/T/ipykernel_30415/1965355593.py:1: DtypeWarning:
+
+Columns (12,13,14) have mixed types. Specify dtype option on import or set low_memory=False.
+</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>periodo</th>
+      <th>parto_normal</th>
+      <th>res_municipio</th>
+      <th>hosp_municipio</th>
+      <th>res_regiao_saude</th>
+      <th>hosp_regiao_saude</th>
+      <th>cnes</th>
+      <th>nascimentos</th>
+      <th>mun_diff</th>
+      <th>regsau_diff</th>
+      <th>...</th>
+      <th>capital</th>
+      <th>fronteira</th>
+      <th>amazonia</th>
+      <th>res_latitude</th>
+      <th>res_longitude</th>
+      <th>hosp_latitude</th>
+      <th>hosp_longitude</th>
+      <th>distancia</th>
+      <th>tempo</th>
+      <th>socioeconomico</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>130260</td>
+      <td>130260</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>3151794</td>
+      <td>11011</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-3.102000</td>
+      <td>-60.025002</td>
+      <td>-3.102000</td>
+      <td>-60.025002</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
+      <td>2077388</td>
+      <td>10426</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>depois</td>
+      <td>False</td>
+      <td>500270</td>
+      <td>500270</td>
+      <td>5011</td>
+      <td>5011</td>
+      <td>9768</td>
+      <td>10012</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>depois</td>
+      <td>True</td>
+      <td>140010</td>
+      <td>140010</td>
+      <td>1401</td>
+      <td>1401</td>
+      <td>2566168</td>
+      <td>9647</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>2.820000</td>
+      <td>-60.673000</td>
+      <td>2.820000</td>
+      <td>-60.673000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>292740</td>
+      <td>292740</td>
+      <td>2901</td>
+      <td>2901</td>
+      <td>3956369</td>
+      <td>9109</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>169163</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>510622</td>
+      <td>510267</td>
+      <td>5114</td>
+      <td>5107</td>
+      <td>2396106</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-13.838000</td>
+      <td>-56.084000</td>
+      <td>-15.547000</td>
+      <td>-55.168999</td>
+      <td>391.9461</td>
+      <td>4.769250</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>169164</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510340</td>
+      <td>5104</td>
+      <td>5101</td>
+      <td>2659107</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-10.558000</td>
+      <td>-55.952999</td>
+      <td>-15.596000</td>
+      <td>-56.097000</td>
+      <td>701.7827</td>
+      <td>9.122222</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>169165</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510340</td>
+      <td>5104</td>
+      <td>5101</td>
+      <td>2311682</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-10.558000</td>
+      <td>-55.952999</td>
+      <td>-15.596000</td>
+      <td>-56.097000</td>
+      <td>701.7827</td>
+      <td>9.122222</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>169166</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>510621</td>
+      <td>510025</td>
+      <td>5104</td>
+      <td>5104</td>
+      <td>2471345</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-10.558000</td>
+      <td>-55.952999</td>
+      <td>-9.876000</td>
+      <td>-56.085999</td>
+      <td>117.8282</td>
+      <td>1.871250</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>169167</th>
+      <td>depois</td>
+      <td>True</td>
+      <td>522230</td>
+      <td>530010</td>
+      <td>5212</td>
+      <td>5301</td>
+      <td>10545</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-15.457000</td>
+      <td>-48.889000</td>
+      <td>-15.780000</td>
+      <td>-47.930000</td>
+      <td>190.0009</td>
+      <td>3.216083</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>169168 rows × 22 columns</p>
+</div>
+</div>
 </div>
 <div class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> merge_lat_lon(df_deslc, df_muns[res_cols], <span class="st">'res_municipio'</span>, <span class="st">'cod_ibge'</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> merge_lat_lon(df_deslc, df_muns[hosp_cols], <span class="st">'hosp_municipio'</span>, <span class="st">'cod_ibge'</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc[[</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'periodo'</span>, <span class="st">'parto_normal'</span>, <span class="st">'cnes'</span>,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_municipio'</span>, <span class="st">'hosp_municipio'</span>,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_regiao_saude'</span>, <span class="st">'hosp_regiao_saude'</span>,</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'mun_diff'</span>, <span class="st">'regsau_diff'</span>,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'regiao'</span>, <span class="st">'uf'</span>,</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'capital'</span>, <span class="st">'fronteira'</span>, <span class="st">'amazonia'</span>, <span class="st">'socioeconomico'</span>,</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_latitude'</span>, <span class="st">'res_longitude'</span>,</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">'hosp_latitude'</span>, <span class="st">'hosp_longitude'</span>,</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">'distancia'</span>, <span class="st">'tempo'</span>,</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">'nascimentos'</span>]]</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 
 <div>
@@ -1470,130 +2790,148 @@ Name: periodo, dtype: int64</code></pre>
     <tr>
       <th></th>
       <th>periodo</th>
+      <th>parto_normal</th>
+      <th>cnes</th>
       <th>res_municipio</th>
       <th>hosp_municipio</th>
       <th>res_regiao_saude</th>
       <th>hosp_regiao_saude</th>
-      <th>cnes</th>
-      <th>nascimentos</th>
       <th>mun_diff</th>
       <th>regsau_diff</th>
       <th>regiao</th>
-      <th>uf</th>
-      <th>capital</th>
+      <th>...</th>
       <th>fronteira</th>
       <th>amazonia</th>
+      <th>socioeconomico</th>
       <th>res_latitude</th>
       <th>res_longitude</th>
       <th>hosp_latitude</th>
       <th>hosp_longitude</th>
+      <th>distancia</th>
+      <th>tempo</th>
+      <th>nascimentos</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>antes</td>
-      <td>130260</td>
-      <td>130260</td>
-      <td>1301</td>
-      <td>1301</td>
+      <td>True</td>
       <td>3151794</td>
-      <td>16810</td>
+      <td>130260</td>
+      <td>130260</td>
+      <td>1301</td>
+      <td>1301</td>
       <td>False</td>
       <td>False</td>
       <td>Norte</td>
-      <td>AM</td>
-      <td>True</td>
+      <td>...</td>
       <td>False</td>
       <td>True</td>
+      <td>4.0</td>
       <td>-3.102000</td>
       <td>-60.025002</td>
       <td>-3.102000</td>
       <td>-60.025002</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>11011</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>depois</td>
-      <td>140010</td>
-      <td>140010</td>
-      <td>1401</td>
-      <td>1401</td>
-      <td>2566168</td>
-      <td>15461</td>
+      <td>antes</td>
+      <td>True</td>
+      <td>2077388</td>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
       <td>False</td>
       <td>False</td>
-      <td>Norte</td>
-      <td>RR</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>2.820000</td>
-      <td>-60.673000</td>
-      <td>2.820000</td>
-      <td>-60.673000</td>
+      <td>Sudeste</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>5.0</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>10426</td>
     </tr>
     <tr>
       <th>2</th>
       <td>depois</td>
-      <td>500270</td>
-      <td>500270</td>
-      <td>5011</td>
-      <td>5011</td>
+      <td>False</td>
       <td>9768</td>
-      <td>14811</td>
+      <td>500270</td>
+      <td>500270</td>
+      <td>5011</td>
+      <td>5011</td>
       <td>False</td>
       <td>False</td>
       <td>Centro-Oeste</td>
-      <td>MS</td>
-      <td>True</td>
+      <td>...</td>
       <td>False</td>
       <td>False</td>
+      <td>4.0</td>
       <td>-20.443001</td>
       <td>-54.646000</td>
       <td>-20.443001</td>
       <td>-54.646000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>10012</td>
     </tr>
     <tr>
       <th>3</th>
       <td>depois</td>
-      <td>350950</td>
-      <td>350950</td>
-      <td>3512</td>
-      <td>3512</td>
-      <td>2022621</td>
-      <td>14690</td>
+      <td>True</td>
+      <td>2566168</td>
+      <td>140010</td>
+      <td>140010</td>
+      <td>1401</td>
+      <td>1401</td>
       <td>False</td>
       <td>False</td>
-      <td>Sudeste</td>
-      <td>SP</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-22.906000</td>
-      <td>-47.061001</td>
-      <td>-22.906000</td>
-      <td>-47.061001</td>
+      <td>Norte</td>
+      <td>...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>2.0</td>
+      <td>2.820000</td>
+      <td>-60.673000</td>
+      <td>2.820000</td>
+      <td>-60.673000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>9647</td>
     </tr>
     <tr>
       <th>4</th>
       <td>antes</td>
-      <td>292740</td>
-      <td>292740</td>
-      <td>2901</td>
-      <td>2901</td>
+      <td>True</td>
       <td>3956369</td>
-      <td>14540</td>
+      <td>292740</td>
+      <td>292740</td>
+      <td>2901</td>
+      <td>2901</td>
       <td>False</td>
       <td>False</td>
       <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5.0</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>9109</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1615,720 +2953,147 @@ Name: periodo, dtype: int64</code></pre>
       <td>...</td>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>115863</th>
+      <th>169163</th>
       <td>antes</td>
-      <td>520815</td>
-      <td>520870</td>
-      <td>5211</td>
-      <td>5201</td>
-      <td>2339196</td>
-      <td>1</td>
+      <td>True</td>
+      <td>2396106</td>
+      <td>510622</td>
+      <td>510267</td>
+      <td>5114</td>
+      <td>5107</td>
       <td>True</td>
       <td>True</td>
       <td>Centro-Oeste</td>
-      <td>GO</td>
+      <td>...</td>
       <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-16.464001</td>
-      <td>-48.669998</td>
-      <td>-16.679001</td>
-      <td>-49.254002</td>
+      <td>True</td>
+      <td>2.0</td>
+      <td>-13.838000</td>
+      <td>-56.084000</td>
+      <td>-15.547000</td>
+      <td>-55.168999</td>
+      <td>391.9461</td>
+      <td>4.769250</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>115864</th>
+      <th>169164</th>
       <td>antes</td>
-      <td>520830</td>
-      <td>170240</td>
-      <td>5208</td>
-      <td>1709</td>
-      <td>2792451</td>
-      <td>1</td>
+      <td>True</td>
+      <td>2659107</td>
+      <td>510621</td>
+      <td>510340</td>
+      <td>5104</td>
+      <td>5101</td>
       <td>True</td>
       <td>True</td>
       <td>Centro-Oeste</td>
-      <td>GO</td>
+      <td>...</td>
       <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-13.295000</td>
-      <td>-46.393002</td>
-      <td>-12.931000</td>
-      <td>-46.938000</td>
+      <td>True</td>
+      <td>2.0</td>
+      <td>-10.558000</td>
+      <td>-55.952999</td>
+      <td>-15.596000</td>
+      <td>-56.097000</td>
+      <td>701.7827</td>
+      <td>9.122222</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>115865</th>
+      <th>169165</th>
       <td>antes</td>
-      <td>520830</td>
-      <td>520800</td>
-      <td>5208</td>
-      <td>5206</td>
-      <td>2361477</td>
-      <td>1</td>
+      <td>True</td>
+      <td>2311682</td>
+      <td>510621</td>
+      <td>510340</td>
+      <td>5104</td>
+      <td>5101</td>
       <td>True</td>
       <td>True</td>
       <td>Centro-Oeste</td>
-      <td>GO</td>
+      <td>...</td>
       <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-13.295000</td>
-      <td>-46.393002</td>
-      <td>-15.537000</td>
-      <td>-47.334000</td>
-    </tr>
-    <tr>
-      <th>115866</th>
-      <td>antes</td>
-      <td>520830</td>
-      <td>520870</td>
-      <td>5208</td>
-      <td>5201</td>
-      <td>2338424</td>
+      <td>True</td>
+      <td>2.0</td>
+      <td>-10.558000</td>
+      <td>-55.952999</td>
+      <td>-15.596000</td>
+      <td>-56.097000</td>
+      <td>701.7827</td>
+      <td>9.122222</td>
       <td>1</td>
-      <td>True</td>
-      <td>True</td>
-      <td>Centro-Oeste</td>
-      <td>GO</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-13.295000</td>
-      <td>-46.393002</td>
-      <td>-16.679001</td>
-      <td>-49.254002</td>
     </tr>
     <tr>
-      <th>115867</th>
+      <th>169166</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>2471345</td>
+      <td>510621</td>
+      <td>510025</td>
+      <td>5104</td>
+      <td>5104</td>
+      <td>True</td>
+      <td>False</td>
+      <td>Centro-Oeste</td>
+      <td>...</td>
+      <td>False</td>
+      <td>True</td>
+      <td>2.0</td>
+      <td>-10.558000</td>
+      <td>-55.952999</td>
+      <td>-9.876000</td>
+      <td>-56.085999</td>
+      <td>117.8282</td>
+      <td>1.871250</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>169167</th>
       <td>depois</td>
+      <td>True</td>
+      <td>10545</td>
       <td>522230</td>
       <td>530010</td>
       <td>5212</td>
       <td>5301</td>
-      <td>10545</td>
-      <td>1</td>
       <td>True</td>
       <td>True</td>
       <td>Centro-Oeste</td>
-      <td>GO</td>
+      <td>...</td>
       <td>False</td>
       <td>False</td>
-      <td>False</td>
+      <td>2.0</td>
       <td>-15.457000</td>
       <td>-48.889000</td>
       <td>-15.780000</td>
       <td>-47.930000</td>
+      <td>190.0009</td>
+      <td>3.216083</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
-<p>115868 rows × 18 columns</p>
+<p>169168 rows × 22 columns</p>
 </div>
 </div>
 </div>
 <div class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> pd.merge(df_deslc, df_dist, how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span>[<span class="st">'res_municipio'</span>, <span class="st">'hosp_municipio'</span>], right_on<span class="op">=</span>[<span class="st">'origem'</span>, <span class="st">'destino'</span>])</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc.drop([<span class="st">'origem'</span>, <span class="st">'destino'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="29">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>periodo</th>
-      <th>res_municipio</th>
-      <th>hosp_municipio</th>
-      <th>res_regiao_saude</th>
-      <th>hosp_regiao_saude</th>
-      <th>cnes</th>
-      <th>nascimentos</th>
-      <th>mun_diff</th>
-      <th>regsau_diff</th>
-      <th>regiao</th>
-      <th>uf</th>
-      <th>capital</th>
-      <th>fronteira</th>
-      <th>amazonia</th>
-      <th>res_latitude</th>
-      <th>res_longitude</th>
-      <th>hosp_latitude</th>
-      <th>hosp_longitude</th>
-      <th>distancia</th>
-      <th>tempo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>antes</td>
-      <td>130260</td>
-      <td>130260</td>
-      <td>1301</td>
-      <td>1301</td>
-      <td>3151794</td>
-      <td>16810</td>
-      <td>False</td>
-      <td>False</td>
-      <td>Norte</td>
-      <td>AM</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>-3.102000</td>
-      <td>-60.025002</td>
-      <td>-3.102000</td>
-      <td>-60.025002</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>depois</td>
-      <td>140010</td>
-      <td>140010</td>
-      <td>1401</td>
-      <td>1401</td>
-      <td>2566168</td>
-      <td>15461</td>
-      <td>False</td>
-      <td>False</td>
-      <td>Norte</td>
-      <td>RR</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>2.820000</td>
-      <td>-60.673000</td>
-      <td>2.820000</td>
-      <td>-60.673000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>depois</td>
-      <td>500270</td>
-      <td>500270</td>
-      <td>5011</td>
-      <td>5011</td>
-      <td>9768</td>
-      <td>14811</td>
-      <td>False</td>
-      <td>False</td>
-      <td>Centro-Oeste</td>
-      <td>MS</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-20.443001</td>
-      <td>-54.646000</td>
-      <td>-20.443001</td>
-      <td>-54.646000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>depois</td>
-      <td>350950</td>
-      <td>350950</td>
-      <td>3512</td>
-      <td>3512</td>
-      <td>2022621</td>
-      <td>14690</td>
-      <td>False</td>
-      <td>False</td>
-      <td>Sudeste</td>
-      <td>SP</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-22.906000</td>
-      <td>-47.061001</td>
-      <td>-22.906000</td>
-      <td>-47.061001</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>antes</td>
-      <td>292740</td>
-      <td>292740</td>
-      <td>2901</td>
-      <td>2901</td>
-      <td>3956369</td>
-      <td>14540</td>
-      <td>False</td>
-      <td>False</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>115863</th>
-      <td>antes</td>
-      <td>520815</td>
-      <td>520870</td>
-      <td>5211</td>
-      <td>5201</td>
-      <td>2339196</td>
-      <td>1</td>
-      <td>True</td>
-      <td>True</td>
-      <td>Centro-Oeste</td>
-      <td>GO</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-16.464001</td>
-      <td>-48.669998</td>
-      <td>-16.679001</td>
-      <td>-49.254002</td>
-      <td>86.2261</td>
-      <td>1.310972</td>
-    </tr>
-    <tr>
-      <th>115864</th>
-      <td>antes</td>
-      <td>520830</td>
-      <td>170240</td>
-      <td>5208</td>
-      <td>1709</td>
-      <td>2792451</td>
-      <td>1</td>
-      <td>True</td>
-      <td>True</td>
-      <td>Centro-Oeste</td>
-      <td>GO</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-13.295000</td>
-      <td>-46.393002</td>
-      <td>-12.931000</td>
-      <td>-46.938000</td>
-      <td>94.2209</td>
-      <td>1.658667</td>
-    </tr>
-    <tr>
-      <th>115865</th>
-      <td>antes</td>
-      <td>520830</td>
-      <td>520800</td>
-      <td>5208</td>
-      <td>5206</td>
-      <td>2361477</td>
-      <td>1</td>
-      <td>True</td>
-      <td>True</td>
-      <td>Centro-Oeste</td>
-      <td>GO</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-13.295000</td>
-      <td>-46.393002</td>
-      <td>-15.537000</td>
-      <td>-47.334000</td>
-      <td>373.9899</td>
-      <td>4.629361</td>
-    </tr>
-    <tr>
-      <th>115866</th>
-      <td>antes</td>
-      <td>520830</td>
-      <td>520870</td>
-      <td>5208</td>
-      <td>5201</td>
-      <td>2338424</td>
-      <td>1</td>
-      <td>True</td>
-      <td>True</td>
-      <td>Centro-Oeste</td>
-      <td>GO</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-13.295000</td>
-      <td>-46.393002</td>
-      <td>-16.679001</td>
-      <td>-49.254002</td>
-      <td>648.9102</td>
-      <td>8.660694</td>
-    </tr>
-    <tr>
-      <th>115867</th>
-      <td>depois</td>
-      <td>522230</td>
-      <td>530010</td>
-      <td>5212</td>
-      <td>5301</td>
-      <td>10545</td>
-      <td>1</td>
-      <td>True</td>
-      <td>True</td>
-      <td>Centro-Oeste</td>
-      <td>GO</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-15.457000</td>
-      <td>-48.889000</td>
-      <td>-15.780000</td>
-      <td>-47.930000</td>
-      <td>190.0009</td>
-      <td>3.216083</td>
-    </tr>
-  </tbody>
-</table>
-<p>115868 rows × 20 columns</p>
-</div>
-</div>
-</div>
-<section id="tabela-final" class="level2">
-<h2 class="anchored" data-anchor-id="tabela-final">Tabela Final</h2>
-<div class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>path_deslc <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/GESTANTES/deslocamento.csv.gzip'</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>df_deslc.to_csv(path_deslc, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(path_deslc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>periodo</th>
-      <th>res_municipio</th>
-      <th>hosp_municipio</th>
-      <th>res_regiao_saude</th>
-      <th>hosp_regiao_saude</th>
-      <th>cnes</th>
-      <th>nascimentos</th>
-      <th>mun_diff</th>
-      <th>regsau_diff</th>
-      <th>regiao</th>
-      <th>uf</th>
-      <th>capital</th>
-      <th>fronteira</th>
-      <th>amazonia</th>
-      <th>res_latitude</th>
-      <th>res_longitude</th>
-      <th>hosp_latitude</th>
-      <th>hosp_longitude</th>
-      <th>distancia</th>
-      <th>tempo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>antes</td>
-      <td>130260</td>
-      <td>130260</td>
-      <td>1301</td>
-      <td>1301</td>
-      <td>3151794</td>
-      <td>16810</td>
-      <td>False</td>
-      <td>False</td>
-      <td>Norte</td>
-      <td>AM</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>-3.102000</td>
-      <td>-60.025002</td>
-      <td>-3.102000</td>
-      <td>-60.025002</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>depois</td>
-      <td>140010</td>
-      <td>140010</td>
-      <td>1401</td>
-      <td>1401</td>
-      <td>2566168</td>
-      <td>15461</td>
-      <td>False</td>
-      <td>False</td>
-      <td>Norte</td>
-      <td>RR</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>2.820000</td>
-      <td>-60.673000</td>
-      <td>2.820000</td>
-      <td>-60.673000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>depois</td>
-      <td>500270</td>
-      <td>500270</td>
-      <td>5011</td>
-      <td>5011</td>
-      <td>9768</td>
-      <td>14811</td>
-      <td>False</td>
-      <td>False</td>
-      <td>Centro-Oeste</td>
-      <td>MS</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-20.443001</td>
-      <td>-54.646000</td>
-      <td>-20.443001</td>
-      <td>-54.646000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>depois</td>
-      <td>350950</td>
-      <td>350950</td>
-      <td>3512</td>
-      <td>3512</td>
-      <td>2022621</td>
-      <td>14690</td>
-      <td>False</td>
-      <td>False</td>
-      <td>Sudeste</td>
-      <td>SP</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-22.906000</td>
-      <td>-47.061001</td>
-      <td>-22.906000</td>
-      <td>-47.061001</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>antes</td>
-      <td>292740</td>
-      <td>292740</td>
-      <td>2901</td>
-      <td>2901</td>
-      <td>3956369</td>
-      <td>14540</td>
-      <td>False</td>
-      <td>False</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>115863</th>
-      <td>antes</td>
-      <td>520815</td>
-      <td>520870</td>
-      <td>5211</td>
-      <td>5201</td>
-      <td>2339196</td>
-      <td>1</td>
-      <td>True</td>
-      <td>True</td>
-      <td>Centro-Oeste</td>
-      <td>GO</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-16.464001</td>
-      <td>-48.669998</td>
-      <td>-16.679001</td>
-      <td>-49.254002</td>
-      <td>86.2261</td>
-      <td>1.310972</td>
-    </tr>
-    <tr>
-      <th>115864</th>
-      <td>antes</td>
-      <td>520830</td>
-      <td>170240</td>
-      <td>5208</td>
-      <td>1709</td>
-      <td>2792451</td>
-      <td>1</td>
-      <td>True</td>
-      <td>True</td>
-      <td>Centro-Oeste</td>
-      <td>GO</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-13.295000</td>
-      <td>-46.393002</td>
-      <td>-12.931000</td>
-      <td>-46.938000</td>
-      <td>94.2209</td>
-      <td>1.658667</td>
-    </tr>
-    <tr>
-      <th>115865</th>
-      <td>antes</td>
-      <td>520830</td>
-      <td>520800</td>
-      <td>5208</td>
-      <td>5206</td>
-      <td>2361477</td>
-      <td>1</td>
-      <td>True</td>
-      <td>True</td>
-      <td>Centro-Oeste</td>
-      <td>GO</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-13.295000</td>
-      <td>-46.393002</td>
-      <td>-15.537000</td>
-      <td>-47.334000</td>
-      <td>373.9899</td>
-      <td>4.629361</td>
-    </tr>
-    <tr>
-      <th>115866</th>
-      <td>antes</td>
-      <td>520830</td>
-      <td>520870</td>
-      <td>5208</td>
-      <td>5201</td>
-      <td>2338424</td>
-      <td>1</td>
-      <td>True</td>
-      <td>True</td>
-      <td>Centro-Oeste</td>
-      <td>GO</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-13.295000</td>
-      <td>-46.393002</td>
-      <td>-16.679001</td>
-      <td>-49.254002</td>
-      <td>648.9102</td>
-      <td>8.660694</td>
-    </tr>
-    <tr>
-      <th>115867</th>
-      <td>depois</td>
-      <td>522230</td>
-      <td>530010</td>
-      <td>5212</td>
-      <td>5301</td>
-      <td>10545</td>
-      <td>1</td>
-      <td>True</td>
-      <td>True</td>
-      <td>Centro-Oeste</td>
-      <td>GO</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-15.457000</td>
-      <td>-48.889000</td>
-      <td>-15.780000</td>
-      <td>-47.930000</td>
-      <td>190.0009</td>
-      <td>3.216083</td>
-    </tr>
-  </tbody>
-</table>
-<p>115868 rows × 20 columns</p>
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df_deslc.to_excel(path_deslc.replace(<span class="st">'csv.gzip'</span>, <span class="st">'xlsx'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df_deslc.to_csv(path_deslc, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df_deslc.to_excel(path_deslc.replace(<span class="st">'csv.gzip'</span>, <span class="st">'xlsx'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="rj" class="level2">
 <h2 class="anchored" data-anchor-id="rj">RJ</h2>
-<div class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df_deslc_rj <span class="op">=</span> df_deslc[df_deslc[<span class="st">'uf'</span>] <span class="op">==</span> <span class="st">'RJ'</span>]</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df_deslc_rj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="33">
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df_deslc_rj <span class="op">=</span> df_deslc[df_deslc[<span class="st">'uf'</span>] <span class="op">==</span> <span class="st">'RJ'</span>]</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df_deslc_rj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
 
 <div>
 
@@ -2337,142 +3102,148 @@ Name: periodo, dtype: int64</code></pre>
     <tr>
       <th></th>
       <th>periodo</th>
+      <th>parto_normal</th>
+      <th>cnes</th>
       <th>res_municipio</th>
       <th>hosp_municipio</th>
       <th>res_regiao_saude</th>
       <th>hosp_regiao_saude</th>
-      <th>cnes</th>
-      <th>nascimentos</th>
       <th>mun_diff</th>
       <th>regsau_diff</th>
       <th>regiao</th>
-      <th>uf</th>
-      <th>capital</th>
+      <th>...</th>
       <th>fronteira</th>
       <th>amazonia</th>
+      <th>socioeconomico</th>
       <th>res_latitude</th>
       <th>res_longitude</th>
       <th>hosp_latitude</th>
       <th>hosp_longitude</th>
       <th>distancia</th>
       <th>tempo</th>
+      <th>nascimentos</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>15</th>
+      <th>12</th>
       <td>antes</td>
-      <td>330455</td>
-      <td>330455</td>
-      <td>3305</td>
-      <td>3305</td>
-      <td>2280248</td>
-      <td>11631</td>
-      <td>False</td>
-      <td>False</td>
-      <td>Sudeste</td>
-      <td>RJ</td>
       <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-22.903000</td>
-      <td>-43.208000</td>
-      <td>-22.903000</td>
-      <td>-43.208000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>depois</td>
-      <td>330455</td>
-      <td>330455</td>
-      <td>3305</td>
-      <td>3305</td>
-      <td>2270609</td>
-      <td>11216</td>
-      <td>False</td>
-      <td>False</td>
-      <td>Sudeste</td>
-      <td>RJ</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-22.903000</td>
-      <td>-43.208000</td>
-      <td>-22.903000</td>
-      <td>-43.208000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>antes</td>
-      <td>330455</td>
-      <td>330455</td>
-      <td>3305</td>
-      <td>3305</td>
       <td>2295407</td>
-      <td>11028</td>
+      <td>330455</td>
+      <td>330455</td>
+      <td>3305</td>
+      <td>3305</td>
       <td>False</td>
       <td>False</td>
       <td>Sudeste</td>
-      <td>RJ</td>
-      <td>True</td>
+      <td>...</td>
       <td>False</td>
       <td>False</td>
+      <td>5.0</td>
       <td>-22.903000</td>
       <td>-43.208000</td>
       <td>-22.903000</td>
       <td>-43.208000</td>
       <td>0.0000</td>
       <td>0.000000</td>
+      <td>7914</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>depois</td>
+      <td>True</td>
+      <td>2270609</td>
+      <td>330455</td>
+      <td>330455</td>
+      <td>3305</td>
+      <td>3305</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Sudeste</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>5.0</td>
+      <td>-22.903000</td>
+      <td>-43.208000</td>
+      <td>-22.903000</td>
+      <td>-43.208000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>7303</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>2280248</td>
+      <td>330455</td>
+      <td>330455</td>
+      <td>3305</td>
+      <td>3305</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Sudeste</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>5.0</td>
+      <td>-22.903000</td>
+      <td>-43.208000</td>
+      <td>-22.903000</td>
+      <td>-43.208000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>7121</td>
     </tr>
     <tr>
       <th>25</th>
-      <td>depois</td>
+      <td>antes</td>
+      <td>True</td>
+      <td>2270609</td>
       <td>330455</td>
       <td>330455</td>
       <td>3305</td>
       <td>3305</td>
-      <td>2280248</td>
-      <td>10342</td>
       <td>False</td>
       <td>False</td>
       <td>Sudeste</td>
-      <td>RJ</td>
-      <td>True</td>
+      <td>...</td>
       <td>False</td>
       <td>False</td>
+      <td>5.0</td>
       <td>-22.903000</td>
       <td>-43.208000</td>
       <td>-22.903000</td>
       <td>-43.208000</td>
       <td>0.0000</td>
       <td>0.000000</td>
+      <td>6855</td>
     </tr>
     <tr>
-      <th>29</th>
-      <td>antes</td>
+      <th>28</th>
+      <td>depois</td>
+      <td>True</td>
+      <td>2280248</td>
       <td>330455</td>
       <td>330455</td>
       <td>3305</td>
       <td>3305</td>
-      <td>2270609</td>
-      <td>10070</td>
       <td>False</td>
       <td>False</td>
       <td>Sudeste</td>
-      <td>RJ</td>
-      <td>True</td>
+      <td>...</td>
       <td>False</td>
       <td>False</td>
+      <td>5.0</td>
       <td>-22.903000</td>
       <td>-43.208000</td>
       <td>-22.903000</td>
       <td>-43.208000</td>
       <td>0.0000</td>
       <td>0.000000</td>
+      <td>6568</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2496,136 +3267,142 @@ Name: periodo, dtype: int64</code></pre>
       <td>...</td>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>92621</th>
+      <th>159578</th>
       <td>antes</td>
-      <td>330070</td>
-      <td>330490</td>
+      <td>True</td>
+      <td>2288109</td>
+      <td>330555</td>
+      <td>330260</td>
+      <td>3305</td>
+      <td>3305</td>
+      <td>True</td>
+      <td>False</td>
+      <td>Sudeste</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>5.0</td>
+      <td>-22.743999</td>
+      <td>-43.708000</td>
+      <td>-22.959999</td>
+      <td>-44.041000</td>
+      <td>49.0472</td>
+      <td>0.669389</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>159579</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>2281589</td>
+      <td>330555</td>
+      <td>330227</td>
+      <td>3305</td>
+      <td>3305</td>
+      <td>True</td>
+      <td>False</td>
+      <td>Sudeste</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>5.0</td>
+      <td>-22.743999</td>
+      <td>-43.708000</td>
+      <td>-22.643000</td>
+      <td>-43.653000</td>
+      <td>18.2023</td>
+      <td>0.390139</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>159580</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>2270714</td>
+      <td>330550</td>
+      <td>330455</td>
       <td>3302</td>
       <td>3305</td>
-      <td>2292157</td>
-      <td>1</td>
       <td>True</td>
       <td>True</td>
       <td>Sudeste</td>
-      <td>RJ</td>
+      <td>...</td>
       <td>False</td>
       <td>False</td>
-      <td>False</td>
-      <td>-22.879000</td>
-      <td>-42.019001</td>
-      <td>-22.827000</td>
-      <td>-43.054001</td>
-      <td>128.7856</td>
-      <td>1.643194</td>
+      <td>4.0</td>
+      <td>-22.920000</td>
+      <td>-42.509998</td>
+      <td>-22.903000</td>
+      <td>-43.208000</td>
+      <td>88.6640</td>
+      <td>1.501028</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>92622</th>
+      <th>159581</th>
       <td>antes</td>
-      <td>330070</td>
-      <td>330570</td>
+      <td>True</td>
+      <td>2269783</td>
+      <td>330550</td>
+      <td>330455</td>
       <td>3302</td>
+      <td>3305</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Sudeste</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>4.0</td>
+      <td>-22.920000</td>
+      <td>-42.509998</td>
+      <td>-22.903000</td>
+      <td>-43.208000</td>
+      <td>88.6640</td>
+      <td>1.501028</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>159582</th>
+      <td>antes</td>
+      <td>True</td>
+      <td>2275562</td>
+      <td>330540</td>
+      <td>330390</td>
+      <td>3303</td>
       <td>3308</td>
-      <td>2268051</td>
-      <td>1</td>
       <td>True</td>
       <td>True</td>
       <td>Sudeste</td>
-      <td>RJ</td>
+      <td>...</td>
       <td>False</td>
       <td>False</td>
-      <td>False</td>
-      <td>-22.879000</td>
-      <td>-42.019001</td>
-      <td>-22.049999</td>
-      <td>-42.674999</td>
-      <td>190.6239</td>
-      <td>3.129167</td>
-    </tr>
-    <tr>
-      <th>92623</th>
-      <td>antes</td>
-      <td>330070</td>
-      <td>330580</td>
-      <td>3302</td>
-      <td>3308</td>
-      <td>2292386</td>
+      <td>3.0</td>
+      <td>-21.995001</td>
+      <td>-42.914001</td>
+      <td>-22.504999</td>
+      <td>-43.179001</td>
+      <td>98.4733</td>
+      <td>1.504806</td>
       <td>1</td>
-      <td>True</td>
-      <td>True</td>
-      <td>Sudeste</td>
-      <td>RJ</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-22.879000</td>
-      <td>-42.019001</td>
-      <td>-22.412001</td>
-      <td>-42.966000</td>
-      <td>168.7798</td>
-      <td>2.469361</td>
-    </tr>
-    <tr>
-      <th>92624</th>
-      <td>antes</td>
-      <td>330070</td>
-      <td>330630</td>
-      <td>3302</td>
-      <td>3304</td>
-      <td>25135</td>
-      <td>1</td>
-      <td>True</td>
-      <td>True</td>
-      <td>Sudeste</td>
-      <td>RJ</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-22.879000</td>
-      <td>-42.019001</td>
-      <td>-22.523001</td>
-      <td>-44.104000</td>
-      <td>273.5160</td>
-      <td>3.704111</td>
-    </tr>
-    <tr>
-      <th>92625</th>
-      <td>antes</td>
-      <td>330080</td>
-      <td>320340</td>
-      <td>3302</td>
-      <td>3202</td>
-      <td>2448173</td>
-      <td>1</td>
-      <td>True</td>
-      <td>True</td>
-      <td>Sudeste</td>
-      <td>RJ</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>-22.462999</td>
-      <td>-42.653000</td>
-      <td>-21.063999</td>
-      <td>-41.366001</td>
-      <td>285.7113</td>
-      <td>4.956417</td>
     </tr>
   </tbody>
 </table>
-<p>3499 rows × 20 columns</p>
+<p>5057 rows × 22 columns</p>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df_deslc_rj.to_excel(path_deslc.replace(<span class="st">'.csv.gzip'</span>, <span class="st">'_rj.xlsx'</span>), index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df_deslc_rj.to_excel(path_deslc.replace(<span class="st">'.csv.gzip'</span>, <span class="st">'_rj.xlsx'</span>), index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df_deslc_rj[<span class="st">'periodo'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="35">
-<pre><code>antes     1781
-depois    1718
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df_deslc_rj[<span class="st">'periodo'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>antes     2602
+depois    2455
 Name: periodo, dtype: int64</code></pre>
 </div>
 </div>
