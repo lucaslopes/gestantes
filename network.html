@@ -1,0 +1,2349 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Deslocamento de Gestantes - Rede de Deslocamento</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Rede de Deslocamento</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Deslocamento de Gestantes</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lucaslopes/gestantes" title="" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Introdução</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_load.html" class="sidebar-item-text sidebar-link">Coleta dos Dados</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cnes.html" class="sidebar-item-text sidebar-link">Inspeção CNES</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_compare.html" class="sidebar-item-text sidebar-link">Comparação</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_selection.html" class="sidebar-item-text sidebar-link">Seleção dos Dados</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./network.html" class="sidebar-item-text sidebar-link active">Rede de Deslocamento</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#bases" id="toc-bases" class="nav-link active" data-scroll-target="#bases">Bases</a>
+  <ul class="collapse">
+  <li><a href="#sinasc" id="toc-sinasc" class="nav-link" data-scroll-target="#sinasc">SINASC</a></li>
+  <li><a href="#municípios" id="toc-municípios" class="nav-link" data-scroll-target="#municípios">Municípios</a></li>
+  <li><a href="#distâncias" id="toc-distâncias" class="nav-link" data-scroll-target="#distâncias">Distâncias</a></li>
+  <li><a href="#indicador-socioeconômico" id="toc-indicador-socioeconômico" class="nav-link" data-scroll-target="#indicador-socioeconômico">Indicador SocioEconômico</a></li>
+  </ul></li>
+  <li><a href="#tabela-deslocamento" id="toc-tabela-deslocamento" class="nav-link" data-scroll-target="#tabela-deslocamento">Tabela Deslocamento</a>
+  <ul class="collapse">
+  <li><a href="#tabela-final" id="toc-tabela-final" class="nav-link" data-scroll-target="#tabela-final">Tabela Final</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Rede de Deslocamento</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> zipfile <span class="im">import</span> ZipFile</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib_venn <span class="im">import</span> venn2, venn3</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotly <span class="im">import</span> express <span class="im">as</span> px, io <span class="im">as</span> pio</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>pd.options.plotting.backend <span class="op">=</span> <span class="st">'plotly'</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>pio.renderers.default <span class="op">=</span> <span class="st">'plotly_mimetype+notebook_connected'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style type="text/css">
+.datatable table.frame { margin-bottom: 0; }
+.datatable table.frame thead { border-bottom: none; }
+.datatable table.frame tr.coltypes td {  color: #FFFFFF;  line-height: 6px;  padding: 0 0.5em;}
+.datatable .bool    { background: #DDDD99; }
+.datatable .object  { background: #565656; }
+.datatable .int     { background: #5D9E5D; }
+.datatable .float   { background: #4040CC; }
+.datatable .str     { background: #CC4040; }
+.datatable .row_index {  background: var(--jp-border-color3);  border-right: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  font-size: 9px;}
+.datatable .frame tr.coltypes .row_index {  background: var(--jp-border-color0);}
+.datatable th:nth-child(2) { padding-left: 12px; }
+.datatable .hellipsis {  color: var(--jp-cell-editor-border-color);}
+.datatable .vellipsis {  background: var(--jp-layout-color0);  color: var(--jp-cell-editor-border-color);}
+.datatable .na {  color: var(--jp-cell-editor-border-color);  font-size: 80%;}
+.datatable .footer { font-size: 9px; }
+.datatable .frame_dimensions {  background: var(--jp-border-color3);  border-top: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  display: inline-block;  opacity: 0.6;  padding: 1px 10px 1px 5px;}
+</style>
+</div>
+</div>
+<section id="bases" class="level1">
+<h1>Bases</h1>
+<section id="sinasc" class="level2">
+<h2 class="anchored" data-anchor-id="sinasc">SINASC</h2>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path_sinasc_sus <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/SINASC/sinasc_sus.csv.gzip'</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_sinasc <span class="op">=</span> pd.read_csv(path_sinasc_sus, low_memory<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df_sinasc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ano</th>
+      <th>cnes</th>
+      <th>hosp_municipio</th>
+      <th>res_municipio</th>
+      <th>hosp_regiao_saude</th>
+      <th>res_regiao_saude</th>
+      <th>parto_normal</th>
+      <th>n_gestados</th>
+      <th>n_pre_natal</th>
+      <th>idade</th>
+      <th>nivel_escolaridade</th>
+      <th>raca_cor</th>
+      <th>nasc_raca_cor</th>
+      <th>sexo_fem</th>
+      <th>nasc_peso</th>
+      <th>nasc_apgar1</th>
+      <th>nasc_apgar5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2010</td>
+      <td>2798484</td>
+      <td>110030</td>
+      <td>120040</td>
+      <td>1103</td>
+      <td>1201</td>
+      <td>True</td>
+      <td>1</td>
+      <td>4</td>
+      <td>20</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>Branca</td>
+      <td>False</td>
+      <td>3550.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2010</td>
+      <td>5701929</td>
+      <td>120001</td>
+      <td>120001</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>True</td>
+      <td>1</td>
+      <td>3</td>
+      <td>21</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>Parda</td>
+      <td>True</td>
+      <td>3000.0</td>
+      <td>9.0</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2010</td>
+      <td>5701929</td>
+      <td>120001</td>
+      <td>120001</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>True</td>
+      <td>1</td>
+      <td>3</td>
+      <td>31</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>Parda</td>
+      <td>True</td>
+      <td>3000.0</td>
+      <td>9.0</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2010</td>
+      <td>5701929</td>
+      <td>120001</td>
+      <td>120001</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>True</td>
+      <td>1</td>
+      <td>4</td>
+      <td>23</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>Parda</td>
+      <td>False</td>
+      <td>3900.0</td>
+      <td>7.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2010</td>
+      <td>5701929</td>
+      <td>120001</td>
+      <td>120001</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>True</td>
+      <td>1</td>
+      <td>4</td>
+      <td>26</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>Parda</td>
+      <td>True</td>
+      <td>3250.0</td>
+      <td>7.0</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>22773577</th>
+      <td>2019</td>
+      <td>2361787</td>
+      <td>520110</td>
+      <td>170730</td>
+      <td>5211</td>
+      <td>1710</td>
+      <td>False</td>
+      <td>1</td>
+      <td>3</td>
+      <td>18</td>
+      <td>3</td>
+      <td>Parda</td>
+      <td>Parda</td>
+      <td>True</td>
+      <td>2840.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>22773578</th>
+      <td>2019</td>
+      <td>2338564</td>
+      <td>520870</td>
+      <td>171110</td>
+      <td>5201</td>
+      <td>1704</td>
+      <td>False</td>
+      <td>1</td>
+      <td>4</td>
+      <td>27</td>
+      <td>4</td>
+      <td>Parda</td>
+      <td>Parda</td>
+      <td>True</td>
+      <td>3082.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>22773579</th>
+      <td>2019</td>
+      <td>10537</td>
+      <td>530010</td>
+      <td>170240</td>
+      <td>5301</td>
+      <td>1709</td>
+      <td>False</td>
+      <td>1</td>
+      <td>3</td>
+      <td>36</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>Ignorado</td>
+      <td>NaN</td>
+      <td>2870.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>22773580</th>
+      <td>2019</td>
+      <td>5717515</td>
+      <td>530010</td>
+      <td>170610</td>
+      <td>5301</td>
+      <td>1710</td>
+      <td>False</td>
+      <td>1</td>
+      <td>3</td>
+      <td>21</td>
+      <td>4</td>
+      <td>Parda</td>
+      <td>Parda</td>
+      <td>False</td>
+      <td>2554.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>22773581</th>
+      <td>2019</td>
+      <td>5717515</td>
+      <td>530010</td>
+      <td>172100</td>
+      <td>5301</td>
+      <td>1705</td>
+      <td>True</td>
+      <td>1</td>
+      <td>4</td>
+      <td>21</td>
+      <td>4</td>
+      <td>Parda</td>
+      <td>Parda</td>
+      <td>True</td>
+      <td>2610.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>22773582 rows × 17 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_sinasc.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 22773582 entries, 0 to 22773581
+Data columns (total 17 columns):
+ #   Column              Dtype  
+---  ------              -----  
+ 0   ano                 int64  
+ 1   cnes                int64  
+ 2   hosp_municipio      int64  
+ 3   res_municipio       int64  
+ 4   hosp_regiao_saude   int64  
+ 5   res_regiao_saude    int64  
+ 6   parto_normal        bool   
+ 7   n_gestados          int64  
+ 8   n_pre_natal         int64  
+ 9   idade               int64  
+ 10  nivel_escolaridade  int64  
+ 11  raca_cor            object 
+ 12  nasc_raca_cor       object 
+ 13  sexo_fem            object 
+ 14  nasc_peso           float64
+ 15  nasc_apgar1         float64
+ 16  nasc_apgar5         float64
+dtypes: bool(1), float64(3), int64(10), object(3)
+memory usage: 2.7+ GB</code></pre>
+</div>
+</div>
+</section>
+<section id="municípios" class="level2">
+<h2 class="anchored" data-anchor-id="municípios">Municípios</h2>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>path_muns <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/MUNICIPIOS/municipios.csv.gzip'</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_muns <span class="op">=</span> pd.read_csv(path_muns)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df_muns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>cod_ibge</th>
+      <th>regiao</th>
+      <th>uf</th>
+      <th>cod_uf</th>
+      <th>nome_uf</th>
+      <th>municipio</th>
+      <th>nome</th>
+      <th>capital</th>
+      <th>fronteira</th>
+      <th>amazonia</th>
+      <th>macroregiao_saude</th>
+      <th>regiao_saude</th>
+      <th>microregiao_saude</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>altitude</th>
+      <th>area</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>110000</td>
+      <td>Norte</td>
+      <td>RO</td>
+      <td>11</td>
+      <td>RONDONIA</td>
+      <td>Município ignorado - RO</td>
+      <td>MUNICIPIO IGNORADO - RO</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>1100</td>
+      <td>1100</td>
+      <td>11000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>110001</td>
+      <td>Norte</td>
+      <td>RO</td>
+      <td>11</td>
+      <td>RONDONIA</td>
+      <td>Alta Floresta D'Oeste</td>
+      <td>ALTA FLORESTA D'OESTE</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>1190</td>
+      <td>1102</td>
+      <td>11900</td>
+      <td>-11.929000</td>
+      <td>-61.995998</td>
+      <td>350.0</td>
+      <td>7066.702148</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>110002</td>
+      <td>Norte</td>
+      <td>RO</td>
+      <td>11</td>
+      <td>RONDONIA</td>
+      <td>Ariquemes</td>
+      <td>ARIQUEMES</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>1190</td>
+      <td>1104</td>
+      <td>11900</td>
+      <td>-9.913000</td>
+      <td>-63.041000</td>
+      <td>142.0</td>
+      <td>4426.558105</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>110003</td>
+      <td>Norte</td>
+      <td>RO</td>
+      <td>11</td>
+      <td>RONDONIA</td>
+      <td>Cabixi</td>
+      <td>CABIXI</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>1190</td>
+      <td>1103</td>
+      <td>11900</td>
+      <td>-13.492000</td>
+      <td>-60.544998</td>
+      <td>230.0</td>
+      <td>1314.354980</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>110004</td>
+      <td>Norte</td>
+      <td>RO</td>
+      <td>11</td>
+      <td>RONDONIA</td>
+      <td>Cacoal</td>
+      <td>CACOAL</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>1190</td>
+      <td>1102</td>
+      <td>11900</td>
+      <td>-11.438000</td>
+      <td>-61.448002</td>
+      <td>200.0</td>
+      <td>3792.637939</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4789</th>
+      <td>522200</td>
+      <td>Centro-Oeste</td>
+      <td>GO</td>
+      <td>52</td>
+      <td>GOIAS</td>
+      <td>Vianópolis</td>
+      <td>VIANOPOLIS</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>5201</td>
+      <td>5202</td>
+      <td>52900</td>
+      <td>-16.742001</td>
+      <td>-48.515999</td>
+      <td>1002.0</td>
+      <td>954.278992</td>
+    </tr>
+    <tr>
+      <th>4790</th>
+      <td>522205</td>
+      <td>Centro-Oeste</td>
+      <td>GO</td>
+      <td>52</td>
+      <td>GOIAS</td>
+      <td>Vicentinópolis</td>
+      <td>VICENTINOPOLIS</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>5201</td>
+      <td>5202</td>
+      <td>52900</td>
+      <td>-17.735001</td>
+      <td>-49.806000</td>
+      <td>646.0</td>
+      <td>737.250977</td>
+    </tr>
+    <tr>
+      <th>4791</th>
+      <td>522220</td>
+      <td>Centro-Oeste</td>
+      <td>GO</td>
+      <td>52</td>
+      <td>GOIAS</td>
+      <td>Vila Boa</td>
+      <td>VILA BOA</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>5202</td>
+      <td>5206</td>
+      <td>52900</td>
+      <td>-15.038000</td>
+      <td>-47.058998</td>
+      <td>0.0</td>
+      <td>1060.170044</td>
+    </tr>
+    <tr>
+      <th>4792</th>
+      <td>522230</td>
+      <td>Centro-Oeste</td>
+      <td>GO</td>
+      <td>52</td>
+      <td>GOIAS</td>
+      <td>Vila Propício</td>
+      <td>VILA PROPICIO</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>5203</td>
+      <td>5212</td>
+      <td>52900</td>
+      <td>-15.457000</td>
+      <td>-48.889000</td>
+      <td>744.0</td>
+      <td>2181.574951</td>
+    </tr>
+    <tr>
+      <th>4793</th>
+      <td>530010</td>
+      <td>Centro-Oeste</td>
+      <td>DF</td>
+      <td>53</td>
+      <td>DISTRITO FEDERAL</td>
+      <td>Brasília</td>
+      <td>BRASILIA</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>5301</td>
+      <td>5301</td>
+      <td>53001</td>
+      <td>-15.780000</td>
+      <td>-47.930000</td>
+      <td>1171.0</td>
+      <td>5801.937012</td>
+    </tr>
+  </tbody>
+</table>
+<p>4794 rows × 17 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_muns.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 4794 entries, 0 to 4793
+Data columns (total 17 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   cod_ibge           4794 non-null   int64  
+ 1   regiao             4794 non-null   object 
+ 2   uf                 4794 non-null   object 
+ 3   cod_uf             4794 non-null   int64  
+ 4   nome_uf            4794 non-null   object 
+ 5   municipio          4794 non-null   object 
+ 6   nome               4794 non-null   object 
+ 7   capital            4794 non-null   bool   
+ 8   fronteira          4794 non-null   bool   
+ 9   amazonia           4794 non-null   bool   
+ 10  macroregiao_saude  4794 non-null   int64  
+ 11  regiao_saude       4794 non-null   int64  
+ 12  microregiao_saude  4794 non-null   int64  
+ 13  latitude           4790 non-null   float64
+ 14  longitude          4790 non-null   float64
+ 15  altitude           4790 non-null   float64
+ 16  area               4790 non-null   float64
+dtypes: bool(3), float64(4), int64(5), object(5)
+memory usage: 538.5+ KB</code></pre>
+</div>
+</div>
+</section>
+<section id="distâncias" class="level2">
+<h2 class="anchored" data-anchor-id="distâncias">Distâncias</h2>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>path_dist <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/DISTANCIAS/matriz_distancias.zip'</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_dist <span class="op">=</span> pd.read_csv(path_dist, low_memory<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df_dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>distancia</th>
+      <th>tempo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>110001</td>
+      <td>110001</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>110001</td>
+      <td>110002</td>
+      <td>309.050000</td>
+      <td>6.169056</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>110001</td>
+      <td>110003</td>
+      <td>399.499700</td>
+      <td>6.289056</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>110001</td>
+      <td>110004</td>
+      <td>81.201103</td>
+      <td>1.917750</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>110001</td>
+      <td>110005</td>
+      <td>391.704300</td>
+      <td>6.136361</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>31024895</th>
+      <td>530010</td>
+      <td>522200</td>
+      <td>161.728900</td>
+      <td>2.356000</td>
+    </tr>
+    <tr>
+      <th>31024896</th>
+      <td>530010</td>
+      <td>522205</td>
+      <td>382.708800</td>
+      <td>5.479556</td>
+    </tr>
+    <tr>
+      <th>31024897</th>
+      <td>530010</td>
+      <td>522220</td>
+      <td>161.603400</td>
+      <td>2.248944</td>
+    </tr>
+    <tr>
+      <th>31024898</th>
+      <td>530010</td>
+      <td>522230</td>
+      <td>190.000900</td>
+      <td>3.216083</td>
+    </tr>
+    <tr>
+      <th>31024899</th>
+      <td>530010</td>
+      <td>530010</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>31024900 rows × 4 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_dist.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 31024900 entries, 0 to 31024899
+Data columns (total 4 columns):
+ #   Column     Dtype  
+---  ------     -----  
+ 0   origem     int64  
+ 1   destino    int64  
+ 2   distancia  float64
+ 3   tempo      float64
+dtypes: float64(2), int64(2)
+memory usage: 946.8 MB</code></pre>
+</div>
+</div>
+</section>
+<section id="indicador-socioeconômico" class="level2">
+<h2 class="anchored" data-anchor-id="indicador-socioeconômico">Indicador SocioEconômico</h2>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>path_socioeco <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/HEALTH/health_regions.csv'</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_socioeco <span class="op">=</span> pd.read_csv(path_socioeco)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df_socioeco</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>UF</th>
+      <th>Município</th>
+      <th>Cód IBGE</th>
+      <th>Cód Região de Saúde</th>
+      <th>Nome da Região de Saúde</th>
+      <th>Grupo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AC</td>
+      <td>Acrelândia</td>
+      <td>120001</td>
+      <td>12002</td>
+      <td>Baixo Acre e Purus</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AC</td>
+      <td>Assis Brasil</td>
+      <td>120005</td>
+      <td>12001</td>
+      <td>Alto Acre</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AC</td>
+      <td>Brasiléia</td>
+      <td>120010</td>
+      <td>12001</td>
+      <td>Alto Acre</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AC</td>
+      <td>Bujari</td>
+      <td>120013</td>
+      <td>12002</td>
+      <td>Baixo Acre e Purus</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AC</td>
+      <td>Capixaba</td>
+      <td>120017</td>
+      <td>12002</td>
+      <td>Baixo Acre e Purus</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>TO</td>
+      <td>Tocantinópolis</td>
+      <td>172120</td>
+      <td>17002</td>
+      <td>Bico do Papagaio</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5567</th>
+      <td>TO</td>
+      <td>Tupirama</td>
+      <td>172125</td>
+      <td>17004</td>
+      <td>Cerrado Tocantins Araguaia</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5568</th>
+      <td>TO</td>
+      <td>Tupiratins</td>
+      <td>172130</td>
+      <td>17004</td>
+      <td>Cerrado Tocantins Araguaia</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5569</th>
+      <td>TO</td>
+      <td>Wanderlândia</td>
+      <td>172208</td>
+      <td>17001</td>
+      <td>Médio Norte Araguaia</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>5570</th>
+      <td>TO</td>
+      <td>Xambioá</td>
+      <td>172210</td>
+      <td>17001</td>
+      <td>Médio Norte Araguaia</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+<p>5571 rows × 6 columns</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="tabela-deslocamento" class="level1">
+<h1>Tabela Deslocamento</h1>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> merge_lat_lon(df_left, df_right, left_on, right_on):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  prefix <span class="op">=</span> left_on.split(<span class="st">'_'</span>)[<span class="dv">0</span>]</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> pd.merge(df_left, df_right, how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span>left_on, right_on<span class="op">=</span>right_on)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df.rename(columns<span class="op">=</span>{</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'latitude'</span>: <span class="ss">f'</span><span class="sc">{</span>prefix<span class="sc">}</span><span class="ss">_latitude'</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'longitude'</span>: <span class="ss">f'</span><span class="sc">{</span>prefix<span class="sc">}</span><span class="ss">_longitude'</span>})</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df.drop(right_on, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">'res_municipio'</span>, <span class="st">'hosp_municipio'</span>, <span class="st">'res_regiao_saude'</span>, <span class="st">'hosp_regiao_saude'</span>, <span class="st">'cnes'</span>]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_sinasc[cols].groupby(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  cols, as_index<span class="op">=</span><span class="va">False</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>).size().sort_values(<span class="st">'size'</span>, ascending<span class="op">=</span><span class="va">False</span>, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc.rename(columns<span class="op">=</span>{<span class="st">'size'</span>: <span class="st">'nascimentos'</span>})</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>res_municipio</th>
+      <th>hosp_municipio</th>
+      <th>res_regiao_saude</th>
+      <th>hosp_regiao_saude</th>
+      <th>cnes</th>
+      <th>nascimentos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>130260</td>
+      <td>130260</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>3151794</td>
+      <td>80387</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>350950</td>
+      <td>350950</td>
+      <td>3512</td>
+      <td>3512</td>
+      <td>2022621</td>
+      <td>74956</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>500270</td>
+      <td>500270</td>
+      <td>5011</td>
+      <td>5011</td>
+      <td>9768</td>
+      <td>70431</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
+      <td>2079186</td>
+      <td>68200</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
+      <td>2077388</td>
+      <td>62884</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>120213</th>
+      <td>353540</td>
+      <td>500270</td>
+      <td>3516</td>
+      <td>5011</td>
+      <td>9768</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>120214</th>
+      <td>353550</td>
+      <td>316470</td>
+      <td>3508</td>
+      <td>3122</td>
+      <td>2146525</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>120215</th>
+      <td>353550</td>
+      <td>350320</td>
+      <td>3508</td>
+      <td>3507</td>
+      <td>6943284</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>120216</th>
+      <td>260950</td>
+      <td>260540</td>
+      <td>2602</td>
+      <td>2602</td>
+      <td>2712024</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>120217</th>
+      <td>110000</td>
+      <td>110001</td>
+      <td>1100</td>
+      <td>1102</td>
+      <td>2679477</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>120218 rows × 6 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_deslc[<span class="st">'mun_diff'</span>] <span class="op">=</span> df_deslc[<span class="st">'res_municipio'</span>] <span class="op">!=</span> df_deslc[<span class="st">'hosp_municipio'</span>]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df_deslc[<span class="st">'regsau_diff'</span>] <span class="op">=</span> df_deslc[<span class="st">'res_regiao_saude'</span>] <span class="op">!=</span> df_deslc[<span class="st">'hosp_regiao_saude'</span>]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>res_municipio</th>
+      <th>hosp_municipio</th>
+      <th>res_regiao_saude</th>
+      <th>hosp_regiao_saude</th>
+      <th>cnes</th>
+      <th>nascimentos</th>
+      <th>mun_diff</th>
+      <th>regsau_diff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>130260</td>
+      <td>130260</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>3151794</td>
+      <td>80387</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>350950</td>
+      <td>350950</td>
+      <td>3512</td>
+      <td>3512</td>
+      <td>2022621</td>
+      <td>74956</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>500270</td>
+      <td>500270</td>
+      <td>5011</td>
+      <td>5011</td>
+      <td>9768</td>
+      <td>70431</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
+      <td>2079186</td>
+      <td>68200</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
+      <td>2077388</td>
+      <td>62884</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>120213</th>
+      <td>353540</td>
+      <td>500270</td>
+      <td>3516</td>
+      <td>5011</td>
+      <td>9768</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>120214</th>
+      <td>353550</td>
+      <td>316470</td>
+      <td>3508</td>
+      <td>3122</td>
+      <td>2146525</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>120215</th>
+      <td>353550</td>
+      <td>350320</td>
+      <td>3508</td>
+      <td>3507</td>
+      <td>6943284</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>120216</th>
+      <td>260950</td>
+      <td>260540</td>
+      <td>2602</td>
+      <td>2602</td>
+      <td>2712024</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>120217</th>
+      <td>110000</td>
+      <td>110001</td>
+      <td>1100</td>
+      <td>1102</td>
+      <td>2679477</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>120218 rows × 8 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>res_cols <span class="op">=</span> [</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_ibge'</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'regiao'</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'uf'</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'capital'</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'fronteira'</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'amazonia'</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'latitude'</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">'longitude'</span>,]</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>hosp_cols <span class="op">=</span> [</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_ibge'</span>,</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">'latitude'</span>,</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">'longitude'</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> merge_lat_lon(df_deslc, df_muns[res_cols], <span class="st">'res_municipio'</span>, <span class="st">'cod_ibge'</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> merge_lat_lon(df_deslc, df_muns[hosp_cols], <span class="st">'hosp_municipio'</span>, <span class="st">'cod_ibge'</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>res_municipio</th>
+      <th>hosp_municipio</th>
+      <th>res_regiao_saude</th>
+      <th>hosp_regiao_saude</th>
+      <th>cnes</th>
+      <th>nascimentos</th>
+      <th>mun_diff</th>
+      <th>regsau_diff</th>
+      <th>regiao</th>
+      <th>uf</th>
+      <th>capital</th>
+      <th>fronteira</th>
+      <th>amazonia</th>
+      <th>res_latitude</th>
+      <th>res_longitude</th>
+      <th>hosp_latitude</th>
+      <th>hosp_longitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>130260</td>
+      <td>130260</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>3151794</td>
+      <td>80387</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Norte</td>
+      <td>AM</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-3.102000</td>
+      <td>-60.025002</td>
+      <td>-3.102000</td>
+      <td>-60.025002</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>350950</td>
+      <td>350950</td>
+      <td>3512</td>
+      <td>3512</td>
+      <td>2022621</td>
+      <td>74956</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-22.906000</td>
+      <td>-47.061001</td>
+      <td>-22.906000</td>
+      <td>-47.061001</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>500270</td>
+      <td>500270</td>
+      <td>5011</td>
+      <td>5011</td>
+      <td>9768</td>
+      <td>70431</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Centro-Oeste</td>
+      <td>MS</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
+      <td>2079186</td>
+      <td>68200</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
+      <td>2077388</td>
+      <td>62884</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>120218</th>
+      <td>353540</td>
+      <td>500270</td>
+      <td>3516</td>
+      <td>5011</td>
+      <td>9768</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-21.356001</td>
+      <td>-51.860001</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+    </tr>
+    <tr>
+      <th>120219</th>
+      <td>353550</td>
+      <td>316470</td>
+      <td>3508</td>
+      <td>3122</td>
+      <td>2146525</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-22.413000</td>
+      <td>-50.576000</td>
+      <td>-20.917000</td>
+      <td>-46.991001</td>
+    </tr>
+    <tr>
+      <th>120220</th>
+      <td>353550</td>
+      <td>350320</td>
+      <td>3508</td>
+      <td>3507</td>
+      <td>6943284</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-22.413000</td>
+      <td>-50.576000</td>
+      <td>-21.794001</td>
+      <td>-48.175999</td>
+    </tr>
+    <tr>
+      <th>120221</th>
+      <td>260950</td>
+      <td>260540</td>
+      <td>2602</td>
+      <td>2602</td>
+      <td>2712024</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>120222</th>
+      <td>110000</td>
+      <td>110001</td>
+      <td>1100</td>
+      <td>1102</td>
+      <td>2679477</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Norte</td>
+      <td>RO</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-11.929000</td>
+      <td>-61.995998</td>
+    </tr>
+  </tbody>
+</table>
+<p>120223 rows × 17 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> pd.merge(df_deslc, df_dist, how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span>[<span class="st">'res_municipio'</span>, <span class="st">'hosp_municipio'</span>], right_on<span class="op">=</span>[<span class="st">'origem'</span>, <span class="st">'destino'</span>])</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc.drop([<span class="st">'origem'</span>, <span class="st">'destino'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>res_municipio</th>
+      <th>hosp_municipio</th>
+      <th>res_regiao_saude</th>
+      <th>hosp_regiao_saude</th>
+      <th>cnes</th>
+      <th>nascimentos</th>
+      <th>mun_diff</th>
+      <th>regsau_diff</th>
+      <th>regiao</th>
+      <th>uf</th>
+      <th>capital</th>
+      <th>fronteira</th>
+      <th>amazonia</th>
+      <th>res_latitude</th>
+      <th>res_longitude</th>
+      <th>hosp_latitude</th>
+      <th>hosp_longitude</th>
+      <th>distancia</th>
+      <th>tempo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>130260</td>
+      <td>130260</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>3151794</td>
+      <td>80387</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Norte</td>
+      <td>AM</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-3.102000</td>
+      <td>-60.025002</td>
+      <td>-3.102000</td>
+      <td>-60.025002</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>350950</td>
+      <td>350950</td>
+      <td>3512</td>
+      <td>3512</td>
+      <td>2022621</td>
+      <td>74956</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-22.906000</td>
+      <td>-47.061001</td>
+      <td>-22.906000</td>
+      <td>-47.061001</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>500270</td>
+      <td>500270</td>
+      <td>5011</td>
+      <td>5011</td>
+      <td>9768</td>
+      <td>70431</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Centro-Oeste</td>
+      <td>MS</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
+      <td>2079186</td>
+      <td>68200</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
+      <td>2077388</td>
+      <td>62884</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>120218</th>
+      <td>353540</td>
+      <td>500270</td>
+      <td>3516</td>
+      <td>5011</td>
+      <td>9768</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-21.356001</td>
+      <td>-51.860001</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+      <td>420.1754</td>
+      <td>5.446972</td>
+    </tr>
+    <tr>
+      <th>120219</th>
+      <td>353550</td>
+      <td>316470</td>
+      <td>3508</td>
+      <td>3122</td>
+      <td>2146525</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-22.413000</td>
+      <td>-50.576000</td>
+      <td>-20.917000</td>
+      <td>-46.991001</td>
+      <td>457.4067</td>
+      <td>5.878667</td>
+    </tr>
+    <tr>
+      <th>120220</th>
+      <td>353550</td>
+      <td>350320</td>
+      <td>3508</td>
+      <td>3507</td>
+      <td>6943284</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-22.413000</td>
+      <td>-50.576000</td>
+      <td>-21.794001</td>
+      <td>-48.175999</td>
+      <td>307.4889</td>
+      <td>4.139444</td>
+    </tr>
+    <tr>
+      <th>120221</th>
+      <td>260950</td>
+      <td>260540</td>
+      <td>2602</td>
+      <td>2602</td>
+      <td>2712024</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>44.8369</td>
+      <td>0.741667</td>
+    </tr>
+    <tr>
+      <th>120222</th>
+      <td>110000</td>
+      <td>110001</td>
+      <td>1100</td>
+      <td>1102</td>
+      <td>2679477</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Norte</td>
+      <td>RO</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-11.929000</td>
+      <td>-61.995998</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>120223 rows × 19 columns</p>
+</div>
+</div>
+</div>
+<section id="tabela-final" class="level2">
+<h2 class="anchored" data-anchor-id="tabela-final">Tabela Final</h2>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>path_deslc <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/GESTANTES/deslocamento.csv.gzip'</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df_deslc.to_csv(path_deslc, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(path_deslc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>res_municipio</th>
+      <th>hosp_municipio</th>
+      <th>res_regiao_saude</th>
+      <th>hosp_regiao_saude</th>
+      <th>cnes</th>
+      <th>nascimentos</th>
+      <th>mun_diff</th>
+      <th>regsau_diff</th>
+      <th>regiao</th>
+      <th>uf</th>
+      <th>capital</th>
+      <th>fronteira</th>
+      <th>amazonia</th>
+      <th>res_latitude</th>
+      <th>res_longitude</th>
+      <th>hosp_latitude</th>
+      <th>hosp_longitude</th>
+      <th>distancia</th>
+      <th>tempo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>130260</td>
+      <td>130260</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>3151794</td>
+      <td>80387</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Norte</td>
+      <td>AM</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>-3.102000</td>
+      <td>-60.025002</td>
+      <td>-3.102000</td>
+      <td>-60.025002</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>350950</td>
+      <td>350950</td>
+      <td>3512</td>
+      <td>3512</td>
+      <td>2022621</td>
+      <td>74956</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-22.906000</td>
+      <td>-47.061001</td>
+      <td>-22.906000</td>
+      <td>-47.061001</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>500270</td>
+      <td>500270</td>
+      <td>5011</td>
+      <td>5011</td>
+      <td>9768</td>
+      <td>70431</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Centro-Oeste</td>
+      <td>MS</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
+      <td>2079186</td>
+      <td>68200</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>355030</td>
+      <td>355030</td>
+      <td>3501</td>
+      <td>3501</td>
+      <td>2077388</td>
+      <td>62884</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>-23.548000</td>
+      <td>-46.636002</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>120218</th>
+      <td>353540</td>
+      <td>500270</td>
+      <td>3516</td>
+      <td>5011</td>
+      <td>9768</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-21.356001</td>
+      <td>-51.860001</td>
+      <td>-20.443001</td>
+      <td>-54.646000</td>
+      <td>420.1754</td>
+      <td>5.446972</td>
+    </tr>
+    <tr>
+      <th>120219</th>
+      <td>353550</td>
+      <td>316470</td>
+      <td>3508</td>
+      <td>3122</td>
+      <td>2146525</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-22.413000</td>
+      <td>-50.576000</td>
+      <td>-20.917000</td>
+      <td>-46.991001</td>
+      <td>457.4067</td>
+      <td>5.878667</td>
+    </tr>
+    <tr>
+      <th>120220</th>
+      <td>353550</td>
+      <td>350320</td>
+      <td>3508</td>
+      <td>3507</td>
+      <td>6943284</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>-22.413000</td>
+      <td>-50.576000</td>
+      <td>-21.794001</td>
+      <td>-48.175999</td>
+      <td>307.4889</td>
+      <td>4.139444</td>
+    </tr>
+    <tr>
+      <th>120221</th>
+      <td>260950</td>
+      <td>260540</td>
+      <td>2602</td>
+      <td>2602</td>
+      <td>2712024</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>44.8369</td>
+      <td>0.741667</td>
+    </tr>
+    <tr>
+      <th>120222</th>
+      <td>110000</td>
+      <td>110001</td>
+      <td>1100</td>
+      <td>1102</td>
+      <td>2679477</td>
+      <td>1</td>
+      <td>True</td>
+      <td>True</td>
+      <td>Norte</td>
+      <td>RO</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-11.929000</td>
+      <td>-61.995998</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>120223 rows × 19 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_deslc.to_excel(path_deslc.replace(<span class="st">'csv.gzip'</span>, <span class="st">'xlsx'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

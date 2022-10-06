@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Deslocamento de Gestantes - Seleção dos Dados</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Seleção dos Dados</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Deslocamento de Gestantes</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lucaslopes/gestantes" title="" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Introdução</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_load.html" class="sidebar-item-text sidebar-link">Coleta dos Dados</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cnes.html" class="sidebar-item-text sidebar-link">Inspeção CNES</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_compare.html" class="sidebar-item-text sidebar-link">Comparação</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_selection.html" class="sidebar-item-text sidebar-link active">Seleção dos Dados</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./network.html" class="sidebar-item-text sidebar-link">Rede de Deslocamento</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sinasc-com-filtros-básicos" id="toc-sinasc-com-filtros-básicos" class="nav-link active" data-scroll-target="#sinasc-com-filtros-básicos">SINASC com filtros básicos</a></li>
+  <li><a href="#cnes-da-base-sih" id="toc-cnes-da-base-sih" class="nav-link" data-scroll-target="#cnes-da-base-sih">CNES da base SIH</a></li>
+  <li><a href="#filtro-sus" id="toc-filtro-sus" class="nav-link" data-scroll-target="#filtro-sus">Filtro SUS</a></li>
+  <li><a href="#editar-variáveis" id="toc-editar-variáveis" class="nav-link" data-scroll-target="#editar-variáveis">Editar variáveis</a>
+  <ul class="collapse">
+  <li><a href="#tipo_parto" id="toc-tipo_parto" class="nav-link" data-scroll-target="#tipo_parto"><code>tipo_parto</code></a></li>
+  <li><a href="#raca_cor" id="toc-raca_cor" class="nav-link" data-scroll-target="#raca_cor"><code>raca_cor</code></a></li>
+  <li><a href="#nasc_sexo" id="toc-nasc_sexo" class="nav-link" data-scroll-target="#nasc_sexo"><code>nasc_sexo</code></a></li>
+  <li><a href="#nasc_peso" id="toc-nasc_peso" class="nav-link" data-scroll-target="#nasc_peso"><code>nasc_peso</code></a></li>
+  <li><a href="#nasc_apgar1" id="toc-nasc_apgar1" class="nav-link" data-scroll-target="#nasc_apgar1"><code>nasc_apgar1</code></a></li>
+  <li><a href="#nasc_apgar5" id="toc-nasc_apgar5" class="nav-link" data-scroll-target="#nasc_apgar5"><code>nasc_apgar5</code></a></li>
+  </ul></li>
+  <li><a href="#dataset-final" id="toc-dataset-final" class="nav-link" data-scroll-target="#dataset-final">Dataset final</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Seleção dos Dados</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> zipfile <span class="im">import</span> ZipFile</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib_venn <span class="im">import</span> venn2, venn3</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotly <span class="im">import</span> express <span class="im">as</span> px, io <span class="im">as</span> pio</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>pd.options.plotting.backend <span class="op">=</span> <span class="st">'plotly'</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>pio.renderers.default <span class="op">=</span> <span class="st">'plotly_mimetype+notebook_connected'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style type="text/css">
+.datatable table.frame { margin-bottom: 0; }
+.datatable table.frame thead { border-bottom: none; }
+.datatable table.frame tr.coltypes td {  color: #FFFFFF;  line-height: 6px;  padding: 0 0.5em;}
+.datatable .bool    { background: #DDDD99; }
+.datatable .object  { background: #565656; }
+.datatable .int     { background: #5D9E5D; }
+.datatable .float   { background: #4040CC; }
+.datatable .str     { background: #CC4040; }
+.datatable .row_index {  background: var(--jp-border-color3);  border-right: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  font-size: 9px;}
+.datatable .frame tr.coltypes .row_index {  background: var(--jp-border-color0);}
+.datatable th:nth-child(2) { padding-left: 12px; }
+.datatable .hellipsis {  color: var(--jp-cell-editor-border-color);}
+.datatable .vellipsis {  background: var(--jp-layout-color0);  color: var(--jp-cell-editor-border-color);}
+.datatable .na {  color: var(--jp-cell-editor-border-color);  font-size: 80%;}
+.datatable .footer { font-size: 9px; }
+.datatable .frame_dimensions {  background: var(--jp-border-color3);  border-top: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  display: inline-block;  opacity: 0.6;  padding: 1px 10px 1px 5px;}
+</style>
+</div>
+</div>
+<section id="sinasc-com-filtros-básicos" class="level2">
+<h2 class="anchored" data-anchor-id="sinasc-com-filtros-básicos">SINASC com filtros básicos</h2>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path_zip_sinasc <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/SINASC/SINASC.csv.gzip'</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_sinasc <span class="op">=</span> pd.read_csv(path_zip_sinasc)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df_sinasc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ano</th>
+      <th>cnes</th>
+      <th>hosp_municipio</th>
+      <th>res_municipio</th>
+      <th>hosp_regiao_saude</th>
+      <th>res_regiao_saude</th>
+      <th>tipo_parto</th>
+      <th>n_gestados</th>
+      <th>n_pre_natal</th>
+      <th>idade</th>
+      <th>nivel_escolaridade</th>
+      <th>raca_cor</th>
+      <th>nasc_raca_cor</th>
+      <th>nasc_sexo</th>
+      <th>nasc_peso</th>
+      <th>nasc_apgar1</th>
+      <th>nasc_apgar5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2010</td>
+      <td>2515598</td>
+      <td>110002</td>
+      <td>120040</td>
+      <td>1104</td>
+      <td>1201</td>
+      <td>Cesáreo</td>
+      <td>1</td>
+      <td>4</td>
+      <td>24</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>Branca</td>
+      <td>Masculino</td>
+      <td>3400.0</td>
+      <td>9.0</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2010</td>
+      <td>3792595</td>
+      <td>110011</td>
+      <td>120040</td>
+      <td>1101</td>
+      <td>1201</td>
+      <td>Cesáreo</td>
+      <td>1</td>
+      <td>3</td>
+      <td>22</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>Parda</td>
+      <td>Masculino</td>
+      <td>3950.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2010</td>
+      <td>2798484</td>
+      <td>110030</td>
+      <td>120040</td>
+      <td>1103</td>
+      <td>1201</td>
+      <td>Vaginal</td>
+      <td>1</td>
+      <td>4</td>
+      <td>20</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>Branca</td>
+      <td>Masculino</td>
+      <td>3550.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2010</td>
+      <td>5701929</td>
+      <td>120001</td>
+      <td>120001</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>Vaginal</td>
+      <td>1</td>
+      <td>3</td>
+      <td>21</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>Parda</td>
+      <td>Feminino</td>
+      <td>3000.0</td>
+      <td>9.0</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2010</td>
+      <td>5701929</td>
+      <td>120001</td>
+      <td>120001</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>Vaginal</td>
+      <td>1</td>
+      <td>3</td>
+      <td>31</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>Parda</td>
+      <td>Feminino</td>
+      <td>3000.0</td>
+      <td>9.0</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>28197159</th>
+      <td>2019</td>
+      <td>3427633</td>
+      <td>520870</td>
+      <td>170950</td>
+      <td>5201</td>
+      <td>1707</td>
+      <td>Cesáreo</td>
+      <td>1</td>
+      <td>4</td>
+      <td>29</td>
+      <td>5</td>
+      <td>4.0</td>
+      <td>Parda</td>
+      <td>Feminino</td>
+      <td>1700.0</td>
+      <td>7.0</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>28197160</th>
+      <td>2019</td>
+      <td>10537</td>
+      <td>530010</td>
+      <td>170240</td>
+      <td>5301</td>
+      <td>1709</td>
+      <td>Cesáreo</td>
+      <td>1</td>
+      <td>3</td>
+      <td>36</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>Ignorado</td>
+      <td>Ignorado</td>
+      <td>2870.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>28197161</th>
+      <td>2019</td>
+      <td>5717515</td>
+      <td>530010</td>
+      <td>170610</td>
+      <td>5301</td>
+      <td>1710</td>
+      <td>Cesáreo</td>
+      <td>1</td>
+      <td>3</td>
+      <td>21</td>
+      <td>4</td>
+      <td>4.0</td>
+      <td>Parda</td>
+      <td>Masculino</td>
+      <td>2554.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>28197162</th>
+      <td>2019</td>
+      <td>5717515</td>
+      <td>530010</td>
+      <td>172100</td>
+      <td>5301</td>
+      <td>1705</td>
+      <td>Vaginal</td>
+      <td>1</td>
+      <td>4</td>
+      <td>21</td>
+      <td>4</td>
+      <td>4.0</td>
+      <td>Parda</td>
+      <td>Feminino</td>
+      <td>2610.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>28197163</th>
+      <td>2019</td>
+      <td>3019608</td>
+      <td>530010</td>
+      <td>170240</td>
+      <td>5301</td>
+      <td>1709</td>
+      <td>Vaginal</td>
+      <td>1</td>
+      <td>4</td>
+      <td>30</td>
+      <td>5</td>
+      <td>4.0</td>
+      <td>Parda</td>
+      <td>Masculino</td>
+      <td>2975.0</td>
+      <td>9.0</td>
+      <td>10.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>28197164 rows × 17 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="cnes-da-base-sih" class="level2">
+<h2 class="anchored" data-anchor-id="cnes-da-base-sih">CNES da base SIH</h2>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>path_zip_sih <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/SIHSUS/sih_count.csv.gzip'</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_cnes_sih <span class="op">=</span> pd.read_csv(path_zip_sih)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_cnes_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>cnes</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2232</td>
+      <td>101955</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3151794</td>
+      <td>75209</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2323397</td>
+      <td>74712</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2311682</td>
+      <td>64833</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>26794</td>
+      <td>63700</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4144</th>
+      <td>7320175</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4145</th>
+      <td>7603029</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4146</th>
+      <td>7621442</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4147</th>
+      <td>7704364</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4148</th>
+      <td>7743068</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>4149 rows × 2 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="filtro-sus" class="level2">
+<h2 class="anchored" data-anchor-id="filtro-sus">Filtro SUS</h2>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus <span class="op">=</span> df_sinasc.loc[</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  df_sinasc[<span class="st">'cnes'</span>].isin(df_cnes_sih[<span class="st">'cnes'</span>])].copy()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ano</th>
+      <th>cnes</th>
+      <th>hosp_municipio</th>
+      <th>res_municipio</th>
+      <th>hosp_regiao_saude</th>
+      <th>res_regiao_saude</th>
+      <th>tipo_parto</th>
+      <th>n_gestados</th>
+      <th>n_pre_natal</th>
+      <th>idade</th>
+      <th>nivel_escolaridade</th>
+      <th>raca_cor</th>
+      <th>nasc_raca_cor</th>
+      <th>nasc_sexo</th>
+      <th>nasc_peso</th>
+      <th>nasc_apgar1</th>
+      <th>nasc_apgar5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>2010</td>
+      <td>2798484</td>
+      <td>110030</td>
+      <td>120040</td>
+      <td>1103</td>
+      <td>1201</td>
+      <td>Vaginal</td>
+      <td>1</td>
+      <td>4</td>
+      <td>20</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>Branca</td>
+      <td>Masculino</td>
+      <td>3550.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2010</td>
+      <td>5701929</td>
+      <td>120001</td>
+      <td>120001</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>Vaginal</td>
+      <td>1</td>
+      <td>3</td>
+      <td>21</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>Parda</td>
+      <td>Feminino</td>
+      <td>3000.0</td>
+      <td>9.0</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2010</td>
+      <td>5701929</td>
+      <td>120001</td>
+      <td>120001</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>Vaginal</td>
+      <td>1</td>
+      <td>3</td>
+      <td>31</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>Parda</td>
+      <td>Feminino</td>
+      <td>3000.0</td>
+      <td>9.0</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2010</td>
+      <td>5701929</td>
+      <td>120001</td>
+      <td>120001</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>Vaginal</td>
+      <td>1</td>
+      <td>4</td>
+      <td>23</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>Parda</td>
+      <td>Masculino</td>
+      <td>3900.0</td>
+      <td>7.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2010</td>
+      <td>5701929</td>
+      <td>120001</td>
+      <td>120001</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>Vaginal</td>
+      <td>1</td>
+      <td>4</td>
+      <td>26</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>Parda</td>
+      <td>Feminino</td>
+      <td>3250.0</td>
+      <td>7.0</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>28197146</th>
+      <td>2019</td>
+      <td>2361787</td>
+      <td>520110</td>
+      <td>170730</td>
+      <td>5211</td>
+      <td>1710</td>
+      <td>Cesáreo</td>
+      <td>1</td>
+      <td>3</td>
+      <td>18</td>
+      <td>3</td>
+      <td>4.0</td>
+      <td>Parda</td>
+      <td>Feminino</td>
+      <td>2840.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>28197149</th>
+      <td>2019</td>
+      <td>2338564</td>
+      <td>520870</td>
+      <td>171110</td>
+      <td>5201</td>
+      <td>1704</td>
+      <td>Cesáreo</td>
+      <td>1</td>
+      <td>4</td>
+      <td>27</td>
+      <td>4</td>
+      <td>4.0</td>
+      <td>Parda</td>
+      <td>Feminino</td>
+      <td>3082.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>28197160</th>
+      <td>2019</td>
+      <td>10537</td>
+      <td>530010</td>
+      <td>170240</td>
+      <td>5301</td>
+      <td>1709</td>
+      <td>Cesáreo</td>
+      <td>1</td>
+      <td>3</td>
+      <td>36</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>Ignorado</td>
+      <td>Ignorado</td>
+      <td>2870.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>28197161</th>
+      <td>2019</td>
+      <td>5717515</td>
+      <td>530010</td>
+      <td>170610</td>
+      <td>5301</td>
+      <td>1710</td>
+      <td>Cesáreo</td>
+      <td>1</td>
+      <td>3</td>
+      <td>21</td>
+      <td>4</td>
+      <td>4.0</td>
+      <td>Parda</td>
+      <td>Masculino</td>
+      <td>2554.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>28197162</th>
+      <td>2019</td>
+      <td>5717515</td>
+      <td>530010</td>
+      <td>172100</td>
+      <td>5301</td>
+      <td>1705</td>
+      <td>Vaginal</td>
+      <td>1</td>
+      <td>4</td>
+      <td>21</td>
+      <td>4</td>
+      <td>4.0</td>
+      <td>Parda</td>
+      <td>Feminino</td>
+      <td>2610.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>22773582 rows × 17 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">28197164</span> <span class="op">-</span> <span class="dv">22773582</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>5423582</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5423582</span> <span class="op">/</span> <span class="dv">28197164</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>0.1923449464634103</code></pre>
+</div>
+</div>
+</section>
+<section id="editar-variáveis" class="level2">
+<h2 class="anchored" data-anchor-id="editar-variáveis">Editar variáveis</h2>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 22773582 entries, 2 to 28197162
+Data columns (total 17 columns):
+ #   Column              Dtype  
+---  ------              -----  
+ 0   ano                 int64  
+ 1   cnes                int64  
+ 2   hosp_municipio      int64  
+ 3   res_municipio       int64  
+ 4   hosp_regiao_saude   int64  
+ 5   res_regiao_saude    int64  
+ 6   tipo_parto          object 
+ 7   n_gestados          int64  
+ 8   n_pre_natal         int64  
+ 9   idade               int64  
+ 10  nivel_escolaridade  int64  
+ 11  raca_cor            float64
+ 12  nasc_raca_cor       object 
+ 13  nasc_sexo           object 
+ 14  nasc_peso           float64
+ 15  nasc_apgar1         float64
+ 16  nasc_apgar5         float64
+dtypes: float64(4), int64(10), object(3)
+memory usage: 3.1+ GB</code></pre>
+</div>
+</div>
+<section id="tipo_parto" class="level3">
+<h3 class="anchored" data-anchor-id="tipo_parto"><code>tipo_parto</code></h3>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus[<span class="st">'tipo_parto'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>Vaginal    11563626
+Cesáreo    11209956
+Name: tipo_parto, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>parto_normal <span class="op">=</span> {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Vaginal'</span>: <span class="va">True</span>, <span class="st">'Cesáreo'</span>: <span class="va">False</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus.loc[:, <span class="st">'tipo_parto'</span>] <span class="op">=</span> df_sinasc_sus[<span class="st">'tipo_parto'</span>].<span class="bu">map</span>(parto_normal)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus <span class="op">=</span> df_sinasc_sus.rename(columns<span class="op">=</span>{<span class="st">'tipo_parto'</span>: <span class="st">'parto_normal'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="raca_cor" class="level3">
+<h3 class="anchored" data-anchor-id="raca_cor"><code>raca_cor</code></h3>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus[<span class="st">'raca_cor'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>4.0    11625628
+1.0     5830464
+2.0     1122356
+5.0      137716
+3.0       61727
+9.0       15388
+Name: raca_cor, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>raca_cor <span class="op">=</span> {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>: <span class="st">'Branca'</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>: <span class="st">'Preta'</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>: <span class="st">'Amarela'</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span>: <span class="st">'Parda'</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">5</span>: <span class="st">'Indígena'</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">9</span>: np.nan</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus.loc[:, <span class="st">'raca_cor'</span>] <span class="op">=</span> df_sinasc_sus[<span class="st">'raca_cor'</span>].<span class="bu">map</span>(raca_cor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="nasc_sexo" class="level3">
+<h3 class="anchored" data-anchor-id="nasc_sexo"><code>nasc_sexo</code></h3>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus[<span class="st">'nasc_sexo'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>Masculino    11666829
+Feminino     11102679
+Ignorado         4074
+Name: nasc_sexo, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sexo_nasc <span class="op">=</span> {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Feminino'</span>: <span class="va">True</span>, <span class="st">'Masculino'</span>: <span class="va">False</span>, <span class="st">'Ignorado'</span>: np.nan}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus.loc[:, <span class="st">'nasc_sexo'</span>] <span class="op">=</span> df_sinasc_sus[<span class="st">'nasc_sexo'</span>].<span class="bu">map</span>(sexo_nasc)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus <span class="op">=</span> df_sinasc_sus.rename(columns<span class="op">=</span>{<span class="st">'nasc_sexo'</span>: <span class="st">'sexo_fem'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="nasc_peso" class="level3">
+<h3 class="anchored" data-anchor-id="nasc_peso"><code>nasc_peso</code></h3>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus.loc[:, <span class="st">'nasc_peso'</span>] <span class="op">=</span> df_sinasc_sus[<span class="st">'nasc_peso'</span>].astype(<span class="st">'Int64'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="nasc_apgar1" class="level3">
+<h3 class="anchored" data-anchor-id="nasc_apgar1"><code>nasc_apgar1</code></h3>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus.loc[:, <span class="st">'nasc_apgar1'</span>] <span class="op">=</span> df_sinasc_sus[<span class="st">'nasc_apgar1'</span>].astype(<span class="st">'Int64'</span>).replace(<span class="dv">99</span>, np.nan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus[<span class="st">'nasc_apgar1'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>9     11111390
+8      7312028
+7      1557666
+10      834776
+6       577964
+5       325601
+4       197379
+3       133466
+2        96165
+1        69305
+0        23272
+Name: nasc_apgar1, dtype: Int64</code></pre>
+</div>
+</div>
+</section>
+<section id="nasc_apgar5" class="level3">
+<h3 class="anchored" data-anchor-id="nasc_apgar5"><code>nasc_apgar5</code></h3>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus.loc[:, <span class="st">'nasc_apgar5'</span>] <span class="op">=</span> df_sinasc_sus[<span class="st">'nasc_apgar5'</span>].astype(<span class="st">'Int64'</span>).replace(<span class="dv">99</span>, np.nan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus[<span class="st">'nasc_apgar5'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>10    10244119
+9     10074459
+8      1357308
+7       291837
+6       102954
+5        56333
+1        31028
+4        28884
+2        18684
+3        18642
+0        14524
+Name: nasc_apgar5, dtype: Int64</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="dataset-final" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-final">Dataset final</h2>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ano</th>
+      <th>cnes</th>
+      <th>hosp_municipio</th>
+      <th>res_municipio</th>
+      <th>hosp_regiao_saude</th>
+      <th>res_regiao_saude</th>
+      <th>parto_normal</th>
+      <th>n_gestados</th>
+      <th>n_pre_natal</th>
+      <th>idade</th>
+      <th>nivel_escolaridade</th>
+      <th>raca_cor</th>
+      <th>nasc_raca_cor</th>
+      <th>sexo_fem</th>
+      <th>nasc_peso</th>
+      <th>nasc_apgar1</th>
+      <th>nasc_apgar5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>2010</td>
+      <td>2798484</td>
+      <td>110030</td>
+      <td>120040</td>
+      <td>1103</td>
+      <td>1201</td>
+      <td>True</td>
+      <td>1</td>
+      <td>4</td>
+      <td>20</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>Branca</td>
+      <td>False</td>
+      <td>3550</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2010</td>
+      <td>5701929</td>
+      <td>120001</td>
+      <td>120001</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>True</td>
+      <td>1</td>
+      <td>3</td>
+      <td>21</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>Parda</td>
+      <td>True</td>
+      <td>3000</td>
+      <td>9</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2010</td>
+      <td>5701929</td>
+      <td>120001</td>
+      <td>120001</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>True</td>
+      <td>1</td>
+      <td>3</td>
+      <td>31</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>Parda</td>
+      <td>True</td>
+      <td>3000</td>
+      <td>9</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2010</td>
+      <td>5701929</td>
+      <td>120001</td>
+      <td>120001</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>True</td>
+      <td>1</td>
+      <td>4</td>
+      <td>23</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>Parda</td>
+      <td>False</td>
+      <td>3900</td>
+      <td>7</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2010</td>
+      <td>5701929</td>
+      <td>120001</td>
+      <td>120001</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>True</td>
+      <td>1</td>
+      <td>4</td>
+      <td>26</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>Parda</td>
+      <td>True</td>
+      <td>3250</td>
+      <td>7</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>28197146</th>
+      <td>2019</td>
+      <td>2361787</td>
+      <td>520110</td>
+      <td>170730</td>
+      <td>5211</td>
+      <td>1710</td>
+      <td>False</td>
+      <td>1</td>
+      <td>3</td>
+      <td>18</td>
+      <td>3</td>
+      <td>Parda</td>
+      <td>Parda</td>
+      <td>True</td>
+      <td>2840</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>28197149</th>
+      <td>2019</td>
+      <td>2338564</td>
+      <td>520870</td>
+      <td>171110</td>
+      <td>5201</td>
+      <td>1704</td>
+      <td>False</td>
+      <td>1</td>
+      <td>4</td>
+      <td>27</td>
+      <td>4</td>
+      <td>Parda</td>
+      <td>Parda</td>
+      <td>True</td>
+      <td>3082</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>28197160</th>
+      <td>2019</td>
+      <td>10537</td>
+      <td>530010</td>
+      <td>170240</td>
+      <td>5301</td>
+      <td>1709</td>
+      <td>False</td>
+      <td>1</td>
+      <td>3</td>
+      <td>36</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>Ignorado</td>
+      <td>NaN</td>
+      <td>2870</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>28197161</th>
+      <td>2019</td>
+      <td>5717515</td>
+      <td>530010</td>
+      <td>170610</td>
+      <td>5301</td>
+      <td>1710</td>
+      <td>False</td>
+      <td>1</td>
+      <td>3</td>
+      <td>21</td>
+      <td>4</td>
+      <td>Parda</td>
+      <td>Parda</td>
+      <td>False</td>
+      <td>2554</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>28197162</th>
+      <td>2019</td>
+      <td>5717515</td>
+      <td>530010</td>
+      <td>172100</td>
+      <td>5301</td>
+      <td>1705</td>
+      <td>True</td>
+      <td>1</td>
+      <td>4</td>
+      <td>21</td>
+      <td>4</td>
+      <td>Parda</td>
+      <td>Parda</td>
+      <td>True</td>
+      <td>2610</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+<p>22773582 rows × 17 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>path_sinasc_sus <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/SINASC/sinasc_sus.csv.gzip'</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus.to_csv(path_sinasc_sus, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
