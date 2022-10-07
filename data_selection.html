@@ -214,6 +214,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#periodo" id="toc-periodo" class="nav-link" data-scroll-target="#periodo"><code>periodo</code></a></li>
   </ul></li>
   <li><a href="#dataset-final" id="toc-dataset-final" class="nav-link" data-scroll-target="#dataset-final">Dataset final</a></li>
+  <li><a href="#sihsus" id="toc-sihsus" class="nav-link" data-scroll-target="#sihsus">SIHSUS</a></li>
   </ul>
 </nav>
     </div>
@@ -1328,6 +1329,330 @@ Name: periodo, dtype: int64</code></pre>
 <div class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>path_sinasc_sus <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/SINASC/sinasc_sus.csv.gzip'</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>df_sinasc_sus.to_csv(path_sinasc_sus, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sihsus" class="level1">
+<h1>SIHSUS</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>path_sihsus <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/SIHSUS/SIHSUS.csv.gzip'</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df_sihsus <span class="op">=</span> pd.read_csv(path_sihsus, low_memory<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>df_sihsus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ano</th>
+      <th>cnes</th>
+      <th>hosp_municipio</th>
+      <th>res_municipio</th>
+      <th>hosp_regiao_saude</th>
+      <th>res_regiao_saude</th>
+      <th>tipo_parto</th>
+      <th>idade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2010</td>
+      <td>2001020</td>
+      <td>120005</td>
+      <td>120005</td>
+      <td>1202</td>
+      <td>1202</td>
+      <td>310010039</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2010</td>
+      <td>2000733</td>
+      <td>120040</td>
+      <td>120040</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>310010039</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2010</td>
+      <td>2000733</td>
+      <td>120040</td>
+      <td>120040</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>310010039</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2010</td>
+      <td>2000733</td>
+      <td>120040</td>
+      <td>120040</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>310010039</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2010</td>
+      <td>2000733</td>
+      <td>120040</td>
+      <td>120040</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>310010039</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>16816986</th>
+      <td>2019</td>
+      <td>2765640</td>
+      <td>170930</td>
+      <td>171840</td>
+      <td>1704</td>
+      <td>1704</td>
+      <td>411010034</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>16816987</th>
+      <td>2019</td>
+      <td>2765640</td>
+      <td>170930</td>
+      <td>171670</td>
+      <td>1704</td>
+      <td>1704</td>
+      <td>411010034</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>16816988</th>
+      <td>2019</td>
+      <td>2765640</td>
+      <td>170930</td>
+      <td>171670</td>
+      <td>1704</td>
+      <td>1704</td>
+      <td>411010034</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>16816989</th>
+      <td>2019</td>
+      <td>2765640</td>
+      <td>170930</td>
+      <td>170930</td>
+      <td>1704</td>
+      <td>1704</td>
+      <td>411010034</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>16816990</th>
+      <td>2019</td>
+      <td>2755149</td>
+      <td>171610</td>
+      <td>171250</td>
+      <td>1708</td>
+      <td>1708</td>
+      <td>411010034</td>
+      <td>21</td>
+    </tr>
+  </tbody>
+</table>
+<p>16816991 rows × 8 columns</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>df_sihsus.loc[:, <span class="st">'periodo'</span>] <span class="op">=</span> df_sihsus[<span class="st">'ano'</span>].<span class="bu">apply</span>(</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">lambda</span> x: <span class="st">'antes'</span> <span class="cf">if</span> (x <span class="op">==</span> <span class="dv">2010</span>) <span class="op">|</span> (x <span class="op">==</span> <span class="dv">2011</span>) <span class="cf">else</span> (<span class="st">'depois'</span> <span class="cf">if</span> (x <span class="op">==</span> <span class="dv">2018</span>) <span class="op">|</span> (x <span class="op">==</span> <span class="dv">2019</span>) <span class="cf">else</span> <span class="st">'durante'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>df_sihsus.loc[:, <span class="st">'tipo_parto'</span>] <span class="op">=</span> df_sihsus[<span class="st">'tipo_parto'</span>].<span class="bu">map</span>(</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  {<span class="dv">310010039</span>: <span class="st">'normal'</span>, <span class="dv">411010034</span>: <span class="st">'cesariano'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>df_sihsus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ano</th>
+      <th>cnes</th>
+      <th>hosp_municipio</th>
+      <th>res_municipio</th>
+      <th>hosp_regiao_saude</th>
+      <th>res_regiao_saude</th>
+      <th>tipo_parto</th>
+      <th>idade</th>
+      <th>periodo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2010</td>
+      <td>2001020</td>
+      <td>120005</td>
+      <td>120005</td>
+      <td>1202</td>
+      <td>1202</td>
+      <td>normal</td>
+      <td>23</td>
+      <td>antes</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2010</td>
+      <td>2000733</td>
+      <td>120040</td>
+      <td>120040</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>normal</td>
+      <td>28</td>
+      <td>antes</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2010</td>
+      <td>2000733</td>
+      <td>120040</td>
+      <td>120040</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>normal</td>
+      <td>38</td>
+      <td>antes</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2010</td>
+      <td>2000733</td>
+      <td>120040</td>
+      <td>120040</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>normal</td>
+      <td>16</td>
+      <td>antes</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2010</td>
+      <td>2000733</td>
+      <td>120040</td>
+      <td>120040</td>
+      <td>1201</td>
+      <td>1201</td>
+      <td>normal</td>
+      <td>26</td>
+      <td>antes</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>16816986</th>
+      <td>2019</td>
+      <td>2765640</td>
+      <td>170930</td>
+      <td>171840</td>
+      <td>1704</td>
+      <td>1704</td>
+      <td>cesariano</td>
+      <td>24</td>
+      <td>depois</td>
+    </tr>
+    <tr>
+      <th>16816987</th>
+      <td>2019</td>
+      <td>2765640</td>
+      <td>170930</td>
+      <td>171670</td>
+      <td>1704</td>
+      <td>1704</td>
+      <td>cesariano</td>
+      <td>27</td>
+      <td>depois</td>
+    </tr>
+    <tr>
+      <th>16816988</th>
+      <td>2019</td>
+      <td>2765640</td>
+      <td>170930</td>
+      <td>171670</td>
+      <td>1704</td>
+      <td>1704</td>
+      <td>cesariano</td>
+      <td>22</td>
+      <td>depois</td>
+    </tr>
+    <tr>
+      <th>16816989</th>
+      <td>2019</td>
+      <td>2765640</td>
+      <td>170930</td>
+      <td>170930</td>
+      <td>1704</td>
+      <td>1704</td>
+      <td>cesariano</td>
+      <td>25</td>
+      <td>depois</td>
+    </tr>
+    <tr>
+      <th>16816990</th>
+      <td>2019</td>
+      <td>2755149</td>
+      <td>171610</td>
+      <td>171250</td>
+      <td>1708</td>
+      <td>1708</td>
+      <td>cesariano</td>
+      <td>21</td>
+      <td>depois</td>
+    </tr>
+  </tbody>
+</table>
+<p>16816991 rows × 9 columns</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df_sihsus.to_csv(path_sihsus, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
