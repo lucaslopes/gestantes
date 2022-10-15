@@ -232,7 +232,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#filtro-de-colunas" id="toc-filtro-de-colunas" class="nav-link" data-scroll-target="#filtro-de-colunas">Filtro de Colunas</a></li>
   <li><a href="#filtro-de-linhas" id="toc-filtro-de-linhas" class="nav-link" data-scroll-target="#filtro-de-linhas">Filtro de Linhas</a></li>
   </ul></li>
-  <li><a href="#caminho-dos-arquivos" id="toc-caminho-dos-arquivos" class="nav-link" data-scroll-target="#caminho-dos-arquivos">Caminho dos arquivos</a></li>
   <li><a href="#carregar-tabela" id="toc-carregar-tabela" class="nav-link" data-scroll-target="#carregar-tabela">Carregar tabela</a></li>
   <li><a href="#exportar-tabela" id="toc-exportar-tabela" class="nav-link" data-scroll-target="#exportar-tabela">Exportar tabela</a></li>
   </ul>
@@ -259,7 +258,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> data_load</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style type="text/css">
+.datatable table.frame { margin-bottom: 0; }
+.datatable table.frame thead { border-bottom: none; }
+.datatable table.frame tr.coltypes td {  color: #FFFFFF;  line-height: 6px;  padding: 0 0.5em;}
+.datatable .bool    { background: #DDDD99; }
+.datatable .object  { background: #565656; }
+.datatable .int     { background: #5D9E5D; }
+.datatable .float   { background: #4040CC; }
+.datatable .str     { background: #CC4040; }
+.datatable .row_index {  background: var(--jp-border-color3);  border-right: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  font-size: 9px;}
+.datatable .frame tr.coltypes .row_index {  background: var(--jp-border-color0);}
+.datatable th:nth-child(2) { padding-left: 12px; }
+.datatable .hellipsis {  color: var(--jp-cell-editor-border-color);}
+.datatable .vellipsis {  background: var(--jp-layout-color0);  color: var(--jp-cell-editor-border-color);}
+.datatable .na {  color: var(--jp-cell-editor-border-color);  font-size: 80%;}
+.datatable .footer { font-size: 9px; }
+.datatable .frame_dimensions {  background: var(--jp-border-color3);  border-top: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  display: inline-block;  opacity: 0.6;  padding: 1px 10px 1px 5px;}
+</style>
+</div>
 </div>
 <section id="descrição" class="level1">
 <h1>Descrição</h1>
@@ -270,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>Filtragens básicas</h1>
 <section id="filtro-de-colunas" class="level2">
 <h2 class="anchored" data-anchor-id="filtro-de-colunas">Filtro de Colunas</h2>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cols_sih <span class="op">=</span> {</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Infomações do procedimento:</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'ano_internacao'</span>: <span class="st">'ano'</span>,</span>
@@ -294,7 +314,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_AMAZONIA'</span>: <span class="st">'amazonia'</span>, <span class="co"># Indica (S/N) se o município de residência faz parte da Amazônia Legal (conforme IBGE)</span></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_MSAUDCOD'</span>: <span class="st">'macroregiao_saude'</span>, <span class="co"># Código da Macrorregional de Saúde a que o Município de residência pertence</span></span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_RSAUDCOD'</span>: <span class="st">'regiao_saude'</span>, <span class="co"># Código da Regional de Saúde a que o Município de residência pertence</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">'def_regiao_res'</span>: <span class="st">'nome_regiao_saude'</span>, <span class="co"># Nome da Regional de Saúde a que o Município de residência pertence</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">'def_rsaud_res'</span>: <span class="st">'nome_regiao_saude'</span>, <span class="co"># Nome da Região de saúde de residência do paciente</span></span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_CSAUDCOD'</span>: <span class="st">'microregiao_saude'</span>, <span class="co"># Código da Microrregional de Saúde a que o Município de residência pertence</span></span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_LATITUDE'</span>: <span class="st">'latitude'</span>, <span class="co"># Latitude do município de residência</span></span>
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_LONGITUDE'</span>: <span class="st">'longitude'</span>, <span class="co"># Longitude do município de residência</span></span>
@@ -305,7 +325,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="filtro-de-linhas" class="level2">
 <h2 class="anchored" data-anchor-id="filtro-de-linhas">Filtro de Linhas</h2>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_sih(df, cols):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> <span class="bu">list</span>(cols.values())[:<span class="op">-</span><span class="dv">1</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> cols <span class="cf">if</span> c <span class="kw">in</span> df.names]</span>
@@ -331,28 +351,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="caminho-dos-arquivos" class="level1">
-<h1>Caminho dos arquivos</h1>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>path_zip_sih <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Qual o caminho para o arquivo zip da base de dados SIHSUS?'</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># path_zip_sih = '/Volumes/SanDisk/Databases/SIH/SIHSUS.zip'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>output_sih <span class="op">=</span> path_zip_sih.replace(<span class="st">'zip'</span>, <span class="st">'jay'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
 <section id="carregar-tabela" class="level1">
 <h1>Carregar tabela</h1>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> data_load(path_zip_sih, cols_sih, filter_sih)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># path_zip_sih = input('Qual o caminho para o arquivo zip da base de dados SIHSUS?')</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>path_zip_sih <span class="op">=</span> <span class="st">'/Volumes/SanDisk/Databases/SIH/SIHSUS.zip'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> data_load(path_zip_sih, cols_sih, filter_sih)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 4400/4400 [20:52&lt;00:00,  3.51it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="5">
 
 <div class="datatable">
   <table class="frame">
   <thead>
     <tr class="colnames"><td class="row_index"></td><th>ano</th><th>parto_normal</th><th>cnes</th><th>idade</th><th>hosp_cod_municipio</th><th>hosp_regiao_saude</th><th>cod_municipio</th><th>regiao</th><th>uf</th><th>cod_uf</th><th class="vellipsis">…</th><th>microregiao_saude</th><th>latitude</th><th>longitude</th><th>altitude</th><th>area</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td></td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td></td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
   </thead>
   <tbody>
     <tr><td class="row_index">0</td><td>2010</td><td>310010039</td><td>2001020</td><td>23</td><td>120005</td><td>1202</td><td>120005</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−10.941</td><td>−69.567</td><td>239</td><td>2875.91</td></tr>
@@ -384,24 +401,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>100%|██████████| 4400/4400 [24:04&lt;00:00, 3.05it/s]</p>
-<p>Total = 28m 1.3s</p>
+<p>100%|█████████▉| 4400/4400 [20:52&lt;00:00, 3.32it/s]</p>
+<p>Total = 23m 40.2s</p>
 </section>
 <section id="exportar-tabela" class="level1">
 <h1>Exportar tabela</h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_sih.to_jay(output_sih)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>output_sih <span class="op">=</span> path_zip_sih.replace(<span class="st">'zip'</span>, <span class="st">'jay'</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_sih.to_jay(output_sih)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> dt.fread(output_sih)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+<div class="cell-output cell-output-display" data-execution_count="7">
 
 <div class="datatable">
   <table class="frame">
   <thead>
     <tr class="colnames"><td class="row_index"></td><th>ano</th><th>parto_normal</th><th>cnes</th><th>idade</th><th>hosp_cod_municipio</th><th>hosp_regiao_saude</th><th>cod_municipio</th><th>regiao</th><th>uf</th><th>cod_uf</th><th class="vellipsis">…</th><th>microregiao_saude</th><th>latitude</th><th>longitude</th><th>altitude</th><th>area</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td></td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td></td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
   </thead>
   <tbody>
     <tr><td class="row_index">0</td><td>2010</td><td>310010039</td><td>2001020</td><td>23</td><td>120005</td><td>1202</td><td>120005</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−10.941</td><td>−69.567</td><td>239</td><td>2875.91</td></tr>
