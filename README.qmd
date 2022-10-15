@@ -2,7 +2,11 @@
 title: "Introdução"
 ---
 
-# Redes de deslocamento para acesso ao parto hospitalar no Brasil
+# Título
+
+## Redes de deslocamento para acesso ao parto hospitalar no Brasil
+
+# Contexto
 
 No Brasil, 98% dos partos ocorrem em ambiente hospitalar, e 77% no Sistema Único de Saúde (SUS). O acesso oportuno aos serviços obstétricos de internação para o parto é fundamental para garantir a segurança do cuidado materno e neonatal. Entretanto, há “vazios assistenciais” na oferta de serviços hospitalares pelo SUS que fazem com que grande parte das parturientes precise se deslocar de um município a outro para ser assistida.
 

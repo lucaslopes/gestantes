@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Deslocamento de Gestantes - Coleta SIH</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Coleta SIH</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Deslocamento de Gestantes</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lucaslopes/gestantes" title="" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Coleta de Dados</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/sih.html" class="sidebar-item-text sidebar-link">SIH</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/socioecon.html" class="sidebar-item-text sidebar-link">Socioeconômico</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/mun_dist.html" class="sidebar-item-text sidebar-link">Distâncias</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Coleta de Dados</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  sections/data_network.ipynb
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#descrição" id="toc-descrição" class="nav-link active" data-scroll-target="#descrição">Descrição</a></li>
+  <li><a href="#funções-auxiliares" id="toc-funções-auxiliares" class="nav-link" data-scroll-target="#funções-auxiliares">Funções Auxiliares</a>
+  <ul class="collapse">
+  <li><a href="#listar-arquivos-no-zip" id="toc-listar-arquivos-no-zip" class="nav-link" data-scroll-target="#listar-arquivos-no-zip">Listar arquivos no ZIP</a></li>
+  <li><a href="#abrir-uma-tabela" id="toc-abrir-uma-tabela" class="nav-link" data-scroll-target="#abrir-uma-tabela">Abrir uma tabela</a></li>
+  <li><a href="#carregar-tabelas-do-zip" id="toc-carregar-tabelas-do-zip" class="nav-link" data-scroll-target="#carregar-tabelas-do-zip">Carregar tabelas do ZIP</a></li>
+  <li><a href="#agrupar-por-colunas" id="toc-agrupar-por-colunas" class="nav-link" data-scroll-target="#agrupar-por-colunas">Agrupar por colunas</a></li>
+  </ul></li>
+  <li><a href="#filtragens-básicas" id="toc-filtragens-básicas" class="nav-link" data-scroll-target="#filtragens-básicas">Filtragens básicas</a>
+  <ul class="collapse">
+  <li><a href="#filtro-de-colunas" id="toc-filtro-de-colunas" class="nav-link" data-scroll-target="#filtro-de-colunas">Filtro de Colunas</a></li>
+  <li><a href="#filtro-de-linhas" id="toc-filtro-de-linhas" class="nav-link" data-scroll-target="#filtro-de-linhas">Filtro de Linhas</a></li>
+  </ul></li>
+  <li><a href="#carregar-dados" id="toc-carregar-dados" class="nav-link" data-scroll-target="#carregar-dados">Carregar dados</a></li>
+  <li><a href="#selecionar" id="toc-selecionar" class="nav-link" data-scroll-target="#selecionar">Selecionar</a>
+  <ul class="collapse">
+  <li><a href="#municípios" id="toc-municípios" class="nav-link" data-scroll-target="#municípios">Municípios</a>
+  <ul class="collapse">
+  <li><a href="#colunas-da-tabela" id="toc-colunas-da-tabela" class="nav-link" data-scroll-target="#colunas-da-tabela">Colunas da tabela</a></li>
+  <li><a href="#tabela-resutante" id="toc-tabela-resutante" class="nav-link" data-scroll-target="#tabela-resutante">Tabela resutante</a></li>
+  <li><a href="#exportando-tabela" id="toc-exportando-tabela" class="nav-link" data-scroll-target="#exportando-tabela">Exportando tabela</a></li>
+  </ul></li>
+  <li><a href="#procedimentos" id="toc-procedimentos" class="nav-link" data-scroll-target="#procedimentos">Procedimentos</a>
+  <ul class="collapse">
+  <li><a href="#colunas-da-tabela-1" id="toc-colunas-da-tabela-1" class="nav-link" data-scroll-target="#colunas-da-tabela-1">Colunas da tabela</a></li>
+  <li><a href="#tabela-resutante-1" id="toc-tabela-resutante-1" class="nav-link" data-scroll-target="#tabela-resutante-1">Tabela resutante</a></li>
+  <li><a href="#atualizando-variável-parto-normal" id="toc-atualizando-variável-parto-normal" class="nav-link" data-scroll-target="#atualizando-variável-parto-normal">Atualizando variável parto normal</a></li>
+  <li><a href="#exportando-tabela-1" id="toc-exportando-tabela-1" class="nav-link" data-scroll-target="#exportando-tabela-1">Exportando tabela</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Coleta SIH</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, sys</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> zipfile <span class="im">import</span> ZipFile</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style type="text/css">
+.datatable table.frame { margin-bottom: 0; }
+.datatable table.frame thead { border-bottom: none; }
+.datatable table.frame tr.coltypes td {  color: #FFFFFF;  line-height: 6px;  padding: 0 0.5em;}
+.datatable .bool    { background: #DDDD99; }
+.datatable .object  { background: #565656; }
+.datatable .int     { background: #5D9E5D; }
+.datatable .float   { background: #4040CC; }
+.datatable .str     { background: #CC4040; }
+.datatable .row_index {  background: var(--jp-border-color3);  border-right: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  font-size: 9px;}
+.datatable .frame tr.coltypes .row_index {  background: var(--jp-border-color0);}
+.datatable th:nth-child(2) { padding-left: 12px; }
+.datatable .hellipsis {  color: var(--jp-cell-editor-border-color);}
+.datatable .vellipsis {  background: var(--jp-layout-color0);  color: var(--jp-cell-editor-border-color);}
+.datatable .na {  color: var(--jp-cell-editor-border-color);  font-size: 80%;}
+.datatable .footer { font-size: 9px; }
+.datatable .frame_dimensions {  background: var(--jp-border-color3);  border-top: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  display: inline-block;  opacity: 0.6;  padding: 1px 10px 1px 5px;}
+</style>
+</div>
+</div>
+<section id="descrição" class="level1">
+<h1>Descrição</h1>
+<p>Dados do Sistema de Informações Hospitalares do SUS (SIHSUS) reunidos pela Plataforma de Ciência de Dados aplicada à Saúde (PCDaS). Os dados foram obtidos junto ao DATASUS (Ministério da Saúde), tratados e enriquecidos seguindo uma metodologia própria de ETL (processo de extração, transformação e carga dos dados) da PCDaS, resultando em um dataset mensal com todos os registros de internações hospitalares contidos no SIHSUS à partir de janeiro de 2008.</p>
+<p>A atualização dos dados é realizada pelo DATASUS e a PCDaS extrai os registros mensais referentes aos arquivos <code>RD_UF_ANO_MÊS.dbc</code> (Reduzidos de AIH) assim que disponibilizados. As colunas com nomes em MAIÚSCULO representam dados originais advindos do DATASUS e colunas com nomes iniciando em minúsculo representam dados resultantes de transformação ou enriquecimento.</p>
+</section>
+<section id="funções-auxiliares" class="level1">
+<h1>Funções Auxiliares</h1>
+<section id="listar-arquivos-no-zip" class="level2">
+<h2 class="anchored" data-anchor-id="listar-arquivos-no-zip">Listar arquivos no ZIP</h2>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_zip_namelist(zip_path):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  files <span class="op">=</span> ZipFile(zip_path).namelist()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  files <span class="op">=</span> [<span class="ss">f'</span><span class="sc">{</span>zip_path<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>f<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="kw">in</span> files <span class="cf">if</span> <span class="st">'dict'</span> <span class="kw">not</span> <span class="kw">in</span> f]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> files</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="abrir-uma-tabela" class="level2">
+<h2 class="anchored" data-anchor-id="abrir-uma-tabela">Abrir uma tabela</h2>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_table(table_path, columns):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  cols_order <span class="op">=</span> <span class="bu">list</span>(columns.values())</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  columns[...] <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> dt.fread(table_path, columns<span class="op">=</span>columns)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="carregar-tabelas-do-zip" class="level2">
+<h2 class="anchored" data-anchor-id="carregar-tabelas-do-zip">Carregar tabelas do ZIP</h2>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> data_load(zip_path, cols, filter_func):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  files <span class="op">=</span> get_zip_namelist(zip_path)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  dfs <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> file_path <span class="kw">in</span> tqdm(files):</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> read_table(file_path, cols)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> filter_func(df, cols)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    dfs.append(df)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> dt.rbind(<span class="op">*</span>dfs)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="agrupar-por-colunas" class="level2">
+<h2 class="anchored" data-anchor-id="agrupar-por-colunas">Agrupar por colunas</h2>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> group_cols(df_base, cols):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df_base[:, cols]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'count'</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df[:, dt.<span class="bu">sum</span>(f.count), by(cols)]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="filtragens-básicas" class="level1">
+<h1>Filtragens básicas</h1>
+<section id="filtro-de-colunas" class="level2">
+<h2 class="anchored" data-anchor-id="filtro-de-colunas">Filtro de Colunas</h2>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cols_sih <span class="op">=</span> {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Infomações do procedimento:</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'ano_internacao'</span>: <span class="st">'ano'</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'PROC_REA'</span>: <span class="st">'parto_normal'</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'CNES'</span>: <span class="st">'cnes'</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Infomações da gestante:</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'def_idade_anos'</span>: <span class="st">'idade'</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Infomações de localidade do hospital de interção:</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">'int_codigo_adotado'</span>: <span class="st">'hosp_cod_municipio'</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">'int_RSAUDCOD'</span>: <span class="st">'hosp_regiao_saude'</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Infomações de localidade da residência:</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_codigo_adotado'</span>: <span class="st">'cod_municipio'</span>, <span class="co"># Armazena o código atribuído ao município de residência atualmente, tratando os casos em que múltiplos códigos tenham sido utilizados para um mesmo município ao longo do tempo</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_REGIAO'</span>: <span class="st">'regiao'</span>, <span class="co"># Nome da região da unidade da federação de residência</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_SIGLA_UF'</span>: <span class="st">'uf'</span>, <span class="co"># Sigla da unidade da federação de residência</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_CODIGO_UF'</span>: <span class="st">'cod_uf'</span>, <span class="co"># Código da UF de residência</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_NOME_UF'</span>: <span class="st">'nome_uf'</span>, <span class="co"># Nome da unidade da federação de residência</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_MUNNOME'</span>: <span class="st">'municipio'</span>, <span class="co"># Nome do município de residência</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_MUNNOMEX'</span>: <span class="st">'nome_municipio'</span>, <span class="co"># Nome do município de residência em maiúsculas e sem acentos</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_CAPITAL'</span>: <span class="st">'capital'</span>, <span class="co"># Indica (S/N) se o município de residência é capital de UF</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_FRONTEIRA'</span>: <span class="st">'fronteira'</span>, <span class="co"># Indica (S/N) se o município de residência faz parte da faixa de fronteira (conforme IBGE)</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_AMAZONIA'</span>: <span class="st">'amazonia'</span>, <span class="co"># Indica (S/N) se o município de residência faz parte da Amazônia Legal (conforme IBGE)</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_MSAUDCOD'</span>: <span class="st">'macroregiao_saude'</span>, <span class="co"># Código da Macrorregional de Saúde a que o Município de residência pertence</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_RSAUDCOD'</span>: <span class="st">'regiao_saude'</span>, <span class="co"># Código da Regional de Saúde a que o Município de residência pertence</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">'def_regiao_res'</span>: <span class="st">'nome_regiao_saude'</span>, <span class="co"># Nome da Regional de Saúde a que o Município de residência pertence</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_CSAUDCOD'</span>: <span class="st">'microregiao_saude'</span>, <span class="co"># Código da Microrregional de Saúde a que o Município de residência pertence</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_LATITUDE'</span>: <span class="st">'latitude'</span>, <span class="co"># Latitude do município de residência</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_LONGITUDE'</span>: <span class="st">'longitude'</span>, <span class="co"># Longitude do município de residência</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_ALTITUDE'</span>: <span class="st">'altitude'</span>, <span class="co"># Altitude do município de residência</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_AREA'</span>: <span class="st">'area'</span>, <span class="co"># Área do município de residência</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="filtro-de-linhas" class="level2">
+<h2 class="anchored" data-anchor-id="filtro-de-linhas">Filtro de Linhas</h2>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_sih(df, cols):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> <span class="bu">list</span>(cols.values())[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> cols <span class="cf">if</span> c <span class="kw">in</span> df.names]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  df_filtered <span class="op">=</span> df[</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    (</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'ano'</span>] <span class="op">&gt;</span> <span class="dv">2009</span>) <span class="op">&amp;</span> (f[<span class="st">'ano'</span>] <span class="op">&lt;</span> <span class="dv">2020</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'idade'</span>] <span class="op">&gt;</span> <span class="dv">9</span>) <span class="op">&amp;</span> (f[<span class="st">'idade'</span>] <span class="op">&lt;</span> <span class="dv">50</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'parto_normal'</span>] <span class="op">==</span> <span class="dv">310010039</span>) <span class="op">|</span> (f[<span class="st">'parto_normal'</span>] <span class="op">==</span> <span class="dv">411010034</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'cnes'</span>] <span class="op">!=</span> <span class="va">None</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'uf'</span>] <span class="op">!=</span> <span class="st">'DF'</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'regiao_saude'</span>] <span class="op">!=</span> <span class="va">None</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'hosp_regiao_saude'</span>] <span class="op">!=</span> <span class="va">None</span>)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'cod_municipio'</span>] <span class="op">!=</span> <span class="va">None</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    ), cols]</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df_filtered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="carregar-dados" class="level1">
+<h1>Carregar dados</h1>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>path_zip_sih <span class="op">=</span> <span class="st">'/Volumes/SanDisk/Databases/SIH/SIHSUS.zip'</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>output_sih <span class="op">=</span> path_zip_sih.replace(<span class="st">'zip'</span>, <span class="st">'jay'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># df_sih = data_load(path_zip_sih, cols_sih, filter_sih)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># df_sih.to_jay(output_sih) # to_jay | to_csv</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> dt.fread(output_sih)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>ano</th><th>parto_normal</th><th>cnes</th><th>idade</th><th>hosp_cod_municipio</th><th>hosp_regiao_saude</th><th>cod_municipio</th><th>regiao</th><th>uf</th><th>cod_uf</th><th class="vellipsis">…</th><th>microregiao_saude</th><th>latitude</th><th>longitude</th><th>altitude</th><th>area</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td></td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>2010</td><td>310010039</td><td>2001020</td><td>23</td><td>120005</td><td>1202</td><td>120005</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−10.941</td><td>−69.567</td><td>239</td><td>2875.91</td></tr>
+    <tr><td class="row_index">1</td><td>2010</td><td>310010039</td><td>2000733</td><td>28</td><td>120040</td><td>1201</td><td>120040</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−9.975</td><td>−67.81</td><td>153</td><td>9222.58</td></tr>
+    <tr><td class="row_index">2</td><td>2010</td><td>310010039</td><td>2000733</td><td>38</td><td>120040</td><td>1201</td><td>120040</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−9.975</td><td>−67.81</td><td>153</td><td>9222.58</td></tr>
+    <tr><td class="row_index">3</td><td>2010</td><td>310010039</td><td>2000733</td><td>16</td><td>120040</td><td>1201</td><td>120040</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−9.975</td><td>−67.81</td><td>153</td><td>9222.58</td></tr>
+    <tr><td class="row_index">4</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>1201</td><td>120040</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−9.975</td><td>−67.81</td><td>153</td><td>9222.58</td></tr>
+    <tr><td class="row_index">5</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>1201</td><td>120040</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−9.975</td><td>−67.81</td><td>153</td><td>9222.58</td></tr>
+    <tr><td class="row_index">6</td><td>2010</td><td>310010039</td><td>2000733</td><td>27</td><td>120040</td><td>1201</td><td>120040</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−9.975</td><td>−67.81</td><td>153</td><td>9222.58</td></tr>
+    <tr><td class="row_index">7</td><td>2010</td><td>310010039</td><td>2001020</td><td>31</td><td>120005</td><td>1202</td><td>120005</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−10.941</td><td>−69.567</td><td>239</td><td>2875.91</td></tr>
+    <tr><td class="row_index">8</td><td>2010</td><td>310010039</td><td>2000733</td><td>30</td><td>120040</td><td>1201</td><td>120040</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−9.975</td><td>−67.81</td><td>153</td><td>9222.58</td></tr>
+    <tr><td class="row_index">9</td><td>2010</td><td>310010039</td><td>2000733</td><td>18</td><td>120040</td><td>1201</td><td>120040</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−9.975</td><td>−67.81</td><td>153</td><td>9222.58</td></tr>
+    <tr><td class="row_index">10</td><td>2010</td><td>310010039</td><td>2001020</td><td>28</td><td>120005</td><td>1202</td><td>120005</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−10.941</td><td>−69.567</td><td>239</td><td>2875.91</td></tr>
+    <tr><td class="row_index">11</td><td>2010</td><td>310010039</td><td>2000733</td><td>32</td><td>120040</td><td>1201</td><td>120038</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−10.276</td><td>−67.15</td><td>136</td><td>2047.45</td></tr>
+    <tr><td class="row_index">12</td><td>2010</td><td>310010039</td><td>2000733</td><td>30</td><td>120040</td><td>1201</td><td>120040</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−9.975</td><td>−67.81</td><td>153</td><td>9222.58</td></tr>
+    <tr><td class="row_index">13</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>1201</td><td>120001</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−9.828</td><td>−66.883</td><td>25</td><td>1574.55</td></tr>
+    <tr><td class="row_index">14</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>1201</td><td>120040</td><td>Norte</td><td>AC</td><td>12</td><td class="vellipsis">…</td><td>12900</td><td>−9.975</td><td>−67.81</td><td>153</td><td>9222.58</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">16,816,986</td><td>2019</td><td>411010034</td><td>2765640</td><td>24</td><td>170930</td><td>1704</td><td>171840</td><td>Norte</td><td>TO</td><td>17</td><td class="vellipsis">…</td><td>17900</td><td>−8.539</td><td>−48.506</td><td>247</td><td>770.418</td></tr>
+    <tr><td class="row_index">16,816,987</td><td>2019</td><td>411010034</td><td>2765640</td><td>27</td><td>170930</td><td>1704</td><td>171670</td><td>Norte</td><td>TO</td><td>17</td><td class="vellipsis">…</td><td>17900</td><td>−8.729</td><td>−48.765</td><td>362</td><td>990.712</td></tr>
+    <tr><td class="row_index">16,816,988</td><td>2019</td><td>411010034</td><td>2765640</td><td>22</td><td>170930</td><td>1704</td><td>171670</td><td>Norte</td><td>TO</td><td>17</td><td class="vellipsis">…</td><td>17900</td><td>−8.729</td><td>−48.765</td><td>362</td><td>990.712</td></tr>
+    <tr><td class="row_index">16,816,989</td><td>2019</td><td>411010034</td><td>2765640</td><td>25</td><td>170930</td><td>1704</td><td>170930</td><td>Norte</td><td>TO</td><td>17</td><td class="vellipsis">…</td><td>17900</td><td>−8.834</td><td>−48.51</td><td>259</td><td>2268.15</td></tr>
+    <tr><td class="row_index">16,816,990</td><td>2019</td><td>411010034</td><td>2755149</td><td>21</td><td>171610</td><td>1708</td><td>171250</td><td>Norte</td><td>TO</td><td>17</td><td class="vellipsis">…</td><td>17900</td><td>−9.796</td><td>−49.654</td><td>146</td><td>2091.36</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">16,816,991 rows × 24 columns</div>
+  </div>
+</div>
+</div>
+</div>
+<p>100%|██████████| 4400/4400 [24:04&lt;00:00, 3.05it/s]</p>
+<p>Total: 28m 1.3s</p>
+</section>
+<section id="selecionar" class="level1">
+<h1>Selecionar</h1>
+<section id="municípios" class="level2">
+<h2 class="anchored" data-anchor-id="municípios">Municípios</h2>
+<section id="colunas-da-tabela" class="level3">
+<h3 class="anchored" data-anchor-id="colunas-da-tabela">Colunas da tabela</h3>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cols_mun <span class="op">=</span> df_sih.names[<span class="dv">6</span>:]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>cols_mun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>('cod_municipio',
+ 'regiao',
+ 'uf',
+ 'cod_uf',
+ 'nome_uf',
+ 'municipio',
+ 'nome_municipio',
+ 'capital',
+ 'fronteira',
+ 'amazonia',
+ 'macroregiao_saude',
+ 'regiao_saude',
+ 'nome_regiao_saude',
+ 'microregiao_saude',
+ 'latitude',
+ 'longitude',
+ 'altitude',
+ 'area')</code></pre>
+</div>
+</div>
+</section>
+<section id="tabela-resutante" class="level3">
+<h3 class="anchored" data-anchor-id="tabela-resutante">Tabela resutante</h3>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_mun <span class="op">=</span> group_cols(df_sih, cols_mun)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_mun <span class="op">=</span> df_mun.sort(<span class="op">-</span>f.count)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df_mun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>cod_municipio</th><th>regiao</th><th>uf</th><th>cod_uf</th><th>nome_uf</th><th>municipio</th><th>nome_municipio</th><th>capital</th><th>fronteira</th><th>amazonia</th><th class="vellipsis">…</th><th>latitude</th><th>longitude</th><th>altitude</th><th>area</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>355030</td><td>Sudeste</td><td>SP</td><td>35</td><td>SAO PAULO</td><td>São Paulo</td><td>SAO PAULO</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−23.548</td><td>−46.636</td><td>760</td><td>1522.99</td><td>806352</td></tr>
+    <tr><td class="row_index">1</td><td>330455</td><td>Sudeste</td><td>RJ</td><td>33</td><td>RIO DE JANEIRO</td><td>Rio de Janeiro</td><td>RIO DE JANEIRO</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−22.903</td><td>−43.208</td><td>2</td><td>1182.3</td><td>368216</td></tr>
+    <tr><td class="row_index">2</td><td>130260</td><td>Norte</td><td>AM</td><td>13</td><td>AMAZONAS</td><td>Manaus</td><td>MANAUS</td><td>S</td><td>N</td><td>S</td><td class="vellipsis">…</td><td>−3.102</td><td>−60.025</td><td>92</td><td>11401.1</td><td>297036</td></tr>
+    <tr><td class="row_index">3</td><td>230440</td><td>Nordeste</td><td>CE</td><td>23</td><td>CEARA</td><td>Fortaleza</td><td>FORTALEZA</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−3.717</td><td>−38.543</td><td>21</td><td>313.14</td><td>203370</td></tr>
+    <tr><td class="row_index">4</td><td>292740</td><td>Nordeste</td><td>BA</td><td>29</td><td>BAHIA</td><td>Salvador</td><td>SALVADOR</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−12.971</td><td>−38.511</td><td>8</td><td>706.799</td><td>169924</td></tr>
+    <tr><td class="row_index">5</td><td>150140</td><td>Norte</td><td>PA</td><td>15</td><td>PARA</td><td>Belém</td><td>BELEM</td><td>S</td><td>N</td><td>S</td><td class="vellipsis">…</td><td>−1.456</td><td>−48.504</td><td>10</td><td>1064.92</td><td>126918</td></tr>
+    <tr><td class="row_index">6</td><td>310620</td><td>Sudeste</td><td>MG</td><td>31</td><td>MINAS GERAIS</td><td>Belo Horizonte</td><td>BELO HORIZONTE</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−19.817</td><td>−43.956</td><td>858</td><td>330.954</td><td>125370</td></tr>
+    <tr><td class="row_index">7</td><td>431490</td><td>Sul</td><td>RS</td><td>43</td><td>RIO GRANDE DO SUL</td><td>Porto Alegre</td><td>PORTO ALEGRE</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−30.033</td><td>−51.23</td><td>3</td><td>496.827</td><td>105321</td></tr>
+    <tr><td class="row_index">8</td><td>410690</td><td>Sul</td><td>PR</td><td>41</td><td>PARANA</td><td>Curitiba</td><td>CURITIBA</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−25.428</td><td>−49.273</td><td>934</td><td>434.967</td><td>101337</td></tr>
+    <tr><td class="row_index">9</td><td>270430</td><td>Nordeste</td><td>AL</td><td>27</td><td>ALAGOAS</td><td>Maceió</td><td>MACEIO</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−9.666</td><td>−35.735</td><td>16</td><td>510.655</td><td>93551</td></tr>
+    <tr><td class="row_index">10</td><td>520870</td><td>Centro-Oeste</td><td>GO</td><td>52</td><td>GOIAS</td><td>Goiânia</td><td>GOIANIA</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−16.679</td><td>−49.254</td><td>749</td><td>739.492</td><td>92068</td></tr>
+    <tr><td class="row_index">11</td><td>351880</td><td>Sudeste</td><td>SP</td><td>35</td><td>SAO PAULO</td><td>Guarulhos</td><td>GUARULHOS</td><td>N</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−23.463</td><td>−46.533</td><td>759</td><td>318.014</td><td>91617</td></tr>
+    <tr><td class="row_index">12</td><td>221100</td><td>Nordeste</td><td>PI</td><td>22</td><td>PIAUI</td><td>Teresina</td><td>TERESINA</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−5.089</td><td>−42.802</td><td>72</td><td>1755.7</td><td>86245</td></tr>
+    <tr><td class="row_index">13</td><td>500270</td><td>Centro-Oeste</td><td>MS</td><td>50</td><td>MATO GROSSO DO SUL</td><td>Campo Grande</td><td>CAMPO GRANDE</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−20.443</td><td>−54.646</td><td>532</td><td>8096.05</td><td>84481</td></tr>
+    <tr><td class="row_index">14</td><td>261160</td><td>Nordeste</td><td>PE</td><td>26</td><td>PERNAMBUCO</td><td>Recife</td><td>RECIFE</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−8.054</td><td>−34.881</td><td>4</td><td>217.494</td><td>83833</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">5564</td><td>520020</td><td>Centro-Oeste</td><td>GO</td><td>52</td><td>GOIAS</td><td>Água Limpa</td><td>AGUA LIMPA</td><td>N</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−18.074</td><td>−48.762</td><td>682</td><td>452.856</td><td>25</td></tr>
+    <tr><td class="row_index">5565</td><td>510120</td><td>Centro-Oeste</td><td>MT</td><td>51</td><td>MATO GROSSO</td><td>Araguainha</td><td>ARAGUAINHA</td><td>N</td><td>N</td><td>S</td><td class="vellipsis">…</td><td>−16.856</td><td>−53.033</td><td>462</td><td>688.676</td><td>23</td></tr>
+    <tr><td class="row_index">5566</td><td>350640</td><td>Sudeste</td><td>SP</td><td>35</td><td>SAO PAULO</td><td>Bilac</td><td>BILAC</td><td>N</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−21.403</td><td>−50.471</td><td>431</td><td>157.278</td><td>18</td></tr>
+    <tr><td class="row_index">5567</td><td>500627</td><td>Centro-Oeste</td><td>MS</td><td>50</td><td>MATO GROSSO DO SUL</td><td>Paraíso das Águas</td><td>PARAISO DAS AGUAS</td><td>N</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−19.0216</td><td>−53.0116</td><td>0</td><td>5032.47</td><td>15</td></tr>
+    <tr><td class="row_index">5568</td><td>330513</td><td>Sudeste</td><td>RJ</td><td>33</td><td>RIO DE JANEIRO</td><td>São José de Ubá</td><td>SAO JOSE DE UBA</td><td>N</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−21.358</td><td>−41.943</td><td>95</td><td>250.596</td><td>6</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">5569 rows × 19 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="exportando-tabela" class="level3">
+<h3 class="anchored" data-anchor-id="exportando-tabela">Exportando tabela</h3>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>output_mun <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/GESTANTES/municipios.csv.gzip'</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df_mun.to_csv(output_mun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_mun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>cod_municipio</th><th>regiao</th><th>uf</th><th>cod_uf</th><th>nome_uf</th><th>municipio</th><th>nome_municipio</th><th>capital</th><th>fronteira</th><th>amazonia</th><th class="vellipsis">…</th><th>latitude</th><th>longitude</th><th>altitude</th><th>area</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>355030</td><td>Sudeste</td><td>SP</td><td>35</td><td>SAO PAULO</td><td>São Paulo</td><td>SAO PAULO</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−23.548</td><td>−46.636</td><td>760</td><td>1522.99</td><td>806352</td></tr>
+    <tr><td class="row_index">1</td><td>330455</td><td>Sudeste</td><td>RJ</td><td>33</td><td>RIO DE JANEIRO</td><td>Rio de Janeiro</td><td>RIO DE JANEIRO</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−22.903</td><td>−43.208</td><td>2</td><td>1182.3</td><td>368216</td></tr>
+    <tr><td class="row_index">2</td><td>130260</td><td>Norte</td><td>AM</td><td>13</td><td>AMAZONAS</td><td>Manaus</td><td>MANAUS</td><td>S</td><td>N</td><td>S</td><td class="vellipsis">…</td><td>−3.102</td><td>−60.025</td><td>92</td><td>11401.1</td><td>297036</td></tr>
+    <tr><td class="row_index">3</td><td>230440</td><td>Nordeste</td><td>CE</td><td>23</td><td>CEARA</td><td>Fortaleza</td><td>FORTALEZA</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−3.717</td><td>−38.543</td><td>21</td><td>313.14</td><td>203370</td></tr>
+    <tr><td class="row_index">4</td><td>292740</td><td>Nordeste</td><td>BA</td><td>29</td><td>BAHIA</td><td>Salvador</td><td>SALVADOR</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−12.971</td><td>−38.511</td><td>8</td><td>706.799</td><td>169924</td></tr>
+    <tr><td class="row_index">5</td><td>150140</td><td>Norte</td><td>PA</td><td>15</td><td>PARA</td><td>Belém</td><td>BELEM</td><td>S</td><td>N</td><td>S</td><td class="vellipsis">…</td><td>−1.456</td><td>−48.504</td><td>10</td><td>1064.92</td><td>126918</td></tr>
+    <tr><td class="row_index">6</td><td>310620</td><td>Sudeste</td><td>MG</td><td>31</td><td>MINAS GERAIS</td><td>Belo Horizonte</td><td>BELO HORIZONTE</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−19.817</td><td>−43.956</td><td>858</td><td>330.954</td><td>125370</td></tr>
+    <tr><td class="row_index">7</td><td>431490</td><td>Sul</td><td>RS</td><td>43</td><td>RIO GRANDE DO SUL</td><td>Porto Alegre</td><td>PORTO ALEGRE</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−30.033</td><td>−51.23</td><td>3</td><td>496.827</td><td>105321</td></tr>
+    <tr><td class="row_index">8</td><td>410690</td><td>Sul</td><td>PR</td><td>41</td><td>PARANA</td><td>Curitiba</td><td>CURITIBA</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−25.428</td><td>−49.273</td><td>934</td><td>434.967</td><td>101337</td></tr>
+    <tr><td class="row_index">9</td><td>270430</td><td>Nordeste</td><td>AL</td><td>27</td><td>ALAGOAS</td><td>Maceió</td><td>MACEIO</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−9.666</td><td>−35.735</td><td>16</td><td>510.655</td><td>93551</td></tr>
+    <tr><td class="row_index">10</td><td>520870</td><td>Centro-Oeste</td><td>GO</td><td>52</td><td>GOIAS</td><td>Goiânia</td><td>GOIANIA</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−16.679</td><td>−49.254</td><td>749</td><td>739.492</td><td>92068</td></tr>
+    <tr><td class="row_index">11</td><td>351880</td><td>Sudeste</td><td>SP</td><td>35</td><td>SAO PAULO</td><td>Guarulhos</td><td>GUARULHOS</td><td>N</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−23.463</td><td>−46.533</td><td>759</td><td>318.014</td><td>91617</td></tr>
+    <tr><td class="row_index">12</td><td>221100</td><td>Nordeste</td><td>PI</td><td>22</td><td>PIAUI</td><td>Teresina</td><td>TERESINA</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−5.089</td><td>−42.802</td><td>72</td><td>1755.7</td><td>86245</td></tr>
+    <tr><td class="row_index">13</td><td>500270</td><td>Centro-Oeste</td><td>MS</td><td>50</td><td>MATO GROSSO DO SUL</td><td>Campo Grande</td><td>CAMPO GRANDE</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−20.443</td><td>−54.646</td><td>532</td><td>8096.05</td><td>84481</td></tr>
+    <tr><td class="row_index">14</td><td>261160</td><td>Nordeste</td><td>PE</td><td>26</td><td>PERNAMBUCO</td><td>Recife</td><td>RECIFE</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−8.054</td><td>−34.881</td><td>4</td><td>217.494</td><td>83833</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">5564</td><td>520020</td><td>Centro-Oeste</td><td>GO</td><td>52</td><td>GOIAS</td><td>Água Limpa</td><td>AGUA LIMPA</td><td>N</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−18.074</td><td>−48.762</td><td>682</td><td>452.856</td><td>25</td></tr>
+    <tr><td class="row_index">5565</td><td>510120</td><td>Centro-Oeste</td><td>MT</td><td>51</td><td>MATO GROSSO</td><td>Araguainha</td><td>ARAGUAINHA</td><td>N</td><td>N</td><td>S</td><td class="vellipsis">…</td><td>−16.856</td><td>−53.033</td><td>462</td><td>688.676</td><td>23</td></tr>
+    <tr><td class="row_index">5566</td><td>350640</td><td>Sudeste</td><td>SP</td><td>35</td><td>SAO PAULO</td><td>Bilac</td><td>BILAC</td><td>N</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−21.403</td><td>−50.471</td><td>431</td><td>157.278</td><td>18</td></tr>
+    <tr><td class="row_index">5567</td><td>500627</td><td>Centro-Oeste</td><td>MS</td><td>50</td><td>MATO GROSSO DO SUL</td><td>Paraíso das Águas</td><td>PARAISO DAS AGUAS</td><td>N</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−19.0216</td><td>−53.0116</td><td>0</td><td>5032.47</td><td>15</td></tr>
+    <tr><td class="row_index">5568</td><td>330513</td><td>Sudeste</td><td>RJ</td><td>33</td><td>RIO DE JANEIRO</td><td>São José de Ubá</td><td>SAO JOSE DE UBA</td><td>N</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−21.358</td><td>−41.943</td><td>95</td><td>250.596</td><td>6</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">5569 rows × 19 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="procedimentos" class="level2">
+<h2 class="anchored" data-anchor-id="procedimentos">Procedimentos</h2>
+<section id="colunas-da-tabela-1" class="level3">
+<h3 class="anchored" data-anchor-id="colunas-da-tabela-1">Colunas da tabela</h3>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>cols_proc <span class="op">=</span> [</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'ano'</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'parto_normal'</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cnes'</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'hosp_cod_municipio'</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'hosp_regiao_saude'</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_municipio'</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'regiao_saude'</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">'idade'</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="tabela-resutante-1" class="level3">
+<h3 class="anchored" data-anchor-id="tabela-resutante-1">Tabela resutante</h3>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_proc <span class="op">=</span> group_cols(df_sih, cols_proc)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_proc <span class="op">=</span> df_proc.sort(f.ano, <span class="op">-</span>f.count)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>df_proc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>ano</th><th>parto_normal</th><th>cnes</th><th>hosp_cod_municipio</th><th>hosp_regiao_saude</th><th>cod_municipio</th><th>regiao_saude</th><th>idade</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>2010</td><td>310010039</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>22</td><td>362</td></tr>
+    <tr><td class="row_index">1</td><td>2010</td><td>310010039</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>20</td><td>333</td></tr>
+    <tr><td class="row_index">2</td><td>2010</td><td>310010039</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>19</td><td>331</td></tr>
+    <tr><td class="row_index">3</td><td>2010</td><td>310010039</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>24</td><td>327</td></tr>
+    <tr><td class="row_index">4</td><td>2010</td><td>310010039</td><td>2077701</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>21</td><td>318</td></tr>
+    <tr><td class="row_index">5</td><td>2010</td><td>310010039</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>21</td><td>303</td></tr>
+    <tr><td class="row_index">6</td><td>2010</td><td>310010039</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>23</td><td>297</td></tr>
+    <tr><td class="row_index">7</td><td>2010</td><td>310010039</td><td>2077701</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>20</td><td>296</td></tr>
+    <tr><td class="row_index">8</td><td>2010</td><td>310010039</td><td>2077701</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>22</td><td>295</td></tr>
+    <tr><td class="row_index">9</td><td>2010</td><td>310010039</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>18</td><td>292</td></tr>
+    <tr><td class="row_index">10</td><td>2010</td><td>310010039</td><td>3151794</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>20</td><td>288</td></tr>
+    <tr><td class="row_index">11</td><td>2010</td><td>310010039</td><td>3151794</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>19</td><td>276</td></tr>
+    <tr><td class="row_index">12</td><td>2010</td><td>310010039</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>25</td><td>270</td></tr>
+    <tr><td class="row_index">13</td><td>2010</td><td>310010039</td><td>2079186</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>22</td><td>269</td></tr>
+    <tr><td class="row_index">14</td><td>2010</td><td>310010039</td><td>3151794</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>22</td><td>269</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">3,355,686</td><td>2019</td><td>411010034</td><td>9923837</td><td>270430</td><td>2701</td><td>355640</td><td>3520</td><td>29</td><td>1</td></tr>
+    <tr><td class="row_index">3,355,687</td><td>2019</td><td>411010034</td><td>9923837</td><td>270430</td><td>2701</td><td>420910</td><td>4213</td><td>24</td><td>1</td></tr>
+    <tr><td class="row_index">3,355,688</td><td>2019</td><td>411010034</td><td>9923837</td><td>270430</td><td>2701</td><td>510285</td><td>5109</td><td>28</td><td>1</td></tr>
+    <tr><td class="row_index">3,355,689</td><td>2019</td><td>411010034</td><td>9923837</td><td>270430</td><td>2701</td><td>510622</td><td>5114</td><td>29</td><td>1</td></tr>
+    <tr><td class="row_index">3,355,690</td><td>2019</td><td>411010034</td><td>9923837</td><td>270430</td><td>2701</td><td>510792</td><td>5114</td><td>14</td><td>1</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">3,355,691 rows × 9 columns</div>
+  </div>
+</div>
+</div>
+</div>
+<ul>
+<li>with age: 3_355_691 rows × 9 columns</li>
+<li>without age: 461_276 rows × 8 columns</li>
+</ul>
+</section>
+<section id="atualizando-variável-parto-normal" class="level3">
+<h3 class="anchored" data-anchor-id="atualizando-variável-parto-normal">Atualizando variável parto normal</h3>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_proc[:, dt.update(parto_normal <span class="op">=</span> f.parto_normal <span class="op">==</span> <span class="dv">310010039</span>)] <span class="co"># {310010039: 'normal', 411010034: 'cesariano'}</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df_proc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>ano</th><th>parto_normal</th><th>cnes</th><th>hosp_cod_municipio</th><th>hosp_regiao_saude</th><th>cod_municipio</th><th>regiao_saude</th><th>idade</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>22</td><td>362</td></tr>
+    <tr><td class="row_index">1</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>20</td><td>333</td></tr>
+    <tr><td class="row_index">2</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>19</td><td>331</td></tr>
+    <tr><td class="row_index">3</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>24</td><td>327</td></tr>
+    <tr><td class="row_index">4</td><td>2010</td><td>1</td><td>2077701</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>21</td><td>318</td></tr>
+    <tr><td class="row_index">5</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>21</td><td>303</td></tr>
+    <tr><td class="row_index">6</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>23</td><td>297</td></tr>
+    <tr><td class="row_index">7</td><td>2010</td><td>1</td><td>2077701</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>20</td><td>296</td></tr>
+    <tr><td class="row_index">8</td><td>2010</td><td>1</td><td>2077701</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>22</td><td>295</td></tr>
+    <tr><td class="row_index">9</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>18</td><td>292</td></tr>
+    <tr><td class="row_index">10</td><td>2010</td><td>1</td><td>3151794</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>20</td><td>288</td></tr>
+    <tr><td class="row_index">11</td><td>2010</td><td>1</td><td>3151794</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>19</td><td>276</td></tr>
+    <tr><td class="row_index">12</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>25</td><td>270</td></tr>
+    <tr><td class="row_index">13</td><td>2010</td><td>1</td><td>2079186</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>22</td><td>269</td></tr>
+    <tr><td class="row_index">14</td><td>2010</td><td>1</td><td>3151794</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>22</td><td>269</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">3,355,686</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>355640</td><td>3520</td><td>29</td><td>1</td></tr>
+    <tr><td class="row_index">3,355,687</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>420910</td><td>4213</td><td>24</td><td>1</td></tr>
+    <tr><td class="row_index">3,355,688</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>510285</td><td>5109</td><td>28</td><td>1</td></tr>
+    <tr><td class="row_index">3,355,689</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>510622</td><td>5114</td><td>29</td><td>1</td></tr>
+    <tr><td class="row_index">3,355,690</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>510792</td><td>5114</td><td>14</td><td>1</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">3,355,691 rows × 9 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="exportando-tabela-1" class="level3">
+<h3 class="anchored" data-anchor-id="exportando-tabela-1">Exportando tabela</h3>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>output_proc <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>Path<span class="sc">.</span>home()<span class="sc">}</span><span class="ss">/Databases/GESTANTES/procedimentos.csv.gzip'</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df_proc.to_csv(output_proc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_proc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>ano</th><th>parto_normal</th><th>cnes</th><th>hosp_cod_municipio</th><th>hosp_regiao_saude</th><th>cod_municipio</th><th>regiao_saude</th><th>idade</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>22</td><td>362</td></tr>
+    <tr><td class="row_index">1</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>20</td><td>333</td></tr>
+    <tr><td class="row_index">2</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>19</td><td>331</td></tr>
+    <tr><td class="row_index">3</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>24</td><td>327</td></tr>
+    <tr><td class="row_index">4</td><td>2010</td><td>1</td><td>2077701</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>21</td><td>318</td></tr>
+    <tr><td class="row_index">5</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>21</td><td>303</td></tr>
+    <tr><td class="row_index">6</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>23</td><td>297</td></tr>
+    <tr><td class="row_index">7</td><td>2010</td><td>1</td><td>2077701</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>20</td><td>296</td></tr>
+    <tr><td class="row_index">8</td><td>2010</td><td>1</td><td>2077701</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>22</td><td>295</td></tr>
+    <tr><td class="row_index">9</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>18</td><td>292</td></tr>
+    <tr><td class="row_index">10</td><td>2010</td><td>1</td><td>3151794</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>20</td><td>288</td></tr>
+    <tr><td class="row_index">11</td><td>2010</td><td>1</td><td>3151794</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>19</td><td>276</td></tr>
+    <tr><td class="row_index">12</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>25</td><td>270</td></tr>
+    <tr><td class="row_index">13</td><td>2010</td><td>1</td><td>2079186</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>22</td><td>269</td></tr>
+    <tr><td class="row_index">14</td><td>2010</td><td>1</td><td>3151794</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>22</td><td>269</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">3,355,686</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>355640</td><td>3520</td><td>29</td><td>1</td></tr>
+    <tr><td class="row_index">3,355,687</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>420910</td><td>4213</td><td>24</td><td>1</td></tr>
+    <tr><td class="row_index">3,355,688</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>510285</td><td>5109</td><td>28</td><td>1</td></tr>
+    <tr><td class="row_index">3,355,689</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>510622</td><td>5114</td><td>29</td><td>1</td></tr>
+    <tr><td class="row_index">3,355,690</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>510792</td><td>5114</td><td>14</td><td>1</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">3,355,691 rows × 9 columns</div>
+  </div>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

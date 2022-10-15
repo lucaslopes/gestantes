@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Deslocamento de Gestantes – data_compare</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Deslocamento de Gestantes</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lucaslopes/gestantes" title="" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Coleta de Dados</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/sih.html" class="sidebar-item-text sidebar-link">SIH</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/socioecon.html" class="sidebar-item-text sidebar-link">Socioeconômico</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/mun_dist.html" class="sidebar-item-text sidebar-link">Distâncias</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Coleta de Dados</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  sections/data_network.ipynb
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#comparação-entre-bases-sih-e-sinasc" id="toc-comparação-entre-bases-sih-e-sinasc" class="nav-link active" data-scroll-target="#comparação-entre-bases-sih-e-sinasc">Comparação entre bases SIH e SINASC</a>
+  <ul class="collapse">
+  <li><a href="#código" id="toc-código" class="nav-link" data-scroll-target="#código">Código</a></li>
+  <li><a href="#bases-originais" id="toc-bases-originais" class="nav-link" data-scroll-target="#bases-originais">Bases originais</a></li>
+  <li><a href="#bases-filtradas" id="toc-bases-filtradas" class="nav-link" data-scroll-target="#bases-filtradas">Bases filtradas</a></li>
+  <li><a href="#bases-filtradas-com-apenas-cnes-sus" id="toc-bases-filtradas-com-apenas-cnes-sus" class="nav-link" data-scroll-target="#bases-filtradas-com-apenas-cnes-sus">Bases filtradas com apenas CNES SUS</a></li>
+  <li><a href="#comparação" id="toc-comparação" class="nav-link" data-scroll-target="#comparação">Comparação</a></li>
+  <li><a href="#cnes-sus-em-cada-base" id="toc-cnes-sus-em-cada-base" class="nav-link" data-scroll-target="#cnes-sus-em-cada-base">CNES SUS em cada base</a>
+  <ul class="collapse">
+  <li><a href="#sih" id="toc-sih" class="nav-link" data-scroll-target="#sih">SIH</a></li>
+  <li><a href="#sinasc" id="toc-sinasc" class="nav-link" data-scroll-target="#sinasc">SINASC</a></li>
+  </ul></li>
+  <li><a href="#cnes-no-sih" id="toc-cnes-no-sih" class="nav-link" data-scroll-target="#cnes-no-sih">CNES no SIH</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="comparação-entre-bases-sih-e-sinasc" class="level1">
+<h1>Comparação entre bases SIH e SINASC</h1>
+<section id="código" class="level2">
+<h2 class="anchored" data-anchor-id="código">Código</h2>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> config, data_load</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style type="text/css">
+.datatable table.frame { margin-bottom: 0; }
+.datatable table.frame thead { border-bottom: none; }
+.datatable table.frame tr.coltypes td {  color: #FFFFFF;  line-height: 6px;  padding: 0 0.5em;}
+.datatable .bool    { background: #DDDD99; }
+.datatable .object  { background: #565656; }
+.datatable .int     { background: #5D9E5D; }
+.datatable .float   { background: #4040CC; }
+.datatable .str     { background: #CC4040; }
+.datatable .row_index {  background: var(--jp-border-color3);  border-right: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  font-size: 9px;}
+.datatable .frame tr.coltypes .row_index {  background: var(--jp-border-color0);}
+.datatable th:nth-child(2) { padding-left: 12px; }
+.datatable .hellipsis {  color: var(--jp-cell-editor-border-color);}
+.datatable .vellipsis {  background: var(--jp-layout-color0);  color: var(--jp-cell-editor-border-color);}
+.datatable .na {  color: var(--jp-cell-editor-border-color);  font-size: 80%;}
+.datatable .footer { font-size: 9px; }
+.datatable .frame_dimensions {  background: var(--jp-border-color3);  border-top: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  display: inline-block;  opacity: 0.6;  padding: 1px 10px 1px 5px;}
+</style>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_query(query_name):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    path_query <span class="op">=</span> <span class="ss">f'queries/compare/</span><span class="sc">{</span>query_name<span class="sc">}</span><span class="ss">.sql'</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(path_query) <span class="im">as</span> f:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        query <span class="op">=</span> f.read()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> query</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> query_result(query_name):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> read_query(query_name)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> data_load.df_query(query)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> query_cnes_result(query_name,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        up_bound, low_bound, cnes_pref<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> read_query(query_name)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> query.replace(<span class="st">'UP_BOUND'</span>, <span class="bu">str</span>(up_bound))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> query.replace(<span class="st">'LOW_BOUND'</span>, <span class="bu">str</span>(low_bound))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> cnes_pref <span class="op">!=</span> <span class="va">None</span>:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        increment <span class="op">=</span> <span class="st">"</span><span class="ch">\n</span><span class="st"> and CODESTAB not like '2%'"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> cnes_pref <span class="op">==</span> <span class="va">False</span>:</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> increment.replace(<span class="st">' not'</span>, <span class="st">''</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(increment)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        query <span class="op">=</span> query.replace(<span class="st">'Hospital'</span>, increment)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> data_load.df_query(query)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="bases-originais" class="level2">
+<h2 class="anchored" data-anchor-id="bases-originais">Bases originais</h2>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>all_sih <span class="op">=</span> <span class="dv">157033546</span> <span class="co"># query_result('count_sih')['records'][0]</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>all_sinasc <span class="op">=</span> <span class="dv">74398079</span> <span class="co"># query_result('count_sinasc')['records'][0]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_count <span class="op">=</span> pd.DataFrame([</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SIH'</span>, all_sih],</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SINASC'</span>, all_sinasc]</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>], columns<span class="op">=</span>[<span class="st">'database'</span>, <span class="st">'records'</span>])</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(df_count, x<span class="op">=</span><span class="st">'database'</span>, y<span class="op">=</span><span class="st">'records'</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+</div>
+</div>
+</section>
+<section id="bases-filtradas" class="level2">
+<h2 class="anchored" data-anchor-id="bases-filtradas">Bases filtradas</h2>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>flt_sih <span class="op">=</span> <span class="dv">16814490</span> <span class="co"># query_result('filter_sih')['records'][0]</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>flt_sinasc <span class="op">=</span> <span class="dv">28197164</span> <span class="co"># query_result('filter_sinasc')['records'][0]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_filter <span class="op">=</span> pd.DataFrame([</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SIH'</span>, flt_sih],</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SINASC'</span>, flt_sinasc]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>], columns<span class="op">=</span>[<span class="st">'database'</span>, <span class="st">'records'</span>])</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(df_filter, x<span class="op">=</span><span class="st">'database'</span>, y<span class="op">=</span><span class="st">'records'</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+</div>
+</div>
+</section>
+<section id="bases-filtradas-com-apenas-cnes-sus" class="level2">
+<h2 class="anchored" data-anchor-id="bases-filtradas-com-apenas-cnes-sus">Bases filtradas com apenas CNES SUS</h2>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_cnes <span class="op">=</span> pd.read_csv(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'data/consult/compare/cnes_sus.csv'</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    dtype<span class="op">=</span>{<span class="st">'CNES'</span>:<span class="bu">str</span>})</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>df_cnes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>CNES</th>
+      <th>repeted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2002043</td>
+      <td>163</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2002159</td>
+      <td>163</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3006166</td>
+      <td>163</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3382745</td>
+      <td>163</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3393984</td>
+      <td>163</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>130269</th>
+      <td>9708618</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>130270</th>
+      <td>9715568</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>130271</th>
+      <td>3475840</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>130272</th>
+      <td>3933067</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>130273</th>
+      <td>6094325</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>130274 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df_cnes_sih = pd.concat([</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   query_cnes_result('sus_sih', 10**6, 4200),</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   query_cnes_result('sus_sih', 4200, 1200),</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   query_cnes_result('sus_sih', 1200, 270),</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   query_cnes_result('sus_sih', 270, 6),</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   query_cnes_result('sus_sih', 6, 1),</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ])</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>path_cnes_sih <span class="op">=</span> <span class="st">'data/consult/compare/cnes_sih.csv'</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># df_cnes_sih.to_csv(path_cnes_sih, index=False)</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>df_cnes_sih <span class="op">=</span> pd.read_csv(</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    path_cnes_sih,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    dtype<span class="op">=</span>{<span class="st">'CNES'</span>:<span class="bu">str</span>})</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>df_cnes_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>CNES</th>
+      <th>records</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0002232</td>
+      <td>101955</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3151794</td>
+      <td>75209</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2323397</td>
+      <td>74417</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2311682</td>
+      <td>64833</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0026794</td>
+      <td>63700</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4144</th>
+      <td>7320175</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4145</th>
+      <td>7603029</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4146</th>
+      <td>7621442</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4147</th>
+      <td>7704364</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4148</th>
+      <td>7743068</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>4149 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df_cnes_sinasc = pd.concat([</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   query_cnes_result('sus_sinasc', 10**6, 7777),</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   query_cnes_result('sus_sinasc', 7777, 2600),</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   query_cnes_result('sus_sinasc', 2600, 1100),</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   query_cnes_result('sus_sinasc', 1100, 365),</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   query_cnes_result('sus_sinasc', 365, 51),</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   query_cnes_result('sus_sinasc', 51, 6),</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   query_cnes_result('sus_sinasc', 6, 2),</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   query_cnes_result('sus_sinasc', 2, 1, cnes_pref=True),</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   query_cnes_result('sus_sinasc', 2, 1, cnes_pref=False),</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ])</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>path_cnes_sinasc <span class="op">=</span> <span class="st">'data/consult/compare/cnes_sinasc.csv'</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># df_cnes_sinasc.to_csv(path_cnes_sinasc, index=False)</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>df_cnes_sinasc <span class="op">=</span> pd.read_csv(</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    path_cnes_sinasc,</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    dtype<span class="op">=</span>{<span class="st">'CNES'</span>:<span class="bu">str</span>})</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>df_cnes_sinasc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    and CODESTAB like '2%'</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>CNES</th>
+      <th>records</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2079542</td>
+      <td>145885</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3037274</td>
+      <td>115195</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0002232</td>
+      <td>104344</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0026794</td>
+      <td>103932</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2323397</td>
+      <td>101349</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8204</th>
+      <td>2810042</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8205</th>
+      <td>2813483</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8206</th>
+      <td>2818450</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8207</th>
+      <td>2823330</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8208</th>
+      <td>2824469</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>8209 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>set_cnes_sus <span class="op">=</span> <span class="bu">set</span>(df_cnes[<span class="st">'CNES'</span>])</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>set_cnes_sih <span class="op">=</span> <span class="bu">set</span>(df_cnes_sih[<span class="st">'CNES'</span>])</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>cnes_sus_sih <span class="op">=</span> set_cnes_sus.intersection(set_cnes_sih)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>set_cnes_sinasc <span class="op">=</span> <span class="bu">set</span>(df_cnes_sinasc[<span class="st">'CNES'</span>])</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>cnes_sus_sinasc <span class="op">=</span> set_cnes_sus.intersection(set_cnes_sinasc)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>sus_sih <span class="op">=</span> <span class="dv">15767633</span> <span class="co"># df_cnes_sih[df_cnes_sih['CNES'].isin(cnes_sus_sih)]['records'].sum()</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>sus_sinasc <span class="op">=</span> <span class="dv">21196305</span> <span class="co"># df_cnes_sinasc[df_cnes_sinasc['CNES'].isin(cnes_sus_sih)]['records'].sum()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_filter <span class="op">=</span> pd.DataFrame([</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SIH'</span>, sus_sih],</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SINASC'</span>, sus_sinasc]</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>], columns<span class="op">=</span>[<span class="st">'database'</span>, <span class="st">'records'</span>])</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(df_filter, x<span class="op">=</span><span class="st">'database'</span>, y<span class="op">=</span><span class="st">'records'</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+</div>
+</div>
+</section>
+<section id="comparação" class="level2">
+<h2 class="anchored" data-anchor-id="comparação">Comparação</h2>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_filter <span class="op">=</span> pd.DataFrame([</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SIH'</span>, <span class="st">'all'</span>, all_sih],</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SINASC'</span>, <span class="st">'all'</span>, all_sinasc],</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SIH'</span>, <span class="st">'filter'</span>, flt_sih],</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SINASC'</span>, <span class="st">'filter'</span>, flt_sinasc],</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SIH'</span>, <span class="st">'sus'</span>, sus_sih],</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SINASC'</span>, <span class="st">'sus'</span>, sus_sinasc],</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>], columns<span class="op">=</span>[<span class="st">'database'</span>, <span class="st">'selection'</span>, <span class="st">'records'</span>])</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(df_filter, x<span class="op">=</span><span class="st">'database'</span>, y<span class="op">=</span><span class="st">'records'</span>, color<span class="op">=</span><span class="st">'selection'</span>, barmode<span class="op">=</span><span class="st">'overlay'</span>)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+</div>
+</div>
+</section>
+<section id="cnes-sus-em-cada-base" class="level2">
+<h2 class="anchored" data-anchor-id="cnes-sus-em-cada-base">CNES SUS em cada base</h2>
+<section id="sih" class="level3">
+<h3 class="anchored" data-anchor-id="sih">SIH</h3>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_cnes_sih[df_cnes_sih[<span class="st">'CNES'</span>].isin(set_cnes_sus)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>CNES</th>
+      <th>records</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>3151794</td>
+      <td>75209</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2323397</td>
+      <td>74417</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2311682</td>
+      <td>64833</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2020068</td>
+      <td>59610</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6627595</td>
+      <td>58139</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4144</th>
+      <td>7320175</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4145</th>
+      <td>7603029</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4146</th>
+      <td>7621442</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4147</th>
+      <td>7704364</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4148</th>
+      <td>7743068</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>4071 rows × 2 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sinasc" class="level3">
+<h3 class="anchored" data-anchor-id="sinasc">SINASC</h3>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df_cnes_sinasc[df_cnes_sinasc[<span class="st">'CNES'</span>].isin(set_cnes_sus)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>CNES</th>
+      <th>records</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>2323397</td>
+      <td>101349</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2022621</td>
+      <td>99602</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2311682</td>
+      <td>87673</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2566168</td>
+      <td>87672</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>3151794</td>
+      <td>85933</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8201</th>
+      <td>2806878</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8202</th>
+      <td>2806924</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8205</th>
+      <td>2813483</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8206</th>
+      <td>2818450</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8207</th>
+      <td>2823330</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>6829 rows × 2 columns</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="cnes-no-sih" class="level2">
+<h2 class="anchored" data-anchor-id="cnes-no-sih">CNES no SIH</h2>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_cnes_query(path_query, prefix<span class="op">=</span><span class="dv">1</span>, init_two<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">with</span> <span class="bu">open</span>(path_query) <span class="im">as</span> f:</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> f.read()</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    rep_prefix <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>prefix<span class="sc">}</span><span class="ss">%'</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    rep_prefix <span class="op">=</span> <span class="st">'2'</span><span class="op">+</span>rep_prefix <span class="cf">if</span> init_two <span class="cf">else</span> rep_prefix</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> query.replace(<span class="st">'1%'</span>, rep_prefix)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> data_load.df_query(query)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> list_cnes(path_query):</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  dfs <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> tqdm(<span class="bu">range</span>(<span class="dv">10</span>)):</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> j <span class="kw">in</span> tqdm(<span class="bu">range</span>(<span class="dv">10</span>)):</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        df_cnes_sus <span class="op">=</span> read_cnes_query(path_query, j, i<span class="op">==</span><span class="dv">2</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>        dfs.append(df_cnes_sus)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>      df_cnes_sus <span class="op">=</span> read_cnes_query(path_query, i)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>      dfs.append(df_cnes_sus)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  df_cnes_sus <span class="op">=</span> pd.concat(dfs)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df_cnes_sus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>path_query <span class="op">=</span> <span class="st">'queries/compare/cnes_sih.sql'</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>df_cnes_sih <span class="op">=</span> list_cnes(path_query)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>df_cnes_sih.to_csv(<span class="st">'cnes_sih.csv.zip'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>df_cnes_sih <span class="op">=</span> pd.read_csv(<span class="st">'cnes_sih.csv.zip'</span>, dtype<span class="op">=</span>{<span class="st">'CNES'</span>:<span class="bu">str</span>})</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>df_cnes_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 10/10 [00:14&lt;00:00,  1.42s/it]
+100%|██████████| 10/10 [00:21&lt;00:00,  2.10s/it]</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>CNES</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0000027</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0000035</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0000094</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0000396</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0000418</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4472</th>
+      <td>9677011</td>
+    </tr>
+    <tr>
+      <th>4473</th>
+      <td>9680500</td>
+    </tr>
+    <tr>
+      <th>4474</th>
+      <td>9813349</td>
+    </tr>
+    <tr>
+      <th>4475</th>
+      <td>9917322</td>
+    </tr>
+    <tr>
+      <th>4476</th>
+      <td>9923837</td>
+    </tr>
+  </tbody>
+</table>
+<p>4477 rows × 1 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df_sinasc_cnes <span class="op">=</span> df_cnes_sinasc[df_cnes_sinasc[<span class="st">'CNES'</span>].isin(<span class="bu">set</span>(df_cnes_sih[<span class="st">'CNES'</span>]))]</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df_sinasc_cnes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>CNES</th>
+      <th>records</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>0002232</td>
+      <td>104344</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0026794</td>
+      <td>103932</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2323397</td>
+      <td>101349</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2022621</td>
+      <td>99602</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2311682</td>
+      <td>87673</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8162</th>
+      <td>2761157</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8170</th>
+      <td>2772213</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8179</th>
+      <td>2777819</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8187</th>
+      <td>2789345</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8193</th>
+      <td>2796597</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>4299 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sih_sinasc <span class="op">=</span> df_sinasc_cnes[<span class="st">'records'</span>].<span class="bu">sum</span>() <span class="co"># 22928708</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>sih_sinasc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>22899941</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df_filter <span class="op">=</span> pd.DataFrame([</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SIH'</span>, <span class="st">'all'</span>, all_sih],</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SINASC'</span>, <span class="st">'all'</span>, all_sinasc],</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SIH'</span>, <span class="st">'filter'</span>, flt_sih],</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SINASC'</span>, <span class="st">'filter'</span>, flt_sinasc],</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SIH'</span>, <span class="st">'sus'</span>, sus_sih],</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SINASC'</span>, <span class="st">'sus'</span>, sih_sinasc],</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>], columns<span class="op">=</span>[<span class="st">'database'</span>, <span class="st">'selection'</span>, <span class="st">'records'</span>])</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(df_filter, x<span class="op">=</span><span class="st">'database'</span>, y<span class="op">=</span><span class="st">'records'</span>, color<span class="op">=</span><span class="st">'selection'</span>, barmode<span class="op">=</span><span class="st">'overlay'</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

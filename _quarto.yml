@@ -1,0 +1,33 @@
+project:
+  type: website
+  render: ['README.qmd', 'sections/*.ipynb']
+
+website:
+  title: 'Deslocamento de Gestantes'
+  description: 'Redes de deslocamento para acesso ao parto hospitalar no Brasil'
+  sidebar:
+    search: true
+    style: "docked"
+    background: info
+    tools:
+      - icon: github
+        href: https://github.com/lucaslopes/gestantes
+    contents:
+      - README.qmd
+      - section: 'Coleta de Dados'
+        contents:
+          - sections/database_sih.ipynb
+          - sections/database_socioecon.ipynb
+          - sections/database_dists.ipynb
+      - section: 'Tabelas Criadas'
+        contents:
+          - sections/table_muns.ipynb
+          - sections/table_procs.ipynb
+          - sections/table_dists.ipynb
+          # - sections/data_network.ipynb
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

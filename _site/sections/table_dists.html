@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Deslocamento de Gestantes - Distâncias</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Distâncias</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Deslocamento de Gestantes</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lucaslopes/gestantes" title="" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../README.html" class="sidebar-item-text sidebar-link">Introdução</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Coleta de Dados</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_sih.html" class="sidebar-item-text sidebar-link">SIH</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_socioecon.html" class="sidebar-item-text sidebar-link">Socioeconômico</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_dists.html" class="sidebar-item-text sidebar-link">Distâncias</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Tabelas Criadas</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_muns.html" class="sidebar-item-text sidebar-link">Municípios</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_procs.html" class="sidebar-item-text sidebar-link">Procedimentos</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_dists.html" class="sidebar-item-text sidebar-link active">Distâncias</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#descrição" id="toc-descrição" class="nav-link active" data-scroll-target="#descrição">Descrição</a></li>
+  <li><a href="#tabelas-base" id="toc-tabelas-base" class="nav-link" data-scroll-target="#tabelas-base">Tabelas base</a>
+  <ul class="collapse">
+  <li><a href="#distâncias" id="toc-distâncias" class="nav-link" data-scroll-target="#distâncias">Distâncias</a>
+  <ul class="collapse">
+  <li><a href="#colunas-da-tabela" id="toc-colunas-da-tabela" class="nav-link" data-scroll-target="#colunas-da-tabela">Colunas da tabela</a></li>
+  </ul></li>
+  <li><a href="#procedimentos" id="toc-procedimentos" class="nav-link" data-scroll-target="#procedimentos">Procedimentos</a>
+  <ul class="collapse">
+  <li><a href="#colunas-da-tabela-1" id="toc-colunas-da-tabela-1" class="nav-link" data-scroll-target="#colunas-da-tabela-1">Colunas da tabela</a></li>
+  <li><a href="#tabela-agrupada" id="toc-tabela-agrupada" class="nav-link" data-scroll-target="#tabela-agrupada">Tabela agrupada</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#gerando-tabela" id="toc-gerando-tabela" class="nav-link" data-scroll-target="#gerando-tabela">Gerando tabela</a></li>
+  <li><a href="#exportando-tabela" id="toc-exportando-tabela" class="nav-link" data-scroll-target="#exportando-tabela">Exportando tabela</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Distâncias</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, group_cols</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="descrição" class="level1">
+<h1>Descrição</h1>
+<p>Neste notebook iremos formar uma tabela contendo o tempo e distância de todos os pares origem e destino de municípios do Brasil oriundo da tabela de procedimentos.</p>
+</section>
+<section id="tabelas-base" class="level1">
+<h1>Tabelas base</h1>
+<section id="distâncias" class="level2">
+<h2 class="anchored" data-anchor-id="distâncias">Distâncias</h2>
+<section id="colunas-da-tabela" class="level3">
+<h3 class="anchored" data-anchor-id="colunas-da-tabela">Colunas da tabela</h3>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cols_mun <span class="op">=</span> [</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_municipio'</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'regiao'</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'uf'</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_uf'</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'nome_uf'</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'municipio'</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'nome_municipio'</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">'capital'</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">'fronteira'</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">'amazonia'</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">'macroregiao_saude'</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">'regiao_saude'</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">'nome_regiao_saude'</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">'microregiao_saude'</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">'latitude'</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">'longitude'</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">'altitude'</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">'area'</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>path_dist <span class="op">=</span> get_path(<span class="st">'DISTANCIAS'</span>, <span class="st">'matriz_distancias.zip'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_dist <span class="op">=</span> dt.fread(path_dist)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>origem</th><th>destino</th><th>distancia</th><th>tempo</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>110001</td><td>110001</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">1</td><td>110001</td><td>110002</td><td>309.05</td><td>6.16906</td></tr>
+    <tr><td class="row_index">2</td><td>110001</td><td>110003</td><td>399.5</td><td>6.28906</td></tr>
+    <tr><td class="row_index">3</td><td>110001</td><td>110004</td><td>81.2011</td><td>1.91775</td></tr>
+    <tr><td class="row_index">4</td><td>110001</td><td>110005</td><td>391.704</td><td>6.13636</td></tr>
+    <tr><td class="row_index">5</td><td>110001</td><td>110006</td><td>353.417</td><td>5.53989</td></tr>
+    <tr><td class="row_index">6</td><td>110001</td><td>110007</td><td>313.592</td><td>6.18117</td></tr>
+    <tr><td class="row_index">7</td><td>110001</td><td>110008</td><td>326.983</td><td>5.34175</td></tr>
+    <tr><td class="row_index">8</td><td>110001</td><td>110009</td><td>145.678</td><td>2.346</td></tr>
+    <tr><td class="row_index">9</td><td>110001</td><td>110010</td><td>649.545</td><td>13.405</td></tr>
+    <tr><td class="row_index">10</td><td>110001</td><td>110011</td><td>214.125</td><td>3.83481</td></tr>
+    <tr><td class="row_index">11</td><td>110001</td><td>110012</td><td>130.77</td><td>2.54781</td></tr>
+    <tr><td class="row_index">12</td><td>110001</td><td>110013</td><td>357.511</td><td>7.13067</td></tr>
+    <tr><td class="row_index">13</td><td>110001</td><td>110014</td><td>60.2103</td><td>1.02275</td></tr>
+    <tr><td class="row_index">14</td><td>110001</td><td>110015</td><td>172.926</td><td>3.18425</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">31,024,895</td><td>530010</td><td>522200</td><td>161.729</td><td>2.356</td></tr>
+    <tr><td class="row_index">31,024,896</td><td>530010</td><td>522205</td><td>382.709</td><td>5.47956</td></tr>
+    <tr><td class="row_index">31,024,897</td><td>530010</td><td>522220</td><td>161.603</td><td>2.24894</td></tr>
+    <tr><td class="row_index">31,024,898</td><td>530010</td><td>522230</td><td>190.001</td><td>3.21608</td></tr>
+    <tr><td class="row_index">31,024,899</td><td>530010</td><td>530010</td><td>0</td><td>0</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">31,024,900 rows × 4 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="procedimentos" class="level2">
+<h2 class="anchored" data-anchor-id="procedimentos">Procedimentos</h2>
+<section id="colunas-da-tabela-1" class="level3">
+<h3 class="anchored" data-anchor-id="colunas-da-tabela-1">Colunas da tabela</h3>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cols_deslc <span class="op">=</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_municipio'</span>: <span class="st">'origem'</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'hosp_cod_municipio'</span>: <span class="st">'destino'</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  ...: <span class="va">None</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>path_deslc <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'procedimentos.csv.gzip'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> dt.fread(path_deslc, columns<span class="op">=</span>cols_deslc)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>destino</th><th>origem</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>355030</td><td>355030</td></tr>
+    <tr><td class="row_index">1</td><td>355030</td><td>355030</td></tr>
+    <tr><td class="row_index">2</td><td>355030</td><td>355030</td></tr>
+    <tr><td class="row_index">3</td><td>355030</td><td>355030</td></tr>
+    <tr><td class="row_index">4</td><td>355030</td><td>355030</td></tr>
+    <tr><td class="row_index">5</td><td>355030</td><td>355030</td></tr>
+    <tr><td class="row_index">6</td><td>355030</td><td>355030</td></tr>
+    <tr><td class="row_index">7</td><td>355030</td><td>355030</td></tr>
+    <tr><td class="row_index">8</td><td>355030</td><td>355030</td></tr>
+    <tr><td class="row_index">9</td><td>355030</td><td>355030</td></tr>
+    <tr><td class="row_index">10</td><td>130260</td><td>130260</td></tr>
+    <tr><td class="row_index">11</td><td>130260</td><td>130260</td></tr>
+    <tr><td class="row_index">12</td><td>355030</td><td>355030</td></tr>
+    <tr><td class="row_index">13</td><td>355030</td><td>355030</td></tr>
+    <tr><td class="row_index">14</td><td>130260</td><td>130260</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">3,355,686</td><td>270430</td><td>355640</td></tr>
+    <tr><td class="row_index">3,355,687</td><td>270430</td><td>420910</td></tr>
+    <tr><td class="row_index">3,355,688</td><td>270430</td><td>510285</td></tr>
+    <tr><td class="row_index">3,355,689</td><td>270430</td><td>510622</td></tr>
+    <tr><td class="row_index">3,355,690</td><td>270430</td><td>510792</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">3,355,691 rows × 2 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="tabela-agrupada" class="level3">
+<h3 class="anchored" data-anchor-id="tabela-agrupada">Tabela agrupada</h3>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> group_cols(df_deslc, <span class="bu">list</span>(cols_deslc.values())[:<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc.sort(<span class="op">-</span>f.count)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>origem</th><th>destino</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>355030</td><td>355030</td><td>21807</td></tr>
+    <tr><td class="row_index">1</td><td>330455</td><td>330455</td><td>9922</td></tr>
+    <tr><td class="row_index">2</td><td>230440</td><td>230440</td><td>7113</td></tr>
+    <tr><td class="row_index">3</td><td>130260</td><td>130260</td><td>5488</td></tr>
+    <tr><td class="row_index">4</td><td>292740</td><td>292740</td><td>5406</td></tr>
+    <tr><td class="row_index">5</td><td>150140</td><td>150140</td><td>5142</td></tr>
+    <tr><td class="row_index">6</td><td>520870</td><td>520870</td><td>4669</td></tr>
+    <tr><td class="row_index">7</td><td>310620</td><td>310620</td><td>4408</td></tr>
+    <tr><td class="row_index">8</td><td>431490</td><td>431490</td><td>3879</td></tr>
+    <tr><td class="row_index">9</td><td>230370</td><td>230440</td><td>3507</td></tr>
+    <tr><td class="row_index">10</td><td>270430</td><td>270430</td><td>3353</td></tr>
+    <tr><td class="row_index">11</td><td>410690</td><td>410690</td><td>3310</td></tr>
+    <tr><td class="row_index">12</td><td>211130</td><td>211130</td><td>3208</td></tr>
+    <tr><td class="row_index">13</td><td>221100</td><td>221100</td><td>3059</td></tr>
+    <tr><td class="row_index">14</td><td>500270</td><td>500270</td><td>2902</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">71,681</td><td>522220</td><td>520540</td><td>1</td></tr>
+    <tr><td class="row_index">71,682</td><td>522220</td><td>521830</td><td>1</td></tr>
+    <tr><td class="row_index">71,683</td><td>522230</td><td>521830</td><td>1</td></tr>
+    <tr><td class="row_index">71,684</td><td>522230</td><td>521970</td><td>1</td></tr>
+    <tr><td class="row_index">71,685</td><td>522230</td><td>522045</td><td>1</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">71,686 rows × 3 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="gerando-tabela" class="level1">
+<h1>Gerando tabela</h1>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_dist.key <span class="op">=</span> [<span class="st">'origem'</span>, <span class="st">'destino'</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><th class="row_index">origem</th><th class="row_index">destino</th><th>distancia</th><th>tempo</th></tr>
+    <tr class="coltypes"><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">110001</td><td class="row_index">110001</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110002</td><td>309.05</td><td>6.16906</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110003</td><td>399.5</td><td>6.28906</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110004</td><td>81.2011</td><td>1.91775</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110005</td><td>391.704</td><td>6.13636</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110006</td><td>353.417</td><td>5.53989</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110007</td><td>313.592</td><td>6.18117</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110008</td><td>326.983</td><td>5.34175</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110009</td><td>145.678</td><td>2.346</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110010</td><td>649.545</td><td>13.405</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110011</td><td>214.125</td><td>3.83481</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110012</td><td>130.77</td><td>2.54781</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110013</td><td>357.511</td><td>7.13067</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110014</td><td>60.2103</td><td>1.02275</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110015</td><td>172.926</td><td>3.18425</td></tr>
+    <tr><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">530010</td><td class="row_index">522200</td><td>161.729</td><td>2.356</td></tr>
+    <tr><td class="row_index">530010</td><td class="row_index">522205</td><td>382.709</td><td>5.47956</td></tr>
+    <tr><td class="row_index">530010</td><td class="row_index">522220</td><td>161.603</td><td>2.24894</td></tr>
+    <tr><td class="row_index">530010</td><td class="row_index">522230</td><td>190.001</td><td>3.21608</td></tr>
+    <tr><td class="row_index">530010</td><td class="row_index">530010</td><td>0</td><td>0</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">31,024,900 rows × 4 columns</div>
+  </div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc[:, :, dt.join(df_dist)]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>origem</th><th>destino</th><th>count</th><th>distancia</th><th>tempo</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>355030</td><td>355030</td><td>21807</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">1</td><td>330455</td><td>330455</td><td>9922</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">2</td><td>230440</td><td>230440</td><td>7113</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">3</td><td>130260</td><td>130260</td><td>5488</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">4</td><td>292740</td><td>292740</td><td>5406</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">5</td><td>150140</td><td>150140</td><td>5142</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">6</td><td>520870</td><td>520870</td><td>4669</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">7</td><td>310620</td><td>310620</td><td>4408</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">8</td><td>431490</td><td>431490</td><td>3879</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">9</td><td>230370</td><td>230440</td><td>3507</td><td>16.7161</td><td>0.344111</td></tr>
+    <tr><td class="row_index">10</td><td>270430</td><td>270430</td><td>3353</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">11</td><td>410690</td><td>410690</td><td>3310</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">12</td><td>211130</td><td>211130</td><td>3208</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">13</td><td>221100</td><td>221100</td><td>3059</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">14</td><td>500270</td><td>500270</td><td>2902</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">71,681</td><td>522220</td><td>520540</td><td>1</td><td>443.089</td><td>5.96508</td></tr>
+    <tr><td class="row_index">71,682</td><td>522220</td><td>521830</td><td>1</td><td>150.619</td><td>1.85706</td></tr>
+    <tr><td class="row_index">71,683</td><td>522230</td><td>521830</td><td>1</td><td>501.82</td><td>7.04144</td></tr>
+    <tr><td class="row_index">71,684</td><td>522230</td><td>521970</td><td>1</td><td>203.783</td><td>3.14278</td></tr>
+    <tr><td class="row_index">71,685</td><td>522230</td><td>522045</td><td>1</td><td>192.855</td><td>3.10403</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">71,686 rows × 5 columns</div>
+  </div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cols_order <span class="op">=</span> [<span class="st">'origem'</span>, <span class="st">'destino'</span>, <span class="st">'distancia'</span>, <span class="st">'tempo'</span>, <span class="st">'count'</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc[:, cols_order]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>origem</th><th>destino</th><th>distancia</th><th>tempo</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>355030</td><td>355030</td><td>0</td><td>0</td><td>21807</td></tr>
+    <tr><td class="row_index">1</td><td>330455</td><td>330455</td><td>0</td><td>0</td><td>9922</td></tr>
+    <tr><td class="row_index">2</td><td>230440</td><td>230440</td><td>0</td><td>0</td><td>7113</td></tr>
+    <tr><td class="row_index">3</td><td>130260</td><td>130260</td><td>0</td><td>0</td><td>5488</td></tr>
+    <tr><td class="row_index">4</td><td>292740</td><td>292740</td><td>0</td><td>0</td><td>5406</td></tr>
+    <tr><td class="row_index">5</td><td>150140</td><td>150140</td><td>0</td><td>0</td><td>5142</td></tr>
+    <tr><td class="row_index">6</td><td>520870</td><td>520870</td><td>0</td><td>0</td><td>4669</td></tr>
+    <tr><td class="row_index">7</td><td>310620</td><td>310620</td><td>0</td><td>0</td><td>4408</td></tr>
+    <tr><td class="row_index">8</td><td>431490</td><td>431490</td><td>0</td><td>0</td><td>3879</td></tr>
+    <tr><td class="row_index">9</td><td>230370</td><td>230440</td><td>16.7161</td><td>0.344111</td><td>3507</td></tr>
+    <tr><td class="row_index">10</td><td>270430</td><td>270430</td><td>0</td><td>0</td><td>3353</td></tr>
+    <tr><td class="row_index">11</td><td>410690</td><td>410690</td><td>0</td><td>0</td><td>3310</td></tr>
+    <tr><td class="row_index">12</td><td>211130</td><td>211130</td><td>0</td><td>0</td><td>3208</td></tr>
+    <tr><td class="row_index">13</td><td>221100</td><td>221100</td><td>0</td><td>0</td><td>3059</td></tr>
+    <tr><td class="row_index">14</td><td>500270</td><td>500270</td><td>0</td><td>0</td><td>2902</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">71,681</td><td>522220</td><td>520540</td><td>443.089</td><td>5.96508</td><td>1</td></tr>
+    <tr><td class="row_index">71,682</td><td>522220</td><td>521830</td><td>150.619</td><td>1.85706</td><td>1</td></tr>
+    <tr><td class="row_index">71,683</td><td>522230</td><td>521830</td><td>501.82</td><td>7.04144</td><td>1</td></tr>
+    <tr><td class="row_index">71,684</td><td>522230</td><td>521970</td><td>203.783</td><td>3.14278</td><td>1</td></tr>
+    <tr><td class="row_index">71,685</td><td>522230</td><td>522045</td><td>192.855</td><td>3.10403</td><td>1</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">71,686 rows × 5 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="exportando-tabela" class="level1">
+<h1>Exportando tabela</h1>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>output_mun <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'distancias.csv.gzip'</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df_deslc.to_csv(output_mun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_mun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>origem</th><th>destino</th><th>distancia</th><th>tempo</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>355030</td><td>355030</td><td>0</td><td>0</td><td>21807</td></tr>
+    <tr><td class="row_index">1</td><td>330455</td><td>330455</td><td>0</td><td>0</td><td>9922</td></tr>
+    <tr><td class="row_index">2</td><td>230440</td><td>230440</td><td>0</td><td>0</td><td>7113</td></tr>
+    <tr><td class="row_index">3</td><td>130260</td><td>130260</td><td>0</td><td>0</td><td>5488</td></tr>
+    <tr><td class="row_index">4</td><td>292740</td><td>292740</td><td>0</td><td>0</td><td>5406</td></tr>
+    <tr><td class="row_index">5</td><td>150140</td><td>150140</td><td>0</td><td>0</td><td>5142</td></tr>
+    <tr><td class="row_index">6</td><td>520870</td><td>520870</td><td>0</td><td>0</td><td>4669</td></tr>
+    <tr><td class="row_index">7</td><td>310620</td><td>310620</td><td>0</td><td>0</td><td>4408</td></tr>
+    <tr><td class="row_index">8</td><td>431490</td><td>431490</td><td>0</td><td>0</td><td>3879</td></tr>
+    <tr><td class="row_index">9</td><td>230370</td><td>230440</td><td>16.7161</td><td>0.344111</td><td>3507</td></tr>
+    <tr><td class="row_index">10</td><td>270430</td><td>270430</td><td>0</td><td>0</td><td>3353</td></tr>
+    <tr><td class="row_index">11</td><td>410690</td><td>410690</td><td>0</td><td>0</td><td>3310</td></tr>
+    <tr><td class="row_index">12</td><td>211130</td><td>211130</td><td>0</td><td>0</td><td>3208</td></tr>
+    <tr><td class="row_index">13</td><td>221100</td><td>221100</td><td>0</td><td>0</td><td>3059</td></tr>
+    <tr><td class="row_index">14</td><td>500270</td><td>500270</td><td>0</td><td>0</td><td>2902</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">71,681</td><td>522220</td><td>520540</td><td>443.089</td><td>5.96508</td><td>1</td></tr>
+    <tr><td class="row_index">71,682</td><td>522220</td><td>521830</td><td>150.619</td><td>1.85706</td><td>1</td></tr>
+    <tr><td class="row_index">71,683</td><td>522230</td><td>521830</td><td>501.82</td><td>7.04144</td><td>1</td></tr>
+    <tr><td class="row_index">71,684</td><td>522230</td><td>521970</td><td>203.783</td><td>3.14278</td><td>1</td></tr>
+    <tr><td class="row_index">71,685</td><td>522230</td><td>522045</td><td>192.855</td><td>3.10403</td><td>1</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">71,686 rows × 5 columns</div>
+  </div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
