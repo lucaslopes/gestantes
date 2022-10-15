@@ -24,6 +24,7 @@ website:
           - sections/table_muns.ipynb
           - sections/table_procs.ipynb
           - sections/table_dists.ipynb
+          - sections/table_deslc.ipynb
           # - sections/data_network.ipynb
 
 format:
