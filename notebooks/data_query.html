@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Deslocamento de Gestantes – data_query</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Deslocamento de Gestantes</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lucaslopes/gestantes" title="" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Coleta de Dados</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/sih.html" class="sidebar-item-text sidebar-link">SIH</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/socioecon.html" class="sidebar-item-text sidebar-link">Socioeconômico</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/mun_dist.html" class="sidebar-item-text sidebar-link">Distâncias</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Coleta de Dados</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  sections/data_network.ipynb
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> config, data_load</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style type="text/css">
+.datatable table.frame { margin-bottom: 0; }
+.datatable table.frame thead { border-bottom: none; }
+.datatable table.frame tr.coltypes td {  color: #FFFFFF;  line-height: 6px;  padding: 0 0.5em;}
+.datatable .bool    { background: #DDDD99; }
+.datatable .object  { background: #565656; }
+.datatable .int     { background: #5D9E5D; }
+.datatable .float   { background: #4040CC; }
+.datatable .str     { background: #CC4040; }
+.datatable .row_index {  background: var(--jp-border-color3);  border-right: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  font-size: 9px;}
+.datatable .frame tr.coltypes .row_index {  background: var(--jp-border-color0);}
+.datatable th:nth-child(2) { padding-left: 12px; }
+.datatable .hellipsis {  color: var(--jp-cell-editor-border-color);}
+.datatable .vellipsis {  background: var(--jp-layout-color0);  color: var(--jp-cell-editor-border-color);}
+.datatable .na {  color: var(--jp-cell-editor-border-color);  font-size: 80%;}
+.datatable .footer { font-size: 9px; }
+.datatable .frame_dimensions {  background: var(--jp-border-color3);  border-top: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  display: inline-block;  opacity: 0.6;  padding: 1px 10px 1px 5px;}
+</style>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_query(path_query):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">with</span> <span class="bu">open</span>(path_query) <span class="im">as</span> f:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> f.read()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> data_load.df_query(query)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>path_query <span class="op">=</span> <span class="st">'queries/compare/cnes_sinasc.sql'</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>read_query(path_query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>records</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8191.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>path_query <span class="op">=</span> <span class="st">'queries/compare/cnes_sih.sql'</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>read_query(path_query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>records</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4176.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>path_query <span class="op">=</span> <span class="st">'queries/check/cnes_sus.sql'</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>read_query(path_query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>count(distinct CNES)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>214.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>path_query <span class="op">=</span> <span class="st">'queries/check/sih.sql'</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>read_query(path_query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>res_codigo_adotado</th>
+      <th>int_codigo_adotado</th>
+      <th>procedimentos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>330455</td>
+      <td>330455</td>
+      <td>56423</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>330170</td>
+      <td>330170</td>
+      <td>8974</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>330350</td>
+      <td>330350</td>
+      <td>5973</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>330100</td>
+      <td>330100</td>
+      <td>4208</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>330490</td>
+      <td>330490</td>
+      <td>3293</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>785</th>
+      <td>330620</td>
+      <td>330610</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>786</th>
+      <td>330630</td>
+      <td>270915</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>787</th>
+      <td>330630</td>
+      <td>330411</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>788</th>
+      <td>330630</td>
+      <td>330455</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>789</th>
+      <td>330630</td>
+      <td>330490</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>790 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fname <span class="op">=</span> <span class="st">'sih_rj_edges_normal_2018_19_diff.csv'</span> <span class="co"># _diff</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'res_codigo_adotado'</span>] <span class="op">!=</span> df[<span class="st">'int_codigo_adotado'</span>]]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df.to_csv(fname, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> config.PATH_DATABASES <span class="op">+</span> <span class="st">'/DISTANCIAS/matriz_distancias.zip'</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>'/Users/lucas/Databases/DISTANCIAS/matriz_distancias/matriz_distancias.zip'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_dist <span class="op">=</span> pd.read_csv(dist)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df_dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>distancia</th>
+      <th>tempo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>110001</td>
+      <td>110001</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>110001</td>
+      <td>110002</td>
+      <td>309.050000</td>
+      <td>6.169056</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>110001</td>
+      <td>110003</td>
+      <td>399.499700</td>
+      <td>6.289056</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>110001</td>
+      <td>110004</td>
+      <td>81.201103</td>
+      <td>1.917750</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>110001</td>
+      <td>110005</td>
+      <td>391.704300</td>
+      <td>6.136361</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>31024895</th>
+      <td>530010</td>
+      <td>522200</td>
+      <td>161.728900</td>
+      <td>2.356000</td>
+    </tr>
+    <tr>
+      <th>31024896</th>
+      <td>530010</td>
+      <td>522205</td>
+      <td>382.708800</td>
+      <td>5.479556</td>
+    </tr>
+    <tr>
+      <th>31024897</th>
+      <td>530010</td>
+      <td>522220</td>
+      <td>161.603400</td>
+      <td>2.248944</td>
+    </tr>
+    <tr>
+      <th>31024898</th>
+      <td>530010</td>
+      <td>522230</td>
+      <td>190.000900</td>
+      <td>3.216083</td>
+    </tr>
+    <tr>
+      <th>31024899</th>
+      <td>530010</td>
+      <td>530010</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>31024900 rows × 4 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>edges_rj <span class="op">=</span> <span class="st">'data/consult/edges/rj/'</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>ces_10 <span class="op">=</span> <span class="st">'sih_rj_edges_cesarea_2010_11_diff.csv'</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>ces_18 <span class="op">=</span> <span class="st">'sih_rj_edges_cesarea_2018_19_diff.csv'</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>nor_10 <span class="op">=</span> <span class="st">'sih_rj_edges_normal_2010_11_diff.csv'</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>nor_18 <span class="op">=</span> <span class="st">'sih_rj_edges_normal_2018_19_diff.csv'</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>ces_10_all <span class="op">=</span> <span class="st">'sih_rj_edges_cesarea_2010_11.csv'</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>ces_18_all <span class="op">=</span> <span class="st">'sih_rj_edges_cesarea_2018_19.csv'</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>nor_10_all <span class="op">=</span> <span class="st">'sih_rj_edges_normal_2010_11.csv'</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>nor_18_all <span class="op">=</span> <span class="st">'sih_rj_edges_normal_2018_19.csv'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> modify_df(fname, bienio, tipo_parto):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(edges_rj <span class="op">+</span> fname)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> df.rename(columns<span class="op">=</span>{</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'res_codigo_adotado'</span> : <span class="st">'origem'</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'int_codigo_adotado'</span> : <span class="st">'destino'</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'biênio'</span>] <span class="op">=</span> bienio</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'tipo_parto'</span>] <span class="op">=</span> tipo_parto</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df[[<span class="st">'biênio'</span>, <span class="st">'tipo_parto'</span>, <span class="st">'origem'</span>, <span class="st">'destino'</span>, <span class="st">'procedimentos'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> adjust_df(fname, bienio, tipo_parto):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(edges_rj <span class="op">+</span> fname)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> df.rename(columns<span class="op">=</span>{</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'res_codigo_adotado'</span> : <span class="st">'origem'</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'int_codigo_adotado'</span> : <span class="st">'destino'</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> df[df[<span class="st">'origem'</span>] <span class="op">==</span> df[<span class="st">'destino'</span>]]</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'biênio'</span>] <span class="op">=</span> bienio</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'tipo_parto'</span>] <span class="op">=</span> tipo_parto</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'distancia'</span>] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'tempo'</span>] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df[[<span class="st">'biênio'</span>, <span class="st">'tipo_parto'</span>, <span class="st">'origem'</span>, <span class="st">'destino'</span>, <span class="st">'procedimentos'</span>, <span class="st">'distancia'</span>, <span class="st">'tempo'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.concat([</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    modify_df(ces_10, <span class="st">'2010/11'</span>, <span class="st">'cesárea'</span>),</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    modify_df(nor_10, <span class="st">'2010/11'</span>, <span class="st">'normal'</span>),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    modify_df(ces_18, <span class="st">'2018/19'</span>, <span class="st">'cesárea'</span>),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    modify_df(nor_18, <span class="st">'2018/19'</span>, <span class="st">'normal'</span>),</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="49">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>biênio</th>
+      <th>tipo_parto</th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>procedimentos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330350</td>
+      <td>330045</td>
+      <td>1207</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330455</td>
+      <td>330045</td>
+      <td>798</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330510</td>
+      <td>330045</td>
+      <td>380</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330350</td>
+      <td>330414</td>
+      <td>362</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330455</td>
+      <td>330510</td>
+      <td>310</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>720</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330620</td>
+      <td>330610</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>721</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330630</td>
+      <td>270915</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>722</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330630</td>
+      <td>330411</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>723</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330630</td>
+      <td>330455</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>724</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330630</td>
+      <td>330490</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>2205 rows × 5 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_same_mun <span class="op">=</span> pd.concat([</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    adjust_df(ces_10_all, <span class="st">'2010/11'</span>, <span class="st">'cesárea'</span>),</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    adjust_df(nor_10_all, <span class="st">'2010/11'</span>, <span class="st">'normal'</span>),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    adjust_df(ces_18_all, <span class="st">'2018/19'</span>, <span class="st">'cesárea'</span>),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    adjust_df(nor_18_all, <span class="st">'2018/19'</span>, <span class="st">'normal'</span>),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>df_same_mun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="54">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>biênio</th>
+      <th>tipo_parto</th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>procedimentos</th>
+      <th>distancia</th>
+      <th>tempo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330455</td>
+      <td>330455</td>
+      <td>10025</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330490</td>
+      <td>330490</td>
+      <td>3040</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330170</td>
+      <td>330170</td>
+      <td>2005</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330045</td>
+      <td>330045</td>
+      <td>1553</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330100</td>
+      <td>330100</td>
+      <td>1526</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330015</td>
+      <td>330015</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>241</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330590</td>
+      <td>330590</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>273</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330210</td>
+      <td>330210</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>345</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330045</td>
+      <td>330045</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>781</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330615</td>
+      <td>330615</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>281 rows × 7 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_res <span class="op">=</span> pd.merge(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    df, df_dist,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">'left'</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    left_on <span class="op">=</span> [<span class="st">'origem'</span>, <span class="st">'destino'</span>],</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    right_on <span class="op">=</span> [<span class="st">'origem'</span>, <span class="st">'destino'</span>]</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>df_res</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="50">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>biênio</th>
+      <th>tipo_parto</th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>procedimentos</th>
+      <th>distancia</th>
+      <th>tempo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330350</td>
+      <td>330045</td>
+      <td>1207</td>
+      <td>7.7325</td>
+      <td>0.128667</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330455</td>
+      <td>330045</td>
+      <td>798</td>
+      <td>31.2666</td>
+      <td>0.469667</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330510</td>
+      <td>330045</td>
+      <td>380</td>
+      <td>6.5351</td>
+      <td>0.122250</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330350</td>
+      <td>330414</td>
+      <td>362</td>
+      <td>13.8964</td>
+      <td>0.269500</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330455</td>
+      <td>330510</td>
+      <td>310</td>
+      <td>25.6388</td>
+      <td>0.393500</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2200</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330620</td>
+      <td>330610</td>
+      <td>1</td>
+      <td>34.2078</td>
+      <td>0.591694</td>
+    </tr>
+    <tr>
+      <th>2201</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330630</td>
+      <td>270915</td>
+      <td>1</td>
+      <td>2017.5698</td>
+      <td>25.870056</td>
+    </tr>
+    <tr>
+      <th>2202</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330630</td>
+      <td>330411</td>
+      <td>1</td>
+      <td>35.1378</td>
+      <td>0.636833</td>
+    </tr>
+    <tr>
+      <th>2203</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330630</td>
+      <td>330455</td>
+      <td>1</td>
+      <td>127.4334</td>
+      <td>1.937028</td>
+    </tr>
+    <tr>
+      <th>2204</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330630</td>
+      <td>330490</td>
+      <td>1</td>
+      <td>146.8082</td>
+      <td>2.268306</td>
+    </tr>
+  </tbody>
+</table>
+<p>2205 rows × 7 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_final <span class="op">=</span> pd.concat([</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    df_res,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    df_same_mun</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>df_final <span class="op">=</span> df_final.sort_values(<span class="st">'procedimentos'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>df_final</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="57">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>biênio</th>
+      <th>tipo_parto</th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>procedimentos</th>
+      <th>distancia</th>
+      <th>tempo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330455</td>
+      <td>330455</td>
+      <td>56423</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2010/11</td>
+      <td>normal</td>
+      <td>330455</td>
+      <td>330455</td>
+      <td>49736</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2018/19</td>
+      <td>cesárea</td>
+      <td>330455</td>
+      <td>330455</td>
+      <td>20304</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330455</td>
+      <td>330455</td>
+      <td>10025</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2010/11</td>
+      <td>normal</td>
+      <td>330490</td>
+      <td>330490</td>
+      <td>9972</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1263</th>
+      <td>2018/19</td>
+      <td>cesárea</td>
+      <td>330245</td>
+      <td>330330</td>
+      <td>1</td>
+      <td>184.0067</td>
+      <td>2.909417</td>
+    </tr>
+    <tr>
+      <th>1262</th>
+      <td>2018/19</td>
+      <td>cesárea</td>
+      <td>330240</td>
+      <td>330550</td>
+      <td>1</td>
+      <td>118.7163</td>
+      <td>1.602889</td>
+    </tr>
+    <tr>
+      <th>1261</th>
+      <td>2018/19</td>
+      <td>cesárea</td>
+      <td>330240</td>
+      <td>330490</td>
+      <td>1</td>
+      <td>163.6184</td>
+      <td>2.248528</td>
+    </tr>
+    <tr>
+      <th>1260</th>
+      <td>2018/19</td>
+      <td>cesárea</td>
+      <td>330240</td>
+      <td>330430</td>
+      <td>1</td>
+      <td>110.4914</td>
+      <td>1.583083</td>
+    </tr>
+    <tr>
+      <th>781</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330615</td>
+      <td>330615</td>
+      <td>1</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>2486 rows × 7 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_final.to_csv(edges_rj <span class="op">+</span> <span class="st">'edges_with_dist.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_final <span class="op">=</span> pd.read_csv(edges_rj <span class="op">+</span> <span class="st">'edges_with_dist.csv'</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_final</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>biênio</th>
+      <th>tipo_parto</th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>procedimentos</th>
+      <th>distancia</th>
+      <th>tempo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330455</td>
+      <td>330455</td>
+      <td>56423</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2010/11</td>
+      <td>normal</td>
+      <td>330455</td>
+      <td>330455</td>
+      <td>49736</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2018/19</td>
+      <td>cesárea</td>
+      <td>330455</td>
+      <td>330455</td>
+      <td>20304</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2010/11</td>
+      <td>cesárea</td>
+      <td>330455</td>
+      <td>330455</td>
+      <td>10025</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2010/11</td>
+      <td>normal</td>
+      <td>330490</td>
+      <td>330490</td>
+      <td>9972</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2481</th>
+      <td>2018/19</td>
+      <td>cesárea</td>
+      <td>330245</td>
+      <td>330330</td>
+      <td>1</td>
+      <td>184.0067</td>
+      <td>2.909417</td>
+    </tr>
+    <tr>
+      <th>2482</th>
+      <td>2018/19</td>
+      <td>cesárea</td>
+      <td>330240</td>
+      <td>330550</td>
+      <td>1</td>
+      <td>118.7163</td>
+      <td>1.602889</td>
+    </tr>
+    <tr>
+      <th>2483</th>
+      <td>2018/19</td>
+      <td>cesárea</td>
+      <td>330240</td>
+      <td>330490</td>
+      <td>1</td>
+      <td>163.6184</td>
+      <td>2.248528</td>
+    </tr>
+    <tr>
+      <th>2484</th>
+      <td>2018/19</td>
+      <td>cesárea</td>
+      <td>330240</td>
+      <td>330430</td>
+      <td>1</td>
+      <td>110.4914</td>
+      <td>1.583083</td>
+    </tr>
+    <tr>
+      <th>2485</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330615</td>
+      <td>330615</td>
+      <td>1</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>2486 rows × 7 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_final[(df_final[<span class="st">'origem'</span>] <span class="op">==</span> <span class="dv">330455</span>) <span class="op">&amp;</span> (df_final[<span class="st">'procedimentos'</span>] <span class="op">==</span> <span class="dv">6</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>biênio</th>
+      <th>tipo_parto</th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>procedimentos</th>
+      <th>distancia</th>
+      <th>tempo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>890</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330455</td>
+      <td>220840</td>
+      <td>6</td>
+      <td>2775.4889</td>
+      <td>34.853667</td>
+    </tr>
+    <tr>
+      <th>908</th>
+      <td>2018/19</td>
+      <td>cesárea</td>
+      <td>330455</td>
+      <td>211010</td>
+      <td>6</td>
+      <td>2884.1629</td>
+      <td>36.885444</td>
+    </tr>
+    <tr>
+      <th>910</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330455</td>
+      <td>211250</td>
+      <td>6</td>
+      <td>3025.2206</td>
+      <td>38.369611</td>
+    </tr>
+    <tr>
+      <th>911</th>
+      <td>2018/19</td>
+      <td>normal</td>
+      <td>330455</td>
+      <td>250690</td>
+      <td>6</td>
+      <td>2420.2223</td>
+      <td>30.911306</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pth <span class="op">=</span> <span class="st">'/Users/lucas/Desktop/doc_topics.xlsx'</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>ex <span class="op">=</span> pd.read_excel(pth, sheet_name<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>ex</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>ValueError: Worksheet index 1 is invalid, 1 worksheets found</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>ex.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 39052 entries, 0 to 39051
+Data columns (total 27 columns):
+ #   Column                                   Non-Null Count  Dtype  
+---  ------                                   --------------  -----  
+ 0   Unnamed: 0                               39052 non-null  int64  
+ 1   id                                       39052 non-null  int64  
+ 2   date                                     39052 non-null  object 
+ 3   period                                   39052 non-null  int64  
+ 4   type                                     39052 non-null  object 
+ 5   n_authors                                39052 non-null  int64  
+ 6   hic                                      39052 non-null  object 
+ 7   lmic                                     39038 non-null  object 
+ 8   producer                                 39052 non-null  object 
+ 9   tags                                     39052 non-null  object 
+ 10  Artificial Intelligence                  39052 non-null  float64
+ 11  Biomedical engineering                   39052 non-null  float64
+ 12  Blockchain and IOT                       39052 non-null  float64
+ 13  Climate and environment                  39052 non-null  float64
+ 14  Clinical Medicine                        39052 non-null  float64
+ 15  Clinical Research                        39052 non-null  float64
+ 16  Diagnostic assays                        39052 non-null  float64
+ 17  Drug R&amp;D and repurposing                 39052 non-null  float64
+ 18  Economy, investments and sustainability  39052 non-null  float64
+ 19  Education                                39052 non-null  float64
+ 20  Genomics                                 39052 non-null  float64
+ 21  Global/International Health              39052 non-null  float64
+ 22  Healthcare Research                      39052 non-null  float64
+ 23  Immunopathology                          39052 non-null  float64
+ 24  Knowledge, attitudes and practices       39052 non-null  float64
+ 25  Mental Health                            39052 non-null  float64
+ 26  Political Science                        39052 non-null  float64
+dtypes: float64(17), int64(4), object(6)
+memory usage: 8.0+ MB</code></pre>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

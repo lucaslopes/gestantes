@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://lucaslopes.github.io/gestantes/data_load.html</loc>
-    <lastmod>2022-10-07T16:03:20.889Z</lastmod>
+    <loc>https://lucaslopes.github.io/gestantes/README.html</loc>
+    <lastmod>2022-10-15T01:57:45.734Z</lastmod>
   </url>
   <url>
-    <loc>https://lucaslopes.github.io/gestantes/cnes.html</loc>
-    <lastmod>2022-10-07T16:03:21.431Z</lastmod>
+    <loc>https://lucaslopes.github.io/gestantes/sections/database_dists.html</loc>
+    <lastmod>2022-10-15T01:57:46.633Z</lastmod>
   </url>
   <url>
-    <loc>https://lucaslopes.github.io/gestantes/index.html</loc>
-    <lastmod>2022-10-07T16:03:21.798Z</lastmod>
+    <loc>https://lucaslopes.github.io/gestantes/sections/database_sih.html</loc>
+    <lastmod>2022-10-15T01:57:47.350Z</lastmod>
   </url>
   <url>
-    <loc>https://lucaslopes.github.io/gestantes/data_compare.html</loc>
-    <lastmod>2022-10-07T16:03:22.132Z</lastmod>
+    <loc>https://lucaslopes.github.io/gestantes/sections/database_socioecon.html</loc>
+    <lastmod>2022-10-15T01:57:47.783Z</lastmod>
   </url>
   <url>
-    <loc>https://lucaslopes.github.io/gestantes/data_selection.html</loc>
-    <lastmod>2022-10-07T16:03:22.620Z</lastmod>
+    <loc>https://lucaslopes.github.io/gestantes/sections/table_dists.html</loc>
+    <lastmod>2022-10-15T01:57:48.254Z</lastmod>
   </url>
   <url>
-    <loc>https://lucaslopes.github.io/gestantes/network.html</loc>
-    <lastmod>2022-10-07T16:03:23.056Z</lastmod>
+    <loc>https://lucaslopes.github.io/gestantes/sections/table_muns.html</loc>
+    <lastmod>2022-10-15T01:57:48.833Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucaslopes.github.io/gestantes/sections/table_procs.html</loc>
+    <lastmod>2022-10-15T01:57:49.316Z</lastmod>
   </url>
 </urlset>
