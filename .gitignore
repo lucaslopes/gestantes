@@ -137,4 +137,4 @@ data/
 
 # Quarto
 /.quarto/
-/website/_site
+_site/

@@ -234,14 +234,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#descrição" id="toc-descrição" class="nav-link active" data-scroll-target="#descrição">Descrição</a></li>
   <li><a href="#tabelas-base" id="toc-tabelas-base" class="nav-link" data-scroll-target="#tabelas-base">Tabelas base</a>
   <ul class="collapse">
-  <li><a href="#procedimentos" id="toc-procedimentos" class="nav-link" data-scroll-target="#procedimentos">Procedimentos</a>
+  <li><a href="#tabela-procedimentos" id="toc-tabela-procedimentos" class="nav-link" data-scroll-target="#tabela-procedimentos">Tabela Procedimentos</a>
   <ul class="collapse">
   <li><a href="#colunas-da-tabela" id="toc-colunas-da-tabela" class="nav-link" data-scroll-target="#colunas-da-tabela">Colunas da tabela</a></li>
   <li><a href="#linhas-da-tabela" id="toc-linhas-da-tabela" class="nav-link" data-scroll-target="#linhas-da-tabela">Linhas da tabela</a></li>
-  <li><a href="#tabela-carregada" id="toc-tabela-carregada" class="nav-link" data-scroll-target="#tabela-carregada">Tabela carregada</a></li>
+  <li><a href="#carregando-tabela" id="toc-carregando-tabela" class="nav-link" data-scroll-target="#carregando-tabela">Carregando tabela</a></li>
   <li><a href="#atualizando-variável-ano-biênio" id="toc-atualizando-variável-ano-biênio" class="nav-link" data-scroll-target="#atualizando-variável-ano-biênio">Atualizando variável ano (biênio)</a></li>
   <li><a href="#tabela-agrupada" id="toc-tabela-agrupada" class="nav-link" data-scroll-target="#tabela-agrupada">Tabela agrupada</a></li>
   </ul></li>
+  <li><a href="#tabela-municípios" id="toc-tabela-municípios" class="nav-link" data-scroll-target="#tabela-municípios">Tabela Municípios</a>
+  <ul class="collapse">
+  <li><a href="#colunas-da-tabela-1" id="toc-colunas-da-tabela-1" class="nav-link" data-scroll-target="#colunas-da-tabela-1">Colunas da tabela</a></li>
+  <li><a href="#carregando-tabela-1" id="toc-carregando-tabela-1" class="nav-link" data-scroll-target="#carregando-tabela-1">Carregando tabela</a></li>
+  </ul></li>
+  <li><a href="#tabela-distâncias" id="toc-tabela-distâncias" class="nav-link" data-scroll-target="#tabela-distâncias">Tabela Distâncias</a>
+  <ul class="collapse">
+  <li><a href="#carregando-tabela-2" id="toc-carregando-tabela-2" class="nav-link" data-scroll-target="#carregando-tabela-2">Carregando tabela</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#gerando-tabela" id="toc-gerando-tabela" class="nav-link" data-scroll-target="#gerando-tabela">Gerando tabela</a>
+  <ul class="collapse">
+  <li><a href="#juntando-com-outras" id="toc-juntando-com-outras" class="nav-link" data-scroll-target="#juntando-com-outras">Juntando com outras</a>
+  <ul class="collapse">
+  <li><a href="#juntando-com-distâncias" id="toc-juntando-com-distâncias" class="nav-link" data-scroll-target="#juntando-com-distâncias">Juntando com Distâncias</a></li>
+  <li><a href="#juntando-com-municípios-res" id="toc-juntando-com-municípios-res" class="nav-link" data-scroll-target="#juntando-com-municípios-res">Juntando com Municípios (res)</a></li>
+  <li><a href="#juntando-com-municípios-hosp" id="toc-juntando-com-municípios-hosp" class="nav-link" data-scroll-target="#juntando-com-municípios-hosp">Juntando com Municípios (hosp)</a></li>
+  </ul></li>
+  <li><a href="#criando-colunas" id="toc-criando-colunas" class="nav-link" data-scroll-target="#criando-colunas">Criando colunas</a></li>
+  <li><a href="#removendo-valores-na" id="toc-removendo-valores-na" class="nav-link" data-scroll-target="#removendo-valores-na">Removendo valores NA</a></li>
+  <li><a href="#ordenando-colunas" id="toc-ordenando-colunas" class="nav-link" data-scroll-target="#ordenando-colunas">Ordenando colunas</a></li>
   </ul></li>
   <li><a href="#exportando-tabela" id="toc-exportando-tabela" class="nav-link" data-scroll-target="#exportando-tabela">Exportando tabela</a></li>
   </ul>
@@ -297,18 +318,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="tabelas-base" class="level1">
 <h1>Tabelas base</h1>
-<section id="procedimentos" class="level2">
-<h2 class="anchored" data-anchor-id="procedimentos">Procedimentos</h2>
+<section id="tabela-procedimentos" class="level2">
+<h2 class="anchored" data-anchor-id="tabela-procedimentos">Tabela Procedimentos</h2>
 <section id="colunas-da-tabela" class="level3">
 <h3 class="anchored" data-anchor-id="colunas-da-tabela">Colunas da tabela</h3>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cols_deslc <span class="op">=</span> {</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'ano'</span>: <span class="st">'ano'</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'parto_normal'</span>: <span class="st">'parto_normal'</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'hosp_cod_municipio'</span>: <span class="st">'hosp_cod_municipio'</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'hosp_regiao_saude'</span>: <span class="st">'hosp_regiao_saude'</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_municipio'</span>: <span class="st">'cod_municipio'</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'regiao_saude'</span>: <span class="st">'regiao_saude'</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_municipio'</span>: <span class="st">'origem'</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'hosp_cod_municipio'</span>: <span class="st">'destino'</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'regiao_saude'</span>: <span class="st">'regiao_saude'</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'hosp_regiao_saude'</span>: <span class="st">'hosp_regiao_saude'</span>,</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'count'</span>: <span class="st">'count'</span>,</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  ...: <span class="va">None</span>,</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'cnes',</span></span>
@@ -333,8 +354,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df_filtered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="tabela-carregada" class="level3">
-<h3 class="anchored" data-anchor-id="tabela-carregada">Tabela carregada</h3>
+<section id="carregando-tabela" class="level3">
+<h3 class="anchored" data-anchor-id="carregando-tabela">Carregando tabela</h3>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>path_deslc <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'procedimentos.csv.gzip'</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> dt.fread(path_deslc, columns<span class="op">=</span>cols_deslc)</span>
@@ -345,7 +366,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>ano</th><th>parto_normal</th><th>hosp_cod_municipio</th><th>hosp_regiao_saude</th><th>cod_municipio</th><th>regiao_saude</th><th>count</th></tr>
+    <tr class="colnames"><td class="row_index"></td><th>ano</th><th>parto_normal</th><th>destino</th><th>hosp_regiao_saude</th><th>origem</th><th>regiao_saude</th><th>count</th></tr>
     <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
@@ -395,7 +416,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>hosp_cod_municipio</th><th>hosp_regiao_saude</th><th>cod_municipio</th><th>regiao_saude</th><th>count</th></tr>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>destino</th><th>hosp_regiao_saude</th><th>origem</th><th>regiao_saude</th><th>count</th></tr>
     <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
@@ -440,7 +461,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>hosp_cod_municipio</th><th>hosp_regiao_saude</th><th>cod_municipio</th><th>regiao_saude</th><th>count</th></tr>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>destino</th><th>hosp_regiao_saude</th><th>origem</th><th>regiao_saude</th><th>count</th></tr>
     <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
   </thead>
   <tbody>
@@ -480,49 +501,527 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </section>
 </section>
-</section>
-<section id="exportando-tabela" class="level1">
-<h1>Exportando tabela</h1>
+<section id="tabela-municípios" class="level2">
+<h2 class="anchored" data-anchor-id="tabela-municípios">Tabela Municípios</h2>
+<section id="colunas-da-tabela-1" class="level3">
+<h3 class="anchored" data-anchor-id="colunas-da-tabela-1">Colunas da tabela</h3>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>output_deslc <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'deslocamentos.csv.gzip'</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_deslc.to_csv(output_deslc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cols_mun <span class="op">=</span> {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_municipio'</span>: <span class="st">'origem'</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'regiao'</span>: <span class="st">'regiao'</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'uf'</span>: <span class="st">'uf'</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'nome_uf': 'nome_uf',</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'macroregiao_saude': 'macroregiao_saude',</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'regiao_saude': 'regiao_saude',</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'nome_regiao_saude'</span>: <span class="st">'nome_regiao_saude'</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'microregiao_saude': 'microregiao_saude',</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">'municipio'</span>: <span class="st">'municipio'</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">'capital'</span>: <span class="st">'capital'</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">'latitude'</span>: <span class="st">'latitude'</span>,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">'longitude'</span>: <span class="st">'longitude'</span>,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">'socioecon'</span>: <span class="st">'socioecon'</span>,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  ...: <span class="va">None</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_deslc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cols_mun_hosp <span class="op">=</span> {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_municipio'</span>: <span class="st">'destino'</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'latitude'</span>: <span class="st">'hosp_latitude'</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'longitude'</span>: <span class="st">'hosp_longitude'</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  ...: <span class="va">None</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="carregando-tabela-1" class="level3">
+<h3 class="anchored" data-anchor-id="carregando-tabela-1">Carregando tabela</h3>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>path_mun <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'municipios.csv.gzip'</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_mun <span class="op">=</span> dt.fread(path_mun, columns<span class="op">=</span>cols_mun)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df_mun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
 
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>hosp_cod_municipio</th><th>hosp_regiao_saude</th><th>cod_municipio</th><th>regiao_saude</th><th>count</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>origem</th><th>regiao</th><th>uf</th><th>municipio</th><th>capital</th><th>nome_regiao_saude</th><th>latitude</th><th>longitude</th><th>socioecon</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>0</td><td>1</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>2368</td></tr>
-    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>2020</td></tr>
-    <tr><td class="row_index">2</td><td>0</td><td>1</td><td>330455</td><td>3305</td><td>330455</td><td>3305</td><td>1210</td></tr>
-    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>330455</td><td>3305</td><td>330455</td><td>3305</td><td>872</td></tr>
-    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>230440</td><td>2301</td><td>230440</td><td>2301</td><td>727</td></tr>
-    <tr><td class="row_index">5</td><td>0</td><td>1</td><td>230440</td><td>2301</td><td>230440</td><td>2301</td><td>717</td></tr>
-    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>150140</td><td>1501</td><td>150140</td><td>1501</td><td>639</td></tr>
-    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>150140</td><td>1501</td><td>150140</td><td>1501</td><td>634</td></tr>
-    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>520870</td><td>5201</td><td>520870</td><td>5201</td><td>621</td></tr>
-    <tr><td class="row_index">9</td><td>0</td><td>1</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>616</td></tr>
-    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>520870</td><td>5201</td><td>520870</td><td>5201</td><td>595</td></tr>
-    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>580</td></tr>
-    <tr><td class="row_index">12</td><td>0</td><td>1</td><td>292740</td><td>2901</td><td>292740</td><td>2901</td><td>569</td></tr>
-    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>292740</td><td>2901</td><td>292740</td><td>2901</td><td>505</td></tr>
-    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>310620</td><td>3101</td><td>310620</td><td>3101</td><td>466</td></tr>
-    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">98,050</td><td>1</td><td>1</td><td>530010</td><td>5301</td><td>521520</td><td>5204</td><td>1</td></tr>
-    <tr><td class="row_index">98,051</td><td>1</td><td>1</td><td>530010</td><td>5301</td><td>521530</td><td>5202</td><td>1</td></tr>
-    <tr><td class="row_index">98,052</td><td>1</td><td>1</td><td>530010</td><td>5301</td><td>521910</td><td>5201</td><td>1</td></tr>
-    <tr><td class="row_index">98,053</td><td>1</td><td>1</td><td>530010</td><td>5301</td><td>521971</td><td>5213</td><td>1</td></tr>
-    <tr><td class="row_index">98,054</td><td>1</td><td>1</td><td>530010</td><td>5301</td><td>522010</td><td>5205</td><td>1</td></tr>
+    <tr><td class="row_index">0</td><td>355030</td><td>Sudeste</td><td>SP</td><td>São Paulo</td><td>1</td><td>Grande São Paulo</td><td>−23.548</td><td>−46.636</td><td>5</td></tr>
+    <tr><td class="row_index">1</td><td>330455</td><td>Sudeste</td><td>RJ</td><td>Rio de Janeiro</td><td>1</td><td>Metropolitana I</td><td>−22.903</td><td>−43.208</td><td>5</td></tr>
+    <tr><td class="row_index">2</td><td>130260</td><td>Norte</td><td>AM</td><td>Manaus</td><td>1</td><td>Entorno de Manaus</td><td>−3.102</td><td>−60.025</td><td>4</td></tr>
+    <tr><td class="row_index">3</td><td>230440</td><td>Nordeste</td><td>CE</td><td>Fortaleza</td><td>1</td><td>Fortaleza</td><td>−3.717</td><td>−38.543</td><td>5</td></tr>
+    <tr><td class="row_index">4</td><td>292740</td><td>Nordeste</td><td>BA</td><td>Salvador</td><td>1</td><td>Salvador</td><td>−12.971</td><td>−38.511</td><td>5</td></tr>
+    <tr><td class="row_index">5</td><td>150140</td><td>Norte</td><td>PA</td><td>Belém</td><td>1</td><td>Metropolitana</td><td>−1.456</td><td>−48.504</td><td>4</td></tr>
+    <tr><td class="row_index">6</td><td>310620</td><td>Sudeste</td><td>MG</td><td>Belo Horizonte</td><td>1</td><td>Belo Horizonte</td><td>−19.817</td><td>−43.956</td><td>1</td></tr>
+    <tr><td class="row_index">7</td><td>431490</td><td>Sul</td><td>RS</td><td>Porto Alegre</td><td>1</td><td>CRS 01 Porto Alegre</td><td>−30.033</td><td>−51.23</td><td>5</td></tr>
+    <tr><td class="row_index">8</td><td>410690</td><td>Sul</td><td>PR</td><td>Curitiba</td><td>1</td><td>Metropolitana</td><td>−25.428</td><td>−49.273</td><td>5</td></tr>
+    <tr><td class="row_index">9</td><td>270430</td><td>Nordeste</td><td>AL</td><td>Maceió</td><td>1</td><td>Região 01</td><td>−9.666</td><td>−35.735</td><td>3</td></tr>
+    <tr><td class="row_index">10</td><td>520870</td><td>Centro-Oeste</td><td>GO</td><td>Goiânia</td><td>1</td><td>Central</td><td>−16.679</td><td>−49.254</td><td>5</td></tr>
+    <tr><td class="row_index">11</td><td>351880</td><td>Sudeste</td><td>SP</td><td>Guarulhos</td><td>0</td><td>Grande São Paulo</td><td>−23.463</td><td>−46.533</td><td>4</td></tr>
+    <tr><td class="row_index">12</td><td>221100</td><td>Nordeste</td><td>PI</td><td>Teresina</td><td>1</td><td>TD Entre Rios</td><td>−5.089</td><td>−42.802</td><td>3</td></tr>
+    <tr><td class="row_index">13</td><td>500270</td><td>Centro-Oeste</td><td>MS</td><td>Campo Grande</td><td>1</td><td>NCT de Campo Grande</td><td>−20.443</td><td>−54.646</td><td>4</td></tr>
+    <tr><td class="row_index">14</td><td>261160</td><td>Nordeste</td><td>PE</td><td>Recife</td><td>1</td><td>Recife</td><td>−8.054</td><td>−34.881</td><td>5</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">5564</td><td>520020</td><td>Centro-Oeste</td><td>GO</td><td>Água Limpa</td><td>0</td><td>Sul</td><td>−18.074</td><td>−48.762</td><td>3</td></tr>
+    <tr><td class="row_index">5565</td><td>510120</td><td>Centro-Oeste</td><td>MT</td><td>Araguainha</td><td>0</td><td>Rondonópolis</td><td>−16.856</td><td>−53.033</td><td>2</td></tr>
+    <tr><td class="row_index">5566</td><td>350640</td><td>Sudeste</td><td>SP</td><td>Bilac</td><td>0</td><td>Araçatuba</td><td>−21.403</td><td>−50.471</td><td>5</td></tr>
+    <tr><td class="row_index">5567</td><td>500627</td><td>Centro-Oeste</td><td>MS</td><td>Paraíso das Águas</td><td>0</td><td></td><td>−19.0216</td><td>−53.0116</td><td>4</td></tr>
+    <tr><td class="row_index">5568</td><td>330513</td><td>Sudeste</td><td>RJ</td><td>São José de Ubá</td><td>0</td><td>Noroeste</td><td>−21.358</td><td>−41.943</td><td>3</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">98,055 rows × 7 columns</div>
+    <div class="frame_dimensions">5569 rows × 9 columns</div>
+  </div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_mun_hosp <span class="op">=</span> dt.fread(path_mun, columns<span class="op">=</span>cols_mun_hosp)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df_mun_hosp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>destino</th><th>hosp_latitude</th><th>hosp_longitude</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>355030</td><td>−23.548</td><td>−46.636</td></tr>
+    <tr><td class="row_index">1</td><td>330455</td><td>−22.903</td><td>−43.208</td></tr>
+    <tr><td class="row_index">2</td><td>130260</td><td>−3.102</td><td>−60.025</td></tr>
+    <tr><td class="row_index">3</td><td>230440</td><td>−3.717</td><td>−38.543</td></tr>
+    <tr><td class="row_index">4</td><td>292740</td><td>−12.971</td><td>−38.511</td></tr>
+    <tr><td class="row_index">5</td><td>150140</td><td>−1.456</td><td>−48.504</td></tr>
+    <tr><td class="row_index">6</td><td>310620</td><td>−19.817</td><td>−43.956</td></tr>
+    <tr><td class="row_index">7</td><td>431490</td><td>−30.033</td><td>−51.23</td></tr>
+    <tr><td class="row_index">8</td><td>410690</td><td>−25.428</td><td>−49.273</td></tr>
+    <tr><td class="row_index">9</td><td>270430</td><td>−9.666</td><td>−35.735</td></tr>
+    <tr><td class="row_index">10</td><td>520870</td><td>−16.679</td><td>−49.254</td></tr>
+    <tr><td class="row_index">11</td><td>351880</td><td>−23.463</td><td>−46.533</td></tr>
+    <tr><td class="row_index">12</td><td>221100</td><td>−5.089</td><td>−42.802</td></tr>
+    <tr><td class="row_index">13</td><td>500270</td><td>−20.443</td><td>−54.646</td></tr>
+    <tr><td class="row_index">14</td><td>261160</td><td>−8.054</td><td>−34.881</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">5564</td><td>520020</td><td>−18.074</td><td>−48.762</td></tr>
+    <tr><td class="row_index">5565</td><td>510120</td><td>−16.856</td><td>−53.033</td></tr>
+    <tr><td class="row_index">5566</td><td>350640</td><td>−21.403</td><td>−50.471</td></tr>
+    <tr><td class="row_index">5567</td><td>500627</td><td>−19.0216</td><td>−53.0116</td></tr>
+    <tr><td class="row_index">5568</td><td>330513</td><td>−21.358</td><td>−41.943</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">5569 rows × 3 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="tabela-distâncias" class="level2">
+<h2 class="anchored" data-anchor-id="tabela-distâncias">Tabela Distâncias</h2>
+<section id="carregando-tabela-2" class="level3">
+<h3 class="anchored" data-anchor-id="carregando-tabela-2">Carregando tabela</h3>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>output_dist <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'distancias.csv.gzip'</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_dist <span class="op">=</span> dt.fread(output_dist)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df_dist <span class="op">=</span> df_dist[:, df_dist.names[:<span class="op">-</span><span class="dv">1</span>]]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>df_dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>origem</th><th>destino</th><th>distancia</th><th>tempo</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>355030</td><td>355030</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">1</td><td>330455</td><td>330455</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">2</td><td>230440</td><td>230440</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">3</td><td>130260</td><td>130260</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">4</td><td>292740</td><td>292740</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">5</td><td>150140</td><td>150140</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">6</td><td>520870</td><td>520870</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">7</td><td>310620</td><td>310620</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">8</td><td>431490</td><td>431490</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">9</td><td>230370</td><td>230440</td><td>16.7161</td><td>0.344111</td></tr>
+    <tr><td class="row_index">10</td><td>270430</td><td>270430</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">11</td><td>410690</td><td>410690</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">12</td><td>211130</td><td>211130</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">13</td><td>221100</td><td>221100</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">14</td><td>500270</td><td>500270</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">71,681</td><td>522220</td><td>520540</td><td>443.089</td><td>5.96508</td></tr>
+    <tr><td class="row_index">71,682</td><td>522220</td><td>521830</td><td>150.619</td><td>1.85706</td></tr>
+    <tr><td class="row_index">71,683</td><td>522230</td><td>521830</td><td>501.82</td><td>7.04144</td></tr>
+    <tr><td class="row_index">71,684</td><td>522230</td><td>521970</td><td>203.783</td><td>3.14278</td></tr>
+    <tr><td class="row_index">71,685</td><td>522230</td><td>522045</td><td>192.855</td><td>3.10403</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">71,686 rows × 4 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="gerando-tabela" class="level1">
+<h1>Gerando tabela</h1>
+<section id="juntando-com-outras" class="level2">
+<h2 class="anchored" data-anchor-id="juntando-com-outras">Juntando com outras</h2>
+<section id="juntando-com-distâncias" class="level3">
+<h3 class="anchored" data-anchor-id="juntando-com-distâncias">Juntando com Distâncias</h3>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_dist.key <span class="op">=</span> [<span class="st">'origem'</span>, <span class="st">'destino'</span>]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc[:, :, dt.join(df_dist)]</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df_dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><th class="row_index">origem</th><th class="row_index">destino</th><th>distancia</th><th>tempo</th></tr>
+    <tr class="coltypes"><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">110001</td><td class="row_index">110001</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110002</td><td>309.05</td><td>6.16906</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110004</td><td>81.2011</td><td>1.91775</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110006</td><td>353.417</td><td>5.53989</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110009</td><td>145.678</td><td>2.346</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110012</td><td>130.77</td><td>2.54781</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110013</td><td>357.511</td><td>7.13067</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110015</td><td>172.926</td><td>3.18425</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110018</td><td>114.061</td><td>1.87139</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110020</td><td>505.856</td><td>9.16514</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110025</td><td>96.6065</td><td>1.98553</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110028</td><td>48.6099</td><td>0.835667</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110030</td><td>297.455</td><td>4.71864</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110149</td><td>217.355</td><td>3.67378</td></tr>
+    <tr><td class="row_index">110001</td><td class="row_index">110150</td><td>153.337</td><td>2.8455</td></tr>
+    <tr><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">522230</td><td class="row_index">521560</td><td>101.555</td><td>1.65708</td></tr>
+    <tr><td class="row_index">522230</td><td class="row_index">521830</td><td>501.82</td><td>7.04144</td></tr>
+    <tr><td class="row_index">522230</td><td class="row_index">521970</td><td>203.783</td><td>3.14278</td></tr>
+    <tr><td class="row_index">522230</td><td class="row_index">522045</td><td>192.855</td><td>3.10403</td></tr>
+    <tr><td class="row_index">522230</td><td class="row_index">530010</td><td>190.001</td><td>3.21608</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">71,686 rows × 4 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="juntando-com-municípios-res" class="level3">
+<h3 class="anchored" data-anchor-id="juntando-com-municípios-res">Juntando com Municípios (res)</h3>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_mun.key <span class="op">=</span> <span class="st">'origem'</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc[:, :, dt.join(df_mun)]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>df_mun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><th class="row_index">origem</th><th>regiao</th><th>uf</th><th>municipio</th><th>capital</th><th>nome_regiao_saude</th><th>latitude</th><th>longitude</th><th>socioecon</th></tr>
+    <tr class="coltypes"><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">110001</td><td>Norte</td><td>RO</td><td>Alta Floresta D'Oeste</td><td>0</td><td>II Delegacia Regional de Saúde</td><td>−11.929</td><td>−61.996</td><td>1</td></tr>
+    <tr><td class="row_index">110002</td><td>Norte</td><td>RO</td><td>Ariquemes</td><td>0</td><td>Departamento de Epidemiologia</td><td>−9.913</td><td>−63.041</td><td>1</td></tr>
+    <tr><td class="row_index">110003</td><td>Norte</td><td>RO</td><td>Cabixi</td><td>0</td><td>III Delegacia Regional de Saúde</td><td>−13.492</td><td>−60.545</td><td>2</td></tr>
+    <tr><td class="row_index">110004</td><td>Norte</td><td>RO</td><td>Cacoal</td><td>0</td><td>II Delegacia Regional de Saúde</td><td>−11.438</td><td>−61.448</td><td>3</td></tr>
+    <tr><td class="row_index">110005</td><td>Norte</td><td>RO</td><td>Cerejeiras</td><td>0</td><td>III Delegacia Regional de Saúde</td><td>−13.189</td><td>−60.812</td><td>2</td></tr>
+    <tr><td class="row_index">110006</td><td>Norte</td><td>RO</td><td>Colorado do Oeste</td><td>0</td><td>III Delegacia Regional de Saúde</td><td>−13.117</td><td>−60.542</td><td>2</td></tr>
+    <tr><td class="row_index">110007</td><td>Norte</td><td>RO</td><td>Corumbiara</td><td>0</td><td>III Delegacia Regional de Saúde</td><td>−12.962</td><td>−60.887</td><td>2</td></tr>
+    <tr><td class="row_index">110008</td><td>Norte</td><td>RO</td><td>Costa Marques</td><td>0</td><td>I Delegacia Regional de Saúde</td><td>−12.445</td><td>−64.227</td><td>1</td></tr>
+    <tr><td class="row_index">110009</td><td>Norte</td><td>RO</td><td>Espigão D'Oeste</td><td>0</td><td>II Delegacia Regional de Saúde</td><td>−11.525</td><td>−61.013</td><td>3</td></tr>
+    <tr><td class="row_index">110010</td><td>Norte</td><td>RO</td><td>Guajará-Mirim</td><td>0</td><td>Departamento de Epidemiologia</td><td>−10.783</td><td>−65.339</td><td>3</td></tr>
+    <tr><td class="row_index">110011</td><td>Norte</td><td>RO</td><td>Jaru</td><td>0</td><td>I Delegacia Regional de Saúde</td><td>−10.439</td><td>−62.466</td><td>2</td></tr>
+    <tr><td class="row_index">110012</td><td>Norte</td><td>RO</td><td>Ji-Paraná</td><td>0</td><td>I Delegacia Regional de Saúde</td><td>−10.882</td><td>−61.944</td><td>2</td></tr>
+    <tr><td class="row_index">110013</td><td>Norte</td><td>RO</td><td>Machadinho D'Oeste</td><td>0</td><td>Departamento de Epidemiologia</td><td>−9.444</td><td>−61.981</td><td>1</td></tr>
+    <tr><td class="row_index">110014</td><td>Norte</td><td>RO</td><td>Nova Brasilândia D'Oeste</td><td>0</td><td>II Delegacia Regional de Saúde</td><td>−11.725</td><td>−62.331</td><td>1</td></tr>
+    <tr><td class="row_index">110015</td><td>Norte</td><td>RO</td><td>Ouro Preto do Oeste</td><td>0</td><td>I Delegacia Regional de Saúde</td><td>−10.716</td><td>−62.248</td><td>2</td></tr>
+    <tr><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">522190</td><td>Centro-Oeste</td><td>GO</td><td>Varjão</td><td>0</td><td>Centro Sul</td><td>−17.045</td><td>−49.631</td><td>3</td></tr>
+    <tr><td class="row_index">522200</td><td>Centro-Oeste</td><td>GO</td><td>Vianópolis</td><td>0</td><td>Centro Sul</td><td>−16.742</td><td>−48.516</td><td>3</td></tr>
+    <tr><td class="row_index">522205</td><td>Centro-Oeste</td><td>GO</td><td>Vicentinópolis</td><td>0</td><td>Centro Sul</td><td>−17.735</td><td>−49.806</td><td>3</td></tr>
+    <tr><td class="row_index">522220</td><td>Centro-Oeste</td><td>GO</td><td>Vila Boa</td><td>0</td><td>Entorno Norte</td><td>−15.038</td><td>−47.059</td><td>2</td></tr>
+    <tr><td class="row_index">522230</td><td>Centro-Oeste</td><td>GO</td><td>Vila Propício</td><td>0</td><td>São Patrício</td><td>−15.457</td><td>−48.889</td><td>2</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">5569 rows × 9 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="juntando-com-municípios-hosp" class="level3">
+<h3 class="anchored" data-anchor-id="juntando-com-municípios-hosp">Juntando com Municípios (hosp)</h3>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_mun_hosp.key <span class="op">=</span> <span class="st">'destino'</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc[:, :, dt.join(df_mun_hosp)]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>destino</th><th>hosp_regiao_saude</th><th>origem</th><th>regiao_saude</th><th>count</th><th>distancia</th><th>tempo</th><th>regiao</th><th class="vellipsis">…</th><th>latitude</th><th>longitude</th><th>socioecon</th><th>hosp_latitude</th><th>hosp_longitude</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>1</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>2368</td><td>0</td><td>0</td><td>Sudeste</td><td class="vellipsis">…</td><td>−23.548</td><td>−46.636</td><td>5</td><td>−23.548</td><td>−46.636</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>2020</td><td>0</td><td>0</td><td>Sudeste</td><td class="vellipsis">…</td><td>−23.548</td><td>−46.636</td><td>5</td><td>−23.548</td><td>−46.636</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>1</td><td>330455</td><td>3305</td><td>330455</td><td>3305</td><td>1210</td><td>0</td><td>0</td><td>Sudeste</td><td class="vellipsis">…</td><td>−22.903</td><td>−43.208</td><td>5</td><td>−22.903</td><td>−43.208</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>330455</td><td>3305</td><td>330455</td><td>3305</td><td>872</td><td>0</td><td>0</td><td>Sudeste</td><td class="vellipsis">…</td><td>−22.903</td><td>−43.208</td><td>5</td><td>−22.903</td><td>−43.208</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>230440</td><td>2301</td><td>230440</td><td>2301</td><td>727</td><td>0</td><td>0</td><td>Nordeste</td><td class="vellipsis">…</td><td>−3.717</td><td>−38.543</td><td>5</td><td>−3.717</td><td>−38.543</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>1</td><td>230440</td><td>2301</td><td>230440</td><td>2301</td><td>717</td><td>0</td><td>0</td><td>Nordeste</td><td class="vellipsis">…</td><td>−3.717</td><td>−38.543</td><td>5</td><td>−3.717</td><td>−38.543</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>150140</td><td>1501</td><td>150140</td><td>1501</td><td>639</td><td>0</td><td>0</td><td>Norte</td><td class="vellipsis">…</td><td>−1.456</td><td>−48.504</td><td>4</td><td>−1.456</td><td>−48.504</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>150140</td><td>1501</td><td>150140</td><td>1501</td><td>634</td><td>0</td><td>0</td><td>Norte</td><td class="vellipsis">…</td><td>−1.456</td><td>−48.504</td><td>4</td><td>−1.456</td><td>−48.504</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>520870</td><td>5201</td><td>520870</td><td>5201</td><td>621</td><td>0</td><td>0</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>−16.679</td><td>−49.254</td><td>5</td><td>−16.679</td><td>−49.254</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>1</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>616</td><td>0</td><td>0</td><td>Norte</td><td class="vellipsis">…</td><td>−3.102</td><td>−60.025</td><td>4</td><td>−3.102</td><td>−60.025</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>520870</td><td>5201</td><td>520870</td><td>5201</td><td>595</td><td>0</td><td>0</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>−16.679</td><td>−49.254</td><td>5</td><td>−16.679</td><td>−49.254</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>580</td><td>0</td><td>0</td><td>Norte</td><td class="vellipsis">…</td><td>−3.102</td><td>−60.025</td><td>4</td><td>−3.102</td><td>−60.025</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>1</td><td>292740</td><td>2901</td><td>292740</td><td>2901</td><td>569</td><td>0</td><td>0</td><td>Nordeste</td><td class="vellipsis">…</td><td>−12.971</td><td>−38.511</td><td>5</td><td>−12.971</td><td>−38.511</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>292740</td><td>2901</td><td>292740</td><td>2901</td><td>505</td><td>0</td><td>0</td><td>Nordeste</td><td class="vellipsis">…</td><td>−12.971</td><td>−38.511</td><td>5</td><td>−12.971</td><td>−38.511</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>310620</td><td>3101</td><td>310620</td><td>3101</td><td>466</td><td>0</td><td>0</td><td>Sudeste</td><td class="vellipsis">…</td><td>−19.817</td><td>−43.956</td><td>1</td><td>−19.817</td><td>−43.956</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">98,050</td><td>1</td><td>1</td><td>530010</td><td>5301</td><td>521520</td><td>5204</td><td>1</td><td>404.572</td><td>5.64031</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>−16.034</td><td>−50.711</td><td>3</td><td><span class="na">NA</span></td><td><span class="na">NA</span></td></tr>
+    <tr><td class="row_index">98,051</td><td>1</td><td>1</td><td>530010</td><td>5301</td><td>521530</td><td>5202</td><td>1</td><td>199.021</td><td>3.01872</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>−17.031</td><td>−48.296</td><td>3</td><td><span class="na">NA</span></td><td><span class="na">NA</span></td></tr>
+    <tr><td class="row_index">98,052</td><td>1</td><td>1</td><td>530010</td><td>5301</td><td>521910</td><td>5201</td><td>1</td><td>252.282</td><td>3.75217</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>−16.574</td><td>−49.694</td><td>5</td><td><span class="na">NA</span></td><td><span class="na">NA</span></td></tr>
+    <tr><td class="row_index">98,053</td><td>1</td><td>1</td><td>530010</td><td>5301</td><td>521971</td><td>5213</td><td>1</td><td>394.261</td><td>5.361</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>−17.561</td><td>−50.634</td><td>3</td><td><span class="na">NA</span></td><td><span class="na">NA</span></td></tr>
+    <tr><td class="row_index">98,054</td><td>1</td><td>1</td><td>530010</td><td>5301</td><td>522010</td><td>5205</td><td>1</td><td>328.417</td><td>4.91747</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>−16.525</td><td>−50.372</td><td>2</td><td><span class="na">NA</span></td><td><span class="na">NA</span></td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">98,055 rows × 19 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="criando-colunas" class="level2">
+<h2 class="anchored" data-anchor-id="criando-colunas">Criando colunas</h2>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_deslc[<span class="st">'mun_diff'</span>] <span class="op">=</span> f.origem <span class="op">!=</span> f.destino</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_deslc[<span class="st">'regsau_diff'</span>] <span class="op">=</span> f.regiao_saude <span class="op">!=</span> f.hosp_regiao_saude</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>destino</th><th>hosp_regiao_saude</th><th>origem</th><th>regiao_saude</th><th>count</th><th>distancia</th><th>tempo</th><th>regiao</th><th class="vellipsis">…</th><th>socioecon</th><th>hosp_latitude</th><th>hosp_longitude</th><th>mun_diff</th><th>regsau_diff</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>1</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>2368</td><td>0</td><td>0</td><td>Sudeste</td><td class="vellipsis">…</td><td>5</td><td>−23.548</td><td>−46.636</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>2020</td><td>0</td><td>0</td><td>Sudeste</td><td class="vellipsis">…</td><td>5</td><td>−23.548</td><td>−46.636</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>1</td><td>330455</td><td>3305</td><td>330455</td><td>3305</td><td>1210</td><td>0</td><td>0</td><td>Sudeste</td><td class="vellipsis">…</td><td>5</td><td>−22.903</td><td>−43.208</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>330455</td><td>3305</td><td>330455</td><td>3305</td><td>872</td><td>0</td><td>0</td><td>Sudeste</td><td class="vellipsis">…</td><td>5</td><td>−22.903</td><td>−43.208</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>230440</td><td>2301</td><td>230440</td><td>2301</td><td>727</td><td>0</td><td>0</td><td>Nordeste</td><td class="vellipsis">…</td><td>5</td><td>−3.717</td><td>−38.543</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>1</td><td>230440</td><td>2301</td><td>230440</td><td>2301</td><td>717</td><td>0</td><td>0</td><td>Nordeste</td><td class="vellipsis">…</td><td>5</td><td>−3.717</td><td>−38.543</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>150140</td><td>1501</td><td>150140</td><td>1501</td><td>639</td><td>0</td><td>0</td><td>Norte</td><td class="vellipsis">…</td><td>4</td><td>−1.456</td><td>−48.504</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>150140</td><td>1501</td><td>150140</td><td>1501</td><td>634</td><td>0</td><td>0</td><td>Norte</td><td class="vellipsis">…</td><td>4</td><td>−1.456</td><td>−48.504</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>520870</td><td>5201</td><td>520870</td><td>5201</td><td>621</td><td>0</td><td>0</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>5</td><td>−16.679</td><td>−49.254</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>1</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>616</td><td>0</td><td>0</td><td>Norte</td><td class="vellipsis">…</td><td>4</td><td>−3.102</td><td>−60.025</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>520870</td><td>5201</td><td>520870</td><td>5201</td><td>595</td><td>0</td><td>0</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>5</td><td>−16.679</td><td>−49.254</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>580</td><td>0</td><td>0</td><td>Norte</td><td class="vellipsis">…</td><td>4</td><td>−3.102</td><td>−60.025</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>1</td><td>292740</td><td>2901</td><td>292740</td><td>2901</td><td>569</td><td>0</td><td>0</td><td>Nordeste</td><td class="vellipsis">…</td><td>5</td><td>−12.971</td><td>−38.511</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>292740</td><td>2901</td><td>292740</td><td>2901</td><td>505</td><td>0</td><td>0</td><td>Nordeste</td><td class="vellipsis">…</td><td>5</td><td>−12.971</td><td>−38.511</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>310620</td><td>3101</td><td>310620</td><td>3101</td><td>466</td><td>0</td><td>0</td><td>Sudeste</td><td class="vellipsis">…</td><td>1</td><td>−19.817</td><td>−43.956</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">98,050</td><td>1</td><td>1</td><td>530010</td><td>5301</td><td>521520</td><td>5204</td><td>1</td><td>404.572</td><td>5.64031</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>3</td><td><span class="na">NA</span></td><td><span class="na">NA</span></td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">98,051</td><td>1</td><td>1</td><td>530010</td><td>5301</td><td>521530</td><td>5202</td><td>1</td><td>199.021</td><td>3.01872</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>3</td><td><span class="na">NA</span></td><td><span class="na">NA</span></td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">98,052</td><td>1</td><td>1</td><td>530010</td><td>5301</td><td>521910</td><td>5201</td><td>1</td><td>252.282</td><td>3.75217</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>5</td><td><span class="na">NA</span></td><td><span class="na">NA</span></td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">98,053</td><td>1</td><td>1</td><td>530010</td><td>5301</td><td>521971</td><td>5213</td><td>1</td><td>394.261</td><td>5.361</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>3</td><td><span class="na">NA</span></td><td><span class="na">NA</span></td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">98,054</td><td>1</td><td>1</td><td>530010</td><td>5301</td><td>522010</td><td>5205</td><td>1</td><td>328.417</td><td>4.91747</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>2</td><td><span class="na">NA</span></td><td><span class="na">NA</span></td><td>1</td><td>1</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">98,055 rows × 21 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="removendo-valores-na" class="level2">
+<h2 class="anchored" data-anchor-id="removendo-valores-na">Removendo valores NA</h2>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc[(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  f.latitude <span class="op">!=</span> <span class="va">None</span>) <span class="op">&amp;</span> (</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  f.longitude <span class="op">!=</span> <span class="va">None</span>) <span class="op">&amp;</span> (</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  f.hosp_latitude <span class="op">!=</span> <span class="va">None</span>) <span class="op">&amp;</span> (</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  f.hosp_longitude <span class="op">!=</span> <span class="va">None</span>), :]</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>destino</th><th>hosp_regiao_saude</th><th>origem</th><th>regiao_saude</th><th>count</th><th>distancia</th><th>tempo</th><th>regiao</th><th class="vellipsis">…</th><th>socioecon</th><th>hosp_latitude</th><th>hosp_longitude</th><th>mun_diff</th><th>regsau_diff</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>1</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>2368</td><td>0</td><td>0</td><td>Sudeste</td><td class="vellipsis">…</td><td>5</td><td>−23.548</td><td>−46.636</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>2020</td><td>0</td><td>0</td><td>Sudeste</td><td class="vellipsis">…</td><td>5</td><td>−23.548</td><td>−46.636</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>1</td><td>330455</td><td>3305</td><td>330455</td><td>3305</td><td>1210</td><td>0</td><td>0</td><td>Sudeste</td><td class="vellipsis">…</td><td>5</td><td>−22.903</td><td>−43.208</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>330455</td><td>3305</td><td>330455</td><td>3305</td><td>872</td><td>0</td><td>0</td><td>Sudeste</td><td class="vellipsis">…</td><td>5</td><td>−22.903</td><td>−43.208</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>230440</td><td>2301</td><td>230440</td><td>2301</td><td>727</td><td>0</td><td>0</td><td>Nordeste</td><td class="vellipsis">…</td><td>5</td><td>−3.717</td><td>−38.543</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>1</td><td>230440</td><td>2301</td><td>230440</td><td>2301</td><td>717</td><td>0</td><td>0</td><td>Nordeste</td><td class="vellipsis">…</td><td>5</td><td>−3.717</td><td>−38.543</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>150140</td><td>1501</td><td>150140</td><td>1501</td><td>639</td><td>0</td><td>0</td><td>Norte</td><td class="vellipsis">…</td><td>4</td><td>−1.456</td><td>−48.504</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>150140</td><td>1501</td><td>150140</td><td>1501</td><td>634</td><td>0</td><td>0</td><td>Norte</td><td class="vellipsis">…</td><td>4</td><td>−1.456</td><td>−48.504</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>520870</td><td>5201</td><td>520870</td><td>5201</td><td>621</td><td>0</td><td>0</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>5</td><td>−16.679</td><td>−49.254</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>1</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>616</td><td>0</td><td>0</td><td>Norte</td><td class="vellipsis">…</td><td>4</td><td>−3.102</td><td>−60.025</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>520870</td><td>5201</td><td>520870</td><td>5201</td><td>595</td><td>0</td><td>0</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>5</td><td>−16.679</td><td>−49.254</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>580</td><td>0</td><td>0</td><td>Norte</td><td class="vellipsis">…</td><td>4</td><td>−3.102</td><td>−60.025</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>1</td><td>292740</td><td>2901</td><td>292740</td><td>2901</td><td>569</td><td>0</td><td>0</td><td>Nordeste</td><td class="vellipsis">…</td><td>5</td><td>−12.971</td><td>−38.511</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>292740</td><td>2901</td><td>292740</td><td>2901</td><td>505</td><td>0</td><td>0</td><td>Nordeste</td><td class="vellipsis">…</td><td>5</td><td>−12.971</td><td>−38.511</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>310620</td><td>3101</td><td>310620</td><td>3101</td><td>466</td><td>0</td><td>0</td><td>Sudeste</td><td class="vellipsis">…</td><td>1</td><td>−19.817</td><td>−43.956</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">97,660</td><td>1</td><td>1</td><td>522140</td><td>5201</td><td>521140</td><td>5201</td><td>1</td><td>65.0223</td><td>0.895806</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>5</td><td>−16.649</td><td>−49.489</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">97,661</td><td>1</td><td>1</td><td>522155</td><td>5213</td><td>522155</td><td>5213</td><td>1</td><td>0</td><td>0</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>3</td><td>−17.853</td><td>−50.302</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">97,662</td><td>1</td><td>1</td><td>522160</td><td>5210</td><td>520055</td><td>5210</td><td>1</td><td>54.4524</td><td>0.790139</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>2</td><td>−14.525</td><td>−49.141</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">97,663</td><td>1</td><td>1</td><td>522200</td><td>5202</td><td>522026</td><td>5202</td><td>1</td><td>48.7348</td><td>0.591417</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>3</td><td>−16.742</td><td>−48.516</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">97,664</td><td>1</td><td>1</td><td>522205</td><td>5202</td><td>520993</td><td>5216</td><td>1</td><td>144.086</td><td>2.71436</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>3</td><td>−17.735</td><td>−49.806</td><td>1</td><td>1</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">97,665 rows × 21 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="ordenando-colunas" class="level2">
+<h2 class="anchored" data-anchor-id="ordenando-colunas">Ordenando colunas</h2>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cols_order <span class="op">=</span> [</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># procedimento:</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'bienio'</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'parto_normal'</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># deslocamento:</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'origem'</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'destino'</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'mun_diff'</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">'regsau_diff'</span>,</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">'distancia'</span>,</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">'tempo'</span>,</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># localização de residência:</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">'regiao'</span>,</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">'uf'</span>,</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'nome_uf',</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'macroregiao_saude',</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">'regiao_saude'</span>,</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'nome_regiao_saude',</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'microregiao_saude',</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'municipio',</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">'capital'</span>,</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">'socioecon'</span>,</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">'latitude'</span>,</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">'longitude'</span>,</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># localização do hospital:</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">'hosp_latitude'</span>,</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>  <span class="st">'hosp_longitude'</span>,</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>  <span class="st">'hosp_regiao_saude'</span>,</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>  <span class="co"># contagem:</span></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>  <span class="st">'count'</span>,</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> df_deslc[:, cols_order]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>origem</th><th>destino</th><th>mun_diff</th><th>regsau_diff</th><th>distancia</th><th>tempo</th><th>regiao</th><th>uf</th><th class="vellipsis">…</th><th>longitude</th><th>hosp_latitude</th><th>hosp_longitude</th><th>hosp_regiao_saude</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>1</td><td>355030</td><td>355030</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Sudeste</td><td>SP</td><td class="vellipsis">…</td><td>−46.636</td><td>−23.548</td><td>−46.636</td><td>3501</td><td>2368</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>355030</td><td>355030</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Sudeste</td><td>SP</td><td class="vellipsis">…</td><td>−46.636</td><td>−23.548</td><td>−46.636</td><td>3501</td><td>2020</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>1</td><td>330455</td><td>330455</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Sudeste</td><td>RJ</td><td class="vellipsis">…</td><td>−43.208</td><td>−22.903</td><td>−43.208</td><td>3305</td><td>1210</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>330455</td><td>330455</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Sudeste</td><td>RJ</td><td class="vellipsis">…</td><td>−43.208</td><td>−22.903</td><td>−43.208</td><td>3305</td><td>872</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>230440</td><td>230440</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Nordeste</td><td>CE</td><td class="vellipsis">…</td><td>−38.543</td><td>−3.717</td><td>−38.543</td><td>2301</td><td>727</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>1</td><td>230440</td><td>230440</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Nordeste</td><td>CE</td><td class="vellipsis">…</td><td>−38.543</td><td>−3.717</td><td>−38.543</td><td>2301</td><td>717</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>150140</td><td>150140</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Norte</td><td>PA</td><td class="vellipsis">…</td><td>−48.504</td><td>−1.456</td><td>−48.504</td><td>1501</td><td>639</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>150140</td><td>150140</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Norte</td><td>PA</td><td class="vellipsis">…</td><td>−48.504</td><td>−1.456</td><td>−48.504</td><td>1501</td><td>634</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>520870</td><td>520870</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Centro-Oeste</td><td>GO</td><td class="vellipsis">…</td><td>−49.254</td><td>−16.679</td><td>−49.254</td><td>5201</td><td>621</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>1</td><td>130260</td><td>130260</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Norte</td><td>AM</td><td class="vellipsis">…</td><td>−60.025</td><td>−3.102</td><td>−60.025</td><td>1301</td><td>616</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>520870</td><td>520870</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Centro-Oeste</td><td>GO</td><td class="vellipsis">…</td><td>−49.254</td><td>−16.679</td><td>−49.254</td><td>5201</td><td>595</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>130260</td><td>130260</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Norte</td><td>AM</td><td class="vellipsis">…</td><td>−60.025</td><td>−3.102</td><td>−60.025</td><td>1301</td><td>580</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>1</td><td>292740</td><td>292740</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Nordeste</td><td>BA</td><td class="vellipsis">…</td><td>−38.511</td><td>−12.971</td><td>−38.511</td><td>2901</td><td>569</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>292740</td><td>292740</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Nordeste</td><td>BA</td><td class="vellipsis">…</td><td>−38.511</td><td>−12.971</td><td>−38.511</td><td>2901</td><td>505</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>310620</td><td>310620</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Sudeste</td><td>MG</td><td class="vellipsis">…</td><td>−43.956</td><td>−19.817</td><td>−43.956</td><td>3101</td><td>466</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">97,660</td><td>1</td><td>1</td><td>521140</td><td>522140</td><td>1</td><td>0</td><td>65.0223</td><td>0.895806</td><td>Centro-Oeste</td><td>GO</td><td class="vellipsis">…</td><td>−49.608</td><td>−16.649</td><td>−49.489</td><td>5201</td><td>1</td></tr>
+    <tr><td class="row_index">97,661</td><td>1</td><td>1</td><td>522155</td><td>522155</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Centro-Oeste</td><td>GO</td><td class="vellipsis">…</td><td>−50.302</td><td>−17.853</td><td>−50.302</td><td>5213</td><td>1</td></tr>
+    <tr><td class="row_index">97,662</td><td>1</td><td>1</td><td>520055</td><td>522160</td><td>1</td><td>0</td><td>54.4524</td><td>0.790139</td><td>Centro-Oeste</td><td>GO</td><td class="vellipsis">…</td><td>−49.339</td><td>−14.525</td><td>−49.141</td><td>5210</td><td>1</td></tr>
+    <tr><td class="row_index">97,663</td><td>1</td><td>1</td><td>522026</td><td>522200</td><td>1</td><td>0</td><td>48.7348</td><td>0.591417</td><td>Centro-Oeste</td><td>GO</td><td class="vellipsis">…</td><td>−48.663</td><td>−16.742</td><td>−48.516</td><td>5202</td><td>1</td></tr>
+    <tr><td class="row_index">97,664</td><td>1</td><td>1</td><td>520993</td><td>522205</td><td>1</td><td>1</td><td>144.086</td><td>2.71436</td><td>Centro-Oeste</td><td>GO</td><td class="vellipsis">…</td><td>−49.987</td><td>−17.735</td><td>−49.806</td><td>5202</td><td>1</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">97,665 rows × 19 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exportando-tabela" class="level1">
+<h1>Exportando tabela</h1>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>output_deslc <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'deslocamentos.csv.gzip'</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_deslc.to_csv(output_deslc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_deslc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>origem</th><th>destino</th><th>mun_diff</th><th>regsau_diff</th><th>distancia</th><th>tempo</th><th>regiao</th><th>uf</th><th class="vellipsis">…</th><th>longitude</th><th>hosp_latitude</th><th>hosp_longitude</th><th>hosp_regiao_saude</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>1</td><td>355030</td><td>355030</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Sudeste</td><td>SP</td><td class="vellipsis">…</td><td>−46.636</td><td>−23.548</td><td>−46.636</td><td>3501</td><td>2368</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>355030</td><td>355030</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Sudeste</td><td>SP</td><td class="vellipsis">…</td><td>−46.636</td><td>−23.548</td><td>−46.636</td><td>3501</td><td>2020</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>1</td><td>330455</td><td>330455</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Sudeste</td><td>RJ</td><td class="vellipsis">…</td><td>−43.208</td><td>−22.903</td><td>−43.208</td><td>3305</td><td>1210</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>330455</td><td>330455</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Sudeste</td><td>RJ</td><td class="vellipsis">…</td><td>−43.208</td><td>−22.903</td><td>−43.208</td><td>3305</td><td>872</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>230440</td><td>230440</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Nordeste</td><td>CE</td><td class="vellipsis">…</td><td>−38.543</td><td>−3.717</td><td>−38.543</td><td>2301</td><td>727</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>1</td><td>230440</td><td>230440</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Nordeste</td><td>CE</td><td class="vellipsis">…</td><td>−38.543</td><td>−3.717</td><td>−38.543</td><td>2301</td><td>717</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>150140</td><td>150140</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Norte</td><td>PA</td><td class="vellipsis">…</td><td>−48.504</td><td>−1.456</td><td>−48.504</td><td>1501</td><td>639</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>150140</td><td>150140</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Norte</td><td>PA</td><td class="vellipsis">…</td><td>−48.504</td><td>−1.456</td><td>−48.504</td><td>1501</td><td>634</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>520870</td><td>520870</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Centro-Oeste</td><td>GO</td><td class="vellipsis">…</td><td>−49.254</td><td>−16.679</td><td>−49.254</td><td>5201</td><td>621</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>1</td><td>130260</td><td>130260</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Norte</td><td>AM</td><td class="vellipsis">…</td><td>−60.025</td><td>−3.102</td><td>−60.025</td><td>1301</td><td>616</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>520870</td><td>520870</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Centro-Oeste</td><td>GO</td><td class="vellipsis">…</td><td>−49.254</td><td>−16.679</td><td>−49.254</td><td>5201</td><td>595</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>130260</td><td>130260</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Norte</td><td>AM</td><td class="vellipsis">…</td><td>−60.025</td><td>−3.102</td><td>−60.025</td><td>1301</td><td>580</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>1</td><td>292740</td><td>292740</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Nordeste</td><td>BA</td><td class="vellipsis">…</td><td>−38.511</td><td>−12.971</td><td>−38.511</td><td>2901</td><td>569</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>292740</td><td>292740</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Nordeste</td><td>BA</td><td class="vellipsis">…</td><td>−38.511</td><td>−12.971</td><td>−38.511</td><td>2901</td><td>505</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>310620</td><td>310620</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Sudeste</td><td>MG</td><td class="vellipsis">…</td><td>−43.956</td><td>−19.817</td><td>−43.956</td><td>3101</td><td>466</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">97,660</td><td>1</td><td>1</td><td>521140</td><td>522140</td><td>1</td><td>0</td><td>65.0223</td><td>0.895806</td><td>Centro-Oeste</td><td>GO</td><td class="vellipsis">…</td><td>−49.608</td><td>−16.649</td><td>−49.489</td><td>5201</td><td>1</td></tr>
+    <tr><td class="row_index">97,661</td><td>1</td><td>1</td><td>522155</td><td>522155</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Centro-Oeste</td><td>GO</td><td class="vellipsis">…</td><td>−50.302</td><td>−17.853</td><td>−50.302</td><td>5213</td><td>1</td></tr>
+    <tr><td class="row_index">97,662</td><td>1</td><td>1</td><td>520055</td><td>522160</td><td>1</td><td>0</td><td>54.4524</td><td>0.790139</td><td>Centro-Oeste</td><td>GO</td><td class="vellipsis">…</td><td>−49.339</td><td>−14.525</td><td>−49.141</td><td>5210</td><td>1</td></tr>
+    <tr><td class="row_index">97,663</td><td>1</td><td>1</td><td>522026</td><td>522200</td><td>1</td><td>0</td><td>48.7348</td><td>0.591417</td><td>Centro-Oeste</td><td>GO</td><td class="vellipsis">…</td><td>−48.663</td><td>−16.742</td><td>−48.516</td><td>5202</td><td>1</td></tr>
+    <tr><td class="row_index">97,664</td><td>1</td><td>1</td><td>520993</td><td>522205</td><td>1</td><td>1</td><td>144.086</td><td>2.71436</td><td>Centro-Oeste</td><td>GO</td><td class="vellipsis">…</td><td>−49.987</td><td>−17.735</td><td>−49.806</td><td>5202</td><td>1</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">97,665 rows × 19 columns</div>
   </div>
 </div>
 </div>
