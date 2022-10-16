@@ -244,7 +244,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#colunas-da-tabela-1" id="toc-colunas-da-tabela-1" class="nav-link" data-scroll-target="#colunas-da-tabela-1">Colunas da tabela</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#gerando-tabela" id="toc-gerando-tabela" class="nav-link" data-scroll-target="#gerando-tabela">Gerando tabela</a></li>
+  <li><a href="#gerando-tabela" id="toc-gerando-tabela" class="nav-link" data-scroll-target="#gerando-tabela">Gerando tabela</a>
+  <ul class="collapse">
+  <li><a href="#juntando-com-outras" id="toc-juntando-com-outras" class="nav-link" data-scroll-target="#juntando-com-outras">Juntando com outras</a></li>
+  <li><a href="#juntando-com-socioeconômico" id="toc-juntando-com-socioeconômico" class="nav-link" data-scroll-target="#juntando-com-socioeconômico">Juntando com Socioeconômico</a></li>
+  <li><a href="#ajustando-valores" id="toc-ajustando-valores" class="nav-link" data-scroll-target="#ajustando-valores">Ajustando valores</a>
+  <ul class="collapse">
+  <li><a href="#valor-booleanos" id="toc-valor-booleanos" class="nav-link" data-scroll-target="#valor-booleanos">Valor Booleanos</a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#exportando-tabela" id="toc-exportando-tabela" class="nav-link" data-scroll-target="#exportando-tabela">Exportando tabela</a></li>
   </ul>
 </nav>
@@ -473,16 +481,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="gerando-tabela" class="level1">
 <h1>Gerando tabela</h1>
+<section id="juntando-com-outras" class="level2">
+<h2 class="anchored" data-anchor-id="juntando-com-outras">Juntando com outras</h2>
+</section>
+<section id="juntando-com-socioeconômico" class="level2">
+<h2 class="anchored" data-anchor-id="juntando-com-socioeconômico">Juntando com Socioeconômico</h2>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_socioeco.key <span class="op">=</span> <span class="st">'cod_municipio'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_mun <span class="op">=</span> df_mun[:, :, dt.join(df_socioeco)]</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>cols_mun <span class="op">=</span> <span class="bu">list</span>(df_mun.names)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>cols_mun <span class="op">=</span> cols_mun[:<span class="op">-</span><span class="dv">2</span>] <span class="op">+</span> [cols_mun[<span class="op">-</span><span class="dv">1</span>]] <span class="op">+</span> [cols_mun[<span class="op">-</span><span class="dv">2</span>]]</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>df_mun <span class="op">=</span> df_mun[:, cols_mun]</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>df_mun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_socioeco.key <span class="op">=</span> <span class="st">'cod_municipio'</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_mun <span class="op">=</span> df_mun[:, :, dt.join(df_socioeco)]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>cols_mun <span class="op">=</span> <span class="bu">list</span>(df_mun.names)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>cols_mun <span class="op">=</span> cols_mun[:<span class="op">-</span><span class="dv">2</span>] <span class="op">+</span> [cols_mun[<span class="op">-</span><span class="dv">1</span>]] <span class="op">+</span> [cols_mun[<span class="op">-</span><span class="dv">2</span>]]</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>df_mun <span class="op">=</span> df_mun[:, cols_mun]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>df_mun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
 
 <div class="datatable">
   <table class="frame">
@@ -521,44 +532,94 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="exportando-tabela" class="level1">
-<h1>Exportando tabela</h1>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>output_mun <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'municipios.csv.gzip'</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_mun.to_csv(output_mun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_mun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<section id="ajustando-valores" class="level2">
+<h2 class="anchored" data-anchor-id="ajustando-valores">Ajustando valores</h2>
+<section id="valor-booleanos" class="level3">
+<h3 class="anchored" data-anchor-id="valor-booleanos">Valor Booleanos</h3>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_mun[:, dt.update(capital <span class="op">=</span> f.capital <span class="op">==</span> <span class="st">'S'</span>)]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_mun[:, dt.update(fronteira <span class="op">=</span> f.fronteira <span class="op">==</span> <span class="st">'S'</span>)]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df_mun[:, dt.update(amazonia <span class="op">=</span> f.amazonia <span class="op">==</span> <span class="st">'S'</span>)]</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>df_mun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
 
 <div class="datatable">
   <table class="frame">
   <thead>
     <tr class="colnames"><td class="row_index"></td><th>cod_municipio</th><th>regiao</th><th>uf</th><th>cod_uf</th><th>nome_uf</th><th>municipio</th><th>nome_municipio</th><th>capital</th><th>fronteira</th><th>amazonia</th><th class="vellipsis">…</th><th>longitude</th><th>altitude</th><th>area</th><th>socioecon</th><th>count</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>355030</td><td>Sudeste</td><td>SP</td><td>35</td><td>SAO PAULO</td><td>São Paulo</td><td>SAO PAULO</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−46.636</td><td>760</td><td>1522.99</td><td>5</td><td>806352</td></tr>
-    <tr><td class="row_index">1</td><td>330455</td><td>Sudeste</td><td>RJ</td><td>33</td><td>RIO DE JANEIRO</td><td>Rio de Janeiro</td><td>RIO DE JANEIRO</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−43.208</td><td>2</td><td>1182.3</td><td>5</td><td>368216</td></tr>
-    <tr><td class="row_index">2</td><td>130260</td><td>Norte</td><td>AM</td><td>13</td><td>AMAZONAS</td><td>Manaus</td><td>MANAUS</td><td>S</td><td>N</td><td>S</td><td class="vellipsis">…</td><td>−60.025</td><td>92</td><td>11401.1</td><td>4</td><td>297036</td></tr>
-    <tr><td class="row_index">3</td><td>230440</td><td>Nordeste</td><td>CE</td><td>23</td><td>CEARA</td><td>Fortaleza</td><td>FORTALEZA</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−38.543</td><td>21</td><td>313.14</td><td>5</td><td>203370</td></tr>
-    <tr><td class="row_index">4</td><td>292740</td><td>Nordeste</td><td>BA</td><td>29</td><td>BAHIA</td><td>Salvador</td><td>SALVADOR</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−38.511</td><td>8</td><td>706.799</td><td>5</td><td>169924</td></tr>
-    <tr><td class="row_index">5</td><td>150140</td><td>Norte</td><td>PA</td><td>15</td><td>PARA</td><td>Belém</td><td>BELEM</td><td>S</td><td>N</td><td>S</td><td class="vellipsis">…</td><td>−48.504</td><td>10</td><td>1064.92</td><td>4</td><td>126918</td></tr>
-    <tr><td class="row_index">6</td><td>310620</td><td>Sudeste</td><td>MG</td><td>31</td><td>MINAS GERAIS</td><td>Belo Horizonte</td><td>BELO HORIZONTE</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−43.956</td><td>858</td><td>330.954</td><td>1</td><td>125370</td></tr>
-    <tr><td class="row_index">7</td><td>431490</td><td>Sul</td><td>RS</td><td>43</td><td>RIO GRANDE DO SUL</td><td>Porto Alegre</td><td>PORTO ALEGRE</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−51.23</td><td>3</td><td>496.827</td><td>5</td><td>105321</td></tr>
-    <tr><td class="row_index">8</td><td>410690</td><td>Sul</td><td>PR</td><td>41</td><td>PARANA</td><td>Curitiba</td><td>CURITIBA</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−49.273</td><td>934</td><td>434.967</td><td>5</td><td>101337</td></tr>
-    <tr><td class="row_index">9</td><td>270430</td><td>Nordeste</td><td>AL</td><td>27</td><td>ALAGOAS</td><td>Maceió</td><td>MACEIO</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−35.735</td><td>16</td><td>510.655</td><td>3</td><td>93551</td></tr>
-    <tr><td class="row_index">10</td><td>520870</td><td>Centro-Oeste</td><td>GO</td><td>52</td><td>GOIAS</td><td>Goiânia</td><td>GOIANIA</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−49.254</td><td>749</td><td>739.492</td><td>5</td><td>92068</td></tr>
-    <tr><td class="row_index">11</td><td>351880</td><td>Sudeste</td><td>SP</td><td>35</td><td>SAO PAULO</td><td>Guarulhos</td><td>GUARULHOS</td><td>N</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−46.533</td><td>759</td><td>318.014</td><td>4</td><td>91617</td></tr>
-    <tr><td class="row_index">12</td><td>221100</td><td>Nordeste</td><td>PI</td><td>22</td><td>PIAUI</td><td>Teresina</td><td>TERESINA</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−42.802</td><td>72</td><td>1755.7</td><td>3</td><td>86245</td></tr>
-    <tr><td class="row_index">13</td><td>500270</td><td>Centro-Oeste</td><td>MS</td><td>50</td><td>MATO GROSSO DO SUL</td><td>Campo Grande</td><td>CAMPO GRANDE</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−54.646</td><td>532</td><td>8096.05</td><td>4</td><td>84481</td></tr>
-    <tr><td class="row_index">14</td><td>261160</td><td>Nordeste</td><td>PE</td><td>26</td><td>PERNAMBUCO</td><td>Recife</td><td>RECIFE</td><td>S</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−34.881</td><td>4</td><td>217.494</td><td>5</td><td>83833</td></tr>
+    <tr><td class="row_index">0</td><td>355030</td><td>Sudeste</td><td>SP</td><td>35</td><td>SAO PAULO</td><td>São Paulo</td><td>SAO PAULO</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−46.636</td><td>760</td><td>1522.99</td><td>5</td><td>806352</td></tr>
+    <tr><td class="row_index">1</td><td>330455</td><td>Sudeste</td><td>RJ</td><td>33</td><td>RIO DE JANEIRO</td><td>Rio de Janeiro</td><td>RIO DE JANEIRO</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−43.208</td><td>2</td><td>1182.3</td><td>5</td><td>368216</td></tr>
+    <tr><td class="row_index">2</td><td>130260</td><td>Norte</td><td>AM</td><td>13</td><td>AMAZONAS</td><td>Manaus</td><td>MANAUS</td><td>1</td><td>0</td><td>1</td><td class="vellipsis">…</td><td>−60.025</td><td>92</td><td>11401.1</td><td>4</td><td>297036</td></tr>
+    <tr><td class="row_index">3</td><td>230440</td><td>Nordeste</td><td>CE</td><td>23</td><td>CEARA</td><td>Fortaleza</td><td>FORTALEZA</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−38.543</td><td>21</td><td>313.14</td><td>5</td><td>203370</td></tr>
+    <tr><td class="row_index">4</td><td>292740</td><td>Nordeste</td><td>BA</td><td>29</td><td>BAHIA</td><td>Salvador</td><td>SALVADOR</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−38.511</td><td>8</td><td>706.799</td><td>5</td><td>169924</td></tr>
+    <tr><td class="row_index">5</td><td>150140</td><td>Norte</td><td>PA</td><td>15</td><td>PARA</td><td>Belém</td><td>BELEM</td><td>1</td><td>0</td><td>1</td><td class="vellipsis">…</td><td>−48.504</td><td>10</td><td>1064.92</td><td>4</td><td>126918</td></tr>
+    <tr><td class="row_index">6</td><td>310620</td><td>Sudeste</td><td>MG</td><td>31</td><td>MINAS GERAIS</td><td>Belo Horizonte</td><td>BELO HORIZONTE</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−43.956</td><td>858</td><td>330.954</td><td>1</td><td>125370</td></tr>
+    <tr><td class="row_index">7</td><td>431490</td><td>Sul</td><td>RS</td><td>43</td><td>RIO GRANDE DO SUL</td><td>Porto Alegre</td><td>PORTO ALEGRE</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−51.23</td><td>3</td><td>496.827</td><td>5</td><td>105321</td></tr>
+    <tr><td class="row_index">8</td><td>410690</td><td>Sul</td><td>PR</td><td>41</td><td>PARANA</td><td>Curitiba</td><td>CURITIBA</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−49.273</td><td>934</td><td>434.967</td><td>5</td><td>101337</td></tr>
+    <tr><td class="row_index">9</td><td>270430</td><td>Nordeste</td><td>AL</td><td>27</td><td>ALAGOAS</td><td>Maceió</td><td>MACEIO</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−35.735</td><td>16</td><td>510.655</td><td>3</td><td>93551</td></tr>
+    <tr><td class="row_index">10</td><td>520870</td><td>Centro-Oeste</td><td>GO</td><td>52</td><td>GOIAS</td><td>Goiânia</td><td>GOIANIA</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−49.254</td><td>749</td><td>739.492</td><td>5</td><td>92068</td></tr>
+    <tr><td class="row_index">11</td><td>351880</td><td>Sudeste</td><td>SP</td><td>35</td><td>SAO PAULO</td><td>Guarulhos</td><td>GUARULHOS</td><td>0</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−46.533</td><td>759</td><td>318.014</td><td>4</td><td>91617</td></tr>
+    <tr><td class="row_index">12</td><td>221100</td><td>Nordeste</td><td>PI</td><td>22</td><td>PIAUI</td><td>Teresina</td><td>TERESINA</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−42.802</td><td>72</td><td>1755.7</td><td>3</td><td>86245</td></tr>
+    <tr><td class="row_index">13</td><td>500270</td><td>Centro-Oeste</td><td>MS</td><td>50</td><td>MATO GROSSO DO SUL</td><td>Campo Grande</td><td>CAMPO GRANDE</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−54.646</td><td>532</td><td>8096.05</td><td>4</td><td>84481</td></tr>
+    <tr><td class="row_index">14</td><td>261160</td><td>Nordeste</td><td>PE</td><td>26</td><td>PERNAMBUCO</td><td>Recife</td><td>RECIFE</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−34.881</td><td>4</td><td>217.494</td><td>5</td><td>83833</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">5564</td><td>520020</td><td>Centro-Oeste</td><td>GO</td><td>52</td><td>GOIAS</td><td>Água Limpa</td><td>AGUA LIMPA</td><td>N</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−48.762</td><td>682</td><td>452.856</td><td>3</td><td>25</td></tr>
-    <tr><td class="row_index">5565</td><td>510120</td><td>Centro-Oeste</td><td>MT</td><td>51</td><td>MATO GROSSO</td><td>Araguainha</td><td>ARAGUAINHA</td><td>N</td><td>N</td><td>S</td><td class="vellipsis">…</td><td>−53.033</td><td>462</td><td>688.676</td><td>2</td><td>23</td></tr>
-    <tr><td class="row_index">5566</td><td>350640</td><td>Sudeste</td><td>SP</td><td>35</td><td>SAO PAULO</td><td>Bilac</td><td>BILAC</td><td>N</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−50.471</td><td>431</td><td>157.278</td><td>5</td><td>18</td></tr>
-    <tr><td class="row_index">5567</td><td>500627</td><td>Centro-Oeste</td><td>MS</td><td>50</td><td>MATO GROSSO DO SUL</td><td>Paraíso das Águas</td><td>PARAISO DAS AGUAS</td><td>N</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−53.0116</td><td>0</td><td>5032.47</td><td>4</td><td>15</td></tr>
-    <tr><td class="row_index">5568</td><td>330513</td><td>Sudeste</td><td>RJ</td><td>33</td><td>RIO DE JANEIRO</td><td>São José de Ubá</td><td>SAO JOSE DE UBA</td><td>N</td><td>N</td><td>N</td><td class="vellipsis">…</td><td>−41.943</td><td>95</td><td>250.596</td><td>3</td><td>6</td></tr>
+    <tr><td class="row_index">5564</td><td>520020</td><td>Centro-Oeste</td><td>GO</td><td>52</td><td>GOIAS</td><td>Água Limpa</td><td>AGUA LIMPA</td><td>0</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−48.762</td><td>682</td><td>452.856</td><td>3</td><td>25</td></tr>
+    <tr><td class="row_index">5565</td><td>510120</td><td>Centro-Oeste</td><td>MT</td><td>51</td><td>MATO GROSSO</td><td>Araguainha</td><td>ARAGUAINHA</td><td>0</td><td>0</td><td>1</td><td class="vellipsis">…</td><td>−53.033</td><td>462</td><td>688.676</td><td>2</td><td>23</td></tr>
+    <tr><td class="row_index">5566</td><td>350640</td><td>Sudeste</td><td>SP</td><td>35</td><td>SAO PAULO</td><td>Bilac</td><td>BILAC</td><td>0</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−50.471</td><td>431</td><td>157.278</td><td>5</td><td>18</td></tr>
+    <tr><td class="row_index">5567</td><td>500627</td><td>Centro-Oeste</td><td>MS</td><td>50</td><td>MATO GROSSO DO SUL</td><td>Paraíso das Águas</td><td>PARAISO DAS AGUAS</td><td>0</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−53.0116</td><td>0</td><td>5032.47</td><td>4</td><td>15</td></tr>
+    <tr><td class="row_index">5568</td><td>330513</td><td>Sudeste</td><td>RJ</td><td>33</td><td>RIO DE JANEIRO</td><td>São José de Ubá</td><td>SAO JOSE DE UBA</td><td>0</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−41.943</td><td>95</td><td>250.596</td><td>3</td><td>6</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">5569 rows × 20 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="exportando-tabela" class="level1">
+<h1>Exportando tabela</h1>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>output_mun <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'municipios.csv.gzip'</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_mun.to_csv(output_mun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_mun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>cod_municipio</th><th>regiao</th><th>uf</th><th>cod_uf</th><th>nome_uf</th><th>municipio</th><th>nome_municipio</th><th>capital</th><th>fronteira</th><th>amazonia</th><th class="vellipsis">…</th><th>longitude</th><th>altitude</th><th>area</th><th>socioecon</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>355030</td><td>Sudeste</td><td>SP</td><td>35</td><td>SAO PAULO</td><td>São Paulo</td><td>SAO PAULO</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−46.636</td><td>760</td><td>1522.99</td><td>5</td><td>806352</td></tr>
+    <tr><td class="row_index">1</td><td>330455</td><td>Sudeste</td><td>RJ</td><td>33</td><td>RIO DE JANEIRO</td><td>Rio de Janeiro</td><td>RIO DE JANEIRO</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−43.208</td><td>2</td><td>1182.3</td><td>5</td><td>368216</td></tr>
+    <tr><td class="row_index">2</td><td>130260</td><td>Norte</td><td>AM</td><td>13</td><td>AMAZONAS</td><td>Manaus</td><td>MANAUS</td><td>1</td><td>0</td><td>1</td><td class="vellipsis">…</td><td>−60.025</td><td>92</td><td>11401.1</td><td>4</td><td>297036</td></tr>
+    <tr><td class="row_index">3</td><td>230440</td><td>Nordeste</td><td>CE</td><td>23</td><td>CEARA</td><td>Fortaleza</td><td>FORTALEZA</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−38.543</td><td>21</td><td>313.14</td><td>5</td><td>203370</td></tr>
+    <tr><td class="row_index">4</td><td>292740</td><td>Nordeste</td><td>BA</td><td>29</td><td>BAHIA</td><td>Salvador</td><td>SALVADOR</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−38.511</td><td>8</td><td>706.799</td><td>5</td><td>169924</td></tr>
+    <tr><td class="row_index">5</td><td>150140</td><td>Norte</td><td>PA</td><td>15</td><td>PARA</td><td>Belém</td><td>BELEM</td><td>1</td><td>0</td><td>1</td><td class="vellipsis">…</td><td>−48.504</td><td>10</td><td>1064.92</td><td>4</td><td>126918</td></tr>
+    <tr><td class="row_index">6</td><td>310620</td><td>Sudeste</td><td>MG</td><td>31</td><td>MINAS GERAIS</td><td>Belo Horizonte</td><td>BELO HORIZONTE</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−43.956</td><td>858</td><td>330.954</td><td>1</td><td>125370</td></tr>
+    <tr><td class="row_index">7</td><td>431490</td><td>Sul</td><td>RS</td><td>43</td><td>RIO GRANDE DO SUL</td><td>Porto Alegre</td><td>PORTO ALEGRE</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−51.23</td><td>3</td><td>496.827</td><td>5</td><td>105321</td></tr>
+    <tr><td class="row_index">8</td><td>410690</td><td>Sul</td><td>PR</td><td>41</td><td>PARANA</td><td>Curitiba</td><td>CURITIBA</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−49.273</td><td>934</td><td>434.967</td><td>5</td><td>101337</td></tr>
+    <tr><td class="row_index">9</td><td>270430</td><td>Nordeste</td><td>AL</td><td>27</td><td>ALAGOAS</td><td>Maceió</td><td>MACEIO</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−35.735</td><td>16</td><td>510.655</td><td>3</td><td>93551</td></tr>
+    <tr><td class="row_index">10</td><td>520870</td><td>Centro-Oeste</td><td>GO</td><td>52</td><td>GOIAS</td><td>Goiânia</td><td>GOIANIA</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−49.254</td><td>749</td><td>739.492</td><td>5</td><td>92068</td></tr>
+    <tr><td class="row_index">11</td><td>351880</td><td>Sudeste</td><td>SP</td><td>35</td><td>SAO PAULO</td><td>Guarulhos</td><td>GUARULHOS</td><td>0</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−46.533</td><td>759</td><td>318.014</td><td>4</td><td>91617</td></tr>
+    <tr><td class="row_index">12</td><td>221100</td><td>Nordeste</td><td>PI</td><td>22</td><td>PIAUI</td><td>Teresina</td><td>TERESINA</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−42.802</td><td>72</td><td>1755.7</td><td>3</td><td>86245</td></tr>
+    <tr><td class="row_index">13</td><td>500270</td><td>Centro-Oeste</td><td>MS</td><td>50</td><td>MATO GROSSO DO SUL</td><td>Campo Grande</td><td>CAMPO GRANDE</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−54.646</td><td>532</td><td>8096.05</td><td>4</td><td>84481</td></tr>
+    <tr><td class="row_index">14</td><td>261160</td><td>Nordeste</td><td>PE</td><td>26</td><td>PERNAMBUCO</td><td>Recife</td><td>RECIFE</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−34.881</td><td>4</td><td>217.494</td><td>5</td><td>83833</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">5564</td><td>520020</td><td>Centro-Oeste</td><td>GO</td><td>52</td><td>GOIAS</td><td>Água Limpa</td><td>AGUA LIMPA</td><td>0</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−48.762</td><td>682</td><td>452.856</td><td>3</td><td>25</td></tr>
+    <tr><td class="row_index">5565</td><td>510120</td><td>Centro-Oeste</td><td>MT</td><td>51</td><td>MATO GROSSO</td><td>Araguainha</td><td>ARAGUAINHA</td><td>0</td><td>0</td><td>1</td><td class="vellipsis">…</td><td>−53.033</td><td>462</td><td>688.676</td><td>2</td><td>23</td></tr>
+    <tr><td class="row_index">5566</td><td>350640</td><td>Sudeste</td><td>SP</td><td>35</td><td>SAO PAULO</td><td>Bilac</td><td>BILAC</td><td>0</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−50.471</td><td>431</td><td>157.278</td><td>5</td><td>18</td></tr>
+    <tr><td class="row_index">5567</td><td>500627</td><td>Centro-Oeste</td><td>MS</td><td>50</td><td>MATO GROSSO DO SUL</td><td>Paraíso das Águas</td><td>PARAISO DAS AGUAS</td><td>0</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−53.0116</td><td>0</td><td>5032.47</td><td>4</td><td>15</td></tr>
+    <tr><td class="row_index">5568</td><td>330513</td><td>Sudeste</td><td>RJ</td><td>33</td><td>RIO DE JANEIRO</td><td>São José de Ubá</td><td>SAO JOSE DE UBA</td><td>0</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−41.943</td><td>95</td><td>250.596</td><td>3</td><td>6</td></tr>
   </tbody>
   </table>
   <div class="footer">
