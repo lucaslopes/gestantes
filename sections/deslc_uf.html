@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Deslocamento de Gestantes – deslc_uf</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Deslocamento de Gestantes</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lucaslopes/gestantes" title="" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../README.html" class="sidebar-item-text sidebar-link">Introdução</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Coleta de Dados</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_sih.html" class="sidebar-item-text sidebar-link">SIH</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_socioecon.html" class="sidebar-item-text sidebar-link">Socioeconômico</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_dists.html" class="sidebar-item-text sidebar-link">Distâncias</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Tabelas Criadas</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_muns.html" class="sidebar-item-text sidebar-link">Municípios</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_procs.html" class="sidebar-item-text sidebar-link">Procedimentos</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_dists.html" class="sidebar-item-text sidebar-link">Distâncias</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_deslc.html" class="sidebar-item-text sidebar-link">Deslocamento</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, group_cols</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style type="text/css">
+.datatable table.frame { margin-bottom: 0; }
+.datatable table.frame thead { border-bottom: none; }
+.datatable table.frame tr.coltypes td {  color: #FFFFFF;  line-height: 6px;  padding: 0 0.5em;}
+.datatable .bool    { background: #DDDD99; }
+.datatable .object  { background: #565656; }
+.datatable .int     { background: #5D9E5D; }
+.datatable .float   { background: #4040CC; }
+.datatable .str     { background: #CC4040; }
+.datatable .row_index {  background: var(--jp-border-color3);  border-right: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  font-size: 9px;}
+.datatable .frame tr.coltypes .row_index {  background: var(--jp-border-color0);}
+.datatable th:nth-child(2) { padding-left: 12px; }
+.datatable .hellipsis {  color: var(--jp-cell-editor-border-color);}
+.datatable .vellipsis {  background: var(--jp-layout-color0);  color: var(--jp-cell-editor-border-color);}
+.datatable .na {  color: var(--jp-cell-editor-border-color);  font-size: 80%;}
+.datatable .footer { font-size: 9px; }
+.datatable .frame_dimensions {  background: var(--jp-border-color3);  border-top: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  display: inline-block;  opacity: 0.6;  padding: 1px 10px 1px 5px;}
+</style>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>output_deslc <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'deslocamentos.csv.gzip'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_deslc <span class="op">=</span> pd.read_csv(output_deslc)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df_deslc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>bienio</th>
+      <th>parto_normal</th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>mun_diff</th>
+      <th>regsau_diff</th>
+      <th>distancia</th>
+      <th>tempo</th>
+      <th>regiao</th>
+      <th>uf</th>
+      <th>regiao_saude</th>
+      <th>capital</th>
+      <th>socioecon</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>hosp_latitude</th>
+      <th>hosp_longitude</th>
+      <th>hosp_regiao_saude</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>355030</td>
+      <td>355030</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>3501</td>
+      <td>S</td>
+      <td>5</td>
+      <td>-23.548</td>
+      <td>-46.636</td>
+      <td>-23.548</td>
+      <td>-46.636</td>
+      <td>3501</td>
+      <td>2368</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>355030</td>
+      <td>355030</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>3501</td>
+      <td>S</td>
+      <td>5</td>
+      <td>-23.548</td>
+      <td>-46.636</td>
+      <td>-23.548</td>
+      <td>-46.636</td>
+      <td>3501</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>1</td>
+      <td>330455</td>
+      <td>330455</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>Sudeste</td>
+      <td>RJ</td>
+      <td>3305</td>
+      <td>S</td>
+      <td>5</td>
+      <td>-22.903</td>
+      <td>-43.208</td>
+      <td>-22.903</td>
+      <td>-43.208</td>
+      <td>3305</td>
+      <td>1210</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>330455</td>
+      <td>330455</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>Sudeste</td>
+      <td>RJ</td>
+      <td>3305</td>
+      <td>S</td>
+      <td>5</td>
+      <td>-22.903</td>
+      <td>-43.208</td>
+      <td>-22.903</td>
+      <td>-43.208</td>
+      <td>3305</td>
+      <td>872</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>230440</td>
+      <td>230440</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>Nordeste</td>
+      <td>CE</td>
+      <td>2301</td>
+      <td>S</td>
+      <td>5</td>
+      <td>-3.717</td>
+      <td>-38.543</td>
+      <td>-3.717</td>
+      <td>-38.543</td>
+      <td>2301</td>
+      <td>727</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>98050</th>
+      <td>1</td>
+      <td>1</td>
+      <td>521520</td>
+      <td>530010</td>
+      <td>1</td>
+      <td>1</td>
+      <td>404.5716</td>
+      <td>5.640306</td>
+      <td>Centro-Oeste</td>
+      <td>GO</td>
+      <td>5204</td>
+      <td>N</td>
+      <td>3</td>
+      <td>-16.034</td>
+      <td>-50.711</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5301</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>98051</th>
+      <td>1</td>
+      <td>1</td>
+      <td>521530</td>
+      <td>530010</td>
+      <td>1</td>
+      <td>1</td>
+      <td>199.0211</td>
+      <td>3.018722</td>
+      <td>Centro-Oeste</td>
+      <td>GO</td>
+      <td>5202</td>
+      <td>N</td>
+      <td>3</td>
+      <td>-17.031</td>
+      <td>-48.296</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5301</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>98052</th>
+      <td>1</td>
+      <td>1</td>
+      <td>521910</td>
+      <td>530010</td>
+      <td>1</td>
+      <td>1</td>
+      <td>252.2821</td>
+      <td>3.752167</td>
+      <td>Centro-Oeste</td>
+      <td>GO</td>
+      <td>5201</td>
+      <td>N</td>
+      <td>5</td>
+      <td>-16.574</td>
+      <td>-49.694</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5301</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>98053</th>
+      <td>1</td>
+      <td>1</td>
+      <td>521971</td>
+      <td>530010</td>
+      <td>1</td>
+      <td>1</td>
+      <td>394.2609</td>
+      <td>5.361000</td>
+      <td>Centro-Oeste</td>
+      <td>GO</td>
+      <td>5213</td>
+      <td>N</td>
+      <td>3</td>
+      <td>-17.561</td>
+      <td>-50.634</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5301</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>98054</th>
+      <td>1</td>
+      <td>1</td>
+      <td>522010</td>
+      <td>530010</td>
+      <td>1</td>
+      <td>1</td>
+      <td>328.4170</td>
+      <td>4.917472</td>
+      <td>Centro-Oeste</td>
+      <td>GO</td>
+      <td>5205</td>
+      <td>N</td>
+      <td>2</td>
+      <td>-16.525</td>
+      <td>-50.372</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5301</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>98055 rows × 19 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df_deslc.to_excel(output_deslc.replace('csv.gzip', 'xlsx'), index=False)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_deslc.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 98055 entries, 0 to 98054
+Data columns (total 19 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   bienio             98055 non-null  int64  
+ 1   parto_normal       98055 non-null  int64  
+ 2   origem             98055 non-null  int64  
+ 3   destino            98055 non-null  int64  
+ 4   mun_diff           98055 non-null  int64  
+ 5   regsau_diff        98055 non-null  int64  
+ 6   distancia          98055 non-null  float64
+ 7   tempo              98055 non-null  float64
+ 8   regiao             98055 non-null  object 
+ 9   uf                 98055 non-null  object 
+ 10  regiao_saude       98055 non-null  int64  
+ 11  capital            98055 non-null  object 
+ 12  socioecon          98055 non-null  int64  
+ 13  latitude           98024 non-null  float64
+ 14  longitude          98024 non-null  float64
+ 15  hosp_latitude      97696 non-null  float64
+ 16  hosp_longitude     97696 non-null  float64
+ 17  hosp_regiao_saude  98055 non-null  int64  
+ 18  count              98055 non-null  int64  
+dtypes: float64(6), int64(10), object(3)
+memory usage: 14.2+ MB</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>regioes <span class="op">=</span> df_deslc[<span class="st">'regiao'</span>].unique()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>regioes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>array(['Sudeste', 'Nordeste', 'Norte', 'Centro-Oeste', 'Sul'],
+      dtype=object)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>desc_regiao <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> regiao <span class="kw">in</span> regioes:</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  desc_regiao[regiao] <span class="op">=</span> df_deslc[df_deslc[<span class="st">'regiao'</span>] <span class="op">==</span> regiao]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>desc_regiao[regioes[<span class="dv">0</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>bienio</th>
+      <th>parto_normal</th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>mun_diff</th>
+      <th>regsau_diff</th>
+      <th>distancia</th>
+      <th>tempo</th>
+      <th>regiao</th>
+      <th>uf</th>
+      <th>regiao_saude</th>
+      <th>capital</th>
+      <th>socioecon</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>hosp_latitude</th>
+      <th>hosp_longitude</th>
+      <th>hosp_regiao_saude</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>355030</td>
+      <td>355030</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>3501</td>
+      <td>S</td>
+      <td>5</td>
+      <td>-23.548</td>
+      <td>-46.636</td>
+      <td>-23.548</td>
+      <td>-46.636</td>
+      <td>3501</td>
+      <td>2368</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>355030</td>
+      <td>355030</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>3501</td>
+      <td>S</td>
+      <td>5</td>
+      <td>-23.548</td>
+      <td>-46.636</td>
+      <td>-23.548</td>
+      <td>-46.636</td>
+      <td>3501</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>1</td>
+      <td>330455</td>
+      <td>330455</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>Sudeste</td>
+      <td>RJ</td>
+      <td>3305</td>
+      <td>S</td>
+      <td>5</td>
+      <td>-22.903</td>
+      <td>-43.208</td>
+      <td>-22.903</td>
+      <td>-43.208</td>
+      <td>3305</td>
+      <td>1210</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>330455</td>
+      <td>330455</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>Sudeste</td>
+      <td>RJ</td>
+      <td>3305</td>
+      <td>S</td>
+      <td>5</td>
+      <td>-22.903</td>
+      <td>-43.208</td>
+      <td>-22.903</td>
+      <td>-43.208</td>
+      <td>3305</td>
+      <td>872</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>0</td>
+      <td>1</td>
+      <td>310620</td>
+      <td>310620</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>Sudeste</td>
+      <td>MG</td>
+      <td>3101</td>
+      <td>S</td>
+      <td>1</td>
+      <td>-19.817</td>
+      <td>-43.956</td>
+      <td>-19.817</td>
+      <td>-43.956</td>
+      <td>3101</td>
+      <td>466</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>98028</th>
+      <td>1</td>
+      <td>1</td>
+      <td>320130</td>
+      <td>530010</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1249.2260</td>
+      <td>16.386222</td>
+      <td>Sudeste</td>
+      <td>ES</td>
+      <td>3201</td>
+      <td>N</td>
+      <td>5</td>
+      <td>-20.264</td>
+      <td>-40.420</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5301</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>98029</th>
+      <td>1</td>
+      <td>1</td>
+      <td>320500</td>
+      <td>530010</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1279.3782</td>
+      <td>16.920444</td>
+      <td>Sudeste</td>
+      <td>ES</td>
+      <td>3201</td>
+      <td>N</td>
+      <td>5</td>
+      <td>-20.129</td>
+      <td>-40.308</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5301</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>98030</th>
+      <td>1</td>
+      <td>1</td>
+      <td>350050</td>
+      <td>530010</td>
+      <td>1</td>
+      <td>1</td>
+      <td>942.2441</td>
+      <td>11.865583</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>3512</td>
+      <td>N</td>
+      <td>5</td>
+      <td>-22.476</td>
+      <td>-46.633</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5301</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>98031</th>
+      <td>1</td>
+      <td>1</td>
+      <td>351380</td>
+      <td>530010</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1023.7805</td>
+      <td>12.794750</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>3502</td>
+      <td>N</td>
+      <td>5</td>
+      <td>-23.686</td>
+      <td>-46.623</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5301</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>98032</th>
+      <td>1</td>
+      <td>1</td>
+      <td>353060</td>
+      <td>530010</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1060.6226</td>
+      <td>13.161472</td>
+      <td>Sudeste</td>
+      <td>SP</td>
+      <td>3503</td>
+      <td>N</td>
+      <td>4</td>
+      <td>-23.523</td>
+      <td>-46.188</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5301</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>26607 rows × 19 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>desc_regiao[regioes[<span class="dv">0</span>]].info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 26607 entries, 0 to 98032
+Data columns (total 19 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   bienio             26607 non-null  int64  
+ 1   parto_normal       26607 non-null  int64  
+ 2   origem             26607 non-null  int64  
+ 3   destino            26607 non-null  int64  
+ 4   mun_diff           26607 non-null  int64  
+ 5   regsau_diff        26607 non-null  int64  
+ 6   distancia          26607 non-null  float64
+ 7   tempo              26607 non-null  float64
+ 8   regiao             26607 non-null  object 
+ 9   uf                 26607 non-null  object 
+ 10  regiao_saude       26607 non-null  int64  
+ 11  capital            26607 non-null  object 
+ 12  socioecon          26607 non-null  int64  
+ 13  latitude           26607 non-null  float64
+ 14  longitude          26607 non-null  float64
+ 15  hosp_latitude      26527 non-null  float64
+ 16  hosp_longitude     26527 non-null  float64
+ 17  hosp_regiao_saude  26607 non-null  int64  
+ 18  count              26607 non-null  int64  
+dtypes: float64(6), int64(10), object(3)
+memory usage: 4.1+ MB</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_deslc[<span class="st">'uf'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>MG    11776
+SP    10553
+BA     9878
+PE     7325
+RS     6476
+MA     5363
+PR     5329
+SC     4268
+PA     4137
+PB     3672
+GO     3649
+CE     3583
+PI     3242
+RN     3102
+RJ     2486
+MT     2184
+TO     2153
+AL     1888
+ES     1792
+MS     1271
+SE     1263
+RO     1141
+AM      832
+AC      292
+AP      229
+RR      171
+Name: uf, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_deslc[df_deslc[<span class="st">'uf'</span>] <span class="op">==</span> <span class="st">'MG'</span>].info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 11776 entries, 14 to 98027
+Data columns (total 19 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   bienio             11776 non-null  int64  
+ 1   parto_normal       11776 non-null  int64  
+ 2   origem             11776 non-null  int64  
+ 3   destino            11776 non-null  int64  
+ 4   mun_diff           11776 non-null  int64  
+ 5   regsau_diff        11776 non-null  int64  
+ 6   distancia          11776 non-null  float64
+ 7   tempo              11776 non-null  float64
+ 8   regiao             11776 non-null  object 
+ 9   uf                 11776 non-null  object 
+ 10  regiao_saude       11776 non-null  int64  
+ 11  capital            11776 non-null  object 
+ 12  socioecon          11776 non-null  int64  
+ 13  latitude           11776 non-null  float64
+ 14  longitude          11776 non-null  float64
+ 15  hosp_latitude      11715 non-null  float64
+ 16  hosp_longitude     11715 non-null  float64
+ 17  hosp_regiao_saude  11776 non-null  int64  
+ 18  count              11776 non-null  int64  
+dtypes: float64(6), int64(10), object(3)
+memory usage: 1.8+ MB</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df_deslc.to_pandas().to_excel(output_deslc.replace('csv.gzip', 'xlsx'), index=False)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
