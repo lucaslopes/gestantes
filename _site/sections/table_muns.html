@@ -425,19 +425,174 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="índice-socioeconômico" class="level2">
 <h2 class="anchored" data-anchor-id="índice-socioeconômico">Índice Socioeconômico</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span> <span class="op">=</span> get_path(<span class="st">'INDICADORES'</span>, <span class="st">''</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>files <span class="op">=</span> [<span class="bu">dir</span><span class="op">+</span>pth <span class="cf">for</span> pth <span class="kw">in</span> listdir(<span class="bu">dir</span>) <span class="cf">if</span> pth[<span class="op">-</span><span class="dv">3</span>:] <span class="op">==</span> <span class="st">'csv'</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>dfs <span class="op">=</span> [pd.read_csv(fl, encoding<span class="op">=</span><span class="st">'latin1'</span>, sep<span class="op">=</span><span class="st">';'</span>) <span class="cf">for</span> fl <span class="kw">in</span> files]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> df <span class="kw">in</span> dfs: <span class="bu">print</span>(df.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(673, 7)
+(734, 7)
+(528, 7)
+(595, 7)
+(511, 7)
+(645, 7)
+(587, 7)
+(695, 7)
+(524, 7)
+(516, 7)</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.concat(dfs)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>CÓDIGO</th>
+      <th>Tipo Localidade</th>
+      <th>UF</th>
+      <th>CIR</th>
+      <th>Município</th>
+      <th>Grupos de Regiões de Saúde segundo Condições Socioeconômicas e de Saúde - 2016</th>
+      <th>Unnamed: 6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>42.010</td>
+      <td>REGSAU</td>
+      <td>-</td>
+      <td>Alto Uruguai Catarinense</td>
+      <td>-</td>
+      <td>5</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>42.004</td>
+      <td>REGSAU</td>
+      <td>-</td>
+      <td>Alto Vale do Itajaí</td>
+      <td>-</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>42.009</td>
+      <td>REGSAU</td>
+      <td>-</td>
+      <td>Alto Vale do Rio do Peixe</td>
+      <td>-</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>11.002</td>
+      <td>REGSAU</td>
+      <td>-</td>
+      <td>Café</td>
+      <td>-</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>42.015</td>
+      <td>REGSAU</td>
+      <td>-</td>
+      <td>Carbonífera</td>
+      <td>-</td>
+      <td>4</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>511</th>
+      <td>510.455</td>
+      <td>MUNIC</td>
+      <td>Mato Grosso</td>
+      <td>Norte Matogrossense</td>
+      <td>Itaúba</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>512</th>
+      <td>510.558</td>
+      <td>MUNIC</td>
+      <td>Mato Grosso</td>
+      <td>Norte Matogrossense</td>
+      <td>Marcelândia</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>513</th>
+      <td>510.621</td>
+      <td>MUNIC</td>
+      <td>Mato Grosso</td>
+      <td>Norte Matogrossense</td>
+      <td>Nova Canaã do Norte</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>514</th>
+      <td>510.880</td>
+      <td>MUNIC</td>
+      <td>Mato Grosso</td>
+      <td>Norte Matogrossense</td>
+      <td>Nova Guarita</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>515</th>
+      <td>510.619</td>
+      <td>MUNIC</td>
+      <td>Mato Grosso</td>
+      <td>Norte Matogrossense</td>
+      <td>Nova Santa Helena</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>6008 rows × 7 columns</p>
+</div>
+</div>
+</div>
 <section id="colunas-da-tabela-1" class="level3">
 <h3 class="anchored" data-anchor-id="colunas-da-tabela-1">Colunas da tabela</h3>
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cols_socioecon <span class="op">=</span> {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Cód IBGE'</span>: <span class="st">'cod_municipio'</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Grupo'</span>: <span class="st">'socioecon'</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  ...: <span class="va">None</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cols_socioecon <span class="op">=</span> {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Cód IBGE'</span>: <span class="st">'cod_municipio'</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Grupo'</span>: <span class="st">'socioecon'</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  ...: <span class="va">None</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>path_socioeco <span class="op">=</span> get_path(<span class="st">'HEALTH'</span>, <span class="st">'health_regions.csv'</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_socioeco <span class="op">=</span> dt.fread(path_socioeco, columns<span class="op">=</span>cols_socioecon)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df_socioeco</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>path_socioeco <span class="op">=</span> get_path(<span class="st">'HEALTH'</span>, <span class="st">'health_regions.csv'</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_socioeco <span class="op">=</span> dt.fread(path_socioeco, columns<span class="op">=</span>cols_socioecon)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df_socioeco</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 
 <div class="datatable">
@@ -487,12 +642,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="juntando-com-socioeconômico" class="level2">
 <h2 class="anchored" data-anchor-id="juntando-com-socioeconômico">Juntando com Socioeconômico</h2>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_socioeco.key <span class="op">=</span> <span class="st">'cod_municipio'</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_mun <span class="op">=</span> df_mun[:, :, dt.join(df_socioeco)]</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>cols_mun <span class="op">=</span> <span class="bu">list</span>(df_mun.names)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>cols_mun <span class="op">=</span> cols_mun[:<span class="op">-</span><span class="dv">2</span>] <span class="op">+</span> [cols_mun[<span class="op">-</span><span class="dv">1</span>]] <span class="op">+</span> [cols_mun[<span class="op">-</span><span class="dv">2</span>]]</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>df_mun <span class="op">=</span> df_mun[:, cols_mun]</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>df_mun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_socioeco.key <span class="op">=</span> <span class="st">'cod_municipio'</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df_mun <span class="op">=</span> df_mun[:, :, dt.join(df_socioeco)]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>cols_mun <span class="op">=</span> <span class="bu">list</span>(df_mun.names)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>cols_mun <span class="op">=</span> cols_mun[:<span class="op">-</span><span class="dv">2</span>] <span class="op">+</span> [cols_mun[<span class="op">-</span><span class="dv">1</span>]] <span class="op">+</span> [cols_mun[<span class="op">-</span><span class="dv">2</span>]]</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>df_mun <span class="op">=</span> df_mun[:, cols_mun]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>df_mun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 
 <div class="datatable">
@@ -537,10 +692,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="valor-booleanos" class="level3">
 <h3 class="anchored" data-anchor-id="valor-booleanos">Valor Booleanos</h3>
 <div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_mun[:, dt.update(capital <span class="op">=</span> f.capital <span class="op">==</span> <span class="st">'S'</span>)]</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_mun[:, dt.update(fronteira <span class="op">=</span> f.fronteira <span class="op">==</span> <span class="st">'S'</span>)]</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df_mun[:, dt.update(amazonia <span class="op">=</span> f.amazonia <span class="op">==</span> <span class="st">'S'</span>)]</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>df_mun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_mun[:, dt.update(capital <span class="op">=</span> f.capital <span class="op">==</span> <span class="st">'S'</span>)]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_mun[:, dt.update(fronteira <span class="op">=</span> f.fronteira <span class="op">==</span> <span class="st">'S'</span>)]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df_mun[:, dt.update(amazonia <span class="op">=</span> f.amazonia <span class="op">==</span> <span class="st">'S'</span>)]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>df_mun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 
 <div class="datatable">
@@ -585,11 +740,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="exportando-tabela" class="level1">
 <h1>Exportando tabela</h1>
 <div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>output_mun <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'municipios.csv.gzip'</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_mun.to_csv(output_mun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>output_mun <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'municipios.csv.gzip'</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df_mun.to_csv(output_mun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_mun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_mun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 
 <div class="datatable">

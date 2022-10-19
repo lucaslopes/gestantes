@@ -1199,9 +1199,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>output_deslc_brasil <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'deslocamentos_brasil.xlsx'</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df_deslc_brasil.to_pandas().to_excel(output_deslc_brasil, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>output_deslc_brasil <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'deslocamentos_brasil.csv.gzip'</span>) <span class="co"># xlsx</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df_deslc_brasil.to_csv(output_deslc_brasil)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(output_deslc_brasil).to_excel(output_deslc_brasil.replace(<span class="st">'csv.gzip'</span>, <span class="st">'xlsx'</span>), index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># df_deslc_brasil.to_pandas().to_excel(output_deslc_brasil, index=False)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="rj" class="level2">
@@ -1249,10 +1251,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>output_rj_cnes <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'deslocamentos_rj_cnes.xlsx'</span>)</span>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>output_rj_cnes <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'deslocamentos_rj_cnes.csv.gzip'</span>) <span class="co"># xlsx</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df_deslc_rj_cnes.to_csv(output_rj_cnes)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>df_deslc_rj_cnes.to_pandas().to_excel(output_rj_cnes, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(output_rj_cnes).to_excel(output_rj_cnes.replace(<span class="st">'csv.gzip'</span>, <span class="st">'xlsx'</span>), index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># df_deslc_rj_cnes.to_pandas().to_excel(output_rj_cnes, index=False)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="sem-cnes" class="level3">
@@ -1299,9 +1302,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>output_rj <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'deslocamentos_rj.xlsx'</span>)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df_deslc_rj.to_pandas().to_excel(output_rj, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>output_rj <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'deslocamentos_rj.csv.gzip'</span>) <span class="co"># xlsx</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df_deslc_rj.to_csv(output_rj)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(output_rj).to_excel(output_rj.replace(<span class="st">'csv.gzip'</span>, <span class="st">'xlsx'</span>), index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># df_deslc_rj.to_pandas().to_excel(output_rj, index=False)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
