@@ -256,8 +256,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, data_load</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> os <span class="im">import</span> listdir</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> selenium <span class="im">import</span> webdriver</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> selenium.webdriver.common.by <span class="im">import</span> By</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> selenium.webdriver.common.keys <span class="im">import</span> Keys</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, data_load</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style type="text/css">
@@ -285,50 +292,445 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Entre os desafios mais urgentes do Sistema Único de Saúde (SUS) estão a ampliação do acesso e a adequação dos serviços ofertados. No Brasil, as relações existentes entre regiões e redes de atenção à saúde indicam que o avanço do processo de regionalização do SUS pode interferir positivamente na oferta de ações de serviços de saúde, tornando-a mais eficiente e abrangente.</p>
 <p><a href="https://www.resbr.net.br/apresentacao/">Saiba mais</a></p>
 <p><a href="https://indicadores.resbr.net.br/view/">Download</a></p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> scrap_indicator(driver, url, n_files<span class="op">=</span><span class="dv">10</span>):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  driver.maximize_window()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  anchors <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  columns <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  checkboxes <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> tqdm(<span class="bu">range</span>(n_files)):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    driver.get(url <span class="op">+</span> <span class="st">'clrSession=true'</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    driver.find_element(By.XPATH, <span class="st">"//input[@type='radio' and @value='4']"</span>).click()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    columns <span class="op">=</span> driver.find_elements(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      By.XPATH, <span class="st">"//input[@type='checkbox' and @onclick='SelAll(this)']"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> column <span class="kw">in</span> columns: column.click()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    driver.find_element(By.XPATH, <span class="st">"//input[@id='btnEnviar']"</span>).click()</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> anchors <span class="op">==</span> <span class="va">None</span>:</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>      anchors <span class="op">=</span> driver.find_elements(By.CSS_SELECTOR, <span class="st">"a[href*=listaLocs]"</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>      anchors <span class="op">=</span> <span class="bu">set</span>([a.get_attribute(<span class="st">'href'</span>) <span class="cf">for</span> a <span class="kw">in</span> anchors])</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>      anchors <span class="op">=</span> <span class="bu">sorted</span>(<span class="bu">list</span>(anchors))</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> a <span class="kw">in</span> anchors: driver.execute_script(a[:<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    checkboxes <span class="op">=</span> driver.find_elements(</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>      By.XPATH, <span class="st">"//input[@type='checkbox' and @onclick='SelAll(this)']"</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    n_cks <span class="op">=</span> <span class="bu">len</span>(checkboxes)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    pos_list <span class="op">=</span> np.arange(<span class="dv">0</span>, n_cks, n_cks<span class="op">/</span><span class="dv">10</span>, dtype<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    bgn <span class="op">=</span> pos_list[i]</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>: end <span class="op">=</span> pos_list[i<span class="op">+</span><span class="dv">1</span>]</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>: end <span class="op">=</span> <span class="bu">len</span>(checkboxes)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    selected_boxes <span class="op">=</span> checkboxes[bgn:end]</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> checkbox <span class="kw">in</span> selected_boxes:</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> <span class="kw">not</span> checkbox.is_selected() <span class="kw">and</span> checkbox.is_displayed():</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        checkbox.click()</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    driver.find_element(By.XPATH, <span class="st">"//input[@id='btnEnviar2']"</span>).click()</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    driver.find_element(By.XPATH, <span class="st">"//input[@id='btnTabela']"</span>).click()</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    driver.get(url.replace(<span class="st">'indicadores.php'</span>, <span class="st">'output.php'</span>) <span class="op">+</span> <span class="st">'export=2'</span>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">:02}</span><span class="ss">/</span><span class="sc">{</span>n_files<span class="sc">}</span><span class="ss">: checkboxes=</span><span class="sc">{</span>n_cks<span class="sc">}</span><span class="ss">, selected=</span><span class="sc">{</span><span class="bu">len</span>(selected_boxes)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    driver.switch_to.window(driver.window_handles[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://indicadores.resbr.net.br/view/indicadores.php?'</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>chromedriver <span class="op">=</span> <span class="st">'/Users/lucas/Desktop/chromedriver'</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>driver <span class="op">=</span> webdriver.Chrome(chromedriver)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>scrap_indicator(driver, url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/9d/972tfrtd01z2hhl836z97zdr0000gn/T/ipykernel_83928/4099842114.py:3: DeprecationWarning:
+
+executable_path has been deprecated, please pass in a Service object
+
+ 10%|█         | 1/10 [00:22&lt;03:23, 22.56s/it]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>01/10: checkboxes=465, selected=46</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 20%|██        | 2/10 [00:30&lt;01:49, 13.73s/it]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>02/10: checkboxes=465, selected=46</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 30%|███       | 3/10 [00:40&lt;01:26, 12.38s/it]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>03/10: checkboxes=465, selected=46</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 40%|████      | 4/10 [00:51&lt;01:10, 11.70s/it]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>04/10: checkboxes=465, selected=46</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 50%|█████     | 5/10 [00:59&lt;00:51, 10.21s/it]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>05/10: checkboxes=465, selected=46</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 60%|██████    | 6/10 [01:11&lt;00:43, 10.97s/it]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>06/10: checkboxes=465, selected=46</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 70%|███████   | 7/10 [01:22&lt;00:33, 11.06s/it]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>07/10: checkboxes=465, selected=46</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 80%|████████  | 8/10 [01:34&lt;00:22, 11.19s/it]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>08/10: checkboxes=465, selected=46</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 90%|█████████ | 9/10 [01:45&lt;00:11, 11.25s/it]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>09/10: checkboxes=465, selected=46</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 10/10 [01:56&lt;00:00, 11.68s/it]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>10/10: checkboxes=465, selected=51</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>driver.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="tabela" class="level1">
 <h1>Tabela</h1>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path_socioeco <span class="op">=</span> get_path(<span class="st">'HEALTH'</span>, <span class="st">'health_regions.csv'</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_socioeco <span class="op">=</span> dt.fread(path_socioeco)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df_socioeco</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span> <span class="op">=</span> get_path(<span class="st">'INDICADORES'</span>, <span class="st">''</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>files <span class="op">=</span> [<span class="bu">dir</span><span class="op">+</span>pth <span class="cf">for</span> pth <span class="kw">in</span> listdir(<span class="bu">dir</span>) <span class="cf">if</span> pth[<span class="op">-</span><span class="dv">3</span>:] <span class="op">==</span> <span class="st">'csv'</span>]</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>dfs <span class="op">=</span> [pd.read_csv(fl, encoding<span class="op">=</span><span class="st">'latin1'</span>, sep<span class="op">=</span><span class="st">';'</span>) <span class="cf">for</span> fl <span class="kw">in</span> files]</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> df <span class="kw">in</span> dfs: <span class="bu">print</span>(df.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(524, 184)
+(595, 184)
+(673, 184)
+(511, 184)
+(645, 184)
+(516, 184)
+(528, 184)
+(695, 184)
+(734, 184)
+(587, 184)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.concat(dfs)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
 
-<div class="datatable">
-  <table class="frame">
+<div>
+
+<table class="dataframe table table-sm table-striped">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>UF</th><th>Município</th><th>Cód IBGE</th><th>Cód Região de Saúde</th><th>Nome da Região de Saúde</th><th>Grupo</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+    <tr>
+      <th></th>
+      <th>CÓDIGO</th>
+      <th>Tipo Localidade</th>
+      <th>UF</th>
+      <th>CIR</th>
+      <th>Município</th>
+      <th>Número de municípios na Região de Saúde</th>
+      <th>Município de capital</th>
+      <th>Municípios que fazem parte da zona de fronteira - IBGE</th>
+      <th>Municípios que fazem parte da faixa de fronteira - IBGE</th>
+      <th>Municípios que fazem parte da fronteira estadual</th>
+      <th>...</th>
+      <th>Porcentual de Despesas com Investimentos pelo Total de Despesas em Saúde (2014)</th>
+      <th>Porcentual de Tranferências SUS pelo Total de Despesas em Saúde (2014)</th>
+      <th>Porcentual de Recursos Próprios em Saúde - EC29 (2014)</th>
+      <th>Recursos de Transferências SUS por habitante (2014)</th>
+      <th>Despesas com Recursos Próprios em Saúde por habitante (2014)</th>
+      <th>Cobertura populacional estimada pelas equipes de Atenção Básica (2014)</th>
+      <th>% de população beneficiária de planos de saúde (Setembro/2015)</th>
+      <th>Porcentual de famílias beneficiárias do Programa Bolsa Família (2014)</th>
+      <th>Porcentual de população beneficiária do Programa Bolsa Família (2014)</th>
+      <th>Unnamed: 183</th>
+    </tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>AC</td><td>Acrelândia</td><td>120001</td><td>12002</td><td>Baixo Acre e Purus</td><td>2</td></tr>
-    <tr><td class="row_index">1</td><td>AC</td><td>Assis Brasil</td><td>120005</td><td>12001</td><td>Alto Acre</td><td>1</td></tr>
-    <tr><td class="row_index">2</td><td>AC</td><td>Brasiléia</td><td>120010</td><td>12001</td><td>Alto Acre</td><td>1</td></tr>
-    <tr><td class="row_index">3</td><td>AC</td><td>Bujari</td><td>120013</td><td>12002</td><td>Baixo Acre e Purus</td><td>2</td></tr>
-    <tr><td class="row_index">4</td><td>AC</td><td>Capixaba</td><td>120017</td><td>12002</td><td>Baixo Acre e Purus</td><td>2</td></tr>
-    <tr><td class="row_index">5</td><td>AC</td><td>Cruzeiro do Sul</td><td>120020</td><td>12003</td><td>Juruá e Tarauacá/Envira</td><td>1</td></tr>
-    <tr><td class="row_index">6</td><td>AC</td><td>Epitaciolândia</td><td>120025</td><td>12001</td><td>Alto Acre</td><td>1</td></tr>
-    <tr><td class="row_index">7</td><td>AC</td><td>Feijó</td><td>120030</td><td>12003</td><td>Juruá e Tarauacá/Envira</td><td>1</td></tr>
-    <tr><td class="row_index">8</td><td>AC</td><td>Jordão</td><td>120032</td><td>12002</td><td>Baixo Acre e Purus</td><td>2</td></tr>
-    <tr><td class="row_index">9</td><td>AC</td><td>Mâncio Lima</td><td>120033</td><td>12003</td><td>Juruá e Tarauacá/Envira</td><td>1</td></tr>
-    <tr><td class="row_index">10</td><td>AC</td><td>Manoel Urbano</td><td>120034</td><td>12002</td><td>Baixo Acre e Purus</td><td>2</td></tr>
-    <tr><td class="row_index">11</td><td>AC</td><td>Marechal Thaumaturgo</td><td>120035</td><td>12003</td><td>Juruá e Tarauacá/Envira</td><td>1</td></tr>
-    <tr><td class="row_index">12</td><td>AC</td><td>Plácido de Castro</td><td>120038</td><td>12002</td><td>Baixo Acre e Purus</td><td>2</td></tr>
-    <tr><td class="row_index">13</td><td>AC</td><td>Porto Acre</td><td>120080</td><td>12002</td><td>Baixo Acre e Purus</td><td>2</td></tr>
-    <tr><td class="row_index">14</td><td>AC</td><td>Porto Walter</td><td>120039</td><td>12003</td><td>Juruá e Tarauacá/Envira</td><td>1</td></tr>
-    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">5566</td><td>TO</td><td>Tocantinópolis</td><td>172120</td><td>17002</td><td>Bico do Papagaio</td><td>1</td></tr>
-    <tr><td class="row_index">5567</td><td>TO</td><td>Tupirama</td><td>172125</td><td>17004</td><td>Cerrado Tocantins Araguaia</td><td>2</td></tr>
-    <tr><td class="row_index">5568</td><td>TO</td><td>Tupiratins</td><td>172130</td><td>17004</td><td>Cerrado Tocantins Araguaia</td><td>2</td></tr>
-    <tr><td class="row_index">5569</td><td>TO</td><td>Wanderlândia</td><td>172208</td><td>17001</td><td>Médio Norte Araguaia</td><td>3</td></tr>
-    <tr><td class="row_index">5570</td><td>TO</td><td>Xambioá</td><td>172210</td><td>17001</td><td>Médio Norte Araguaia</td><td>3</td></tr>
+    <tr>
+      <th>0</th>
+      <td>15.001</td>
+      <td>REGSAU</td>
+      <td>-</td>
+      <td>Araguaia</td>
+      <td>-</td>
+      <td>15</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
+      <td>...</td>
+      <td>8,53</td>
+      <td>54,61</td>
+      <td>18,83</td>
+      <td>213,11</td>
+      <td>161,66</td>
+      <td>63,90</td>
+      <td>5,15</td>
+      <td>34,43</td>
+      <td>31,59</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15.002</td>
+      <td>REGSAU</td>
+      <td>-</td>
+      <td>Baixo Amazonas</td>
+      <td>-</td>
+      <td>14</td>
+      <td>0</td>
+      <td>3</td>
+      <td>5</td>
+      <td>5</td>
+      <td>...</td>
+      <td>10,61</td>
+      <td>50,82</td>
+      <td>20,77</td>
+      <td>204,22</td>
+      <td>159,30</td>
+      <td>42,20</td>
+      <td>6,18</td>
+      <td>49,15</td>
+      <td>52,45</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>15.003</td>
+      <td>REGSAU</td>
+      <td>-</td>
+      <td>Carajás</td>
+      <td>-</td>
+      <td>17</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>9</td>
+      <td>...</td>
+      <td>9,44</td>
+      <td>26,16</td>
+      <td>23,79</td>
+      <td>177,49</td>
+      <td>455,16</td>
+      <td>52,23</td>
+      <td>22,06</td>
+      <td>34,18</td>
+      <td>35,01</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>15.004</td>
+      <td>REGSAU</td>
+      <td>-</td>
+      <td>Lago de Tucuruí</td>
+      <td>-</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>8,08</td>
+      <td>53,90</td>
+      <td>20,08</td>
+      <td>208,23</td>
+      <td>166,48</td>
+      <td>49,99</td>
+      <td>3,07</td>
+      <td>45,30</td>
+      <td>39,86</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>15.013</td>
+      <td>REGSAU</td>
+      <td>-</td>
+      <td>Marajó I</td>
+      <td>-</td>
+      <td>9</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>20,06</td>
+      <td>51,15</td>
+      <td>17,21</td>
+      <td>158,85</td>
+      <td>111,80</td>
+      <td>24,19</td>
+      <td>1,02</td>
+      <td>60,93</td>
+      <td>61,59</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>582</th>
+      <td>171.780</td>
+      <td>MUNIC</td>
+      <td>Tocantins</td>
+      <td>Sudeste</td>
+      <td>Ponte Alta do Bom Jesus</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Não</td>
+      <td>Não</td>
+      <td>Sim</td>
+      <td>...</td>
+      <td>8,43</td>
+      <td>34,79</td>
+      <td>28,54</td>
+      <td>199,83</td>
+      <td>369,45</td>
+      <td>100</td>
+      <td>2,02</td>
+      <td>51,97</td>
+      <td>46,93</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>583</th>
+      <td>171.800</td>
+      <td>MUNIC</td>
+      <td>Tocantins</td>
+      <td>Sudeste</td>
+      <td>Porto Alegre do Tocantins</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Não</td>
+      <td>Não</td>
+      <td>Não</td>
+      <td>...</td>
+      <td>10,52</td>
+      <td>35,89</td>
+      <td>19,05</td>
+      <td>220,42</td>
+      <td>386,41</td>
+      <td>100</td>
+      <td>1,15</td>
+      <td>52,65</td>
+      <td>48,82</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>584</th>
+      <td>171.865</td>
+      <td>MUNIC</td>
+      <td>Tocantins</td>
+      <td>Sudeste</td>
+      <td>Rio da Conceição</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Não</td>
+      <td>Não</td>
+      <td>Sim</td>
+      <td>...</td>
+      <td>13,86</td>
+      <td>20,14</td>
+      <td>15,52</td>
+      <td>162,11</td>
+      <td>538,36</td>
+      <td>100</td>
+      <td>0,81</td>
+      <td>47,84</td>
+      <td>48,19</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>585</th>
+      <td>172.090</td>
+      <td>MUNIC</td>
+      <td>Tocantins</td>
+      <td>Sudeste</td>
+      <td>Taguatinga</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Não</td>
+      <td>Não</td>
+      <td>Sim</td>
+      <td>...</td>
+      <td>0,25</td>
+      <td>44,17</td>
+      <td>33,13</td>
+      <td>187,31</td>
+      <td>292,60</td>
+      <td>78,25</td>
+      <td>26,20</td>
+      <td>37,30</td>
+      <td>41,23</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>586</th>
+      <td>172.093</td>
+      <td>MUNIC</td>
+      <td>Tocantins</td>
+      <td>Sudeste</td>
+      <td>Taipas do Tocantins</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Não</td>
+      <td>Não</td>
+      <td>Não</td>
+      <td>...</td>
+      <td>1,73</td>
+      <td>13,75</td>
+      <td>17,79</td>
+      <td>80,78</td>
+      <td>514,21</td>
+      <td>100</td>
+      <td>0,38</td>
+      <td>48,24</td>
+      <td>56,10</td>
+      <td>NaN</td>
+    </tr>
   </tbody>
-  </table>
-  <div class="footer">
-    <div class="frame_dimensions">5571 rows × 6 columns</div>
-  </div>
+</table>
+<p>6008 rows × 184 columns</p>
 </div>
 </div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="bu">dir</span> <span class="op">+</span> <span class="st">'indicadores.csv.gzip'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
