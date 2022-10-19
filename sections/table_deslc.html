@@ -317,12 +317,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 .datatable .int     { background: #5D9E5D; }
 .datatable .float   { background: #4040CC; }
 .datatable .str     { background: #CC4040; }
+.datatable .time    { background: #40CC40; }
 .datatable .row_index {  background: var(--jp-border-color3);  border-right: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  font-size: 9px;}
+.datatable .frame tbody td { text-align: left; }
 .datatable .frame tr.coltypes .row_index {  background: var(--jp-border-color0);}
 .datatable th:nth-child(2) { padding-left: 12px; }
 .datatable .hellipsis {  color: var(--jp-cell-editor-border-color);}
 .datatable .vellipsis {  background: var(--jp-layout-color0);  color: var(--jp-cell-editor-border-color);}
 .datatable .na {  color: var(--jp-cell-editor-border-color);  font-size: 80%;}
+.datatable .sp {  opacity: 0.25;}
 .datatable .footer { font-size: 9px; }
 .datatable .frame_dimensions {  background: var(--jp-border-color3);  border-top: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  display: inline-block;  opacity: 0.6;  padding: 1px 10px 1px 5px;}
 </style>
@@ -344,8 +347,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'parto_normal'</span>: <span class="st">'parto_normal'</span>,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_municipio'</span>: <span class="st">'origem'</span>,</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'hosp_cod_municipio'</span>: <span class="st">'destino'</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'regiao_saude'</span>: <span class="st">'regiao_saude'</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'hosp_regiao_saude'</span>: <span class="st">'hosp_regiao_saude'</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'regiao_saude': 'regiao_saude',</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'hosp_regiao_saude': 'hosp_regiao_saude',</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cnes'</span>: <span class="st">'hosp_cnes'</span>,</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">'count'</span>: <span class="st">'count'</span>,</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  ...: <span class="va">None</span>,</span>
@@ -382,35 +385,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>ano</th><th>parto_normal</th><th>hosp_cnes</th><th>destino</th><th>hosp_regiao_saude</th><th>origem</th><th>regiao_saude</th><th>count</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>ano</th><th>parto_normal</th><th>hosp_cnes</th><th>destino</th><th>origem</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>362</td></tr>
-    <tr><td class="row_index">1</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>333</td></tr>
-    <tr><td class="row_index">2</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>331</td></tr>
-    <tr><td class="row_index">3</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>327</td></tr>
-    <tr><td class="row_index">4</td><td>2010</td><td>1</td><td>2077701</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>318</td></tr>
-    <tr><td class="row_index">5</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>303</td></tr>
-    <tr><td class="row_index">6</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>297</td></tr>
-    <tr><td class="row_index">7</td><td>2010</td><td>1</td><td>2077701</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>296</td></tr>
-    <tr><td class="row_index">8</td><td>2010</td><td>1</td><td>2077701</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>295</td></tr>
-    <tr><td class="row_index">9</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>292</td></tr>
-    <tr><td class="row_index">10</td><td>2010</td><td>1</td><td>3151794</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>288</td></tr>
-    <tr><td class="row_index">11</td><td>2010</td><td>1</td><td>3151794</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>276</td></tr>
-    <tr><td class="row_index">12</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>270</td></tr>
-    <tr><td class="row_index">13</td><td>2010</td><td>1</td><td>2079186</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>269</td></tr>
-    <tr><td class="row_index">14</td><td>2010</td><td>1</td><td>3151794</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>269</td></tr>
-    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">1,357,773</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>355640</td><td>3520</td><td>1</td></tr>
-    <tr><td class="row_index">1,357,774</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>420910</td><td>4213</td><td>1</td></tr>
-    <tr><td class="row_index">1,357,775</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>510285</td><td>5109</td><td>1</td></tr>
-    <tr><td class="row_index">1,357,776</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>510622</td><td>5114</td><td>1</td></tr>
-    <tr><td class="row_index">1,357,777</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>510792</td><td>5114</td><td>1</td></tr>
+    <tr><td class="row_index">0</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>355030</td><td>362</td></tr>
+    <tr><td class="row_index">1</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>355030</td><td>333</td></tr>
+    <tr><td class="row_index">2</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>355030</td><td>331</td></tr>
+    <tr><td class="row_index">3</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>355030</td><td>327</td></tr>
+    <tr><td class="row_index">4</td><td>2010</td><td>1</td><td>2077701</td><td>355030</td><td>355030</td><td>318</td></tr>
+    <tr><td class="row_index">5</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>355030</td><td>303</td></tr>
+    <tr><td class="row_index">6</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>355030</td><td>297</td></tr>
+    <tr><td class="row_index">7</td><td>2010</td><td>1</td><td>2077701</td><td>355030</td><td>355030</td><td>296</td></tr>
+    <tr><td class="row_index">8</td><td>2010</td><td>1</td><td>2077701</td><td>355030</td><td>355030</td><td>295</td></tr>
+    <tr><td class="row_index">9</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>355030</td><td>292</td></tr>
+    <tr><td class="row_index">10</td><td>2010</td><td>1</td><td>3151794</td><td>130260</td><td>130260</td><td>288</td></tr>
+    <tr><td class="row_index">11</td><td>2010</td><td>1</td><td>3151794</td><td>130260</td><td>130260</td><td>276</td></tr>
+    <tr><td class="row_index">12</td><td>2010</td><td>1</td><td>2077388</td><td>355030</td><td>355030</td><td>270</td></tr>
+    <tr><td class="row_index">13</td><td>2010</td><td>1</td><td>2079186</td><td>355030</td><td>355030</td><td>269</td></tr>
+    <tr><td class="row_index">14</td><td>2010</td><td>1</td><td>3151794</td><td>130260</td><td>130260</td><td>269</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">1,357,773</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>355640</td><td>1</td></tr>
+    <tr><td class="row_index">1,357,774</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>420910</td><td>1</td></tr>
+    <tr><td class="row_index">1,357,775</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>510285</td><td>1</td></tr>
+    <tr><td class="row_index">1,357,776</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>510622</td><td>1</td></tr>
+    <tr><td class="row_index">1,357,777</td><td>2019</td><td>0</td><td>9923837</td><td>270430</td><td>510792</td><td>1</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">1,357,778 rows × 8 columns</div>
+    <div class="frame_dimensions">1,357,778 rows × 6 columns</div>
   </div>
 </div>
 </div>
@@ -432,35 +435,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>hosp_cnes</th><th>destino</th><th>hosp_regiao_saude</th><th>origem</th><th>regiao_saude</th><th>count</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>hosp_cnes</th><th>destino</th><th>origem</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>0</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>362</td></tr>
-    <tr><td class="row_index">1</td><td>0</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>333</td></tr>
-    <tr><td class="row_index">2</td><td>0</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>331</td></tr>
-    <tr><td class="row_index">3</td><td>0</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>327</td></tr>
-    <tr><td class="row_index">4</td><td>0</td><td>1</td><td>2077701</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>318</td></tr>
-    <tr><td class="row_index">5</td><td>0</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>303</td></tr>
-    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>297</td></tr>
-    <tr><td class="row_index">7</td><td>0</td><td>1</td><td>2077701</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>296</td></tr>
-    <tr><td class="row_index">8</td><td>0</td><td>1</td><td>2077701</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>295</td></tr>
-    <tr><td class="row_index">9</td><td>0</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>292</td></tr>
-    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>3151794</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>288</td></tr>
-    <tr><td class="row_index">11</td><td>0</td><td>1</td><td>3151794</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>276</td></tr>
-    <tr><td class="row_index">12</td><td>0</td><td>1</td><td>2077388</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>270</td></tr>
-    <tr><td class="row_index">13</td><td>0</td><td>1</td><td>2079186</td><td>355030</td><td>3501</td><td>355030</td><td>3501</td><td>269</td></tr>
-    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>3151794</td><td>130260</td><td>1301</td><td>130260</td><td>1301</td><td>269</td></tr>
-    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">1,357,773</td><td>1</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>355640</td><td>3520</td><td>1</td></tr>
-    <tr><td class="row_index">1,357,774</td><td>1</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>420910</td><td>4213</td><td>1</td></tr>
-    <tr><td class="row_index">1,357,775</td><td>1</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>510285</td><td>5109</td><td>1</td></tr>
-    <tr><td class="row_index">1,357,776</td><td>1</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>510622</td><td>5114</td><td>1</td></tr>
-    <tr><td class="row_index">1,357,777</td><td>1</td><td>0</td><td>9923837</td><td>270430</td><td>2701</td><td>510792</td><td>5114</td><td>1</td></tr>
+    <tr><td class="row_index">0</td><td>0</td><td>1</td><td>2077388</td><td>355030</td><td>355030</td><td>362</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>1</td><td>2077388</td><td>355030</td><td>355030</td><td>333</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>1</td><td>2077388</td><td>355030</td><td>355030</td><td>331</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>1</td><td>2077388</td><td>355030</td><td>355030</td><td>327</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>1</td><td>2077701</td><td>355030</td><td>355030</td><td>318</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>1</td><td>2077388</td><td>355030</td><td>355030</td><td>303</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>2077388</td><td>355030</td><td>355030</td><td>297</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>1</td><td>2077701</td><td>355030</td><td>355030</td><td>296</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>1</td><td>2077701</td><td>355030</td><td>355030</td><td>295</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>1</td><td>2077388</td><td>355030</td><td>355030</td><td>292</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>3151794</td><td>130260</td><td>130260</td><td>288</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>1</td><td>3151794</td><td>130260</td><td>130260</td><td>276</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>1</td><td>2077388</td><td>355030</td><td>355030</td><td>270</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>1</td><td>2079186</td><td>355030</td><td>355030</td><td>269</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>3151794</td><td>130260</td><td>130260</td><td>269</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">1,357,773</td><td>1</td><td>0</td><td>9923837</td><td>270430</td><td>355640</td><td>1</td></tr>
+    <tr><td class="row_index">1,357,774</td><td>1</td><td>0</td><td>9923837</td><td>270430</td><td>420910</td><td>1</td></tr>
+    <tr><td class="row_index">1,357,775</td><td>1</td><td>0</td><td>9923837</td><td>270430</td><td>510285</td><td>1</td></tr>
+    <tr><td class="row_index">1,357,776</td><td>1</td><td>0</td><td>9923837</td><td>270430</td><td>510622</td><td>1</td></tr>
+    <tr><td class="row_index">1,357,777</td><td>1</td><td>0</td><td>9923837</td><td>270430</td><td>510792</td><td>1</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">1,357,778 rows × 8 columns</div>
+    <div class="frame_dimensions">1,357,778 rows × 6 columns</div>
   </div>
 </div>
 </div>
@@ -476,35 +479,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>hosp_cnes</th><th>destino</th><th>hosp_regiao_saude</th><th>origem</th><th>regiao_saude</th><th>count</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>hosp_cnes</th><th>destino</th><th>origem</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>27</td><td>260290</td><td>2601</td><td>260290</td><td>2601</td><td>1</td></tr>
-    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>27</td><td>260290</td><td>2601</td><td>260720</td><td>2601</td><td>1</td></tr>
-    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260140</td><td>2603</td><td>2</td></tr>
-    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260290</td><td>2601</td><td>58</td></tr>
-    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260345</td><td>2601</td><td>3</td></tr>
-    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260400</td><td>2602</td><td>1</td></tr>
-    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260520</td><td>2603</td><td>5</td></tr>
-    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260540</td><td>2602</td><td>2</td></tr>
-    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260640</td><td>2604</td><td>2</td></tr>
-    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260680</td><td>2601</td><td>1</td></tr>
-    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260720</td><td>2601</td><td>23</td></tr>
-    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260790</td><td>2601</td><td>43</td></tr>
-    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260960</td><td>2601</td><td>9</td></tr>
-    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>261000</td><td>2603</td><td>1</td></tr>
-    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>261060</td><td>2602</td><td>1</td></tr>
-    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">124,774</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>315980</td><td>3125</td><td>1</td></tr>
-    <tr><td class="row_index">124,775</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>350400</td><td>3508</td><td>1</td></tr>
-    <tr><td class="row_index">124,776</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>351880</td><td>3503</td><td>1</td></tr>
-    <tr><td class="row_index">124,777</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>354100</td><td>3519</td><td>1</td></tr>
-    <tr><td class="row_index">124,778</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>510623</td><td>5105</td><td>1</td></tr>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>27</td><td>260290</td><td>260290</td><td>1</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>27</td><td>260290</td><td>260720</td><td>1</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260140</td><td>2</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260290</td><td>58</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260345</td><td>3</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260400</td><td>1</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260520</td><td>5</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260540</td><td>2</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260640</td><td>2</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260680</td><td>1</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260720</td><td>23</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260790</td><td>43</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260960</td><td>9</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>261000</td><td>1</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>261060</td><td>1</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">124,774</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>315980</td><td>1</td></tr>
+    <tr><td class="row_index">124,775</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>350400</td><td>1</td></tr>
+    <tr><td class="row_index">124,776</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>351880</td><td>1</td></tr>
+    <tr><td class="row_index">124,777</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>354100</td><td>1</td></tr>
+    <tr><td class="row_index">124,778</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>510623</td><td>1</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">124,779 rows × 8 columns</div>
+    <div class="frame_dimensions">124,779 rows × 6 columns</div>
   </div>
 </div>
 </div>
@@ -527,7 +530,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'uf'</span>: <span class="st">'uf'</span>,</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'nome_uf': 'nome_uf',</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'macroregiao_saude': 'macroregiao_saude',</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'regiao_saude': 'regiao_saude',</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'regiao_saude'</span>: <span class="st">'regiao_saude'</span>,</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'nome_regiao_saude'</span>: <span class="st">'nome_regiao_saude'</span>,</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'microregiao_saude': 'microregiao_saude',</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">'municipio'</span>: <span class="st">'municipio'</span>,</span>
@@ -542,10 +545,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cols_mun_hosp <span class="op">=</span> {</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_municipio'</span>: <span class="st">'destino'</span>,</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'uf'</span>: <span class="st">'hosp_uf'</span>,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'latitude'</span>: <span class="st">'hosp_latitude'</span>,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'longitude'</span>: <span class="st">'hosp_longitude'</span>,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  ...: <span class="va">None</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'regiao_saude'</span>: <span class="st">'hosp_regiao_saude'</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'latitude'</span>: <span class="st">'hosp_latitude'</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'longitude'</span>: <span class="st">'hosp_longitude'</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  ...: <span class="va">None</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="carregando-tabela-1" class="level3">
@@ -559,35 +563,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>origem</th><th>regiao</th><th>uf</th><th>municipio</th><th>capital</th><th>nome_regiao_saude</th><th>latitude</th><th>longitude</th><th>socioecon</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>origem</th><th>regiao</th><th>uf</th><th>municipio</th><th>capital</th><th>latitude</th><th>longitude</th><th>nome_regiao_saude</th><th>socioecon</th><th>regiao_saude</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>355030</td><td>Sudeste</td><td>SP</td><td>São Paulo</td><td>1</td><td>Grande São Paulo</td><td>−23.548</td><td>−46.636</td><td>5</td></tr>
-    <tr><td class="row_index">1</td><td>330455</td><td>Sudeste</td><td>RJ</td><td>Rio de Janeiro</td><td>1</td><td>Metropolitana I</td><td>−22.903</td><td>−43.208</td><td>5</td></tr>
-    <tr><td class="row_index">2</td><td>130260</td><td>Norte</td><td>AM</td><td>Manaus</td><td>1</td><td>Entorno de Manaus</td><td>−3.102</td><td>−60.025</td><td>4</td></tr>
-    <tr><td class="row_index">3</td><td>230440</td><td>Nordeste</td><td>CE</td><td>Fortaleza</td><td>1</td><td>Fortaleza</td><td>−3.717</td><td>−38.543</td><td>5</td></tr>
-    <tr><td class="row_index">4</td><td>292740</td><td>Nordeste</td><td>BA</td><td>Salvador</td><td>1</td><td>Salvador</td><td>−12.971</td><td>−38.511</td><td>5</td></tr>
-    <tr><td class="row_index">5</td><td>150140</td><td>Norte</td><td>PA</td><td>Belém</td><td>1</td><td>Metropolitana</td><td>−1.456</td><td>−48.504</td><td>4</td></tr>
-    <tr><td class="row_index">6</td><td>310620</td><td>Sudeste</td><td>MG</td><td>Belo Horizonte</td><td>1</td><td>Belo Horizonte</td><td>−19.817</td><td>−43.956</td><td>1</td></tr>
-    <tr><td class="row_index">7</td><td>431490</td><td>Sul</td><td>RS</td><td>Porto Alegre</td><td>1</td><td>CRS 01 Porto Alegre</td><td>−30.033</td><td>−51.23</td><td>5</td></tr>
-    <tr><td class="row_index">8</td><td>410690</td><td>Sul</td><td>PR</td><td>Curitiba</td><td>1</td><td>Metropolitana</td><td>−25.428</td><td>−49.273</td><td>5</td></tr>
-    <tr><td class="row_index">9</td><td>270430</td><td>Nordeste</td><td>AL</td><td>Maceió</td><td>1</td><td>Região 01</td><td>−9.666</td><td>−35.735</td><td>3</td></tr>
-    <tr><td class="row_index">10</td><td>520870</td><td>Centro-Oeste</td><td>GO</td><td>Goiânia</td><td>1</td><td>Central</td><td>−16.679</td><td>−49.254</td><td>5</td></tr>
-    <tr><td class="row_index">11</td><td>351880</td><td>Sudeste</td><td>SP</td><td>Guarulhos</td><td>0</td><td>Grande São Paulo</td><td>−23.463</td><td>−46.533</td><td>4</td></tr>
-    <tr><td class="row_index">12</td><td>221100</td><td>Nordeste</td><td>PI</td><td>Teresina</td><td>1</td><td>TD Entre Rios</td><td>−5.089</td><td>−42.802</td><td>3</td></tr>
-    <tr><td class="row_index">13</td><td>500270</td><td>Centro-Oeste</td><td>MS</td><td>Campo Grande</td><td>1</td><td>NCT de Campo Grande</td><td>−20.443</td><td>−54.646</td><td>4</td></tr>
-    <tr><td class="row_index">14</td><td>261160</td><td>Nordeste</td><td>PE</td><td>Recife</td><td>1</td><td>Recife</td><td>−8.054</td><td>−34.881</td><td>5</td></tr>
-    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">5564</td><td>520020</td><td>Centro-Oeste</td><td>GO</td><td>Água Limpa</td><td>0</td><td>Sul</td><td>−18.074</td><td>−48.762</td><td>3</td></tr>
-    <tr><td class="row_index">5565</td><td>510120</td><td>Centro-Oeste</td><td>MT</td><td>Araguainha</td><td>0</td><td>Rondonópolis</td><td>−16.856</td><td>−53.033</td><td>2</td></tr>
-    <tr><td class="row_index">5566</td><td>350640</td><td>Sudeste</td><td>SP</td><td>Bilac</td><td>0</td><td>Araçatuba</td><td>−21.403</td><td>−50.471</td><td>5</td></tr>
-    <tr><td class="row_index">5567</td><td>500627</td><td>Centro-Oeste</td><td>MS</td><td>Paraíso das Águas</td><td>0</td><td></td><td>−19.0216</td><td>−53.0116</td><td>4</td></tr>
-    <tr><td class="row_index">5568</td><td>330513</td><td>Sudeste</td><td>RJ</td><td>São José de Ubá</td><td>0</td><td>Noroeste</td><td>−21.358</td><td>−41.943</td><td>3</td></tr>
+    <tr><td class="row_index">0</td><td>355030</td><td>Sudeste</td><td>SP</td><td>São Paulo</td><td>1</td><td>−23.548</td><td>−46.636</td><td>São Paulo</td><td>5</td><td>35016</td></tr>
+    <tr><td class="row_index">1</td><td>330455</td><td>Sudeste</td><td>RJ</td><td>Rio de Janeiro</td><td>1</td><td>−22.903</td><td>−43.208</td><td>Metropolitana I</td><td>5</td><td>33005</td></tr>
+    <tr><td class="row_index">2</td><td>130260</td><td>Norte</td><td>AM</td><td>Manaus</td><td>1</td><td>−3.102</td><td>−60.025</td><td>Entorno Manaus e Alto Rio Negro</td><td>4</td><td>13001</td></tr>
+    <tr><td class="row_index">3</td><td>230440</td><td>Nordeste</td><td>CE</td><td>Fortaleza</td><td>1</td><td>−3.717</td><td>−38.543</td><td>1ª Região Fortaleza</td><td>5</td><td>23001</td></tr>
+    <tr><td class="row_index">4</td><td>292740</td><td>Nordeste</td><td>BA</td><td>Salvador</td><td>1</td><td>−12.971</td><td>−38.511</td><td>Salvador</td><td>5</td><td>29020</td></tr>
+    <tr><td class="row_index">5</td><td>150140</td><td>Norte</td><td>PA</td><td>Belém</td><td>1</td><td>−1.456</td><td>−48.504</td><td>Metropolitana I</td><td>4</td><td>15006</td></tr>
+    <tr><td class="row_index">6</td><td>310620</td><td>Sudeste</td><td>MG</td><td>Belo Horizonte</td><td>1</td><td>−19.817</td><td>−43.956</td><td>Belo Horizonte Nova Lima Caeté</td><td>5</td><td>31008</td></tr>
+    <tr><td class="row_index">7</td><td>431490</td><td>Sul</td><td>RS</td><td>Porto Alegre</td><td>1</td><td>−30.033</td><td>−51.23</td><td>Região 10 - Capital e Vale do Gravataí</td><td>5</td><td>43010</td></tr>
+    <tr><td class="row_index">8</td><td>410690</td><td>Sul</td><td>PR</td><td>Curitiba</td><td>1</td><td>−25.428</td><td>−49.273</td><td>2ª RS Metropolitana</td><td>5</td><td>41002</td></tr>
+    <tr><td class="row_index">9</td><td>270430</td><td>Nordeste</td><td>AL</td><td>Maceió</td><td>1</td><td>−9.666</td><td>−35.735</td><td>1ª Região de Saúde</td><td>3</td><td>27001</td></tr>
+    <tr><td class="row_index">10</td><td>520870</td><td>Centro-Oeste</td><td>GO</td><td>Goiânia</td><td>1</td><td>−16.679</td><td>−49.254</td><td>Central</td><td>5</td><td>52001</td></tr>
+    <tr><td class="row_index">11</td><td>351880</td><td>Sudeste</td><td>SP</td><td>Guarulhos</td><td>0</td><td>−23.463</td><td>−46.533</td><td>Alto do Tietê</td><td>4</td><td>35011</td></tr>
+    <tr><td class="row_index">12</td><td>221100</td><td>Nordeste</td><td>PI</td><td>Teresina</td><td>1</td><td>−5.089</td><td>−42.802</td><td>Entre Rios</td><td>3</td><td>22004</td></tr>
+    <tr><td class="row_index">13</td><td>500270</td><td>Centro-Oeste</td><td>MS</td><td>Campo Grande</td><td>1</td><td>−20.443</td><td>−54.646</td><td>Campo Grande</td><td>4</td><td>50001</td></tr>
+    <tr><td class="row_index">14</td><td>261160</td><td>Nordeste</td><td>PE</td><td>Recife</td><td>1</td><td>−8.054</td><td>−34.881</td><td>Recife</td><td>5</td><td>26010</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">5564</td><td>520020</td><td>Centro-Oeste</td><td>GO</td><td>Água Limpa</td><td>0</td><td>−18.074</td><td>−48.762</td><td>Sul</td><td>3</td><td>52017</td></tr>
+    <tr><td class="row_index">5565</td><td>510120</td><td>Centro-Oeste</td><td>MT</td><td>Araguainha</td><td>0</td><td>−16.856</td><td>−53.033</td><td>Sul Matogrossense</td><td>2</td><td>51013</td></tr>
+    <tr><td class="row_index">5566</td><td>350640</td><td>Sudeste</td><td>SP</td><td>Bilac</td><td>0</td><td>−21.403</td><td>−50.471</td><td>Central do DRS II</td><td>5</td><td>35021</td></tr>
+    <tr><td class="row_index">5567</td><td>500627</td><td>Centro-Oeste</td><td>MS</td><td>Paraíso das Águas</td><td>0</td><td>−19.0216</td><td>−53.0116</td><td>Campo Grande</td><td>4</td><td>50001</td></tr>
+    <tr><td class="row_index">5568</td><td>330513</td><td>Sudeste</td><td>RJ</td><td>São José de Ubá</td><td>0</td><td>−21.358</td><td>−41.943</td><td>Noroeste</td><td>3</td><td>33007</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">5569 rows × 9 columns</div>
+    <div class="frame_dimensions">5569 rows × 10 columns</div>
   </div>
 </div>
 </div>
@@ -600,35 +604,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>destino</th><th>hosp_uf</th><th>hosp_latitude</th><th>hosp_longitude</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>destino</th><th>hosp_uf</th><th>hosp_latitude</th><th>hosp_longitude</th><th>hosp_regiao_saude</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>355030</td><td>SP</td><td>−23.548</td><td>−46.636</td></tr>
-    <tr><td class="row_index">1</td><td>330455</td><td>RJ</td><td>−22.903</td><td>−43.208</td></tr>
-    <tr><td class="row_index">2</td><td>130260</td><td>AM</td><td>−3.102</td><td>−60.025</td></tr>
-    <tr><td class="row_index">3</td><td>230440</td><td>CE</td><td>−3.717</td><td>−38.543</td></tr>
-    <tr><td class="row_index">4</td><td>292740</td><td>BA</td><td>−12.971</td><td>−38.511</td></tr>
-    <tr><td class="row_index">5</td><td>150140</td><td>PA</td><td>−1.456</td><td>−48.504</td></tr>
-    <tr><td class="row_index">6</td><td>310620</td><td>MG</td><td>−19.817</td><td>−43.956</td></tr>
-    <tr><td class="row_index">7</td><td>431490</td><td>RS</td><td>−30.033</td><td>−51.23</td></tr>
-    <tr><td class="row_index">8</td><td>410690</td><td>PR</td><td>−25.428</td><td>−49.273</td></tr>
-    <tr><td class="row_index">9</td><td>270430</td><td>AL</td><td>−9.666</td><td>−35.735</td></tr>
-    <tr><td class="row_index">10</td><td>520870</td><td>GO</td><td>−16.679</td><td>−49.254</td></tr>
-    <tr><td class="row_index">11</td><td>351880</td><td>SP</td><td>−23.463</td><td>−46.533</td></tr>
-    <tr><td class="row_index">12</td><td>221100</td><td>PI</td><td>−5.089</td><td>−42.802</td></tr>
-    <tr><td class="row_index">13</td><td>500270</td><td>MS</td><td>−20.443</td><td>−54.646</td></tr>
-    <tr><td class="row_index">14</td><td>261160</td><td>PE</td><td>−8.054</td><td>−34.881</td></tr>
-    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">5564</td><td>520020</td><td>GO</td><td>−18.074</td><td>−48.762</td></tr>
-    <tr><td class="row_index">5565</td><td>510120</td><td>MT</td><td>−16.856</td><td>−53.033</td></tr>
-    <tr><td class="row_index">5566</td><td>350640</td><td>SP</td><td>−21.403</td><td>−50.471</td></tr>
-    <tr><td class="row_index">5567</td><td>500627</td><td>MS</td><td>−19.0216</td><td>−53.0116</td></tr>
-    <tr><td class="row_index">5568</td><td>330513</td><td>RJ</td><td>−21.358</td><td>−41.943</td></tr>
+    <tr><td class="row_index">0</td><td>355030</td><td>SP</td><td>−23.548</td><td>−46.636</td><td>35016</td></tr>
+    <tr><td class="row_index">1</td><td>330455</td><td>RJ</td><td>−22.903</td><td>−43.208</td><td>33005</td></tr>
+    <tr><td class="row_index">2</td><td>130260</td><td>AM</td><td>−3.102</td><td>−60.025</td><td>13001</td></tr>
+    <tr><td class="row_index">3</td><td>230440</td><td>CE</td><td>−3.717</td><td>−38.543</td><td>23001</td></tr>
+    <tr><td class="row_index">4</td><td>292740</td><td>BA</td><td>−12.971</td><td>−38.511</td><td>29020</td></tr>
+    <tr><td class="row_index">5</td><td>150140</td><td>PA</td><td>−1.456</td><td>−48.504</td><td>15006</td></tr>
+    <tr><td class="row_index">6</td><td>310620</td><td>MG</td><td>−19.817</td><td>−43.956</td><td>31008</td></tr>
+    <tr><td class="row_index">7</td><td>431490</td><td>RS</td><td>−30.033</td><td>−51.23</td><td>43010</td></tr>
+    <tr><td class="row_index">8</td><td>410690</td><td>PR</td><td>−25.428</td><td>−49.273</td><td>41002</td></tr>
+    <tr><td class="row_index">9</td><td>270430</td><td>AL</td><td>−9.666</td><td>−35.735</td><td>27001</td></tr>
+    <tr><td class="row_index">10</td><td>520870</td><td>GO</td><td>−16.679</td><td>−49.254</td><td>52001</td></tr>
+    <tr><td class="row_index">11</td><td>351880</td><td>SP</td><td>−23.463</td><td>−46.533</td><td>35011</td></tr>
+    <tr><td class="row_index">12</td><td>221100</td><td>PI</td><td>−5.089</td><td>−42.802</td><td>22004</td></tr>
+    <tr><td class="row_index">13</td><td>500270</td><td>MS</td><td>−20.443</td><td>−54.646</td><td>50001</td></tr>
+    <tr><td class="row_index">14</td><td>261160</td><td>PE</td><td>−8.054</td><td>−34.881</td><td>26010</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">5564</td><td>520020</td><td>GO</td><td>−18.074</td><td>−48.762</td><td>52017</td></tr>
+    <tr><td class="row_index">5565</td><td>510120</td><td>MT</td><td>−16.856</td><td>−53.033</td><td>51013</td></tr>
+    <tr><td class="row_index">5566</td><td>350640</td><td>SP</td><td>−21.403</td><td>−50.471</td><td>35021</td></tr>
+    <tr><td class="row_index">5567</td><td>500627</td><td>MS</td><td>−19.0216</td><td>−53.0116</td><td>50001</td></tr>
+    <tr><td class="row_index">5568</td><td>330513</td><td>RJ</td><td>−21.358</td><td>−41.943</td><td>33007</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">5569 rows × 4 columns</div>
+    <div class="frame_dimensions">5569 rows × 5 columns</div>
   </div>
 </div>
 </div>
@@ -646,44 +650,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>rr <span class="op">=</span> df_mun[:, <span class="st">'regiao'</span>]</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>rr.replace(regioes)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df_mun[<span class="st">'regiao'</span>] <span class="op">=</span> rr</span>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> df_mun[:, <span class="st">'regiao'</span>]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>reg.replace(regioes)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df_mun[<span class="st">'regiao'</span>] <span class="op">=</span> reg</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>df_mun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>origem</th><th>regiao</th><th>uf</th><th>municipio</th><th>capital</th><th>nome_regiao_saude</th><th>latitude</th><th>longitude</th><th>socioecon</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>origem</th><th>regiao</th><th>uf</th><th>municipio</th><th>capital</th><th>latitude</th><th>longitude</th><th>nome_regiao_saude</th><th>socioecon</th><th>regiao_saude</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>355030</td><td>SD</td><td>SP</td><td>São Paulo</td><td>1</td><td>Grande São Paulo</td><td>−23.548</td><td>−46.636</td><td>5</td></tr>
-    <tr><td class="row_index">1</td><td>330455</td><td>SD</td><td>RJ</td><td>Rio de Janeiro</td><td>1</td><td>Metropolitana I</td><td>−22.903</td><td>−43.208</td><td>5</td></tr>
-    <tr><td class="row_index">2</td><td>130260</td><td>NT</td><td>AM</td><td>Manaus</td><td>1</td><td>Entorno de Manaus</td><td>−3.102</td><td>−60.025</td><td>4</td></tr>
-    <tr><td class="row_index">3</td><td>230440</td><td>ND</td><td>CE</td><td>Fortaleza</td><td>1</td><td>Fortaleza</td><td>−3.717</td><td>−38.543</td><td>5</td></tr>
-    <tr><td class="row_index">4</td><td>292740</td><td>ND</td><td>BA</td><td>Salvador</td><td>1</td><td>Salvador</td><td>−12.971</td><td>−38.511</td><td>5</td></tr>
-    <tr><td class="row_index">5</td><td>150140</td><td>NT</td><td>PA</td><td>Belém</td><td>1</td><td>Metropolitana</td><td>−1.456</td><td>−48.504</td><td>4</td></tr>
-    <tr><td class="row_index">6</td><td>310620</td><td>SD</td><td>MG</td><td>Belo Horizonte</td><td>1</td><td>Belo Horizonte</td><td>−19.817</td><td>−43.956</td><td>1</td></tr>
-    <tr><td class="row_index">7</td><td>431490</td><td>SL</td><td>RS</td><td>Porto Alegre</td><td>1</td><td>CRS 01 Porto Alegre</td><td>−30.033</td><td>−51.23</td><td>5</td></tr>
-    <tr><td class="row_index">8</td><td>410690</td><td>SL</td><td>PR</td><td>Curitiba</td><td>1</td><td>Metropolitana</td><td>−25.428</td><td>−49.273</td><td>5</td></tr>
-    <tr><td class="row_index">9</td><td>270430</td><td>ND</td><td>AL</td><td>Maceió</td><td>1</td><td>Região 01</td><td>−9.666</td><td>−35.735</td><td>3</td></tr>
-    <tr><td class="row_index">10</td><td>520870</td><td>CO</td><td>GO</td><td>Goiânia</td><td>1</td><td>Central</td><td>−16.679</td><td>−49.254</td><td>5</td></tr>
-    <tr><td class="row_index">11</td><td>351880</td><td>SD</td><td>SP</td><td>Guarulhos</td><td>0</td><td>Grande São Paulo</td><td>−23.463</td><td>−46.533</td><td>4</td></tr>
-    <tr><td class="row_index">12</td><td>221100</td><td>ND</td><td>PI</td><td>Teresina</td><td>1</td><td>TD Entre Rios</td><td>−5.089</td><td>−42.802</td><td>3</td></tr>
-    <tr><td class="row_index">13</td><td>500270</td><td>CO</td><td>MS</td><td>Campo Grande</td><td>1</td><td>NCT de Campo Grande</td><td>−20.443</td><td>−54.646</td><td>4</td></tr>
-    <tr><td class="row_index">14</td><td>261160</td><td>ND</td><td>PE</td><td>Recife</td><td>1</td><td>Recife</td><td>−8.054</td><td>−34.881</td><td>5</td></tr>
-    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">5564</td><td>520020</td><td>CO</td><td>GO</td><td>Água Limpa</td><td>0</td><td>Sul</td><td>−18.074</td><td>−48.762</td><td>3</td></tr>
-    <tr><td class="row_index">5565</td><td>510120</td><td>CO</td><td>MT</td><td>Araguainha</td><td>0</td><td>Rondonópolis</td><td>−16.856</td><td>−53.033</td><td>2</td></tr>
-    <tr><td class="row_index">5566</td><td>350640</td><td>SD</td><td>SP</td><td>Bilac</td><td>0</td><td>Araçatuba</td><td>−21.403</td><td>−50.471</td><td>5</td></tr>
-    <tr><td class="row_index">5567</td><td>500627</td><td>CO</td><td>MS</td><td>Paraíso das Águas</td><td>0</td><td></td><td>−19.0216</td><td>−53.0116</td><td>4</td></tr>
-    <tr><td class="row_index">5568</td><td>330513</td><td>SD</td><td>RJ</td><td>São José de Ubá</td><td>0</td><td>Noroeste</td><td>−21.358</td><td>−41.943</td><td>3</td></tr>
+    <tr><td class="row_index">0</td><td>355030</td><td>SD</td><td>SP</td><td>São Paulo</td><td>1</td><td>−23.548</td><td>−46.636</td><td>São Paulo</td><td>5</td><td>35016</td></tr>
+    <tr><td class="row_index">1</td><td>330455</td><td>SD</td><td>RJ</td><td>Rio de Janeiro</td><td>1</td><td>−22.903</td><td>−43.208</td><td>Metropolitana I</td><td>5</td><td>33005</td></tr>
+    <tr><td class="row_index">2</td><td>130260</td><td>NT</td><td>AM</td><td>Manaus</td><td>1</td><td>−3.102</td><td>−60.025</td><td>Entorno Manaus e Alto Rio Negro</td><td>4</td><td>13001</td></tr>
+    <tr><td class="row_index">3</td><td>230440</td><td>ND</td><td>CE</td><td>Fortaleza</td><td>1</td><td>−3.717</td><td>−38.543</td><td>1ª Região Fortaleza</td><td>5</td><td>23001</td></tr>
+    <tr><td class="row_index">4</td><td>292740</td><td>ND</td><td>BA</td><td>Salvador</td><td>1</td><td>−12.971</td><td>−38.511</td><td>Salvador</td><td>5</td><td>29020</td></tr>
+    <tr><td class="row_index">5</td><td>150140</td><td>NT</td><td>PA</td><td>Belém</td><td>1</td><td>−1.456</td><td>−48.504</td><td>Metropolitana I</td><td>4</td><td>15006</td></tr>
+    <tr><td class="row_index">6</td><td>310620</td><td>SD</td><td>MG</td><td>Belo Horizonte</td><td>1</td><td>−19.817</td><td>−43.956</td><td>Belo Horizonte Nova Lima Caeté</td><td>5</td><td>31008</td></tr>
+    <tr><td class="row_index">7</td><td>431490</td><td>SL</td><td>RS</td><td>Porto Alegre</td><td>1</td><td>−30.033</td><td>−51.23</td><td>Região 10 - Capital e Vale do Gravataí</td><td>5</td><td>43010</td></tr>
+    <tr><td class="row_index">8</td><td>410690</td><td>SL</td><td>PR</td><td>Curitiba</td><td>1</td><td>−25.428</td><td>−49.273</td><td>2ª RS Metropolitana</td><td>5</td><td>41002</td></tr>
+    <tr><td class="row_index">9</td><td>270430</td><td>ND</td><td>AL</td><td>Maceió</td><td>1</td><td>−9.666</td><td>−35.735</td><td>1ª Região de Saúde</td><td>3</td><td>27001</td></tr>
+    <tr><td class="row_index">10</td><td>520870</td><td>CO</td><td>GO</td><td>Goiânia</td><td>1</td><td>−16.679</td><td>−49.254</td><td>Central</td><td>5</td><td>52001</td></tr>
+    <tr><td class="row_index">11</td><td>351880</td><td>SD</td><td>SP</td><td>Guarulhos</td><td>0</td><td>−23.463</td><td>−46.533</td><td>Alto do Tietê</td><td>4</td><td>35011</td></tr>
+    <tr><td class="row_index">12</td><td>221100</td><td>ND</td><td>PI</td><td>Teresina</td><td>1</td><td>−5.089</td><td>−42.802</td><td>Entre Rios</td><td>3</td><td>22004</td></tr>
+    <tr><td class="row_index">13</td><td>500270</td><td>CO</td><td>MS</td><td>Campo Grande</td><td>1</td><td>−20.443</td><td>−54.646</td><td>Campo Grande</td><td>4</td><td>50001</td></tr>
+    <tr><td class="row_index">14</td><td>261160</td><td>ND</td><td>PE</td><td>Recife</td><td>1</td><td>−8.054</td><td>−34.881</td><td>Recife</td><td>5</td><td>26010</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">5564</td><td>520020</td><td>CO</td><td>GO</td><td>Água Limpa</td><td>0</td><td>−18.074</td><td>−48.762</td><td>Sul</td><td>3</td><td>52017</td></tr>
+    <tr><td class="row_index">5565</td><td>510120</td><td>CO</td><td>MT</td><td>Araguainha</td><td>0</td><td>−16.856</td><td>−53.033</td><td>Sul Matogrossense</td><td>2</td><td>51013</td></tr>
+    <tr><td class="row_index">5566</td><td>350640</td><td>SD</td><td>SP</td><td>Bilac</td><td>0</td><td>−21.403</td><td>−50.471</td><td>Central do DRS II</td><td>5</td><td>35021</td></tr>
+    <tr><td class="row_index">5567</td><td>500627</td><td>CO</td><td>MS</td><td>Paraíso das Águas</td><td>0</td><td>−19.0216</td><td>−53.0116</td><td>Campo Grande</td><td>4</td><td>50001</td></tr>
+    <tr><td class="row_index">5568</td><td>330513</td><td>SD</td><td>RJ</td><td>São José de Ubá</td><td>0</td><td>−21.358</td><td>−41.943</td><td>Noroeste</td><td>3</td><td>33007</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">5569 rows × 9 columns</div>
+    <div class="frame_dimensions">5569 rows × 10 columns</div>
   </div>
 </div>
 </div>
@@ -800,35 +804,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><th class="row_index">origem</th><th>regiao</th><th>uf</th><th>municipio</th><th>capital</th><th>nome_regiao_saude</th><th>latitude</th><th>longitude</th><th>socioecon</th></tr>
-    <tr class="coltypes"><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+    <tr class="colnames"><th class="row_index">origem</th><th>regiao</th><th>uf</th><th>municipio</th><th>capital</th><th>latitude</th><th>longitude</th><th>nome_regiao_saude</th><th>socioecon</th><th>regiao_saude</th></tr>
+    <tr class="coltypes"><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">110001</td><td>NT</td><td>RO</td><td>Alta Floresta D'Oeste</td><td>0</td><td>II Delegacia Regional de Saúde</td><td>−11.929</td><td>−61.996</td><td>1</td></tr>
-    <tr><td class="row_index">110002</td><td>NT</td><td>RO</td><td>Ariquemes</td><td>0</td><td>Departamento de Epidemiologia</td><td>−9.913</td><td>−63.041</td><td>1</td></tr>
-    <tr><td class="row_index">110003</td><td>NT</td><td>RO</td><td>Cabixi</td><td>0</td><td>III Delegacia Regional de Saúde</td><td>−13.492</td><td>−60.545</td><td>2</td></tr>
-    <tr><td class="row_index">110004</td><td>NT</td><td>RO</td><td>Cacoal</td><td>0</td><td>II Delegacia Regional de Saúde</td><td>−11.438</td><td>−61.448</td><td>3</td></tr>
-    <tr><td class="row_index">110005</td><td>NT</td><td>RO</td><td>Cerejeiras</td><td>0</td><td>III Delegacia Regional de Saúde</td><td>−13.189</td><td>−60.812</td><td>2</td></tr>
-    <tr><td class="row_index">110006</td><td>NT</td><td>RO</td><td>Colorado do Oeste</td><td>0</td><td>III Delegacia Regional de Saúde</td><td>−13.117</td><td>−60.542</td><td>2</td></tr>
-    <tr><td class="row_index">110007</td><td>NT</td><td>RO</td><td>Corumbiara</td><td>0</td><td>III Delegacia Regional de Saúde</td><td>−12.962</td><td>−60.887</td><td>2</td></tr>
-    <tr><td class="row_index">110008</td><td>NT</td><td>RO</td><td>Costa Marques</td><td>0</td><td>I Delegacia Regional de Saúde</td><td>−12.445</td><td>−64.227</td><td>1</td></tr>
-    <tr><td class="row_index">110009</td><td>NT</td><td>RO</td><td>Espigão D'Oeste</td><td>0</td><td>II Delegacia Regional de Saúde</td><td>−11.525</td><td>−61.013</td><td>3</td></tr>
-    <tr><td class="row_index">110010</td><td>NT</td><td>RO</td><td>Guajará-Mirim</td><td>0</td><td>Departamento de Epidemiologia</td><td>−10.783</td><td>−65.339</td><td>3</td></tr>
-    <tr><td class="row_index">110011</td><td>NT</td><td>RO</td><td>Jaru</td><td>0</td><td>I Delegacia Regional de Saúde</td><td>−10.439</td><td>−62.466</td><td>2</td></tr>
-    <tr><td class="row_index">110012</td><td>NT</td><td>RO</td><td>Ji-Paraná</td><td>0</td><td>I Delegacia Regional de Saúde</td><td>−10.882</td><td>−61.944</td><td>2</td></tr>
-    <tr><td class="row_index">110013</td><td>NT</td><td>RO</td><td>Machadinho D'Oeste</td><td>0</td><td>Departamento de Epidemiologia</td><td>−9.444</td><td>−61.981</td><td>1</td></tr>
-    <tr><td class="row_index">110014</td><td>NT</td><td>RO</td><td>Nova Brasilândia D'Oeste</td><td>0</td><td>II Delegacia Regional de Saúde</td><td>−11.725</td><td>−62.331</td><td>1</td></tr>
-    <tr><td class="row_index">110015</td><td>NT</td><td>RO</td><td>Ouro Preto do Oeste</td><td>0</td><td>I Delegacia Regional de Saúde</td><td>−10.716</td><td>−62.248</td><td>2</td></tr>
-    <tr><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">522190</td><td>CO</td><td>GO</td><td>Varjão</td><td>0</td><td>Centro Sul</td><td>−17.045</td><td>−49.631</td><td>3</td></tr>
-    <tr><td class="row_index">522200</td><td>CO</td><td>GO</td><td>Vianópolis</td><td>0</td><td>Centro Sul</td><td>−16.742</td><td>−48.516</td><td>3</td></tr>
-    <tr><td class="row_index">522205</td><td>CO</td><td>GO</td><td>Vicentinópolis</td><td>0</td><td>Centro Sul</td><td>−17.735</td><td>−49.806</td><td>3</td></tr>
-    <tr><td class="row_index">522220</td><td>CO</td><td>GO</td><td>Vila Boa</td><td>0</td><td>Entorno Norte</td><td>−15.038</td><td>−47.059</td><td>2</td></tr>
-    <tr><td class="row_index">522230</td><td>CO</td><td>GO</td><td>Vila Propício</td><td>0</td><td>São Patrício</td><td>−15.457</td><td>−48.889</td><td>2</td></tr>
+    <tr><td class="row_index">110001</td><td>NT</td><td>RO</td><td>Alta Floresta D'Oeste</td><td>0</td><td>−11.929</td><td>−61.996</td><td>Zona da Mata</td><td>1</td><td>11005</td></tr>
+    <tr><td class="row_index">110002</td><td>NT</td><td>RO</td><td>Ariquemes</td><td>0</td><td>−9.913</td><td>−63.041</td><td>Vale do Jamari</td><td>1</td><td>11001</td></tr>
+    <tr><td class="row_index">110003</td><td>NT</td><td>RO</td><td>Cabixi</td><td>0</td><td>−13.492</td><td>−60.545</td><td>Cone Sul</td><td>2</td><td>11006</td></tr>
+    <tr><td class="row_index">110004</td><td>NT</td><td>RO</td><td>Cacoal</td><td>0</td><td>−11.438</td><td>−61.448</td><td>Café</td><td>3</td><td>11002</td></tr>
+    <tr><td class="row_index">110005</td><td>NT</td><td>RO</td><td>Cerejeiras</td><td>0</td><td>−13.189</td><td>−60.812</td><td>Cone Sul</td><td>2</td><td>11006</td></tr>
+    <tr><td class="row_index">110006</td><td>NT</td><td>RO</td><td>Colorado do Oeste</td><td>0</td><td>−13.117</td><td>−60.542</td><td>Cone Sul</td><td>2</td><td>11006</td></tr>
+    <tr><td class="row_index">110007</td><td>NT</td><td>RO</td><td>Corumbiara</td><td>0</td><td>−12.962</td><td>−60.887</td><td>Cone Sul</td><td>2</td><td>11006</td></tr>
+    <tr><td class="row_index">110008</td><td>NT</td><td>RO</td><td>Costa Marques</td><td>0</td><td>−12.445</td><td>−64.227</td><td>Vale do Guaporé</td><td>1</td><td>11007</td></tr>
+    <tr><td class="row_index">110009</td><td>NT</td><td>RO</td><td>Espigão D'Oeste</td><td>0</td><td>−11.525</td><td>−61.013</td><td>Café</td><td>3</td><td>11002</td></tr>
+    <tr><td class="row_index">110010</td><td>NT</td><td>RO</td><td>Guajará-Mirim</td><td>0</td><td>−10.783</td><td>−65.339</td><td>Madeira-Mamoré</td><td>3</td><td>11004</td></tr>
+    <tr><td class="row_index">110011</td><td>NT</td><td>RO</td><td>Jaru</td><td>0</td><td>−10.439</td><td>−62.466</td><td>Central</td><td>2</td><td>11003</td></tr>
+    <tr><td class="row_index">110012</td><td>NT</td><td>RO</td><td>Ji-Paraná</td><td>0</td><td>−10.882</td><td>−61.944</td><td>Central</td><td>2</td><td>11003</td></tr>
+    <tr><td class="row_index">110013</td><td>NT</td><td>RO</td><td>Machadinho D'Oeste</td><td>0</td><td>−9.444</td><td>−61.981</td><td>Vale do Jamari</td><td>1</td><td>11001</td></tr>
+    <tr><td class="row_index">110014</td><td>NT</td><td>RO</td><td>Nova Brasilândia D'Oeste</td><td>0</td><td>−11.725</td><td>−62.331</td><td>Zona da Mata</td><td>1</td><td>11005</td></tr>
+    <tr><td class="row_index">110015</td><td>NT</td><td>RO</td><td>Ouro Preto do Oeste</td><td>0</td><td>−10.716</td><td>−62.248</td><td>Central</td><td>2</td><td>11003</td></tr>
+    <tr><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">522190</td><td>CO</td><td>GO</td><td>Varjão</td><td>0</td><td>−17.045</td><td>−49.631</td><td>Centro Sul</td><td>3</td><td>52002</td></tr>
+    <tr><td class="row_index">522200</td><td>CO</td><td>GO</td><td>Vianópolis</td><td>0</td><td>−16.742</td><td>−48.516</td><td>Centro Sul</td><td>3</td><td>52002</td></tr>
+    <tr><td class="row_index">522205</td><td>CO</td><td>GO</td><td>Vicentinópolis</td><td>0</td><td>−17.735</td><td>−49.806</td><td>Centro Sul</td><td>3</td><td>52002</td></tr>
+    <tr><td class="row_index">522220</td><td>CO</td><td>GO</td><td>Vila Boa</td><td>0</td><td>−15.038</td><td>−47.059</td><td>Entorno Norte</td><td>2</td><td>52003</td></tr>
+    <tr><td class="row_index">522230</td><td>CO</td><td>GO</td><td>Vila Propício</td><td>0</td><td>−15.457</td><td>−48.889</td><td>São Patrício II</td><td>2</td><td>52018</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">5569 rows × 9 columns</div>
+    <div class="frame_dimensions">5569 rows × 10 columns</div>
   </div>
 </div>
 </div>
@@ -845,31 +849,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>hosp_cnes</th><th>destino</th><th>hosp_regiao_saude</th><th>origem</th><th>regiao_saude</th><th>count</th><th>distancia</th><th>tempo</th><th class="vellipsis">…</th><th>longitude</th><th>socioecon</th><th>hosp_uf</th><th>hosp_latitude</th><th>hosp_longitude</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>hosp_cnes</th><th>destino</th><th>origem</th><th>count</th><th>distancia</th><th>tempo</th><th>regiao</th><th>uf</th><th class="vellipsis">…</th><th>regiao_saude</th><th>hosp_uf</th><th>hosp_latitude</th><th>hosp_longitude</th><th>hosp_regiao_saude</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>27</td><td>260290</td><td>2601</td><td>260290</td><td>2601</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−35.035</td><td>5</td><td>PE</td><td>−8.287</td><td>−35.035</td></tr>
-    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>27</td><td>260290</td><td>2601</td><td>260720</td><td>2601</td><td>1</td><td>16.8139</td><td>0.319111</td><td class="vellipsis">…</td><td>−35.064</td><td>5</td><td>PE</td><td>−8.287</td><td>−35.035</td></tr>
-    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260140</td><td>2603</td><td>2</td><td>73.9977</td><td>1.34642</td><td class="vellipsis">…</td><td>−35.186</td><td>1</td><td>PE</td><td>−8.287</td><td>−35.035</td></tr>
-    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260290</td><td>2601</td><td>58</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>−35.035</td><td>5</td><td>PE</td><td>−8.287</td><td>−35.035</td></tr>
-    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260345</td><td>2601</td><td>3</td><td>42.4065</td><td>0.630306</td><td class="vellipsis">…</td><td>−34.981</td><td>5</td><td>PE</td><td>−8.287</td><td>−35.035</td></tr>
-    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260400</td><td>2602</td><td>1</td><td>81.5093</td><td>1.15006</td><td class="vellipsis">…</td><td>−35.255</td><td>1</td><td>PE</td><td>−8.287</td><td>−35.035</td></tr>
-    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260520</td><td>2603</td><td>5</td><td>27.9907</td><td>0.378972</td><td class="vellipsis">…</td><td>−35.224</td><td>1</td><td>PE</td><td>−8.287</td><td>−35.035</td></tr>
-    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260540</td><td>2602</td><td>2</td><td>103.117</td><td>1.53569</td><td class="vellipsis">…</td><td>−35.389</td><td>1</td><td>PE</td><td>−8.287</td><td>−35.035</td></tr>
-    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260640</td><td>2604</td><td>2</td><td>104</td><td>1.41492</td><td class="vellipsis">…</td><td>−35.565</td><td>1</td><td>PE</td><td>−8.287</td><td>−35.035</td></tr>
-    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260680</td><td>2601</td><td>1</td><td>62.8655</td><td>0.96025</td><td class="vellipsis">…</td><td>−34.906</td><td>5</td><td>PE</td><td>−8.287</td><td>−35.035</td></tr>
-    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260720</td><td>2601</td><td>23</td><td>16.8139</td><td>0.319111</td><td class="vellipsis">…</td><td>−35.064</td><td>5</td><td>PE</td><td>−8.287</td><td>−35.035</td></tr>
-    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260790</td><td>2601</td><td>43</td><td>19.3115</td><td>0.414222</td><td class="vellipsis">…</td><td>−35.015</td><td>5</td><td>PE</td><td>−8.287</td><td>−35.035</td></tr>
-    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260960</td><td>2601</td><td>9</td><td>41.4752</td><td>0.5945</td><td class="vellipsis">…</td><td>−34.855</td><td>5</td><td>PE</td><td>−8.287</td><td>−35.035</td></tr>
-    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>261000</td><td>2603</td><td>1</td><td>89.2513</td><td>1.06403</td><td class="vellipsis">…</td><td>−35.592</td><td>1</td><td>PE</td><td>−8.287</td><td>−35.035</td></tr>
-    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>261060</td><td>2602</td><td>1</td><td>69.3776</td><td>1.02681</td><td class="vellipsis">…</td><td>−35.18</td><td>1</td><td>PE</td><td>−8.287</td><td>−35.035</td></tr>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>27</td><td>260290</td><td>260290</td><td>1</td><td>0</td><td>0</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>26010</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>26010</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>27</td><td>260290</td><td>260720</td><td>1</td><td>16.8139</td><td>0.319111</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>26010</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>26010</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260140</td><td>2</td><td>73.9977</td><td>1.34642</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>26008</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>26010</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260290</td><td>58</td><td>0</td><td>0</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>26010</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>26010</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260345</td><td>3</td><td>42.4065</td><td>0.630306</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>26010</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>26010</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260400</td><td>1</td><td>81.5093</td><td>1.15006</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>26006</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>26010</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260520</td><td>5</td><td>27.9907</td><td>0.378972</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>26008</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>26010</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260540</td><td>2</td><td>103.117</td><td>1.53569</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>26006</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>26010</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260640</td><td>2</td><td>104</td><td>1.41492</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>26003</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>26010</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260680</td><td>1</td><td>62.8655</td><td>0.96025</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>26010</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>26010</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260720</td><td>23</td><td>16.8139</td><td>0.319111</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>26010</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>26010</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260790</td><td>43</td><td>19.3115</td><td>0.414222</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>26010</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>26010</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260960</td><td>9</td><td>41.4752</td><td>0.5945</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>26010</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>26010</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>261000</td><td>1</td><td>89.2513</td><td>1.06403</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>26008</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>26010</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>261060</td><td>1</td><td>69.3776</td><td>1.02681</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>26006</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>26010</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">124,774</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>315980</td><td>3125</td><td>1</td><td>2275.67</td><td>28.2836</td><td class="vellipsis">…</td><td>−50.121</td><td>5</td><td>AL</td><td>−9.666</td><td>−35.735</td></tr>
-    <tr><td class="row_index">124,775</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>350400</td><td>3508</td><td>1</td><td>2599.62</td><td>31.9186</td><td class="vellipsis">…</td><td>−50.412</td><td>4</td><td>AL</td><td>−9.666</td><td>−35.735</td></tr>
-    <tr><td class="row_index">124,776</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>351880</td><td>3503</td><td>1</td><td>2404.71</td><td>29.9013</td><td class="vellipsis">…</td><td>−46.533</td><td>4</td><td>AL</td><td>−9.666</td><td>−35.735</td></tr>
-    <tr><td class="row_index">124,777</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>354100</td><td>3519</td><td>1</td><td>2490.4</td><td>31.2415</td><td class="vellipsis">…</td><td>−46.403</td><td>4</td><td>AL</td><td>−9.666</td><td>−35.735</td></tr>
-    <tr><td class="row_index">124,778</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>510623</td><td>5105</td><td>1</td><td>3217.73</td><td>39.9407</td><td class="vellipsis">…</td><td>−57.288</td><td>2</td><td>AL</td><td>−9.666</td><td>−35.735</td></tr>
+    <tr><td class="row_index">124,774</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>315980</td><td>1</td><td>2275.67</td><td>28.2836</td><td>SD</td><td>MG</td><td class="vellipsis">…</td><td>31032</td><td>AL</td><td>−9.666</td><td>−35.735</td><td>27001</td></tr>
+    <tr><td class="row_index">124,775</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>350400</td><td>1</td><td>2599.62</td><td>31.9186</td><td>SD</td><td>SP</td><td class="vellipsis">…</td><td>35092</td><td>AL</td><td>−9.666</td><td>−35.735</td><td>27001</td></tr>
+    <tr><td class="row_index">124,776</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>351880</td><td>1</td><td>2404.71</td><td>29.9013</td><td>SD</td><td>SP</td><td class="vellipsis">…</td><td>35011</td><td>AL</td><td>−9.666</td><td>−35.735</td><td>27001</td></tr>
+    <tr><td class="row_index">124,777</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>354100</td><td>1</td><td>2490.4</td><td>31.2415</td><td>SD</td><td>SP</td><td class="vellipsis">…</td><td>35041</td><td>AL</td><td>−9.666</td><td>−35.735</td><td>27001</td></tr>
+    <tr><td class="row_index">124,778</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>510623</td><td>1</td><td>3217.73</td><td>39.9407</td><td>CO</td><td>MT</td><td class="vellipsis">…</td><td>51007</td><td>AL</td><td>−9.666</td><td>−35.735</td><td>27001</td></tr>
   </tbody>
   </table>
   <div class="footer">
@@ -891,31 +895,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>hosp_cnes</th><th>destino</th><th>hosp_regiao_saude</th><th>origem</th><th>regiao_saude</th><th>count</th><th>distancia</th><th>tempo</th><th class="vellipsis">…</th><th>hosp_uf</th><th>hosp_latitude</th><th>hosp_longitude</th><th>mun_diff</th><th>regsau_diff</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td></td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>hosp_cnes</th><th>destino</th><th>origem</th><th>count</th><th>distancia</th><th>tempo</th><th>regiao</th><th>uf</th><th class="vellipsis">…</th><th>hosp_latitude</th><th>hosp_longitude</th><th>hosp_regiao_saude</th><th>mun_diff</th><th>regsau_diff</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>27</td><td>260290</td><td>2601</td><td>260290</td><td>2601</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>0</td><td>0</td></tr>
-    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>27</td><td>260290</td><td>2601</td><td>260720</td><td>2601</td><td>1</td><td>16.8139</td><td>0.319111</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>0</td></tr>
-    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260140</td><td>2603</td><td>2</td><td>73.9977</td><td>1.34642</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260290</td><td>2601</td><td>58</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>0</td><td>0</td></tr>
-    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260345</td><td>2601</td><td>3</td><td>42.4065</td><td>0.630306</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>0</td></tr>
-    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260400</td><td>2602</td><td>1</td><td>81.5093</td><td>1.15006</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260520</td><td>2603</td><td>5</td><td>27.9907</td><td>0.378972</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260540</td><td>2602</td><td>2</td><td>103.117</td><td>1.53569</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260640</td><td>2604</td><td>2</td><td>104</td><td>1.41492</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260680</td><td>2601</td><td>1</td><td>62.8655</td><td>0.96025</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>0</td></tr>
-    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260720</td><td>2601</td><td>23</td><td>16.8139</td><td>0.319111</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>0</td></tr>
-    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260790</td><td>2601</td><td>43</td><td>19.3115</td><td>0.414222</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>0</td></tr>
-    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260960</td><td>2601</td><td>9</td><td>41.4752</td><td>0.5945</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>0</td></tr>
-    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>261000</td><td>2603</td><td>1</td><td>89.2513</td><td>1.06403</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>261060</td><td>2602</td><td>1</td><td>69.3776</td><td>1.02681</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>27</td><td>260290</td><td>260290</td><td>1</td><td>0</td><td>0</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>27</td><td>260290</td><td>260720</td><td>1</td><td>16.8139</td><td>0.319111</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260140</td><td>2</td><td>73.9977</td><td>1.34642</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260290</td><td>58</td><td>0</td><td>0</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260345</td><td>3</td><td>42.4065</td><td>0.630306</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260400</td><td>1</td><td>81.5093</td><td>1.15006</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260520</td><td>5</td><td>27.9907</td><td>0.378972</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260540</td><td>2</td><td>103.117</td><td>1.53569</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260640</td><td>2</td><td>104</td><td>1.41492</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260680</td><td>1</td><td>62.8655</td><td>0.96025</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260720</td><td>23</td><td>16.8139</td><td>0.319111</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260790</td><td>43</td><td>19.3115</td><td>0.414222</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260960</td><td>9</td><td>41.4752</td><td>0.5945</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>261000</td><td>1</td><td>89.2513</td><td>1.06403</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>261060</td><td>1</td><td>69.3776</td><td>1.02681</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>1</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">124,774</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>315980</td><td>3125</td><td>1</td><td>2275.67</td><td>28.2836</td><td class="vellipsis">…</td><td>AL</td><td>−9.666</td><td>−35.735</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">124,775</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>350400</td><td>3508</td><td>1</td><td>2599.62</td><td>31.9186</td><td class="vellipsis">…</td><td>AL</td><td>−9.666</td><td>−35.735</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">124,776</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>351880</td><td>3503</td><td>1</td><td>2404.71</td><td>29.9013</td><td class="vellipsis">…</td><td>AL</td><td>−9.666</td><td>−35.735</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">124,777</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>354100</td><td>3519</td><td>1</td><td>2490.4</td><td>31.2415</td><td class="vellipsis">…</td><td>AL</td><td>−9.666</td><td>−35.735</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">124,778</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>510623</td><td>5105</td><td>1</td><td>3217.73</td><td>39.9407</td><td class="vellipsis">…</td><td>AL</td><td>−9.666</td><td>−35.735</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">124,774</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>315980</td><td>1</td><td>2275.67</td><td>28.2836</td><td>SD</td><td>MG</td><td class="vellipsis">…</td><td>−9.666</td><td>−35.735</td><td>27001</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">124,775</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>350400</td><td>1</td><td>2599.62</td><td>31.9186</td><td>SD</td><td>SP</td><td class="vellipsis">…</td><td>−9.666</td><td>−35.735</td><td>27001</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">124,776</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>351880</td><td>1</td><td>2404.71</td><td>29.9013</td><td>SD</td><td>SP</td><td class="vellipsis">…</td><td>−9.666</td><td>−35.735</td><td>27001</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">124,777</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>354100</td><td>1</td><td>2490.4</td><td>31.2415</td><td>SD</td><td>SP</td><td class="vellipsis">…</td><td>−9.666</td><td>−35.735</td><td>27001</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">124,778</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>510623</td><td>1</td><td>3217.73</td><td>39.9407</td><td>CO</td><td>MT</td><td class="vellipsis">…</td><td>−9.666</td><td>−35.735</td><td>27001</td><td>1</td><td>1</td></tr>
   </tbody>
   </table>
   <div class="footer">
@@ -939,31 +943,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>hosp_cnes</th><th>destino</th><th>hosp_regiao_saude</th><th>origem</th><th>regiao_saude</th><th>count</th><th>distancia</th><th>tempo</th><th class="vellipsis">…</th><th>hosp_uf</th><th>hosp_latitude</th><th>hosp_longitude</th><th>mun_diff</th><th>regsau_diff</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td></td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>hosp_cnes</th><th>destino</th><th>origem</th><th>count</th><th>distancia</th><th>tempo</th><th>regiao</th><th>uf</th><th class="vellipsis">…</th><th>hosp_latitude</th><th>hosp_longitude</th><th>hosp_regiao_saude</th><th>mun_diff</th><th>regsau_diff</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>27</td><td>260290</td><td>2601</td><td>260290</td><td>2601</td><td>1</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>0</td><td>0</td></tr>
-    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>27</td><td>260290</td><td>2601</td><td>260720</td><td>2601</td><td>1</td><td>16.8139</td><td>0.319111</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>0</td></tr>
-    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260140</td><td>2603</td><td>2</td><td>73.9977</td><td>1.34642</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260290</td><td>2601</td><td>58</td><td>0</td><td>0</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>0</td><td>0</td></tr>
-    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260345</td><td>2601</td><td>3</td><td>42.4065</td><td>0.630306</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>0</td></tr>
-    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260400</td><td>2602</td><td>1</td><td>81.5093</td><td>1.15006</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260520</td><td>2603</td><td>5</td><td>27.9907</td><td>0.378972</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260540</td><td>2602</td><td>2</td><td>103.117</td><td>1.53569</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260640</td><td>2604</td><td>2</td><td>104</td><td>1.41492</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260680</td><td>2601</td><td>1</td><td>62.8655</td><td>0.96025</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>0</td></tr>
-    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260720</td><td>2601</td><td>23</td><td>16.8139</td><td>0.319111</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>0</td></tr>
-    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260790</td><td>2601</td><td>43</td><td>19.3115</td><td>0.414222</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>0</td></tr>
-    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>260960</td><td>2601</td><td>9</td><td>41.4752</td><td>0.5945</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>0</td></tr>
-    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>261000</td><td>2603</td><td>1</td><td>89.2513</td><td>1.06403</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>2601</td><td>261060</td><td>2602</td><td>1</td><td>69.3776</td><td>1.02681</td><td class="vellipsis">…</td><td>PE</td><td>−8.287</td><td>−35.035</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>27</td><td>260290</td><td>260290</td><td>1</td><td>0</td><td>0</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>27</td><td>260290</td><td>260720</td><td>1</td><td>16.8139</td><td>0.319111</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260140</td><td>2</td><td>73.9977</td><td>1.34642</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260290</td><td>58</td><td>0</td><td>0</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>0</td><td>0</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260345</td><td>3</td><td>42.4065</td><td>0.630306</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260400</td><td>1</td><td>81.5093</td><td>1.15006</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260520</td><td>5</td><td>27.9907</td><td>0.378972</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260540</td><td>2</td><td>103.117</td><td>1.53569</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260640</td><td>2</td><td>104</td><td>1.41492</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260680</td><td>1</td><td>62.8655</td><td>0.96025</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260720</td><td>23</td><td>16.8139</td><td>0.319111</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260790</td><td>43</td><td>19.3115</td><td>0.414222</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>260960</td><td>9</td><td>41.4752</td><td>0.5945</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>261000</td><td>1</td><td>89.2513</td><td>1.06403</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>94</td><td>260290</td><td>261060</td><td>1</td><td>69.3776</td><td>1.02681</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−8.287</td><td>−35.035</td><td>26010</td><td>1</td><td>1</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">123,865</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>315980</td><td>3125</td><td>1</td><td>2275.67</td><td>28.2836</td><td class="vellipsis">…</td><td>AL</td><td>−9.666</td><td>−35.735</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">123,866</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>350400</td><td>3508</td><td>1</td><td>2599.62</td><td>31.9186</td><td class="vellipsis">…</td><td>AL</td><td>−9.666</td><td>−35.735</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">123,867</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>351880</td><td>3503</td><td>1</td><td>2404.71</td><td>29.9013</td><td class="vellipsis">…</td><td>AL</td><td>−9.666</td><td>−35.735</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">123,868</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>354100</td><td>3519</td><td>1</td><td>2490.4</td><td>31.2415</td><td class="vellipsis">…</td><td>AL</td><td>−9.666</td><td>−35.735</td><td>1</td><td>1</td></tr>
-    <tr><td class="row_index">123,869</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>2701</td><td>510623</td><td>5105</td><td>1</td><td>3217.73</td><td>39.9407</td><td class="vellipsis">…</td><td>AL</td><td>−9.666</td><td>−35.735</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">123,865</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>315980</td><td>1</td><td>2275.67</td><td>28.2836</td><td>SD</td><td>MG</td><td class="vellipsis">…</td><td>−9.666</td><td>−35.735</td><td>27001</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">123,866</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>350400</td><td>1</td><td>2599.62</td><td>31.9186</td><td>SD</td><td>SP</td><td class="vellipsis">…</td><td>−9.666</td><td>−35.735</td><td>27001</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">123,867</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>351880</td><td>1</td><td>2404.71</td><td>29.9013</td><td>SD</td><td>SP</td><td class="vellipsis">…</td><td>−9.666</td><td>−35.735</td><td>27001</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">123,868</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>354100</td><td>1</td><td>2490.4</td><td>31.2415</td><td>SD</td><td>SP</td><td class="vellipsis">…</td><td>−9.666</td><td>−35.735</td><td>27001</td><td>1</td><td>1</td></tr>
+    <tr><td class="row_index">123,869</td><td>1</td><td>1</td><td>9923837</td><td>270430</td><td>510623</td><td>1</td><td>3217.73</td><td>39.9407</td><td>CO</td><td>MT</td><td class="vellipsis">…</td><td>−9.666</td><td>−35.735</td><td>27001</td><td>1</td><td>1</td></tr>
   </tbody>
   </table>
   <div class="footer">
@@ -1024,27 +1028,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>260290</td><td>260290</td><td>0</td><td>0</td><td>0</td><td>0</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>27</td><td>2601</td><td>PE</td><td>1</td></tr>
-    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>260720</td><td>260290</td><td>1</td><td>0</td><td>16.8139</td><td>0.319111</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>27</td><td>2601</td><td>PE</td><td>1</td></tr>
-    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>260140</td><td>260290</td><td>1</td><td>1</td><td>73.9977</td><td>1.34642</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>2601</td><td>PE</td><td>2</td></tr>
-    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>260290</td><td>260290</td><td>0</td><td>0</td><td>0</td><td>0</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>2601</td><td>PE</td><td>58</td></tr>
-    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>260345</td><td>260290</td><td>1</td><td>0</td><td>42.4065</td><td>0.630306</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>2601</td><td>PE</td><td>3</td></tr>
-    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>260400</td><td>260290</td><td>1</td><td>1</td><td>81.5093</td><td>1.15006</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>2601</td><td>PE</td><td>1</td></tr>
-    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>260520</td><td>260290</td><td>1</td><td>1</td><td>27.9907</td><td>0.378972</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>2601</td><td>PE</td><td>5</td></tr>
-    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>260540</td><td>260290</td><td>1</td><td>1</td><td>103.117</td><td>1.53569</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>2601</td><td>PE</td><td>2</td></tr>
-    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>260640</td><td>260290</td><td>1</td><td>1</td><td>104</td><td>1.41492</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>2601</td><td>PE</td><td>2</td></tr>
-    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>260680</td><td>260290</td><td>1</td><td>0</td><td>62.8655</td><td>0.96025</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>2601</td><td>PE</td><td>1</td></tr>
-    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>260720</td><td>260290</td><td>1</td><td>0</td><td>16.8139</td><td>0.319111</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>2601</td><td>PE</td><td>23</td></tr>
-    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>260790</td><td>260290</td><td>1</td><td>0</td><td>19.3115</td><td>0.414222</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>2601</td><td>PE</td><td>43</td></tr>
-    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>260960</td><td>260290</td><td>1</td><td>0</td><td>41.4752</td><td>0.5945</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>2601</td><td>PE</td><td>9</td></tr>
-    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>261000</td><td>260290</td><td>1</td><td>1</td><td>89.2513</td><td>1.06403</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>2601</td><td>PE</td><td>1</td></tr>
-    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>261060</td><td>260290</td><td>1</td><td>1</td><td>69.3776</td><td>1.02681</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>2601</td><td>PE</td><td>1</td></tr>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>260290</td><td>260290</td><td>0</td><td>0</td><td>0</td><td>0</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>27</td><td>26010</td><td>PE</td><td>1</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>260720</td><td>260290</td><td>1</td><td>0</td><td>16.8139</td><td>0.319111</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>27</td><td>26010</td><td>PE</td><td>1</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>260140</td><td>260290</td><td>1</td><td>1</td><td>73.9977</td><td>1.34642</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>26010</td><td>PE</td><td>2</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>260290</td><td>260290</td><td>0</td><td>0</td><td>0</td><td>0</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>26010</td><td>PE</td><td>58</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>260345</td><td>260290</td><td>1</td><td>0</td><td>42.4065</td><td>0.630306</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>26010</td><td>PE</td><td>3</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>260400</td><td>260290</td><td>1</td><td>1</td><td>81.5093</td><td>1.15006</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>26010</td><td>PE</td><td>1</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>260520</td><td>260290</td><td>1</td><td>1</td><td>27.9907</td><td>0.378972</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>26010</td><td>PE</td><td>5</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>260540</td><td>260290</td><td>1</td><td>1</td><td>103.117</td><td>1.53569</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>26010</td><td>PE</td><td>2</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>260640</td><td>260290</td><td>1</td><td>1</td><td>104</td><td>1.41492</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>26010</td><td>PE</td><td>2</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>260680</td><td>260290</td><td>1</td><td>0</td><td>62.8655</td><td>0.96025</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>26010</td><td>PE</td><td>1</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>260720</td><td>260290</td><td>1</td><td>0</td><td>16.8139</td><td>0.319111</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>26010</td><td>PE</td><td>23</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>260790</td><td>260290</td><td>1</td><td>0</td><td>19.3115</td><td>0.414222</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>26010</td><td>PE</td><td>43</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>260960</td><td>260290</td><td>1</td><td>0</td><td>41.4752</td><td>0.5945</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>26010</td><td>PE</td><td>9</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>261000</td><td>260290</td><td>1</td><td>1</td><td>89.2513</td><td>1.06403</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>26010</td><td>PE</td><td>1</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>261060</td><td>260290</td><td>1</td><td>1</td><td>69.3776</td><td>1.02681</td><td>ND</td><td>PE</td><td class="vellipsis">…</td><td>−35.035</td><td>94</td><td>26010</td><td>PE</td><td>1</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">123,865</td><td>1</td><td>1</td><td>315980</td><td>270430</td><td>1</td><td>1</td><td>2275.67</td><td>28.2836</td><td>SD</td><td>MG</td><td class="vellipsis">…</td><td>−35.735</td><td>9923837</td><td>2701</td><td>AL</td><td>1</td></tr>
-    <tr><td class="row_index">123,866</td><td>1</td><td>1</td><td>350400</td><td>270430</td><td>1</td><td>1</td><td>2599.62</td><td>31.9186</td><td>SD</td><td>SP</td><td class="vellipsis">…</td><td>−35.735</td><td>9923837</td><td>2701</td><td>AL</td><td>1</td></tr>
-    <tr><td class="row_index">123,867</td><td>1</td><td>1</td><td>351880</td><td>270430</td><td>1</td><td>1</td><td>2404.71</td><td>29.9013</td><td>SD</td><td>SP</td><td class="vellipsis">…</td><td>−35.735</td><td>9923837</td><td>2701</td><td>AL</td><td>1</td></tr>
-    <tr><td class="row_index">123,868</td><td>1</td><td>1</td><td>354100</td><td>270430</td><td>1</td><td>1</td><td>2490.4</td><td>31.2415</td><td>SD</td><td>SP</td><td class="vellipsis">…</td><td>−35.735</td><td>9923837</td><td>2701</td><td>AL</td><td>1</td></tr>
-    <tr><td class="row_index">123,869</td><td>1</td><td>1</td><td>510623</td><td>270430</td><td>1</td><td>1</td><td>3217.73</td><td>39.9407</td><td>CO</td><td>MT</td><td class="vellipsis">…</td><td>−35.735</td><td>9923837</td><td>2701</td><td>AL</td><td>1</td></tr>
+    <tr><td class="row_index">123,865</td><td>1</td><td>1</td><td>315980</td><td>270430</td><td>1</td><td>1</td><td>2275.67</td><td>28.2836</td><td>SD</td><td>MG</td><td class="vellipsis">…</td><td>−35.735</td><td>9923837</td><td>27001</td><td>AL</td><td>1</td></tr>
+    <tr><td class="row_index">123,866</td><td>1</td><td>1</td><td>350400</td><td>270430</td><td>1</td><td>1</td><td>2599.62</td><td>31.9186</td><td>SD</td><td>SP</td><td class="vellipsis">…</td><td>−35.735</td><td>9923837</td><td>27001</td><td>AL</td><td>1</td></tr>
+    <tr><td class="row_index">123,867</td><td>1</td><td>1</td><td>351880</td><td>270430</td><td>1</td><td>1</td><td>2404.71</td><td>29.9013</td><td>SD</td><td>SP</td><td class="vellipsis">…</td><td>−35.735</td><td>9923837</td><td>27001</td><td>AL</td><td>1</td></tr>
+    <tr><td class="row_index">123,868</td><td>1</td><td>1</td><td>354100</td><td>270430</td><td>1</td><td>1</td><td>2490.4</td><td>31.2415</td><td>SD</td><td>SP</td><td class="vellipsis">…</td><td>−35.735</td><td>9923837</td><td>27001</td><td>AL</td><td>1</td></tr>
+    <tr><td class="row_index">123,869</td><td>1</td><td>1</td><td>510623</td><td>270430</td><td>1</td><td>1</td><td>3217.73</td><td>39.9407</td><td>CO</td><td>MT</td><td class="vellipsis">…</td><td>−35.735</td><td>9923837</td><td>27001</td><td>AL</td><td>1</td></tr>
   </tbody>
   </table>
   <div class="footer">
@@ -1068,27 +1072,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>110001</td><td>110001</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.996</td><td>2679477</td><td>1102</td><td>RO</td><td>35</td></tr>
-    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>110001</td><td>110012</td><td>1</td><td>1</td><td>130.77</td><td>2.54781</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.944</td><td>2495279</td><td>1101</td><td>RO</td><td>6</td></tr>
-    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>110001</td><td>110013</td><td>1</td><td>1</td><td>357.511</td><td>7.13067</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.981</td><td>2808617</td><td>1104</td><td>RO</td><td>1</td></tr>
-    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>110001</td><td>110018</td><td>1</td><td>0</td><td>114.061</td><td>1.87139</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.193</td><td>2496534</td><td>1102</td><td>RO</td><td>1</td></tr>
-    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>110001</td><td>110020</td><td>1</td><td>1</td><td>505.856</td><td>9.16514</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.904</td><td>4001303</td><td>1104</td><td>RO</td><td>2</td></tr>
-    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>110001</td><td>110028</td><td>1</td><td>0</td><td>48.6099</td><td>0.835667</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.778</td><td>2495228</td><td>1102</td><td>RO</td><td>9</td></tr>
-    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>110001</td><td>351110</td><td>1</td><td>1</td><td>2196.35</td><td>30.8736</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−48.973</td><td>2089327</td><td>3522</td><td>SP</td><td>1</td></tr>
-    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>110002</td><td>110002</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.041</td><td>2494299</td><td>1104</td><td>RO</td><td>59</td></tr>
-    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>110002</td><td>110011</td><td>1</td><td>1</td><td>95.4727</td><td>2.33883</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−62.466</td><td>2808609</td><td>1101</td><td>RO</td><td>2</td></tr>
-    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>110002</td><td>110012</td><td>1</td><td>1</td><td>181.364</td><td>3.735</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.944</td><td>2495279</td><td>1101</td><td>RO</td><td>1</td></tr>
-    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>110002</td><td>110020</td><td>1</td><td>0</td><td>203.582</td><td>3.13858</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.904</td><td>4001303</td><td>1104</td><td>RO</td><td>3</td></tr>
-    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>110002</td><td>110140</td><td>1</td><td>0</td><td>58.2922</td><td>0.905083</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.29</td><td>4003039</td><td>1104</td><td>RO</td><td>1</td></tr>
-    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>110002</td><td>353060</td><td>1</td><td>1</td><td>3002.21</td><td>39.7158</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−46.188</td><td>2080052</td><td>3503</td><td>SP</td><td>3</td></tr>
-    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>110003</td><td>110002</td><td>1</td><td>1</td><td>610.689</td><td>10.3634</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.041</td><td>2494299</td><td>1104</td><td>RO</td><td>1</td></tr>
-    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>110003</td><td>110003</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−60.545</td><td>2808528</td><td>1103</td><td>RO</td><td>31</td></tr>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>110001</td><td>110001</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.996</td><td>2679477</td><td>11005</td><td>RO</td><td>35</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>110001</td><td>110012</td><td>1</td><td>1</td><td>130.77</td><td>2.54781</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.944</td><td>2495279</td><td>11003</td><td>RO</td><td>6</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>110001</td><td>110013</td><td>1</td><td>1</td><td>357.511</td><td>7.13067</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.981</td><td>2808617</td><td>11001</td><td>RO</td><td>1</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>110001</td><td>110018</td><td>1</td><td>1</td><td>114.061</td><td>1.87139</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.193</td><td>2496534</td><td>11002</td><td>RO</td><td>1</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>110001</td><td>110020</td><td>1</td><td>1</td><td>505.856</td><td>9.16514</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.904</td><td>4001303</td><td>11004</td><td>RO</td><td>2</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>110001</td><td>110028</td><td>1</td><td>0</td><td>48.6099</td><td>0.835667</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.778</td><td>2495228</td><td>11005</td><td>RO</td><td>9</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>110001</td><td>351110</td><td>1</td><td>1</td><td>2196.35</td><td>30.8736</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−48.973</td><td>2089327</td><td>35151</td><td>SP</td><td>1</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>110002</td><td>110002</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.041</td><td>2494299</td><td>11001</td><td>RO</td><td>59</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>110002</td><td>110011</td><td>1</td><td>1</td><td>95.4727</td><td>2.33883</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−62.466</td><td>2808609</td><td>11003</td><td>RO</td><td>2</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>110002</td><td>110012</td><td>1</td><td>1</td><td>181.364</td><td>3.735</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.944</td><td>2495279</td><td>11003</td><td>RO</td><td>1</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>110002</td><td>110020</td><td>1</td><td>1</td><td>203.582</td><td>3.13858</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.904</td><td>4001303</td><td>11004</td><td>RO</td><td>3</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>110002</td><td>110140</td><td>1</td><td>0</td><td>58.2922</td><td>0.905083</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.29</td><td>4003039</td><td>11001</td><td>RO</td><td>1</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>110002</td><td>353060</td><td>1</td><td>1</td><td>3002.21</td><td>39.7158</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−46.188</td><td>2080052</td><td>35011</td><td>SP</td><td>3</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>110003</td><td>110002</td><td>1</td><td>1</td><td>610.689</td><td>10.3634</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.041</td><td>2494299</td><td>11001</td><td>RO</td><td>1</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>110003</td><td>110003</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−60.545</td><td>2808528</td><td>11006</td><td>RO</td><td>31</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">123,865</td><td>1</td><td>1</td><td>522205</td><td>522205</td><td>0</td><td>0</td><td>0</td><td>0</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−49.806</td><td>2383691</td><td>5202</td><td>GO</td><td>26</td></tr>
-    <tr><td class="row_index">123,866</td><td>1</td><td>1</td><td>522220</td><td>520080</td><td>1</td><td>0</td><td>92.9837</td><td>1.12764</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−46.492</td><td>2534916</td><td>5206</td><td>GO</td><td>1</td></tr>
-    <tr><td class="row_index">123,867</td><td>1</td><td>1</td><td>522220</td><td>520800</td><td>1</td><td>0</td><td>87.2748</td><td>1.07444</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−47.334</td><td>2534967</td><td>5206</td><td>GO</td><td>26</td></tr>
-    <tr><td class="row_index">123,868</td><td>1</td><td>1</td><td>522230</td><td>520860</td><td>1</td><td>0</td><td>32.5818</td><td>0.52775</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−49.117</td><td>2534584</td><td>5212</td><td>GO</td><td>20</td></tr>
-    <tr><td class="row_index">123,869</td><td>1</td><td>1</td><td>522230</td><td>521970</td><td>1</td><td>0</td><td>203.783</td><td>3.14278</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−49.706</td><td>2535270</td><td>5212</td><td>GO</td><td>1</td></tr>
+    <tr><td class="row_index">123,865</td><td>1</td><td>1</td><td>522205</td><td>522205</td><td>0</td><td>0</td><td>0</td><td>0</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−49.806</td><td>2383691</td><td>52002</td><td>GO</td><td>26</td></tr>
+    <tr><td class="row_index">123,866</td><td>1</td><td>1</td><td>522220</td><td>520080</td><td>1</td><td>1</td><td>92.9837</td><td>1.12764</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−46.492</td><td>2534916</td><td>52007</td><td>GO</td><td>1</td></tr>
+    <tr><td class="row_index">123,867</td><td>1</td><td>1</td><td>522220</td><td>520800</td><td>1</td><td>0</td><td>87.2748</td><td>1.07444</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−47.334</td><td>2534967</td><td>52003</td><td>GO</td><td>26</td></tr>
+    <tr><td class="row_index">123,868</td><td>1</td><td>1</td><td>522230</td><td>520860</td><td>1</td><td>0</td><td>32.5818</td><td>0.52775</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−49.117</td><td>2534584</td><td>52018</td><td>GO</td><td>20</td></tr>
+    <tr><td class="row_index">123,869</td><td>1</td><td>1</td><td>522230</td><td>521970</td><td>1</td><td>1</td><td>203.783</td><td>3.14278</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−49.706</td><td>2535270</td><td>52013</td><td>GO</td><td>1</td></tr>
   </tbody>
   </table>
   <div class="footer">
@@ -1117,27 +1121,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>110001</td><td>110001</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.996</td><td>2679477</td><td>1102</td><td>RO</td><td>35</td></tr>
-    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>110001</td><td>110012</td><td>1</td><td>1</td><td>130.77</td><td>2.54781</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.944</td><td>2495279</td><td>1101</td><td>RO</td><td>6</td></tr>
-    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>110001</td><td>110013</td><td>1</td><td>1</td><td>357.511</td><td>7.13067</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.981</td><td>2808617</td><td>1104</td><td>RO</td><td>1</td></tr>
-    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>110001</td><td>110018</td><td>1</td><td>0</td><td>114.061</td><td>1.87139</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.193</td><td>2496534</td><td>1102</td><td>RO</td><td>1</td></tr>
-    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>110001</td><td>110020</td><td>1</td><td>1</td><td>505.856</td><td>9.16514</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.904</td><td>4001303</td><td>1104</td><td>RO</td><td>2</td></tr>
-    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>110001</td><td>110028</td><td>1</td><td>0</td><td>48.6099</td><td>0.835667</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.778</td><td>2495228</td><td>1102</td><td>RO</td><td>9</td></tr>
-    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>110001</td><td>351110</td><td>1</td><td>1</td><td>2196.35</td><td>30.8736</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−48.973</td><td>2089327</td><td>3522</td><td>SP</td><td>1</td></tr>
-    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>110002</td><td>110002</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.041</td><td>2494299</td><td>1104</td><td>RO</td><td>59</td></tr>
-    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>110002</td><td>110011</td><td>1</td><td>1</td><td>95.4727</td><td>2.33883</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−62.466</td><td>2808609</td><td>1101</td><td>RO</td><td>2</td></tr>
-    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>110002</td><td>110012</td><td>1</td><td>1</td><td>181.364</td><td>3.735</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.944</td><td>2495279</td><td>1101</td><td>RO</td><td>1</td></tr>
-    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>110002</td><td>110020</td><td>1</td><td>0</td><td>203.582</td><td>3.13858</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.904</td><td>4001303</td><td>1104</td><td>RO</td><td>3</td></tr>
-    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>110002</td><td>110140</td><td>1</td><td>0</td><td>58.2922</td><td>0.905083</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.29</td><td>4003039</td><td>1104</td><td>RO</td><td>1</td></tr>
-    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>110002</td><td>353060</td><td>1</td><td>1</td><td>3002.21</td><td>39.7158</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−46.188</td><td>2080052</td><td>3503</td><td>SP</td><td>3</td></tr>
-    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>110003</td><td>110002</td><td>1</td><td>1</td><td>610.689</td><td>10.3634</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.041</td><td>2494299</td><td>1104</td><td>RO</td><td>1</td></tr>
-    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>110003</td><td>110003</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−60.545</td><td>2808528</td><td>1103</td><td>RO</td><td>31</td></tr>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>110001</td><td>110001</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.996</td><td>2679477</td><td>11005</td><td>RO</td><td>35</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>110001</td><td>110012</td><td>1</td><td>1</td><td>130.77</td><td>2.54781</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.944</td><td>2495279</td><td>11003</td><td>RO</td><td>6</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>110001</td><td>110013</td><td>1</td><td>1</td><td>357.511</td><td>7.13067</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.981</td><td>2808617</td><td>11001</td><td>RO</td><td>1</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>110001</td><td>110018</td><td>1</td><td>1</td><td>114.061</td><td>1.87139</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.193</td><td>2496534</td><td>11002</td><td>RO</td><td>1</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>110001</td><td>110020</td><td>1</td><td>1</td><td>505.856</td><td>9.16514</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.904</td><td>4001303</td><td>11004</td><td>RO</td><td>2</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>110001</td><td>110028</td><td>1</td><td>0</td><td>48.6099</td><td>0.835667</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.778</td><td>2495228</td><td>11005</td><td>RO</td><td>9</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>110001</td><td>351110</td><td>1</td><td>1</td><td>2196.35</td><td>30.8736</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−48.973</td><td>2089327</td><td>35151</td><td>SP</td><td>1</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>110002</td><td>110002</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.041</td><td>2494299</td><td>11001</td><td>RO</td><td>59</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>110002</td><td>110011</td><td>1</td><td>1</td><td>95.4727</td><td>2.33883</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−62.466</td><td>2808609</td><td>11003</td><td>RO</td><td>2</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>110002</td><td>110012</td><td>1</td><td>1</td><td>181.364</td><td>3.735</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−61.944</td><td>2495279</td><td>11003</td><td>RO</td><td>1</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>110002</td><td>110020</td><td>1</td><td>1</td><td>203.582</td><td>3.13858</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.904</td><td>4001303</td><td>11004</td><td>RO</td><td>3</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>110002</td><td>110140</td><td>1</td><td>0</td><td>58.2922</td><td>0.905083</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.29</td><td>4003039</td><td>11001</td><td>RO</td><td>1</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>110002</td><td>353060</td><td>1</td><td>1</td><td>3002.21</td><td>39.7158</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−46.188</td><td>2080052</td><td>35011</td><td>SP</td><td>3</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>110003</td><td>110002</td><td>1</td><td>1</td><td>610.689</td><td>10.3634</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−63.041</td><td>2494299</td><td>11001</td><td>RO</td><td>1</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>110003</td><td>110003</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−60.545</td><td>2808528</td><td>11006</td><td>RO</td><td>31</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">123,865</td><td>1</td><td>1</td><td>522205</td><td>522205</td><td>0</td><td>0</td><td>0</td><td>0</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−49.806</td><td>2383691</td><td>5202</td><td>GO</td><td>26</td></tr>
-    <tr><td class="row_index">123,866</td><td>1</td><td>1</td><td>522220</td><td>520080</td><td>1</td><td>0</td><td>92.9837</td><td>1.12764</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−46.492</td><td>2534916</td><td>5206</td><td>GO</td><td>1</td></tr>
-    <tr><td class="row_index">123,867</td><td>1</td><td>1</td><td>522220</td><td>520800</td><td>1</td><td>0</td><td>87.2748</td><td>1.07444</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−47.334</td><td>2534967</td><td>5206</td><td>GO</td><td>26</td></tr>
-    <tr><td class="row_index">123,868</td><td>1</td><td>1</td><td>522230</td><td>520860</td><td>1</td><td>0</td><td>32.5818</td><td>0.52775</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−49.117</td><td>2534584</td><td>5212</td><td>GO</td><td>20</td></tr>
-    <tr><td class="row_index">123,869</td><td>1</td><td>1</td><td>522230</td><td>521970</td><td>1</td><td>0</td><td>203.783</td><td>3.14278</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−49.706</td><td>2535270</td><td>5212</td><td>GO</td><td>1</td></tr>
+    <tr><td class="row_index">123,865</td><td>1</td><td>1</td><td>522205</td><td>522205</td><td>0</td><td>0</td><td>0</td><td>0</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−49.806</td><td>2383691</td><td>52002</td><td>GO</td><td>26</td></tr>
+    <tr><td class="row_index">123,866</td><td>1</td><td>1</td><td>522220</td><td>520080</td><td>1</td><td>1</td><td>92.9837</td><td>1.12764</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−46.492</td><td>2534916</td><td>52007</td><td>GO</td><td>1</td></tr>
+    <tr><td class="row_index">123,867</td><td>1</td><td>1</td><td>522220</td><td>520800</td><td>1</td><td>0</td><td>87.2748</td><td>1.07444</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−47.334</td><td>2534967</td><td>52003</td><td>GO</td><td>26</td></tr>
+    <tr><td class="row_index">123,868</td><td>1</td><td>1</td><td>522230</td><td>520860</td><td>1</td><td>0</td><td>32.5818</td><td>0.52775</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−49.117</td><td>2534584</td><td>52018</td><td>GO</td><td>20</td></tr>
+    <tr><td class="row_index">123,869</td><td>1</td><td>1</td><td>522230</td><td>521970</td><td>1</td><td>1</td><td>203.783</td><td>3.14278</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−49.706</td><td>2535270</td><td>52013</td><td>GO</td><td>1</td></tr>
   </tbody>
   </table>
   <div class="footer">
@@ -1170,27 +1174,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>110001</td><td>110001</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−11.929</td><td>−61.996</td><td>1102</td><td>RO</td><td>35</td></tr>
-    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>110001</td><td>110012</td><td>1</td><td>1</td><td>130.77</td><td>2.54781</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−10.882</td><td>−61.944</td><td>1101</td><td>RO</td><td>6</td></tr>
-    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>110001</td><td>110013</td><td>1</td><td>1</td><td>357.511</td><td>7.13067</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−9.444</td><td>−61.981</td><td>1104</td><td>RO</td><td>1</td></tr>
-    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>110001</td><td>110018</td><td>1</td><td>0</td><td>114.061</td><td>1.87139</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−11.673</td><td>−61.193</td><td>1102</td><td>RO</td><td>1</td></tr>
-    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>110001</td><td>110020</td><td>1</td><td>1</td><td>505.856</td><td>9.16514</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−8.762</td><td>−63.904</td><td>1104</td><td>RO</td><td>2</td></tr>
-    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>110001</td><td>110028</td><td>1</td><td>0</td><td>48.6099</td><td>0.835667</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−11.733</td><td>−61.778</td><td>1102</td><td>RO</td><td>9</td></tr>
-    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>110001</td><td>351110</td><td>1</td><td>1</td><td>2196.35</td><td>30.8736</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−21.138</td><td>−48.973</td><td>3522</td><td>SP</td><td>1</td></tr>
-    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>110002</td><td>110002</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−9.913</td><td>−63.041</td><td>1104</td><td>RO</td><td>59</td></tr>
-    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>110002</td><td>110011</td><td>1</td><td>1</td><td>95.4727</td><td>2.33883</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−10.439</td><td>−62.466</td><td>1101</td><td>RO</td><td>2</td></tr>
-    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>110002</td><td>110012</td><td>1</td><td>1</td><td>181.364</td><td>3.735</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−10.882</td><td>−61.944</td><td>1101</td><td>RO</td><td>1</td></tr>
-    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>110002</td><td>110020</td><td>1</td><td>0</td><td>203.582</td><td>3.13858</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−8.762</td><td>−63.904</td><td>1104</td><td>RO</td><td>3</td></tr>
-    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>110002</td><td>110140</td><td>1</td><td>0</td><td>58.2922</td><td>0.905083</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−10.246</td><td>−63.29</td><td>1104</td><td>RO</td><td>1</td></tr>
-    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>110002</td><td>353060</td><td>1</td><td>1</td><td>3002.21</td><td>39.7158</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−23.523</td><td>−46.188</td><td>3503</td><td>SP</td><td>3</td></tr>
-    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>110003</td><td>110002</td><td>1</td><td>1</td><td>610.689</td><td>10.3634</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−9.913</td><td>−63.041</td><td>1104</td><td>RO</td><td>1</td></tr>
-    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>110003</td><td>110003</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−13.492</td><td>−60.545</td><td>1103</td><td>RO</td><td>31</td></tr>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>110001</td><td>110001</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−11.929</td><td>−61.996</td><td>11005</td><td>RO</td><td>35</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>110001</td><td>110012</td><td>1</td><td>1</td><td>130.77</td><td>2.54781</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−10.882</td><td>−61.944</td><td>11003</td><td>RO</td><td>6</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>110001</td><td>110013</td><td>1</td><td>1</td><td>357.511</td><td>7.13067</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−9.444</td><td>−61.981</td><td>11001</td><td>RO</td><td>1</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>110001</td><td>110018</td><td>1</td><td>1</td><td>114.061</td><td>1.87139</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−11.673</td><td>−61.193</td><td>11002</td><td>RO</td><td>1</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>110001</td><td>110020</td><td>1</td><td>1</td><td>505.856</td><td>9.16514</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−8.762</td><td>−63.904</td><td>11004</td><td>RO</td><td>2</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>110001</td><td>110028</td><td>1</td><td>0</td><td>48.6099</td><td>0.835667</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−11.733</td><td>−61.778</td><td>11005</td><td>RO</td><td>9</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>110001</td><td>351110</td><td>1</td><td>1</td><td>2196.35</td><td>30.8736</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−21.138</td><td>−48.973</td><td>35151</td><td>SP</td><td>1</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>110002</td><td>110002</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−9.913</td><td>−63.041</td><td>11001</td><td>RO</td><td>59</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>110002</td><td>110011</td><td>1</td><td>1</td><td>95.4727</td><td>2.33883</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−10.439</td><td>−62.466</td><td>11003</td><td>RO</td><td>2</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>110002</td><td>110012</td><td>1</td><td>1</td><td>181.364</td><td>3.735</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−10.882</td><td>−61.944</td><td>11003</td><td>RO</td><td>1</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>110002</td><td>110020</td><td>1</td><td>1</td><td>203.582</td><td>3.13858</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−8.762</td><td>−63.904</td><td>11004</td><td>RO</td><td>3</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>110002</td><td>110140</td><td>1</td><td>0</td><td>58.2922</td><td>0.905083</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−10.246</td><td>−63.29</td><td>11001</td><td>RO</td><td>1</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>110002</td><td>353060</td><td>1</td><td>1</td><td>3002.21</td><td>39.7158</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−23.523</td><td>−46.188</td><td>35011</td><td>SP</td><td>3</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>110003</td><td>110002</td><td>1</td><td>1</td><td>610.689</td><td>10.3634</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−9.913</td><td>−63.041</td><td>11001</td><td>RO</td><td>1</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>110003</td><td>110003</td><td>0</td><td>0</td><td>0</td><td>0</td><td>NT</td><td>RO</td><td class="vellipsis">…</td><td>−13.492</td><td>−60.545</td><td>11006</td><td>RO</td><td>31</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">97,660</td><td>1</td><td>1</td><td>522205</td><td>522205</td><td>0</td><td>0</td><td>0</td><td>0</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−17.735</td><td>−49.806</td><td>5202</td><td>GO</td><td>26</td></tr>
-    <tr><td class="row_index">97,661</td><td>1</td><td>1</td><td>522220</td><td>520080</td><td>1</td><td>0</td><td>92.9837</td><td>1.12764</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−14.481</td><td>−46.492</td><td>5206</td><td>GO</td><td>1</td></tr>
-    <tr><td class="row_index">97,662</td><td>1</td><td>1</td><td>522220</td><td>520800</td><td>1</td><td>0</td><td>87.2748</td><td>1.07444</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−15.537</td><td>−47.334</td><td>5206</td><td>GO</td><td>26</td></tr>
-    <tr><td class="row_index">97,663</td><td>1</td><td>1</td><td>522230</td><td>520860</td><td>1</td><td>0</td><td>32.5818</td><td>0.52775</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−15.317</td><td>−49.117</td><td>5212</td><td>GO</td><td>20</td></tr>
-    <tr><td class="row_index">97,664</td><td>1</td><td>1</td><td>522230</td><td>521970</td><td>1</td><td>0</td><td>203.783</td><td>3.14278</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−14.438</td><td>−49.706</td><td>5212</td><td>GO</td><td>1</td></tr>
+    <tr><td class="row_index">97,660</td><td>1</td><td>1</td><td>522205</td><td>522205</td><td>0</td><td>0</td><td>0</td><td>0</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−17.735</td><td>−49.806</td><td>52002</td><td>GO</td><td>26</td></tr>
+    <tr><td class="row_index">97,661</td><td>1</td><td>1</td><td>522220</td><td>520080</td><td>1</td><td>1</td><td>92.9837</td><td>1.12764</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−14.481</td><td>−46.492</td><td>52007</td><td>GO</td><td>1</td></tr>
+    <tr><td class="row_index">97,662</td><td>1</td><td>1</td><td>522220</td><td>520800</td><td>1</td><td>0</td><td>87.2748</td><td>1.07444</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−15.537</td><td>−47.334</td><td>52003</td><td>GO</td><td>26</td></tr>
+    <tr><td class="row_index">97,663</td><td>1</td><td>1</td><td>522230</td><td>520860</td><td>1</td><td>0</td><td>32.5818</td><td>0.52775</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−15.317</td><td>−49.117</td><td>52018</td><td>GO</td><td>20</td></tr>
+    <tr><td class="row_index">97,664</td><td>1</td><td>1</td><td>522230</td><td>521970</td><td>1</td><td>1</td><td>203.783</td><td>3.14278</td><td>CO</td><td>GO</td><td class="vellipsis">…</td><td>−14.438</td><td>−49.706</td><td>52013</td><td>GO</td><td>1</td></tr>
   </tbody>
   </table>
   <div class="footer">
@@ -1199,7 +1203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="38">
+<div class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>output_deslc_brasil <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'deslocamentos_brasil.csv.gzip'</span>) <span class="co"># xlsx</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df_deslc_brasil.to_csv(output_deslc_brasil)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(output_deslc_brasil).to_excel(output_deslc_brasil.replace(<span class="st">'csv.gzip'</span>, <span class="st">'xlsx'</span>), index<span class="op">=</span><span class="va">False</span>)</span>
@@ -1210,10 +1214,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="rj">RJ</h2>
 <section id="com-cnes" class="level3">
 <h3 class="anchored" data-anchor-id="com-cnes">Com CNES</h3>
-<div class="cell" data-execution_count="32">
+<div class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df_deslc_rj_cnes <span class="op">=</span> df_deslc[(f.uf <span class="op">==</span> <span class="st">'RJ'</span>), :]</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df_deslc_rj_cnes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div class="cell-output cell-output-display" data-execution_count="27">
 
 <div class="datatable">
   <table class="frame">
@@ -1222,27 +1226,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>330010</td><td>320245</td><td>1</td><td>1</td><td>614.613</td><td>7.66281</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−41.511</td><td>2448203</td><td>3202</td><td>ES</td><td>2</td></tr>
-    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>330010</td><td>330010</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−44.318</td><td>2280868</td><td>3301</td><td>RJ</td><td>57</td></tr>
-    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>330010</td><td>330010</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−44.318</td><td>2281384</td><td>3301</td><td>RJ</td><td>48</td></tr>
-    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>330010</td><td>351840</td><td>1</td><td>1</td><td>222.988</td><td>3.47778</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−45.193</td><td>2081512</td><td>3524</td><td>SP</td><td>1</td></tr>
-    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>330020</td><td>330020</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−42.343</td><td>2273098</td><td>3302</td><td>RJ</td><td>58</td></tr>
-    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>330020</td><td>330070</td><td>1</td><td>0</td><td>43.1787</td><td>0.650056</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−42.019</td><td>5903394</td><td>3302</td><td>RJ</td><td>3</td></tr>
-    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>330020</td><td>330455</td><td>1</td><td>1</td><td>118.052</td><td>1.55372</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−43.208</td><td>2270390</td><td>3305</td><td>RJ</td><td>1</td></tr>
-    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>330020</td><td>330455</td><td>1</td><td>1</td><td>118.052</td><td>1.55372</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−43.208</td><td>2273438</td><td>3305</td><td>RJ</td><td>1</td></tr>
-    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>330020</td><td>330520</td><td>1</td><td>0</td><td>31.0431</td><td>0.417139</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−42.103</td><td>2280477</td><td>3302</td><td>RJ</td><td>2</td></tr>
-    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>330020</td><td>330550</td><td>1</td><td>0</td><td>22.8379</td><td>0.348</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−42.51</td><td>2274299</td><td>3302</td><td>RJ</td><td>1</td></tr>
-    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>330022</td><td>330600</td><td>1</td><td>0</td><td>25.1655</td><td>0.377083</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−43.209</td><td>2294923</td><td>3303</td><td>RJ</td><td>32</td></tr>
-    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>330023</td><td>330023</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−41.882</td><td>6200702</td><td>3302</td><td>RJ</td><td>23</td></tr>
-    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>330023</td><td>330070</td><td>1</td><td>0</td><td>26.375</td><td>0.542528</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−42.019</td><td>5903394</td><td>3302</td><td>RJ</td><td>2</td></tr>
-    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>330023</td><td>330520</td><td>1</td><td>0</td><td>32.2808</td><td>0.655444</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−42.103</td><td>2280477</td><td>3302</td><td>RJ</td><td>2</td></tr>
-    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>330025</td><td>330020</td><td>1</td><td>0</td><td>54.1154</td><td>0.823222</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−42.343</td><td>2273098</td><td>3302</td><td>RJ</td><td>1</td></tr>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>330010</td><td>320245</td><td>1</td><td>1</td><td>614.613</td><td>7.66281</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−41.511</td><td>2448203</td><td>32002</td><td>ES</td><td>2</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>330010</td><td>330010</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−44.318</td><td>2280868</td><td>33001</td><td>RJ</td><td>57</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>330010</td><td>330010</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−44.318</td><td>2281384</td><td>33001</td><td>RJ</td><td>48</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>330010</td><td>351840</td><td>1</td><td>1</td><td>222.988</td><td>3.47778</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−45.193</td><td>2081512</td><td>35172</td><td>SP</td><td>1</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>330020</td><td>330020</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−42.343</td><td>2273098</td><td>33002</td><td>RJ</td><td>58</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>330020</td><td>330070</td><td>1</td><td>0</td><td>43.1787</td><td>0.650056</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−42.019</td><td>5903394</td><td>33002</td><td>RJ</td><td>3</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>330020</td><td>330455</td><td>1</td><td>1</td><td>118.052</td><td>1.55372</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−43.208</td><td>2270390</td><td>33005</td><td>RJ</td><td>1</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>330020</td><td>330455</td><td>1</td><td>1</td><td>118.052</td><td>1.55372</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−43.208</td><td>2273438</td><td>33005</td><td>RJ</td><td>1</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>330020</td><td>330520</td><td>1</td><td>0</td><td>31.0431</td><td>0.417139</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−42.103</td><td>2280477</td><td>33002</td><td>RJ</td><td>2</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>330020</td><td>330550</td><td>1</td><td>0</td><td>22.8379</td><td>0.348</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−42.51</td><td>2274299</td><td>33002</td><td>RJ</td><td>1</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>330022</td><td>330600</td><td>1</td><td>0</td><td>25.1655</td><td>0.377083</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−43.209</td><td>2294923</td><td>33003</td><td>RJ</td><td>32</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>330023</td><td>330023</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−41.882</td><td>6200702</td><td>33002</td><td>RJ</td><td>23</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>330023</td><td>330070</td><td>1</td><td>0</td><td>26.375</td><td>0.542528</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−42.019</td><td>5903394</td><td>33002</td><td>RJ</td><td>2</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>330023</td><td>330520</td><td>1</td><td>0</td><td>32.2808</td><td>0.655444</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−42.103</td><td>2280477</td><td>33002</td><td>RJ</td><td>2</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>330025</td><td>330020</td><td>1</td><td>0</td><td>54.1154</td><td>0.823222</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−42.343</td><td>2273098</td><td>33002</td><td>RJ</td><td>1</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">3458</td><td>1</td><td>1</td><td>330630</td><td>330395</td><td>1</td><td>0</td><td>15.8369</td><td>0.40825</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−44.001</td><td>2271141</td><td>3304</td><td>RJ</td><td>3</td></tr>
-    <tr><td class="row_index">3459</td><td>1</td><td>1</td><td>330630</td><td>330411</td><td>1</td><td>0</td><td>35.1378</td><td>0.636833</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−44.29</td><td>5307864</td><td>3304</td><td>RJ</td><td>1</td></tr>
-    <tr><td class="row_index">3460</td><td>1</td><td>1</td><td>330630</td><td>330455</td><td>1</td><td>1</td><td>127.433</td><td>1.93703</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−43.208</td><td>7027397</td><td>3305</td><td>RJ</td><td>1</td></tr>
-    <tr><td class="row_index">3461</td><td>1</td><td>1</td><td>330630</td><td>330490</td><td>1</td><td>1</td><td>146.808</td><td>2.26831</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−43.054</td><td>2297590</td><td>3305</td><td>RJ</td><td>1</td></tr>
-    <tr><td class="row_index">3462</td><td>1</td><td>1</td><td>330630</td><td>330630</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−44.104</td><td>25135</td><td>3304</td><td>RJ</td><td>63</td></tr>
+    <tr><td class="row_index">3458</td><td>1</td><td>1</td><td>330630</td><td>330395</td><td>1</td><td>0</td><td>15.8369</td><td>0.40825</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−44.001</td><td>2271141</td><td>33004</td><td>RJ</td><td>3</td></tr>
+    <tr><td class="row_index">3459</td><td>1</td><td>1</td><td>330630</td><td>330411</td><td>1</td><td>0</td><td>35.1378</td><td>0.636833</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−44.29</td><td>5307864</td><td>33004</td><td>RJ</td><td>1</td></tr>
+    <tr><td class="row_index">3460</td><td>1</td><td>1</td><td>330630</td><td>330455</td><td>1</td><td>1</td><td>127.433</td><td>1.93703</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−43.208</td><td>7027397</td><td>33005</td><td>RJ</td><td>1</td></tr>
+    <tr><td class="row_index">3461</td><td>1</td><td>1</td><td>330630</td><td>330490</td><td>1</td><td>1</td><td>146.808</td><td>2.26831</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−43.054</td><td>2297590</td><td>33006</td><td>RJ</td><td>1</td></tr>
+    <tr><td class="row_index">3462</td><td>1</td><td>1</td><td>330630</td><td>330630</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−44.104</td><td>25135</td><td>33004</td><td>RJ</td><td>63</td></tr>
   </tbody>
   </table>
   <div class="footer">
@@ -1251,7 +1255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="39">
+<div class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>output_rj_cnes <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'deslocamentos_rj_cnes.csv.gzip'</span>) <span class="co"># xlsx</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df_deslc_rj_cnes.to_csv(output_rj_cnes)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(output_rj_cnes).to_excel(output_rj_cnes.replace(<span class="st">'csv.gzip'</span>, <span class="st">'xlsx'</span>), index<span class="op">=</span><span class="va">False</span>)</span>
@@ -1260,11 +1264,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="sem-cnes" class="level3">
 <h3 class="anchored" data-anchor-id="sem-cnes">Sem CNES</h3>
-<div class="cell" data-execution_count="36">
+<div class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df_deslc_rj <span class="op">=</span> df_deslc_rj_cnes[:, f[:].remove(f.hosp_cnes)]</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df_deslc_rj <span class="op">=</span> df_deslc_rj[:, dt.<span class="bu">sum</span>(f.count), dt.by(df_deslc_rj.names[:<span class="op">-</span><span class="dv">1</span>])]</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>df_deslc_rj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="36">
+<div class="cell-output cell-output-display" data-execution_count="29">
 
 <div class="datatable">
   <table class="frame">
@@ -1273,27 +1277,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>330010</td><td>320245</td><td>1</td><td>1</td><td>614.613</td><td>7.66281</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−20.234</td><td>−41.511</td><td>3202</td><td>ES</td><td>2</td></tr>
-    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>330010</td><td>330010</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−23.007</td><td>−44.318</td><td>3301</td><td>RJ</td><td>105</td></tr>
-    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>330010</td><td>351840</td><td>1</td><td>1</td><td>222.988</td><td>3.47778</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.816</td><td>−45.193</td><td>3524</td><td>SP</td><td>1</td></tr>
-    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>330020</td><td>330020</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.873</td><td>−42.343</td><td>3302</td><td>RJ</td><td>58</td></tr>
-    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>330020</td><td>330070</td><td>1</td><td>0</td><td>43.1787</td><td>0.650056</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.879</td><td>−42.019</td><td>3302</td><td>RJ</td><td>3</td></tr>
-    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>330020</td><td>330455</td><td>1</td><td>1</td><td>118.052</td><td>1.55372</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.903</td><td>−43.208</td><td>3305</td><td>RJ</td><td>2</td></tr>
-    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>330020</td><td>330520</td><td>1</td><td>0</td><td>31.0431</td><td>0.417139</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.839</td><td>−42.103</td><td>3302</td><td>RJ</td><td>2</td></tr>
-    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>330020</td><td>330550</td><td>1</td><td>0</td><td>22.8379</td><td>0.348</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.92</td><td>−42.51</td><td>3302</td><td>RJ</td><td>1</td></tr>
-    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>330022</td><td>330600</td><td>1</td><td>0</td><td>25.1655</td><td>0.377083</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.117</td><td>−43.209</td><td>3303</td><td>RJ</td><td>32</td></tr>
-    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>330023</td><td>330023</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.747</td><td>−41.882</td><td>3302</td><td>RJ</td><td>23</td></tr>
-    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>330023</td><td>330070</td><td>1</td><td>0</td><td>26.375</td><td>0.542528</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.879</td><td>−42.019</td><td>3302</td><td>RJ</td><td>2</td></tr>
-    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>330023</td><td>330520</td><td>1</td><td>0</td><td>32.2808</td><td>0.655444</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.839</td><td>−42.103</td><td>3302</td><td>RJ</td><td>2</td></tr>
-    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>330025</td><td>330020</td><td>1</td><td>0</td><td>54.1154</td><td>0.823222</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.873</td><td>−42.343</td><td>3302</td><td>RJ</td><td>1</td></tr>
-    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>330025</td><td>330025</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.966</td><td>−42.028</td><td>3302</td><td>RJ</td><td>25</td></tr>
-    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>330025</td><td>330070</td><td>1</td><td>0</td><td>14.3576</td><td>0.255528</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.879</td><td>−42.019</td><td>3302</td><td>RJ</td><td>20</td></tr>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>330010</td><td>320245</td><td>1</td><td>1</td><td>614.613</td><td>7.66281</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−20.234</td><td>−41.511</td><td>32002</td><td>ES</td><td>2</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>330010</td><td>330010</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−23.007</td><td>−44.318</td><td>33001</td><td>RJ</td><td>105</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>330010</td><td>351840</td><td>1</td><td>1</td><td>222.988</td><td>3.47778</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.816</td><td>−45.193</td><td>35172</td><td>SP</td><td>1</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>330020</td><td>330020</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.873</td><td>−42.343</td><td>33002</td><td>RJ</td><td>58</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>330020</td><td>330070</td><td>1</td><td>0</td><td>43.1787</td><td>0.650056</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.879</td><td>−42.019</td><td>33002</td><td>RJ</td><td>3</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>330020</td><td>330455</td><td>1</td><td>1</td><td>118.052</td><td>1.55372</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.903</td><td>−43.208</td><td>33005</td><td>RJ</td><td>2</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>330020</td><td>330520</td><td>1</td><td>0</td><td>31.0431</td><td>0.417139</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.839</td><td>−42.103</td><td>33002</td><td>RJ</td><td>2</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>330020</td><td>330550</td><td>1</td><td>0</td><td>22.8379</td><td>0.348</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.92</td><td>−42.51</td><td>33002</td><td>RJ</td><td>1</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>330022</td><td>330600</td><td>1</td><td>0</td><td>25.1655</td><td>0.377083</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.117</td><td>−43.209</td><td>33003</td><td>RJ</td><td>32</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>330023</td><td>330023</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.747</td><td>−41.882</td><td>33002</td><td>RJ</td><td>23</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>330023</td><td>330070</td><td>1</td><td>0</td><td>26.375</td><td>0.542528</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.879</td><td>−42.019</td><td>33002</td><td>RJ</td><td>2</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>330023</td><td>330520</td><td>1</td><td>0</td><td>32.2808</td><td>0.655444</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.839</td><td>−42.103</td><td>33002</td><td>RJ</td><td>2</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>330025</td><td>330020</td><td>1</td><td>0</td><td>54.1154</td><td>0.823222</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.873</td><td>−42.343</td><td>33002</td><td>RJ</td><td>1</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>330025</td><td>330025</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.966</td><td>−42.028</td><td>33002</td><td>RJ</td><td>25</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>330025</td><td>330070</td><td>1</td><td>0</td><td>14.3576</td><td>0.255528</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.879</td><td>−42.019</td><td>33002</td><td>RJ</td><td>20</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">2480</td><td>1</td><td>1</td><td>330630</td><td>330395</td><td>1</td><td>0</td><td>15.8369</td><td>0.40825</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.513</td><td>−44.001</td><td>3304</td><td>RJ</td><td>3</td></tr>
-    <tr><td class="row_index">2481</td><td>1</td><td>1</td><td>330630</td><td>330411</td><td>1</td><td>0</td><td>35.1378</td><td>0.636833</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.42</td><td>−44.29</td><td>3304</td><td>RJ</td><td>1</td></tr>
-    <tr><td class="row_index">2482</td><td>1</td><td>1</td><td>330630</td><td>330455</td><td>1</td><td>1</td><td>127.433</td><td>1.93703</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.903</td><td>−43.208</td><td>3305</td><td>RJ</td><td>1</td></tr>
-    <tr><td class="row_index">2483</td><td>1</td><td>1</td><td>330630</td><td>330490</td><td>1</td><td>1</td><td>146.808</td><td>2.26831</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.827</td><td>−43.054</td><td>3305</td><td>RJ</td><td>1</td></tr>
-    <tr><td class="row_index">2484</td><td>1</td><td>1</td><td>330630</td><td>330630</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.523</td><td>−44.104</td><td>3304</td><td>RJ</td><td>63</td></tr>
+    <tr><td class="row_index">2480</td><td>1</td><td>1</td><td>330630</td><td>330395</td><td>1</td><td>0</td><td>15.8369</td><td>0.40825</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.513</td><td>−44.001</td><td>33004</td><td>RJ</td><td>3</td></tr>
+    <tr><td class="row_index">2481</td><td>1</td><td>1</td><td>330630</td><td>330411</td><td>1</td><td>0</td><td>35.1378</td><td>0.636833</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.42</td><td>−44.29</td><td>33004</td><td>RJ</td><td>1</td></tr>
+    <tr><td class="row_index">2482</td><td>1</td><td>1</td><td>330630</td><td>330455</td><td>1</td><td>1</td><td>127.433</td><td>1.93703</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.903</td><td>−43.208</td><td>33005</td><td>RJ</td><td>1</td></tr>
+    <tr><td class="row_index">2483</td><td>1</td><td>1</td><td>330630</td><td>330490</td><td>1</td><td>1</td><td>146.808</td><td>2.26831</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.827</td><td>−43.054</td><td>33006</td><td>RJ</td><td>1</td></tr>
+    <tr><td class="row_index">2484</td><td>1</td><td>1</td><td>330630</td><td>330630</td><td>0</td><td>0</td><td>0</td><td>0</td><td>SD</td><td>RJ</td><td class="vellipsis">…</td><td>−22.523</td><td>−44.104</td><td>33004</td><td>RJ</td><td>63</td></tr>
   </tbody>
   </table>
   <div class="footer">
@@ -1302,7 +1306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="40">
+<div class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>output_rj <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'deslocamentos_rj.csv.gzip'</span>) <span class="co"># xlsx</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df_deslc_rj.to_csv(output_rj)</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(output_rj).to_excel(output_rj.replace(<span class="st">'csv.gzip'</span>, <span class="st">'xlsx'</span>), index<span class="op">=</span><span class="va">False</span>)</span>
