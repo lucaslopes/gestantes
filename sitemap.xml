@@ -2,38 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lucaslopes.github.io/gestantes/README.html</loc>
-    <lastmod>2022-10-19T04:28:34.270Z</lastmod>
+    <lastmod>2022-10-20T00:03:58.551Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/database_dists.html</loc>
-    <lastmod>2022-10-19T04:28:34.747Z</lastmod>
+    <lastmod>2022-10-20T00:03:59.187Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucaslopes.github.io/gestantes/sections/database_indicadores.html</loc>
+    <lastmod>2022-10-20T00:03:59.707Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucaslopes.github.io/gestantes/sections/database_localidades.html</loc>
+    <lastmod>2022-10-20T00:04:00.098Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/database_sih.html</loc>
-    <lastmod>2022-10-19T04:28:35.237Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lucaslopes.github.io/gestantes/sections/database_socioecon.html</loc>
-    <lastmod>2022-10-19T04:28:35.818Z</lastmod>
+    <lastmod>2022-10-20T00:04:00.579Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/deslc_uf.html</loc>
-    <lastmod>2022-10-19T04:28:36.225Z</lastmod>
+    <lastmod>2022-10-20T00:04:00.983Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/table_deslc.html</loc>
-    <lastmod>2022-10-19T04:28:36.834Z</lastmod>
+    <lastmod>2022-10-20T00:04:01.574Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/table_dists.html</loc>
-    <lastmod>2022-10-19T04:28:37.377Z</lastmod>
+    <lastmod>2022-10-20T00:04:01.960Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/table_muns.html</loc>
-    <lastmod>2022-10-19T04:28:37.900Z</lastmod>
+    <lastmod>2022-10-20T00:04:02.427Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/table_procs.html</loc>
-    <lastmod>2022-10-19T04:28:38.315Z</lastmod>
+    <lastmod>2022-10-20T00:04:02.805Z</lastmod>
   </url>
 </urlset>
