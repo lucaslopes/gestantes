@@ -17,7 +17,8 @@ website:
       - section: 'Coleta de Dados'
         contents:
           - sections/database_sih.ipynb
-          - sections/database_socioecon.ipynb
+          - sections/database_localidades.ipynb
+          - sections/database_indicadores.ipynb
           - sections/database_dists.ipynb
       - section: 'Tabelas Criadas'
         contents:
