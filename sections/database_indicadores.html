@@ -182,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/database_localidades.html" class="sidebar-item-text sidebar-link">Localidades</a>
+  <a href="../sections/database_municipios.html" class="sidebar-item-text sidebar-link">Municípios</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -207,17 +207,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/table_muns.html" class="sidebar-item-text sidebar-link">Municípios</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../sections/table_procs.html" class="sidebar-item-text sidebar-link">Procedimentos</a>
+  <a href="../sections/table_locs.html" class="sidebar-item-text sidebar-link">Localidades</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sections/table_dists.html" class="sidebar-item-text sidebar-link">Distâncias</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_procs.html" class="sidebar-item-text sidebar-link">Procedimentos</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -237,8 +237,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#descrição" id="toc-descrição" class="nav-link active" data-scroll-target="#descrição">Descrição</a></li>
-  <li><a href="#scrap" id="toc-scrap" class="nav-link" data-scroll-target="#scrap">Scrap</a></li>
-  <li><a href="#tabela-resultante" id="toc-tabela-resultante" class="nav-link" data-scroll-target="#tabela-resultante">Tabela resultante</a></li>
+  <li><a href="#web-scrap" id="toc-web-scrap" class="nav-link" data-scroll-target="#web-scrap">Web Scrap</a></li>
+  <li><a href="#carregar-tabela" id="toc-carregar-tabela" class="nav-link" data-scroll-target="#carregar-tabela">Carregar tabela</a>
+  <ul class="collapse">
+  <li><a href="#shape-de-cada-tabela" id="toc-shape-de-cada-tabela" class="nav-link" data-scroll-target="#shape-de-cada-tabela">Shape de cada tabela</a></li>
+  </ul></li>
+  <li><a href="#gerando-tabela" id="toc-gerando-tabela" class="nav-link" data-scroll-target="#gerando-tabela">Gerando tabela</a>
+  <ul class="collapse">
+  <li><a href="#concatenando-tabelas" id="toc-concatenando-tabelas" class="nav-link" data-scroll-target="#concatenando-tabelas">Concatenando tabelas</a></li>
+  </ul></li>
   <li><a href="#exportando-tabela" id="toc-exportando-tabela" class="nav-link" data-scroll-target="#exportando-tabela">Exportando tabela</a></li>
   </ul>
 </nav>
@@ -298,10 +305,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>Descrição</h1>
 <p>Entre os desafios mais urgentes do Sistema Único de Saúde (SUS) estão a ampliação do acesso e a adequação dos serviços ofertados. No Brasil, as relações existentes entre regiões e redes de atenção à saúde indicam que o avanço do processo de regionalização do SUS pode interferir positivamente na oferta de ações de serviços de saúde, tornando-a mais eficiente e abrangente.</p>
 <p><a href="https://www.resbr.net.br/apresentacao/">Saiba mais</a></p>
-<p><a href="https://indicadores.resbr.net.br/view/">Plataforma de acesso aos dados</a></p>
+<p><a href="https://indicadores.resbr.net.br/view/">Plataforma de acesso ao Banco de Indicadores</a></p>
 </section>
-<section id="scrap" class="level1">
-<h1>Scrap</h1>
+<section id="web-scrap" class="level1">
+<h1>Web Scrap</h1>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> scrap_indicator(driver, url, n_files<span class="op">=</span><span class="dv">10</span>):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  driver.maximize_window()</span>
@@ -411,11 +418,15 @@ executable_path has been deprecated, please pass in a Service object
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># driver.close()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>driver.implicitly_wait(<span class="dv">10</span>) <span class="co"># seconds</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>driver.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="tabela-resultante" class="level1">
-<h1>Tabela resultante</h1>
+<section id="carregar-tabela" class="level1">
+<h1>Carregar tabela</h1>
+<section id="shape-de-cada-tabela" class="level2">
+<h2 class="anchored" data-anchor-id="shape-de-cada-tabela">Shape de cada tabela</h2>
+<p>(Linhas, Colunas)</p>
 <div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>path_dir <span class="op">=</span> get_path(<span class="st">'INDICADORES'</span>, <span class="st">''</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>files <span class="op">=</span> [path_dir<span class="op">+</span>pth <span class="cf">for</span> pth <span class="kw">in</span> listdir(path_dir) <span class="cf">if</span> pth[<span class="op">-</span><span class="dv">3</span>:] <span class="op">==</span> <span class="st">'csv'</span>]</span>
@@ -434,6 +445,13 @@ executable_path has been deprecated, please pass in a Service object
 (587, 184)</code></pre>
 </div>
 </div>
+</section>
+</section>
+<section id="gerando-tabela" class="level1">
+<h1>Gerando tabela</h1>
+<section id="concatenando-tabelas" class="level2">
+<h2 class="anchored" data-anchor-id="concatenando-tabelas">Concatenando tabelas</h2>
+<p>Concatenação das tabelas em uma</p>
 <div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df_indc <span class="op">=</span> pd.concat(dfs)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df_indc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -739,6 +757,7 @@ executable_path has been deprecated, please pass in a Service object
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="exportando-tabela" class="level1">
 <h1>Exportando tabela</h1>
