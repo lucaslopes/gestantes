@@ -182,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/database_localidades.html" class="sidebar-item-text sidebar-link">Localidades</a>
+  <a href="../sections/database_municipios.html" class="sidebar-item-text sidebar-link">Municípios</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -207,17 +207,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/table_muns.html" class="sidebar-item-text sidebar-link">Municípios</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../sections/table_procs.html" class="sidebar-item-text sidebar-link">Procedimentos</a>
+  <a href="../sections/table_locs.html" class="sidebar-item-text sidebar-link">Localidades</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sections/table_dists.html" class="sidebar-item-text sidebar-link">Distâncias</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_procs.html" class="sidebar-item-text sidebar-link">Procedimentos</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -242,7 +242,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#filtro-de-colunas" id="toc-filtro-de-colunas" class="nav-link" data-scroll-target="#filtro-de-colunas">Filtro de Colunas</a></li>
   <li><a href="#filtro-de-linhas" id="toc-filtro-de-linhas" class="nav-link" data-scroll-target="#filtro-de-linhas">Filtro de Linhas</a></li>
   </ul></li>
-  <li><a href="#carregar-tabela" id="toc-carregar-tabela" class="nav-link" data-scroll-target="#carregar-tabela">Carregar tabela</a></li>
+  <li><a href="#gerando-tabela" id="toc-gerando-tabela" class="nav-link" data-scroll-target="#gerando-tabela">Gerando tabela</a>
+  <ul class="collapse">
+  <li><a href="#carregando-tabela" id="toc-carregando-tabela" class="nav-link" data-scroll-target="#carregando-tabela">Carregando tabela</a></li>
+  </ul></li>
   <li><a href="#exportar-tabela" id="toc-exportar-tabela" class="nav-link" data-scroll-target="#exportar-tabela">Exportar tabela</a></li>
   </ul>
 </nav>
@@ -336,11 +339,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="carregar-tabela" class="level1">
-<h1>Carregar tabela</h1>
+<section id="gerando-tabela" class="level1">
+<h1>Gerando tabela</h1>
+<section id="carregando-tabela" class="level2">
+<h2 class="anchored" data-anchor-id="carregando-tabela">Carregando tabela</h2>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># path_zip_sih = input('Qual o caminho para o arquivo zip da base de dados SIHSUS?')</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>path_zip_sih <span class="op">=</span> <span class="st">'/Volumes/SanDisk/Databases/SIH/SIHSUS.zip'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># path_zip_sih = '/Volumes/SanDisk/Databases/SIH/SIHSUS.zip'</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>path_zip_sih <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Qual o caminho para o arquivo zip da base de dados SIHSUS?'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> data_load(path_zip_sih, cols_sih, filter_sih)</span>
@@ -387,7 +392,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>100%|██████████| 4400/4400 [20:32&lt;00:00, 3.57it/s]</p>
-<p>Total = 23m 40.2s</p>
+</section>
 </section>
 <section id="exportar-tabela" class="level1">
 <h1>Exportar tabela</h1>

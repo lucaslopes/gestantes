@@ -25,7 +25,13 @@ website:
           - sections/table_locs.ipynb
           - sections/table_dists.ipynb
           - sections/table_procs.ipynb
-          - sections/table_deslc.ipynb
+      - section: 'Rankings'
+        contents:
+          # - sections/rank_cnes.ipynb
+          - sections/rank_munic.ipynb
+          # - sections/rank_regsau.ipynb
+          # - sections/rank_uf.ipynb
+          # - sections/rank_region.ipynb
 
 format:
   html:
