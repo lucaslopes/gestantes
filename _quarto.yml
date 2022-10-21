@@ -17,16 +17,15 @@ website:
       - section: 'Coleta de Dados'
         contents:
           - sections/database_sih.ipynb
-          - sections/database_localidades.ipynb
+          - sections/database_municipios.ipynb
           - sections/database_indicadores.ipynb
           - sections/database_dists.ipynb
       - section: 'Tabelas Criadas'
         contents:
-          - sections/table_muns.ipynb
-          - sections/table_procs.ipynb
+          - sections/table_locs.ipynb
           - sections/table_dists.ipynb
+          - sections/table_procs.ipynb
           - sections/table_deslc.ipynb
-          # - sections/data_network.ipynb
 
 format:
   html:
