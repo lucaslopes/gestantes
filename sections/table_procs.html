@@ -220,9 +220,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../sections/table_procs.html" class="sidebar-item-text sidebar-link active">Procedimentos</a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Rankings</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/table_deslc.html" class="sidebar-item-text sidebar-link">Deslocamento</a>
+  <a href="../sections/rank_munic.html" class="sidebar-item-text sidebar-link">Rank Município</a>
   </div>
 </li>
       </ul>
@@ -259,7 +269,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#coluna-criticidade" id="toc-coluna-criticidade" class="nav-link" data-scroll-target="#coluna-criticidade">Coluna criticidade</a></li>
   <li><a href="#ajustando-colunas" id="toc-ajustando-colunas" class="nav-link" data-scroll-target="#ajustando-colunas">Ajustando colunas</a></li>
   </ul></li>
-  <li><a href="#exportando-tabela" id="toc-exportando-tabela" class="nav-link" data-scroll-target="#exportando-tabela">Exportando tabela</a></li>
+  <li><a href="#biênios-201011-201819" id="toc-biênios-201011-201819" class="nav-link" data-scroll-target="#biênios-201011-201819">Biênios (2010/11 &amp; 2018/19)</a>
+  <ul class="collapse">
+  <li><a href="#filtrando-os-anos" id="toc-filtrando-os-anos" class="nav-link" data-scroll-target="#filtrando-os-anos">Filtrando os anos</a></li>
+  <li><a href="#atualizando-variável-ano-biênio" id="toc-atualizando-variável-ano-biênio" class="nav-link" data-scroll-target="#atualizando-variável-ano-biênio">Atualizando variável ano (biênio)</a>
+  <ul class="collapse">
+  <li><a href="#tabela-agrupada-1" id="toc-tabela-agrupada-1" class="nav-link" data-scroll-target="#tabela-agrupada-1">Tabela agrupada</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#exportando-tabela" id="toc-exportando-tabela" class="nav-link" data-scroll-target="#exportando-tabela">Exportando tabela</a>
+  <ul class="collapse">
+  <li><a href="#ano" id="toc-ano" class="nav-link" data-scroll-target="#ano">Ano</a></li>
+  <li><a href="#biênio" id="toc-biênio" class="nav-link" data-scroll-target="#biênio">Biênio</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -284,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, group_cols</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, as_type</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by, as_type</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style type="text/css">
@@ -972,15 +994,160 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
+<section id="biênios-201011-201819" class="level1">
+<h1>Biênios (2010/11 &amp; 2018/19)</h1>
+<section id="filtrando-os-anos" class="level2">
+<h2 class="anchored" data-anchor-id="filtrando-os-anos">Filtrando os anos</h2>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_proc_bienio <span class="op">=</span> df_proc[</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  (f.ano <span class="op">==</span> <span class="dv">2010</span>) <span class="op">|</span> (f.ano <span class="op">==</span> <span class="dv">2011</span>) <span class="op">|</span> (f.ano <span class="op">==</span> <span class="dv">2018</span>) <span class="op">|</span>(f.ano <span class="op">==</span> <span class="dv">2019</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>, :]</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>df_proc_bienio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>ano</th><th>parto_normal</th><th>origem</th><th>destino</th><th>distancia (km)</th><th>tempo (min)</th><th>criticidade</th><th>capitais</th><th>socioecon</th><th>origem_latitude</th><th>origem_longitude</th><th>destino_latitude</th><th>destino_longitude</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>2010</td><td>0</td><td>NT/RO/11005/110001</td><td>NT/RO/11005/110001/2679477</td><td>0</td><td>0</td><td>0</td><td>0_0</td><td>1_1</td><td>−11.9283</td><td>−61.9953</td><td>−11.9283</td><td>−61.9953</td><td>49</td></tr>
+    <tr><td class="row_index">1</td><td>2010</td><td>0</td><td>NT/RO/11005/110001</td><td>NT/RO/11003/110012/2495279</td><td>130.77</td><td>152.868</td><td>2</td><td>0_0</td><td>1_2</td><td>−11.9283</td><td>−61.9953</td><td>−10.8777</td><td>−61.9322</td><td>2</td></tr>
+    <tr><td class="row_index">2</td><td>2010</td><td>0</td><td>NT/RO/11005/110001</td><td>NT/RO/11001/110013/2808617</td><td>357.511</td><td>427.84</td><td>2</td><td>0_0</td><td>1_1</td><td>−11.9283</td><td>−61.9953</td><td>−9.44363</td><td>−61.9818</td><td>1</td></tr>
+    <tr><td class="row_index">3</td><td>2010</td><td>0</td><td>NT/RO/11005/110001</td><td>NT/RO/11002/110018/2496534</td><td>114.061</td><td>112.283</td><td>2</td><td>0_0</td><td>1_3</td><td>−11.9283</td><td>−61.9953</td><td>−11.672</td><td>−61.198</td><td>1</td></tr>
+    <tr><td class="row_index">4</td><td>2010</td><td>0</td><td>NT/RO/11005/110001</td><td>NT/RO/11005/110028/2495228</td><td>48.6099</td><td>50.14</td><td>1</td><td>0_0</td><td>1_1</td><td>−11.9283</td><td>−61.9953</td><td>−11.7271</td><td>−61.7714</td><td>4</td></tr>
+    <tr><td class="row_index">5</td><td>2010</td><td>0</td><td>NT/RO/11005/110001</td><td>SD/SP/35151/351110/2089327</td><td>2196.35</td><td>1852.41</td><td>4</td><td>0_0</td><td>1_3</td><td>−11.9283</td><td>−61.9953</td><td>−21.1314</td><td>−48.977</td><td>1</td></tr>
+    <tr><td class="row_index">6</td><td>2010</td><td>0</td><td>NT/RO/11001/110002</td><td>NT/RO/11001/110002/2494299</td><td>0</td><td>0</td><td>0</td><td>0_0</td><td>1_1</td><td>−9.90571</td><td>−63.0325</td><td>−9.90571</td><td>−63.0325</td><td>375</td></tr>
+    <tr><td class="row_index">7</td><td>2010</td><td>0</td><td>NT/RO/11001/110002</td><td>NT/RO/11003/110011/2808609</td><td>95.4727</td><td>140.33</td><td>2</td><td>0_0</td><td>1_2</td><td>−9.90571</td><td>−63.0325</td><td>−10.4318</td><td>−62.4788</td><td>4</td></tr>
+    <tr><td class="row_index">8</td><td>2010</td><td>0</td><td>NT/RO/11001/110002</td><td>NT/RO/11004/110020/4001303</td><td>203.582</td><td>188.315</td><td>2</td><td>0_1</td><td>1_3</td><td>−9.90571</td><td>−63.0325</td><td>−8.76077</td><td>−63.8999</td><td>1</td></tr>
+    <tr><td class="row_index">9</td><td>2010</td><td>0</td><td>NT/RO/11006/110003</td><td>NT/RO/11006/110003/2808528</td><td>0</td><td>0</td><td>0</td><td>0_0</td><td>2_2</td><td>−13.4945</td><td>−60.552</td><td>−13.4945</td><td>−60.552</td><td>51</td></tr>
+    <tr><td class="row_index">10</td><td>2010</td><td>0</td><td>NT/RO/11002/110004</td><td>NT/RO/11002/110004/2496046</td><td>0</td><td>0</td><td>0</td><td>0_0</td><td>3_3</td><td>−11.4343</td><td>−61.4562</td><td>−11.4343</td><td>−61.4562</td><td>199</td></tr>
+    <tr><td class="row_index">11</td><td>2010</td><td>0</td><td>NT/RO/11002/110004</td><td>NT/RO/11003/110012/2495279</td><td>104.964</td><td>100.03</td><td>2</td><td>0_0</td><td>3_2</td><td>−11.4343</td><td>−61.4562</td><td>−10.8777</td><td>−61.9322</td><td>2</td></tr>
+    <tr><td class="row_index">12</td><td>2010</td><td>0</td><td>NT/RO/11002/110004</td><td>NT/RO/11002/110018/2496534</td><td>41.4266</td><td>40.3333</td><td>1</td><td>0_0</td><td>3_3</td><td>−11.4343</td><td>−61.4562</td><td>−11.672</td><td>−61.198</td><td>1</td></tr>
+    <tr><td class="row_index">13</td><td>2010</td><td>0</td><td>NT/RO/11002/110004</td><td>NT/RO/11004/110020/4001303</td><td>480.05</td><td>497.07</td><td>2</td><td>0_1</td><td>3_3</td><td>−11.4343</td><td>−61.4562</td><td>−8.76077</td><td>−63.8999</td><td>2</td></tr>
+    <tr><td class="row_index">14</td><td>2010</td><td>0</td><td>NT/RO/11002/110004</td><td>NT/RO/11005/110028/2495228</td><td>47.7899</td><td>66.3017</td><td>2</td><td>0_0</td><td>3_1</td><td>−11.4343</td><td>−61.4562</td><td>−11.7271</td><td>−61.7714</td><td>2</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">187,466</td><td>2019</td><td>1</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010545</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>479</td></tr>
+    <tr><td class="row_index">187,467</td><td>2019</td><td>1</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/2645157</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>1373</td></tr>
+    <tr><td class="row_index">187,468</td><td>2019</td><td>1</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/2650355</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>5</td></tr>
+    <tr><td class="row_index">187,469</td><td>2019</td><td>1</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/2672197</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>2483</td></tr>
+    <tr><td class="row_index">187,470</td><td>2019</td><td>1</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/5717515</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>1086</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">187,471 rows × 14 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="atualizando-variável-ano-biênio" class="level2">
+<h2 class="anchored" data-anchor-id="atualizando-variável-ano-biênio">Atualizando variável ano (biênio)</h2>
+<p>Valor da variável <code>bienio</code>:</p>
+<ul>
+<li><code>0 (False) = 2010/11</code></li>
+<li><code>1 (True) = 2018/19</code></li>
+</ul>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_proc_bienio[:, dt.update(ano <span class="op">=</span> (f.ano <span class="op">==</span> <span class="dv">2018</span>) <span class="op">|</span> (f.ano <span class="op">==</span> <span class="dv">2019</span>))]</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>df_proc_bienio.names <span class="op">=</span> {<span class="st">'ano'</span>: <span class="st">'bienio'</span>}</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>df_proc_bienio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>origem</th><th>destino</th><th>distancia (km)</th><th>tempo (min)</th><th>criticidade</th><th>capitais</th><th>socioecon</th><th>origem_latitude</th><th>origem_longitude</th><th>destino_latitude</th><th>destino_longitude</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>NT/RO/11005/110001</td><td>NT/RO/11005/110001/2679477</td><td>0</td><td>0</td><td>0</td><td>0_0</td><td>1_1</td><td>−11.9283</td><td>−61.9953</td><td>−11.9283</td><td>−61.9953</td><td>49</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>NT/RO/11005/110001</td><td>NT/RO/11003/110012/2495279</td><td>130.77</td><td>152.868</td><td>2</td><td>0_0</td><td>1_2</td><td>−11.9283</td><td>−61.9953</td><td>−10.8777</td><td>−61.9322</td><td>2</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>NT/RO/11005/110001</td><td>NT/RO/11001/110013/2808617</td><td>357.511</td><td>427.84</td><td>2</td><td>0_0</td><td>1_1</td><td>−11.9283</td><td>−61.9953</td><td>−9.44363</td><td>−61.9818</td><td>1</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>NT/RO/11005/110001</td><td>NT/RO/11002/110018/2496534</td><td>114.061</td><td>112.283</td><td>2</td><td>0_0</td><td>1_3</td><td>−11.9283</td><td>−61.9953</td><td>−11.672</td><td>−61.198</td><td>1</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>NT/RO/11005/110001</td><td>NT/RO/11005/110028/2495228</td><td>48.6099</td><td>50.14</td><td>1</td><td>0_0</td><td>1_1</td><td>−11.9283</td><td>−61.9953</td><td>−11.7271</td><td>−61.7714</td><td>4</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>NT/RO/11005/110001</td><td>SD/SP/35151/351110/2089327</td><td>2196.35</td><td>1852.41</td><td>4</td><td>0_0</td><td>1_3</td><td>−11.9283</td><td>−61.9953</td><td>−21.1314</td><td>−48.977</td><td>1</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>NT/RO/11001/110002</td><td>NT/RO/11001/110002/2494299</td><td>0</td><td>0</td><td>0</td><td>0_0</td><td>1_1</td><td>−9.90571</td><td>−63.0325</td><td>−9.90571</td><td>−63.0325</td><td>375</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>NT/RO/11001/110002</td><td>NT/RO/11003/110011/2808609</td><td>95.4727</td><td>140.33</td><td>2</td><td>0_0</td><td>1_2</td><td>−9.90571</td><td>−63.0325</td><td>−10.4318</td><td>−62.4788</td><td>4</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>NT/RO/11001/110002</td><td>NT/RO/11004/110020/4001303</td><td>203.582</td><td>188.315</td><td>2</td><td>0_1</td><td>1_3</td><td>−9.90571</td><td>−63.0325</td><td>−8.76077</td><td>−63.8999</td><td>1</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>NT/RO/11006/110003</td><td>NT/RO/11006/110003/2808528</td><td>0</td><td>0</td><td>0</td><td>0_0</td><td>2_2</td><td>−13.4945</td><td>−60.552</td><td>−13.4945</td><td>−60.552</td><td>51</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>NT/RO/11002/110004</td><td>NT/RO/11002/110004/2496046</td><td>0</td><td>0</td><td>0</td><td>0_0</td><td>3_3</td><td>−11.4343</td><td>−61.4562</td><td>−11.4343</td><td>−61.4562</td><td>199</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>NT/RO/11002/110004</td><td>NT/RO/11003/110012/2495279</td><td>104.964</td><td>100.03</td><td>2</td><td>0_0</td><td>3_2</td><td>−11.4343</td><td>−61.4562</td><td>−10.8777</td><td>−61.9322</td><td>2</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>NT/RO/11002/110004</td><td>NT/RO/11002/110018/2496534</td><td>41.4266</td><td>40.3333</td><td>1</td><td>0_0</td><td>3_3</td><td>−11.4343</td><td>−61.4562</td><td>−11.672</td><td>−61.198</td><td>1</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>NT/RO/11002/110004</td><td>NT/RO/11004/110020/4001303</td><td>480.05</td><td>497.07</td><td>2</td><td>0_1</td><td>3_3</td><td>−11.4343</td><td>−61.4562</td><td>−8.76077</td><td>−63.8999</td><td>2</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>NT/RO/11002/110004</td><td>NT/RO/11005/110028/2495228</td><td>47.7899</td><td>66.3017</td><td>2</td><td>0_0</td><td>3_1</td><td>−11.4343</td><td>−61.4562</td><td>−11.7271</td><td>−61.7714</td><td>2</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">187,466</td><td>1</td><td>1</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010545</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>479</td></tr>
+    <tr><td class="row_index">187,467</td><td>1</td><td>1</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/2645157</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>1373</td></tr>
+    <tr><td class="row_index">187,468</td><td>1</td><td>1</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/2650355</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>5</td></tr>
+    <tr><td class="row_index">187,469</td><td>1</td><td>1</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/2672197</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>2483</td></tr>
+    <tr><td class="row_index">187,470</td><td>1</td><td>1</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/5717515</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>1086</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">187,471 rows × 14 columns</div>
+  </div>
+</div>
+</div>
+</div>
+<section id="tabela-agrupada-1" class="level3">
+<h3 class="anchored" data-anchor-id="tabela-agrupada-1">Tabela agrupada</h3>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df_proc_bienio <span class="op">=</span> df_proc_bienio[:, dt.<span class="bu">sum</span>(f.count), by(df_proc_bienio.names[:<span class="op">-</span><span class="dv">1</span>])]</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df_proc_bienio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>origem</th><th>destino</th><th>distancia (km)</th><th>tempo (min)</th><th>criticidade</th><th>capitais</th><th>socioecon</th><th>origem_latitude</th><th>origem_longitude</th><th>destino_latitude</th><th>destino_longitude</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010464</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>260</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010472</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>282</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010480</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>3323</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010499</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>3368</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010502</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>964</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010510</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>832</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010529</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>1831</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010537</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>3707</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010545</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>728</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010561</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>1</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/2645157</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>2251</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/2672197</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>1561</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/5717515</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>1798</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/GO/52011/520110/2361787</td><td>152.625</td><td>132.723</td><td>3</td><td>1_0</td><td>5_3</td><td>−15.7795</td><td>−47.9297</td><td>−16.3281</td><td>−48.953</td><td>4</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>ND/BA/29002/290320/3972925</td><td>630.949</td><td>466.705</td><td>4</td><td>1_0</td><td>5_2</td><td>−15.7795</td><td>−47.9297</td><td>−12.1439</td><td>−44.9968</td><td>1</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">124,980</td><td>1</td><td>1</td><td>SL/SC/42016/421870</td><td>SL/SC/42007/420540/3157245</td><td>138.477</td><td>104.94</td><td>2</td><td>0_1</td><td>3_5</td><td>−28.4713</td><td>−49.0144</td><td>−27.5945</td><td>−48.5477</td><td>1</td></tr>
+    <tr><td class="row_index">124,981</td><td>1</td><td>1</td><td>SL/SC/42016/421870</td><td>SL/SC/42015/420460/2594277</td><td>54.621</td><td>49.3167</td><td>2</td><td>0_0</td><td>3_4</td><td>−28.4713</td><td>−49.0144</td><td>−28.6723</td><td>−49.3729</td><td>1</td></tr>
+    <tr><td class="row_index">124,982</td><td>1</td><td>1</td><td>SL/SC/42016/421870</td><td>SL/SC/42016/420280/2665883</td><td>35.5439</td><td>37.4933</td><td>1</td><td>0_0</td><td>3_3</td><td>−28.4713</td><td>−49.0144</td><td>−28.2681</td><td>−49.1701</td><td>2</td></tr>
+    <tr><td class="row_index">124,983</td><td>1</td><td>1</td><td>SL/SC/42016/421870</td><td>SL/SC/42016/420730/2385880</td><td>53.961</td><td>45.3533</td><td>1</td><td>0_0</td><td>3_3</td><td>−28.4713</td><td>−49.0144</td><td>−28.2284</td><td>−48.6659</td><td>1</td></tr>
+    <tr><td class="row_index">124,984</td><td>1</td><td>1</td><td>SL/SC/42016/421870</td><td>SL/SC/42016/421870/2491710</td><td>0</td><td>0</td><td>0</td><td>0_0</td><td>3_3</td><td>−28.4713</td><td>−49.0144</td><td>−28.4713</td><td>−49.0144</td><td>441</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">124,985 rows × 14 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
 <section id="exportando-tabela" class="level1">
 <h1>Exportando tabela</h1>
-<div class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>output_proc <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'procs_ano.csv.gzip'</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_proc.to_csv(output_proc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="ano" class="level2">
+<h2 class="anchored" data-anchor-id="ano">Ano</h2>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>output_proc <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'procs_ano.csv.gzip'</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df_proc.to_csv(output_proc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_proc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_proc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
 
 <div class="datatable">
   <table class="frame">
@@ -1018,8 +1185,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
+</section>
+<section id="biênio" class="level2">
+<h2 class="anchored" data-anchor-id="biênio">Biênio</h2>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>output_proc_bienio <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'procs_bienio.csv.gzip'</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>df_proc_bienio.to_csv(output_proc_bienio)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_proc_bienio)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>origem</th><th>destino</th><th>distancia (km)</th><th>tempo (min)</th><th>criticidade</th><th>capitais</th><th>socioecon</th><th>origem_latitude</th><th>origem_longitude</th><th>destino_latitude</th><th>destino_longitude</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010464</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>260</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010472</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>282</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010480</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>3323</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010499</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>3368</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010502</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>964</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010510</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>832</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010529</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>1831</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010537</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>3707</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010545</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>728</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010561</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>1</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/2645157</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>2251</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/2672197</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>1561</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/5717515</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td>5_5</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>1798</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/GO/52011/520110/2361787</td><td>152.625</td><td>132.723</td><td>3</td><td>1_0</td><td>5_3</td><td>−15.7795</td><td>−47.9297</td><td>−16.3281</td><td>−48.953</td><td>4</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>ND/BA/29002/290320/3972925</td><td>630.949</td><td>466.705</td><td>4</td><td>1_0</td><td>5_2</td><td>−15.7795</td><td>−47.9297</td><td>−12.1439</td><td>−44.9968</td><td>1</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">124,980</td><td>1</td><td>1</td><td>SL/SC/42016/421870</td><td>SL/SC/42007/420540/3157245</td><td>138.477</td><td>104.94</td><td>2</td><td>0_1</td><td>3_5</td><td>−28.4713</td><td>−49.0144</td><td>−27.5945</td><td>−48.5477</td><td>1</td></tr>
+    <tr><td class="row_index">124,981</td><td>1</td><td>1</td><td>SL/SC/42016/421870</td><td>SL/SC/42015/420460/2594277</td><td>54.621</td><td>49.3167</td><td>2</td><td>0_0</td><td>3_4</td><td>−28.4713</td><td>−49.0144</td><td>−28.6723</td><td>−49.3729</td><td>1</td></tr>
+    <tr><td class="row_index">124,982</td><td>1</td><td>1</td><td>SL/SC/42016/421870</td><td>SL/SC/42016/420280/2665883</td><td>35.5439</td><td>37.4933</td><td>1</td><td>0_0</td><td>3_3</td><td>−28.4713</td><td>−49.0144</td><td>−28.2681</td><td>−49.1701</td><td>2</td></tr>
+    <tr><td class="row_index">124,983</td><td>1</td><td>1</td><td>SL/SC/42016/421870</td><td>SL/SC/42016/420730/2385880</td><td>53.961</td><td>45.3533</td><td>1</td><td>0_0</td><td>3_3</td><td>−28.4713</td><td>−49.0144</td><td>−28.2284</td><td>−48.6659</td><td>1</td></tr>
+    <tr><td class="row_index">124,984</td><td>1</td><td>1</td><td>SL/SC/42016/421870</td><td>SL/SC/42016/421870/2491710</td><td>0</td><td>0</td><td>0</td><td>0_0</td><td>3_3</td><td>−28.4713</td><td>−49.0144</td><td>−28.4713</td><td>−49.0144</td><td>441</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">124,985 rows × 14 columns</div>
+  </div>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
