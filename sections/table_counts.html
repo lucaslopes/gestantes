@@ -230,11 +230,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../sections/table_counts.html" class="sidebar-item-text sidebar-link active">Contagens</a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../sections/table_percent.html" class="sidebar-item-text sidebar-link">Percentuais</a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -247,8 +242,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#descrição" id="toc-descrição" class="nav-link active" data-scroll-target="#descrição">Descrição</a></li>
+  <li><a href="#tabelas-base" id="toc-tabelas-base" class="nav-link" data-scroll-target="#tabelas-base">Tabelas base</a>
+  <ul class="collapse">
+  <li><a href="#cnes" id="toc-cnes" class="nav-link" data-scroll-target="#cnes">CNES</a></li>
+  </ul></li>
   <li><a href="#gerando-tabela" id="toc-gerando-tabela" class="nav-link" data-scroll-target="#gerando-tabela">Gerando tabela</a></li>
-  <li><a href="#exportando-tabela" id="toc-exportando-tabela" class="nav-link" data-scroll-target="#exportando-tabela">Exportando tabela</a></li>
+  <li><a href="#infos" id="toc-infos" class="nav-link" data-scroll-target="#infos">Infos</a>
+  <ul class="collapse">
+  <li><a href="#nome-dos-cnes" id="toc-nome-dos-cnes" class="nav-link" data-scroll-target="#nome-dos-cnes">Nome dos CNES</a></li>
+  <li><a href="#percent" id="toc-percent" class="nav-link" data-scroll-target="#percent">Percent</a></li>
+  </ul></li>
+  <li><a href="#exportando-tabela" id="toc-exportando-tabela" class="nav-link" data-scroll-target="#exportando-tabela">Exportando tabela</a>
+  <ul class="collapse">
+  <li><a href="#rj" id="toc-rj" class="nav-link" data-scroll-target="#rj">RJ</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -304,125 +311,578 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>Descrição</h1>
 <p>Neste notebook iremos formar a tabela deslocamento, com origem e destino.</p>
 </section>
-<section id="gerando-tabela" class="level1">
-<h1>Gerando tabela</h1>
+<section id="tabelas-base" class="level1">
+<h1>Tabelas base</h1>
+<section id="cnes" class="level2">
+<h2 class="anchored" data-anchor-id="cnes">CNES</h2>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_count_df(path_proc, ref):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  cols_proc <span class="op">=</span> {</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'bienio'</span>: <span class="st">'bienio'</span>, <span class="st">'parto_normal'</span>: <span class="st">'parto_normal'</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    ref: <span class="st">'codigo'</span>, <span class="st">'criticidade'</span>: <span class="st">'criticidade'</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'count'</span>: <span class="st">'count'</span>, ...: <span class="va">None</span>}</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  df_proc <span class="op">=</span> dt.fread(path_proc, columns<span class="op">=</span>cols_proc)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  df_proc[:, dt.update(criticidade <span class="op">=</span> f.criticidade <span class="op">!=</span> <span class="dv">0</span>)]</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  df_proc <span class="op">=</span> df_proc[:, dt.<span class="bu">sum</span>(f.count), by(df_proc.names[:<span class="op">-</span><span class="dv">1</span>])]</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  df_proc_total <span class="op">=</span> df_proc[:, f[:].remove(f.criticidade)]</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  df_proc_total <span class="op">=</span> df_proc_total[:, dt.<span class="bu">sum</span>(f.count), by(df_proc_total.names[:<span class="op">-</span><span class="dv">1</span>])]</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  df_proc_total.names <span class="op">=</span> {<span class="st">'count'</span>: <span class="st">'count_total'</span>}</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  df_proc_critic <span class="op">=</span> df_proc[f.criticidade <span class="op">==</span> <span class="dv">1</span>, f[:].remove(f.criticidade)]</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  df_proc_critic <span class="op">=</span> df_proc_critic[:, dt.<span class="bu">sum</span>(f.count), by(df_proc_critic.names[:<span class="op">-</span><span class="dv">1</span>])]</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  df_proc_critic.names <span class="op">=</span> {<span class="st">'count'</span>: <span class="st">'count_critic'</span>}</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  df_proc_critic.key <span class="op">=</span> df_proc_critic.names[:<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  df_counts <span class="op">=</span> df_proc_total[:, :, dt.join(df_proc_critic)]</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  df_counts[<span class="st">'count_critic'</span>] <span class="op">=</span> dt.Frame([</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span> <span class="cf">if</span> c <span class="op">==</span> <span class="va">None</span> <span class="cf">else</span> c <span class="cf">for</span> c <span class="kw">in</span> df_counts[<span class="st">'count_critic'</span>].to_list()[<span class="dv">0</span>]])</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  df_counts[<span class="st">'referencial'</span>] <span class="op">=</span> ref</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  cols_order <span class="op">=</span> [<span class="st">'bienio'</span>, <span class="st">'parto_normal'</span>, <span class="st">'codigo'</span>, <span class="st">'referencial'</span>, <span class="st">'count_total'</span>, <span class="st">'count_critic'</span>]</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  df_counts <span class="op">=</span> df_counts[:, cols_order]</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  df_counts <span class="op">=</span> df_counts.sort(f.bienio, f.parto_normal, <span class="op">-</span>f.count_critic)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cols_cnes <span class="op">=</span> {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'CNES'</span>: <span class="st">'identificador'</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Nome Fantasia'</span>: <span class="st">'nome'</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>path_proc <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'procs_bienio.csv.gzip'</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>refs <span class="op">=</span> [<span class="st">'origem'</span>, <span class="st">'destino'</span>]</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_counts <span class="op">=</span> dt.rbind(<span class="op">*</span>[get_count_df(path_proc, ref) <span class="cf">for</span> ref <span class="kw">in</span> refs])</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>path_cnes <span class="op">=</span> get_path(<span class="st">'LOCALIDADES'</span>, <span class="st">'cnes.csv.gzip'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_cnes <span class="op">=</span> pd.read_csv(path_cnes, dtype<span class="op">=</span>{<span class="st">'CNES'</span>: <span class="bu">str</span>})</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_cnes <span class="op">=</span> df_cnes.rename(columns<span class="op">=</span>cols_cnes)[cols_cnes.values()]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_cnes <span class="op">=</span> dt.Frame(df_cnes)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df_cnes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>codigo</th><th>referencial</th><th>count_total</th><th>count_critic</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>identificador</th><th>nome</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>NT/PA/15006/150080</td><td>origem</td><td>6816</td><td>2638</td></tr>
-    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>ND/PE/26010/261160</td><td>origem</td><td>5177</td><td>2605</td></tr>
-    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>SD/ES/32002/320500</td><td>origem</td><td>4080</td><td>2263</td></tr>
-    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>SD/RJ/33005/330350</td><td>origem</td><td>2730</td><td>1951</td></tr>
-    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>CO/MT/51002/510840</td><td>origem</td><td>2061</td><td>1873</td></tr>
-    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>SD/ES/32002/320130</td><td>origem</td><td>3685</td><td>1525</td></tr>
-    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>ND/PE/26010/260790</td><td>origem</td><td>3274</td><td>1479</td></tr>
-    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>SD/RJ/33005/330455</td><td>origem</td><td>11372</td><td>1347</td></tr>
-    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>SD/ES/32002/320520</td><td>origem</td><td>3171</td><td>1215</td></tr>
-    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>ND/CE/23002/230370</td><td>origem</td><td>2763</td><td>1213</td></tr>
-    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>ND/PE/26010/260290</td><td>origem</td><td>1671</td><td>1153</td></tr>
-    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>SD/SP/35016/355030</td><td>origem</td><td>43210</td><td>1147</td></tr>
-    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>SD/SP/35013/351500</td><td>origem</td><td>1743</td><td>1134</td></tr>
-    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>SL/RS/43010/432300</td><td>origem</td><td>1558</td><td>1110</td></tr>
-    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>CO/GO/52002/520140</td><td>origem</td><td>3565</td><td>1098</td></tr>
-    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">34,262</td><td>1</td><td>1</td><td>SL/SC/42013/420260/2665085</td><td>destino</td><td>15</td><td>0</td></tr>
-    <tr><td class="row_index">34,263</td><td>1</td><td>1</td><td>SL/SC/42013/420455/2300478</td><td>destino</td><td>1</td><td>0</td></tr>
-    <tr><td class="row_index">34,264</td><td>1</td><td>1</td><td>SL/SC/42013/421890/2300885</td><td>destino</td><td>19</td><td>0</td></tr>
-    <tr><td class="row_index">34,265</td><td>1</td><td>1</td><td>SL/SC/42015/421120/2419378</td><td>destino</td><td>2</td><td>0</td></tr>
-    <tr><td class="row_index">34,266</td><td>1</td><td>1</td><td>SL/SC/42016/421840/2778858</td><td>destino</td><td>2</td><td>0</td></tr>
+    <tr><td class="row_index">0</td><td>0002232</td><td>HOSPITAL E MATERNIDADE SANTA IZABEL</td></tr>
+    <tr><td class="row_index">1</td><td>3151794</td><td>MATERNIDADE DE REFERENCIA ANA BRAGA</td></tr>
+    <tr><td class="row_index">2</td><td>2323397</td><td>MATERNIDADE DONA EVANGELINA ROSA</td></tr>
+    <tr><td class="row_index">3</td><td>2311682</td><td>HOSPITAL SANTA HELENA</td></tr>
+    <tr><td class="row_index">4</td><td>0026794</td><td>HOSPITAL SOFIA FELDMAN</td></tr>
+    <tr><td class="row_index">5</td><td>2020068</td><td>SES AP HOSPITAL DA MULHER</td></tr>
+    <tr><td class="row_index">6</td><td>6627595</td><td>INSTITUTO DA MULHER DONA LINDU</td></tr>
+    <tr><td class="row_index">7</td><td>2799278</td><td>HOSPITAL INACIA PINTO DOS SANTOS</td></tr>
+    <tr><td class="row_index">8</td><td>0010480</td><td>HOSPITAL REGIONAL DE CEILANDIA</td></tr>
+    <tr><td class="row_index">9</td><td>2077388</td><td>HOSPITAL AMPARO MATERNAL</td></tr>
+    <tr><td class="row_index">10</td><td>7011857</td><td>SES RJ COMPLEXO REG DE MESQUITA MATERNID E CLINICA…</td></tr>
+    <tr><td class="row_index">11</td><td>6303153</td><td>HOSPITAL NOSSA SENHORA DA GUIA</td></tr>
+    <tr><td class="row_index">12</td><td>2755165</td><td>HOSPITAL DOM ORIONE DE ARAGUAINA</td></tr>
+    <tr><td class="row_index">13</td><td>2344882</td><td>HOSPITAL DO TRICENTENARIO</td></tr>
+    <tr><td class="row_index">14</td><td>2079186</td><td>HOSP MUN MAT ESC DR MARIO DE MORAES A SILVA</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">3923</td><td>7320175</td><td>HOSPITAL SAO MIGUEL ARCANJO</td></tr>
+    <tr><td class="row_index">3924</td><td>7603029</td><td>HOSPITAL MUNICIPAL LENILDE OLIVEIRA</td></tr>
+    <tr><td class="row_index">3925</td><td>7621442</td><td>HOSPITAL ESTADUAL DE URGENCIA E EMERGENCIA</td></tr>
+    <tr><td class="row_index">3926</td><td>7704364</td><td>HOSPITAL DE URGENCIA E EMERGENCIA REGIONAL DE CACO…</td></tr>
+    <tr><td class="row_index">3927</td><td>7743068</td><td>HOSPITAL ESTADUAL DE URGENCIAS GOV OTAVIO LAG SIQU…</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">34,267 rows × 6 columns</div>
+    <div class="frame_dimensions">3928 rows × 2 columns</div>
   </div>
 </div>
 </div>
 </div>
 </section>
-<section id="exportando-tabela" class="level1">
-<h1>Exportando tabela</h1>
+</section>
+<section id="gerando-tabela" class="level1">
+<h1>Gerando tabela</h1>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>output_counts <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'contagens.csv.gzip'</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_counts.to_csv(output_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_count_df(path_proc, ref):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  cols_proc <span class="op">=</span> {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'bienio'</span>: <span class="st">'bienio'</span>, <span class="st">'parto_normal'</span>: <span class="st">'parto_normal'</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    ref: <span class="st">'codigo'</span>, <span class="st">'criticidade'</span>: <span class="st">'criticidade'</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'count'</span>: <span class="st">'count'</span>, ...: <span class="va">None</span>}</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  df_proc <span class="op">=</span> dt.fread(path_proc, columns<span class="op">=</span>cols_proc)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  df_counts <span class="op">=</span> df_proc[:, dt.<span class="bu">sum</span>(f.count), by(df_proc.names[:<span class="op">-</span><span class="dv">1</span>])]</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  df_counts <span class="op">=</span> df_counts.sort(f.codigo, f.criticidade, f.parto_normal, f.bienio)<span class="co">#, -f.count_critic)</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  df_counts[<span class="st">'referencial'</span>] <span class="op">=</span> ref</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  cols_order <span class="op">=</span> [<span class="st">'bienio'</span>, <span class="st">'parto_normal'</span>, <span class="st">'codigo'</span>, <span class="st">'referencial'</span>, <span class="st">'criticidade'</span>, <span class="st">'count'</span>]</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  df_counts <span class="op">=</span> df_counts[:, cols_order]</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>path_proc <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'procs_bienio.csv.gzip'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>refs <span class="op">=</span> [<span class="st">'origem'</span>, <span class="st">'destino'</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df_count <span class="op">=</span> dt.rbind(<span class="op">*</span>[get_count_df(path_proc, ref) <span class="cf">for</span> ref <span class="kw">in</span> refs])</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df_count</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>codigo</th><th>referencial</th><th>count_total</th><th>count_critic</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>codigo</th><th>referencial</th><th>criticidade</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>NT/PA/15006/150080</td><td>origem</td><td>6816</td><td>2638</td></tr>
-    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>ND/PE/26010/261160</td><td>origem</td><td>5177</td><td>2605</td></tr>
-    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>SD/ES/32002/320500</td><td>origem</td><td>4080</td><td>2263</td></tr>
-    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>SD/RJ/33005/330350</td><td>origem</td><td>2730</td><td>1951</td></tr>
-    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>CO/MT/51002/510840</td><td>origem</td><td>2061</td><td>1873</td></tr>
-    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>SD/ES/32002/320130</td><td>origem</td><td>3685</td><td>1525</td></tr>
-    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>ND/PE/26010/260790</td><td>origem</td><td>3274</td><td>1479</td></tr>
-    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>SD/RJ/33005/330455</td><td>origem</td><td>11372</td><td>1347</td></tr>
-    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>SD/ES/32002/320520</td><td>origem</td><td>3171</td><td>1215</td></tr>
-    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>ND/CE/23002/230370</td><td>origem</td><td>2763</td><td>1213</td></tr>
-    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>ND/PE/26010/260290</td><td>origem</td><td>1671</td><td>1153</td></tr>
-    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>SD/SP/35016/355030</td><td>origem</td><td>43210</td><td>1147</td></tr>
-    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>SD/SP/35013/351500</td><td>origem</td><td>1743</td><td>1134</td></tr>
-    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>SL/RS/43010/432300</td><td>origem</td><td>1558</td><td>1110</td></tr>
-    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>CO/GO/52002/520140</td><td>origem</td><td>3565</td><td>1098</td></tr>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>origem</td><td>0</td><td>20906</td></tr>
+    <tr><td class="row_index">1</td><td>1</td><td>0</td><td>CO/DF/53001/530010</td><td>origem</td><td>0</td><td>19949</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>1</td><td>CO/DF/53001/530010</td><td>origem</td><td>0</td><td>40969</td></tr>
+    <tr><td class="row_index">3</td><td>1</td><td>1</td><td>CO/DF/53001/530010</td><td>origem</td><td>0</td><td>33309</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>origem</td><td>3</td><td>4</td></tr>
+    <tr><td class="row_index">5</td><td>1</td><td>0</td><td>CO/DF/53001/530010</td><td>origem</td><td>3</td><td>41</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>CO/DF/53001/530010</td><td>origem</td><td>3</td><td>12</td></tr>
+    <tr><td class="row_index">7</td><td>1</td><td>1</td><td>CO/DF/53001/530010</td><td>origem</td><td>3</td><td>42</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>origem</td><td>4</td><td>10</td></tr>
+    <tr><td class="row_index">9</td><td>1</td><td>0</td><td>CO/DF/53001/530010</td><td>origem</td><td>4</td><td>69</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>CO/DF/53001/530010</td><td>origem</td><td>4</td><td>22</td></tr>
+    <tr><td class="row_index">11</td><td>1</td><td>1</td><td>CO/DF/53001/530010</td><td>origem</td><td>4</td><td>104</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>CO/GO/52001/520005</td><td>origem</td><td>1</td><td>31</td></tr>
+    <tr><td class="row_index">13</td><td>1</td><td>0</td><td>CO/GO/52001/520005</td><td>origem</td><td>1</td><td>131</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>CO/GO/52001/520005</td><td>origem</td><td>1</td><td>39</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">34,262</td><td>1</td><td>1</td><td>SL/SC/42013/420260/2665085</td><td>destino</td><td>15</td><td>0</td></tr>
-    <tr><td class="row_index">34,263</td><td>1</td><td>1</td><td>SL/SC/42013/420455/2300478</td><td>destino</td><td>1</td><td>0</td></tr>
-    <tr><td class="row_index">34,264</td><td>1</td><td>1</td><td>SL/SC/42013/421890/2300885</td><td>destino</td><td>19</td><td>0</td></tr>
-    <tr><td class="row_index">34,265</td><td>1</td><td>1</td><td>SL/SC/42015/421120/2419378</td><td>destino</td><td>2</td><td>0</td></tr>
-    <tr><td class="row_index">34,266</td><td>1</td><td>1</td><td>SL/SC/42016/421840/2778858</td><td>destino</td><td>2</td><td>0</td></tr>
+    <tr><td class="row_index">84,851</td><td>1</td><td>0</td><td>SL/SC/42016/421870/2491710</td><td>destino</td><td>2</td><td>59</td></tr>
+    <tr><td class="row_index">84,852</td><td>0</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>destino</td><td>2</td><td>14</td></tr>
+    <tr><td class="row_index">84,853</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>destino</td><td>2</td><td>125</td></tr>
+    <tr><td class="row_index">84,854</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>destino</td><td>3</td><td>2</td></tr>
+    <tr><td class="row_index">84,855</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>destino</td><td>4</td><td>2</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">34,267 rows × 6 columns</div>
+    <div class="frame_dimensions">84,856 rows × 6 columns</div>
   </div>
 </div>
 </div>
 </div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df_proc_total = df_proc[:, f[:].remove(f.criticidade)]</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># df_proc_total = df_proc_total[:, dt.sum(f.count), by(df_proc_total.names[:-1])]</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># df_proc_total.names = {'count': 'count_total'}</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># dfs_critic = list()</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># for i in range(5):</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   df_proc_critic = df_proc[f.criticidade == i, :]</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   df_proc_critic = df_proc_critic[:, dt.sum(f.count), by(df_proc_critic.names[:-1])]</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   df_proc_critic.names = {'count': 'count_critic'}</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   dfs_critic.append(df_proc_critic)</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># df_critic = dt.rbind(*dfs_critic)</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># print(df_critic.names)</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># df_critic.key = df_critic.names[:3]</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># df_counts = df_proc_total[:, :, dt.join(df_critic)]</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># df_counts['count_critic'] = dt.Frame([</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   0 if c == None else c for c in df_counts['count_critic'].to_list()[0]])</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># df_counts['referencial'] = ref</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># cols_order = ['bienio', 'parto_normal', 'codigo', 'referencial', 'criticidade', 'count_critic', 'count_total']</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co"># df_counts = df_counts[:, cols_order]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="infos" class="level1">
+<h1>Infos</h1>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rank_locs(df_counts, path_locs, scale):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  ref <span class="op">=</span> <span class="st">'destino'</span> <span class="cf">if</span> scale <span class="op">==</span> <span class="st">'cnes'</span> <span class="cf">else</span> <span class="st">'origem'</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  cols_locs <span class="op">=</span> {<span class="st">'codigo'</span>: <span class="st">'codigo'</span>, <span class="ss">f'nome_</span><span class="sc">{</span>scale<span class="sc">}</span><span class="ss">'</span>: <span class="st">'nome'</span>, ...: <span class="va">None</span>}</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  df_locs <span class="op">=</span> dt.fread(path_locs, columns<span class="op">=</span>cols_locs)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> scale <span class="op">==</span> <span class="st">'cnes'</span>:</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    df_locs[<span class="st">'nome'</span>] <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  df_locs.key <span class="op">=</span> <span class="st">'codigo'</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  df_count <span class="op">=</span> df_counts[f.referencial <span class="op">==</span> ref, f[:].remove(f.referencial)]</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  df_count[<span class="st">'escala'</span>] <span class="op">=</span> scale</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  df_count <span class="op">=</span> df_count[:, :, dt.join(df_locs)]</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  i <span class="op">=</span> {<span class="st">'cnes'</span>: <span class="dv">5</span>, <span class="st">'municipio'</span>: <span class="dv">4</span>, <span class="st">'regiao_saude'</span>: <span class="dv">3</span>, <span class="st">'uf'</span>: <span class="dv">2</span>, <span class="st">'regiao'</span>: <span class="dv">1</span>}[scale]</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  codigos <span class="op">=</span> df_count[<span class="st">'codigo'</span>].to_list()[<span class="dv">0</span>]</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  df_codigos <span class="op">=</span> dt.Frame([<span class="st">'/'</span>.join(c.split(<span class="st">'/'</span>)[:i]) <span class="cf">for</span> c <span class="kw">in</span> codigos])</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  df_count[<span class="st">'codigo'</span>] <span class="op">=</span> df_codigos</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  df_count[<span class="st">'identificador'</span>] <span class="op">=</span> dt.Frame([c.split(<span class="st">'/'</span>)[<span class="op">-</span><span class="dv">1</span>] <span class="cf">for</span> c <span class="kw">in</span> df_count[<span class="st">'codigo'</span>].to_list()[<span class="dv">0</span>]])</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> df_count.names</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  cols_order <span class="op">=</span> cols[:<span class="dv">3</span>] <span class="op">+</span> cols[<span class="dv">5</span>:] <span class="op">+</span> cols[<span class="dv">3</span>:<span class="dv">5</span>]</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  df_count <span class="op">=</span> df_count[:, cols_order]</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  df_count <span class="op">=</span> df_count[:, [dt.<span class="bu">sum</span>(f.count)], by(df_count.names[:<span class="op">-</span><span class="dv">1</span>])]</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># df_count[:, dt.update(critic_percent = f.count_critic / f.count_total * 100)]</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  df_count <span class="op">=</span> df_count.sort(f.codigo, f.criticidade, f.parto_normal, f.bienio)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df_count</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>path_locs <span class="op">=</span> get_path(<span class="st">'LOCALIDADES'</span>, <span class="st">'localidades.csv.gzip'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>scales <span class="op">=</span> [<span class="st">'regiao'</span>, <span class="st">'uf'</span>, <span class="st">'regiao_saude'</span>, <span class="st">'municipio'</span>, <span class="st">'cnes'</span>]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df_counts <span class="op">=</span> dt.rbind(<span class="op">*</span>[</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  rank_locs(df_count, path_locs, scale) <span class="cf">for</span> scale <span class="kw">in</span> scales])</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>df_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>codigo</th><th>escala</th><th>nome</th><th>identificador</th><th>criticidade</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>85068</td></tr>
+    <tr><td class="row_index">1</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>100995</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>141604</td></tr>
+    <tr><td class="row_index">3</td><td>1</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>118221</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>8372</td></tr>
+    <tr><td class="row_index">5</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>13732</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>13243</td></tr>
+    <tr><td class="row_index">7</td><td>1</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>16144</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>3465</td></tr>
+    <tr><td class="row_index">9</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>3834</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>3758</td></tr>
+    <tr><td class="row_index">11</td><td>1</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>4273</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>3</td><td>3004</td></tr>
+    <tr><td class="row_index">13</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>3</td><td>5817</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>3</td><td>8296</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">93,060</td><td>1</td><td>0</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td><span class="na">NA</span></td><td>2491710</td><td>2</td><td>59</td></tr>
+    <tr><td class="row_index">93,061</td><td>0</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td><span class="na">NA</span></td><td>2491710</td><td>2</td><td>14</td></tr>
+    <tr><td class="row_index">93,062</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td><span class="na">NA</span></td><td>2491710</td><td>2</td><td>125</td></tr>
+    <tr><td class="row_index">93,063</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td><span class="na">NA</span></td><td>2491710</td><td>3</td><td>2</td></tr>
+    <tr><td class="row_index">93,064</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td><span class="na">NA</span></td><td>2491710</td><td>4</td><td>2</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">93,065 rows × 8 columns</div>
+  </div>
+</div>
+</div>
+</div>
+<section id="nome-dos-cnes" class="level2">
+<h2 class="anchored" data-anchor-id="nome-dos-cnes">Nome dos CNES</h2>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_cnes.key <span class="op">=</span> <span class="st">'identificador'</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_id_cnes <span class="op">=</span> df_counts[f.escala <span class="op">==</span> <span class="st">'cnes'</span>, [<span class="st">'identificador'</span>]]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df_id_cnes <span class="op">=</span> df_id_cnes[:, :, dt.join(df_cnes)]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>df_id_cnes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>identificador</th><th>nome</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0010464</td><td>HRAN</td></tr>
+    <tr><td class="row_index">1</td><td>0010464</td><td>HRAN</td></tr>
+    <tr><td class="row_index">2</td><td>0010464</td><td>HRAN</td></tr>
+    <tr><td class="row_index">3</td><td>0010464</td><td>HRAN</td></tr>
+    <tr><td class="row_index">4</td><td>0010464</td><td>HRAN</td></tr>
+    <tr><td class="row_index">5</td><td>0010464</td><td>HRAN</td></tr>
+    <tr><td class="row_index">6</td><td>0010464</td><td>HRAN</td></tr>
+    <tr><td class="row_index">7</td><td>0010464</td><td>HRAN</td></tr>
+    <tr><td class="row_index">8</td><td>0010464</td><td>HRAN</td></tr>
+    <tr><td class="row_index">9</td><td>0010464</td><td>HRAN</td></tr>
+    <tr><td class="row_index">10</td><td>0010472</td><td>HRG</td></tr>
+    <tr><td class="row_index">11</td><td>0010472</td><td>HRG</td></tr>
+    <tr><td class="row_index">12</td><td>0010472</td><td>HRG</td></tr>
+    <tr><td class="row_index">13</td><td>0010472</td><td>HRG</td></tr>
+    <tr><td class="row_index">14</td><td>0010472</td><td>HRG</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">31,294</td><td>2491710</td><td><span class="na">NA</span></td></tr>
+    <tr><td class="row_index">31,295</td><td>2491710</td><td><span class="na">NA</span></td></tr>
+    <tr><td class="row_index">31,296</td><td>2491710</td><td><span class="na">NA</span></td></tr>
+    <tr><td class="row_index">31,297</td><td>2491710</td><td><span class="na">NA</span></td></tr>
+    <tr><td class="row_index">31,298</td><td>2491710</td><td><span class="na">NA</span></td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">31,299 rows × 2 columns</div>
+  </div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_counts[f.escala <span class="op">==</span> <span class="st">'cnes'</span>, [<span class="st">'identificador'</span>, <span class="st">'nome'</span>]] <span class="op">=</span> df_id_cnes</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>codigo</th><th>escala</th><th>nome</th><th>identificador</th><th>criticidade</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>85068</td></tr>
+    <tr><td class="row_index">1</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>100995</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>141604</td></tr>
+    <tr><td class="row_index">3</td><td>1</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>118221</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>8372</td></tr>
+    <tr><td class="row_index">5</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>13732</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>13243</td></tr>
+    <tr><td class="row_index">7</td><td>1</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>16144</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>3465</td></tr>
+    <tr><td class="row_index">9</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>3834</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>3758</td></tr>
+    <tr><td class="row_index">11</td><td>1</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>4273</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>3</td><td>3004</td></tr>
+    <tr><td class="row_index">13</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>3</td><td>5817</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>3</td><td>8296</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">93,060</td><td>1</td><td>0</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td><span class="na">NA</span></td><td>2491710</td><td>2</td><td>59</td></tr>
+    <tr><td class="row_index">93,061</td><td>0</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td><span class="na">NA</span></td><td>2491710</td><td>2</td><td>14</td></tr>
+    <tr><td class="row_index">93,062</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td><span class="na">NA</span></td><td>2491710</td><td>2</td><td>125</td></tr>
+    <tr><td class="row_index">93,063</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td><span class="na">NA</span></td><td>2491710</td><td>3</td><td>2</td></tr>
+    <tr><td class="row_index">93,064</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td><span class="na">NA</span></td><td>2491710</td><td>4</td><td>2</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">93,065 rows × 8 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="percent" class="level2">
+<h2 class="anchored" data-anchor-id="percent">Percent</h2>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_total <span class="op">=</span> df_counts[:, [<span class="st">'identificador'</span>, <span class="st">'criticidade'</span>, <span class="st">'count'</span>]]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_total <span class="op">=</span> df_total[:, dt.<span class="bu">sum</span>(f.count), by(df_total.names[:<span class="op">-</span><span class="dv">1</span>])]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df_total.names <span class="op">=</span> {<span class="st">'count'</span>: <span class="st">'total'</span>}</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>df_total.key <span class="op">=</span> df_total.names[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>df_counts <span class="op">=</span> df_counts[:, :, dt.join(df_total)]</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>df_counts[:, dt.update(percent <span class="op">=</span> f.count <span class="op">/</span> f.total <span class="op">*</span> <span class="dv">100</span>)]</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>df_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>codigo</th><th>escala</th><th>nome</th><th>identificador</th><th>criticidade</th><th>count</th><th>total</th><th>percent</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>85068</td><td>445888</td><td>19.0783</td></tr>
+    <tr><td class="row_index">1</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>100995</td><td>445888</td><td>22.6503</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>141604</td><td>445888</td><td>31.7578</td></tr>
+    <tr><td class="row_index">3</td><td>1</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>118221</td><td>445888</td><td>26.5136</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>8372</td><td>51491</td><td>16.2592</td></tr>
+    <tr><td class="row_index">5</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>13732</td><td>51491</td><td>26.6687</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>13243</td><td>51491</td><td>25.7191</td></tr>
+    <tr><td class="row_index">7</td><td>1</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>16144</td><td>51491</td><td>31.3531</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>3465</td><td>15330</td><td>22.6027</td></tr>
+    <tr><td class="row_index">9</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>3834</td><td>15330</td><td>25.0098</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>3758</td><td>15330</td><td>24.514</td></tr>
+    <tr><td class="row_index">11</td><td>1</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>4273</td><td>15330</td><td>27.8735</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>3</td><td>3004</td><td>28979</td><td>10.3661</td></tr>
+    <tr><td class="row_index">13</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>3</td><td>5817</td><td>28979</td><td>20.0732</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>3</td><td>8296</td><td>28979</td><td>28.6276</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">93,060</td><td>1</td><td>0</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td><span class="na">NA</span></td><td>2491710</td><td>2</td><td>59</td><td>207</td><td>28.5024</td></tr>
+    <tr><td class="row_index">93,061</td><td>0</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td><span class="na">NA</span></td><td>2491710</td><td>2</td><td>14</td><td>207</td><td>6.76329</td></tr>
+    <tr><td class="row_index">93,062</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td><span class="na">NA</span></td><td>2491710</td><td>2</td><td>125</td><td>207</td><td>60.3865</td></tr>
+    <tr><td class="row_index">93,063</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td><span class="na">NA</span></td><td>2491710</td><td>3</td><td>2</td><td>2</td><td>100</td></tr>
+    <tr><td class="row_index">93,064</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td><span class="na">NA</span></td><td>2491710</td><td>4</td><td>2</td><td>2</td><td>100</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">93,065 rows × 10 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exportando-tabela" class="level1">
+<h1>Exportando tabela</h1>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>output_counts <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'contagens.csv.gzip'</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df_counts.to_csv(output_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>codigo</th><th>escala</th><th>nome</th><th>identificador</th><th>criticidade</th><th>count</th><th>total</th><th>percent</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>85068</td><td>445888</td><td>19.0783</td></tr>
+    <tr><td class="row_index">1</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>100995</td><td>445888</td><td>22.6503</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>141604</td><td>445888</td><td>31.7578</td></tr>
+    <tr><td class="row_index">3</td><td>1</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>118221</td><td>445888</td><td>26.5136</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>8372</td><td>51491</td><td>16.2592</td></tr>
+    <tr><td class="row_index">5</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>13732</td><td>51491</td><td>26.6687</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>13243</td><td>51491</td><td>25.7191</td></tr>
+    <tr><td class="row_index">7</td><td>1</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>16144</td><td>51491</td><td>31.3531</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>3465</td><td>15330</td><td>22.6027</td></tr>
+    <tr><td class="row_index">9</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>3834</td><td>15330</td><td>25.0098</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>3758</td><td>15330</td><td>24.514</td></tr>
+    <tr><td class="row_index">11</td><td>1</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>4273</td><td>15330</td><td>27.8735</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>3</td><td>3004</td><td>28979</td><td>10.3661</td></tr>
+    <tr><td class="row_index">13</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>3</td><td>5817</td><td>28979</td><td>20.0732</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>3</td><td>8296</td><td>28979</td><td>28.6276</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">93,060</td><td>1</td><td>0</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td></td><td>2491710</td><td>2</td><td>59</td><td>207</td><td>28.5024</td></tr>
+    <tr><td class="row_index">93,061</td><td>0</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td></td><td>2491710</td><td>2</td><td>14</td><td>207</td><td>6.76329</td></tr>
+    <tr><td class="row_index">93,062</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td></td><td>2491710</td><td>2</td><td>125</td><td>207</td><td>60.3865</td></tr>
+    <tr><td class="row_index">93,063</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td></td><td>2491710</td><td>3</td><td>2</td><td>2</td><td>100</td></tr>
+    <tr><td class="row_index">93,064</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td></td><td>2491710</td><td>4</td><td>2</td><td>2</td><td>100</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">93,065 rows × 10 columns</div>
+  </div>
+</div>
+</div>
+</div>
+<section id="rj" class="level2">
+<h2 class="anchored" data-anchor-id="rj">RJ</h2>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_rj <span class="op">=</span> pd.read_csv(output_counts, dtype<span class="op">=</span>{<span class="st">'identificador'</span>: <span class="bu">str</span>})</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df_rj <span class="op">=</span> df_rj[df_rj[<span class="st">'codigo'</span>].<span class="bu">str</span>.contains(<span class="st">'/RJ'</span>)]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>df_rj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>bienio</th>
+      <th>parto_normal</th>
+      <th>codigo</th>
+      <th>escala</th>
+      <th>nome</th>
+      <th>identificador</th>
+      <th>criticidade</th>
+      <th>count</th>
+      <th>total</th>
+      <th>percent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>530</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SD/RJ</td>
+      <td>uf</td>
+      <td>Rio de Janeiro</td>
+      <td>RJ</td>
+      <td>0</td>
+      <td>31475</td>
+      <td>338465</td>
+      <td>9.299337</td>
+    </tr>
+    <tr>
+      <th>531</th>
+      <td>1</td>
+      <td>0</td>
+      <td>SD/RJ</td>
+      <td>uf</td>
+      <td>Rio de Janeiro</td>
+      <td>RJ</td>
+      <td>0</td>
+      <td>64571</td>
+      <td>338465</td>
+      <td>19.077600</td>
+    </tr>
+    <tr>
+      <th>532</th>
+      <td>0</td>
+      <td>1</td>
+      <td>SD/RJ</td>
+      <td>uf</td>
+      <td>Rio de Janeiro</td>
+      <td>RJ</td>
+      <td>0</td>
+      <td>126306</td>
+      <td>338465</td>
+      <td>37.317300</td>
+    </tr>
+    <tr>
+      <th>533</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SD/RJ</td>
+      <td>uf</td>
+      <td>Rio de Janeiro</td>
+      <td>RJ</td>
+      <td>0</td>
+      <td>116113</td>
+      <td>338465</td>
+      <td>34.305763</td>
+    </tr>
+    <tr>
+      <th>534</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SD/RJ</td>
+      <td>uf</td>
+      <td>Rio de Janeiro</td>
+      <td>RJ</td>
+      <td>1</td>
+      <td>7153</td>
+      <td>73487</td>
+      <td>9.733694</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>84206</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SD/RJ/33009/330590/3584968</td>
+      <td>cnes</td>
+      <td>HOSPITAL FRANCISCO LIMONGI</td>
+      <td>3584968</td>
+      <td>0</td>
+      <td>4</td>
+      <td>49</td>
+      <td>8.163265</td>
+    </tr>
+    <tr>
+      <th>84207</th>
+      <td>0</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590/3584968</td>
+      <td>cnes</td>
+      <td>HOSPITAL FRANCISCO LIMONGI</td>
+      <td>3584968</td>
+      <td>0</td>
+      <td>39</td>
+      <td>49</td>
+      <td>79.591837</td>
+    </tr>
+    <tr>
+      <th>84208</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590/3584968</td>
+      <td>cnes</td>
+      <td>HOSPITAL FRANCISCO LIMONGI</td>
+      <td>3584968</td>
+      <td>0</td>
+      <td>6</td>
+      <td>49</td>
+      <td>12.244898</td>
+    </tr>
+    <tr>
+      <th>84209</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590/3584968</td>
+      <td>cnes</td>
+      <td>HOSPITAL FRANCISCO LIMONGI</td>
+      <td>3584968</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <th>84210</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590/3584968</td>
+      <td>cnes</td>
+      <td>HOSPITAL FRANCISCO LIMONGI</td>
+      <td>3584968</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>100.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>2376 rows × 10 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>output_rj <span class="op">=</span> output_counts.replace(<span class="st">'.csv.gzip'</span>, <span class="st">'_rj.xlsx'</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_rj.to_excel(output_rj, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
