@@ -27,7 +27,6 @@ website:
           - sections/table_dslc.ipynb
           - sections/table_procs.ipynb
           - sections/table_counts.ipynb
-          - sections/table_percent.ipynb
 
 format:
   html:
