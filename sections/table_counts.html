@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Deslocamento de Gestantes - SIH</title>
+<title>Deslocamento de Gestantes - Contagens</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -136,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">SIH</h1>
+      <h1 class="quarto-secondary-nav-title">Contagens</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -177,7 +177,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/database_sih.html" class="sidebar-item-text sidebar-link active">SIH</a>
+  <a href="../sections/database_sih.html" class="sidebar-item-text sidebar-link">SIH</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -222,7 +222,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/table_counts.html" class="sidebar-item-text sidebar-link">Contagens</a>
+  <a href="../sections/table_counts.html" class="sidebar-item-text sidebar-link active">Contagens</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -242,16 +242,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#descrição" id="toc-descrição" class="nav-link active" data-scroll-target="#descrição">Descrição</a></li>
-  <li><a href="#filtragens-básicas" id="toc-filtragens-básicas" class="nav-link" data-scroll-target="#filtragens-básicas">Filtragens básicas</a>
-  <ul class="collapse">
-  <li><a href="#filtro-de-colunas" id="toc-filtro-de-colunas" class="nav-link" data-scroll-target="#filtro-de-colunas">Filtro de Colunas</a></li>
-  <li><a href="#filtro-de-linhas" id="toc-filtro-de-linhas" class="nav-link" data-scroll-target="#filtro-de-linhas">Filtro de Linhas</a></li>
-  </ul></li>
-  <li><a href="#gerando-tabela" id="toc-gerando-tabela" class="nav-link" data-scroll-target="#gerando-tabela">Gerando tabela</a>
-  <ul class="collapse">
-  <li><a href="#carregando-tabela" id="toc-carregando-tabela" class="nav-link" data-scroll-target="#carregando-tabela">Carregando tabela</a></li>
-  </ul></li>
-  <li><a href="#exportar-tabela" id="toc-exportar-tabela" class="nav-link" data-scroll-target="#exportar-tabela">Exportar tabela</a></li>
+  <li><a href="#exportando-tabela" id="toc-exportando-tabela" class="nav-link" data-scroll-target="#exportando-tabela">Exportando tabela</a></li>
   </ul>
 </nav>
     </div>
@@ -260,7 +251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">SIH</h1>
+<h1 class="title d-none d-lg-block">Contagens</h1>
 </div>
 
 
@@ -275,8 +266,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> data_load</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, group_cols</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style type="text/css">
@@ -304,144 +296,118 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <section id="descrição" class="level1">
 <h1>Descrição</h1>
-<p>Dados do Sistema de Informações Hospitalares do SUS (SIHSUS) reunidos pela Plataforma de Ciência de Dados aplicada à Saúde (PCDaS). Os dados foram obtidos junto ao DATASUS (Ministério da Saúde), tratados e enriquecidos seguindo uma metodologia própria de ETL (processo de extração, transformação e carga dos dados) da PCDaS, resultando em um dataset mensal com todos os registros de internações hospitalares contidos no SIHSUS à partir de janeiro de 2008.</p>
-<p>A atualização dos dados é realizada pelo DATASUS e a PCDaS extrai os registros mensais referentes aos arquivos <code>RD_UF_ANO_MÊS.dbc</code> (Reduzidos de AIH) assim que disponibilizados. As colunas com nomes em MAIÚSCULO representam dados originais advindos do DATASUS e colunas com nomes iniciando em minúsculo representam dados resultantes de transformação ou enriquecimento.</p>
-</section>
-<section id="filtragens-básicas" class="level1">
-<h1>Filtragens básicas</h1>
-<section id="filtro-de-colunas" class="level2">
-<h2 class="anchored" data-anchor-id="filtro-de-colunas">Filtro de Colunas</h2>
+<p>Neste notebook iremos formar a tabela deslocamento, com origem e destino.</p>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cols_sih <span class="op">=</span> {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'ano_internacao'</span>: <span class="st">'ano'</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'PROC_REA'</span>: <span class="st">'parto_normal'</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'CNES'</span>: <span class="st">'cnes'</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'def_idade_anos'</span>: <span class="st">'idade'</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'int_codigo_adotado'</span>: <span class="st">'hosp_cod_municipio'</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_codigo_adotado'</span>: <span class="st">'cod_municipio'</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_count_df(path_proc, ref):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  cols_proc <span class="op">=</span> {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'bienio'</span>: <span class="st">'bienio'</span>, <span class="st">'parto_normal'</span>: <span class="st">'parto_normal'</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    ref: <span class="st">'codigo'</span>, <span class="st">'criticidade'</span>: <span class="st">'criticidade'</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'count'</span>: <span class="st">'count'</span>, ...: <span class="va">None</span>}</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  df_proc <span class="op">=</span> dt.fread(path_proc, columns<span class="op">=</span>cols_proc)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  df_proc[:, dt.update(criticidade <span class="op">=</span> f.criticidade <span class="op">!=</span> <span class="dv">0</span>)]</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  df_proc <span class="op">=</span> df_proc[:, dt.<span class="bu">sum</span>(f.count), by(df_proc.names[:<span class="op">-</span><span class="dv">1</span>])]</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  df_proc_total <span class="op">=</span> df_proc[:, f[:].remove(f.criticidade)]</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  df_proc_total <span class="op">=</span> df_proc_total[:, dt.<span class="bu">sum</span>(f.count), by(df_proc_total.names[:<span class="op">-</span><span class="dv">1</span>])]</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  df_proc_total.names <span class="op">=</span> {<span class="st">'count'</span>: <span class="st">'count_total'</span>}</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  df_proc_critic <span class="op">=</span> df_proc[f.criticidade <span class="op">==</span> <span class="dv">1</span>, f[:].remove(f.criticidade)]</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  df_proc_critic <span class="op">=</span> df_proc_critic[:, dt.<span class="bu">sum</span>(f.count), by(df_proc_critic.names[:<span class="op">-</span><span class="dv">1</span>])]</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  df_proc_critic.names <span class="op">=</span> {<span class="st">'count'</span>: <span class="st">'count_critic'</span>}</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  df_proc_critic.key <span class="op">=</span> df_proc_critic.names[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  df_counts <span class="op">=</span> df_proc_total[:, :, dt.join(df_proc_critic)]</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  df_counts[<span class="st">'count_critic'</span>] <span class="op">=</span> dt.Frame([</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span> <span class="cf">if</span> c <span class="op">==</span> <span class="va">None</span> <span class="cf">else</span> c <span class="cf">for</span> c <span class="kw">in</span> df_counts[<span class="st">'count_critic'</span>].to_list()[<span class="dv">0</span>]])</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  df_counts[<span class="st">'referencial'</span>] <span class="op">=</span> ref</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  cols_order <span class="op">=</span> [<span class="st">'bienio'</span>, <span class="st">'parto_normal'</span>, <span class="st">'codigo'</span>, <span class="st">'referencial'</span>, <span class="st">'count_total'</span>, <span class="st">'count_critic'</span>]</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  df_counts <span class="op">=</span> df_counts[:, cols_order]</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  df_counts <span class="op">=</span> df_counts.sort(f.bienio, f.parto_normal, <span class="op">-</span>f.count_critic)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="filtro-de-linhas" class="level2">
-<h2 class="anchored" data-anchor-id="filtro-de-linhas">Filtro de Linhas</h2>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_sih(df, cols):</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> <span class="bu">list</span>(cols.values())[:<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> cols <span class="cf">if</span> c <span class="kw">in</span> df.names]</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  df_filtered <span class="op">=</span> df[</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    (</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'ano'</span>] <span class="op">&gt;</span> <span class="dv">2009</span>) <span class="op">&amp;</span> (f[<span class="st">'ano'</span>] <span class="op">&lt;</span> <span class="dv">2020</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'idade'</span>] <span class="op">&gt;</span> <span class="dv">9</span>) <span class="op">&amp;</span> (f[<span class="st">'idade'</span>] <span class="op">&lt;</span> <span class="dv">50</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'parto_normal'</span>] <span class="op">==</span> <span class="dv">310010039</span>) <span class="op">|</span> (f[<span class="st">'parto_normal'</span>] <span class="op">==</span> <span class="dv">411010034</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      ((f[<span class="st">'hosp_cod_municipio'</span>] <span class="op">!=</span> <span class="va">None</span>) <span class="op">&amp;</span> (f[<span class="st">'cod_municipio'</span>] <span class="op">!=</span> <span class="va">None</span>))</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'cnes'</span>] <span class="op">!=</span> <span class="va">None</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    ), cols]</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df_filtered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>path_proc <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'procs_bienio.csv.gzip'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>refs <span class="op">=</span> [<span class="st">'origem'</span>, <span class="st">'destino'</span>]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_counts <span class="op">=</span> dt.rbind(<span class="op">*</span>[get_count_df(path_proc, ref) <span class="cf">for</span> ref <span class="kw">in</span> refs])</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>codigo</th><th>referencial</th><th>count_total</th><th>count_critic</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>NT/PA/15006/150080</td><td>origem</td><td>6816</td><td>2638</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>ND/PE/26010/261160</td><td>origem</td><td>5177</td><td>2605</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>SD/ES/32002/320500</td><td>origem</td><td>4080</td><td>2263</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>SD/RJ/33005/330350</td><td>origem</td><td>2730</td><td>1951</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>CO/MT/51002/510840</td><td>origem</td><td>2061</td><td>1873</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>SD/ES/32002/320130</td><td>origem</td><td>3685</td><td>1525</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>ND/PE/26010/260790</td><td>origem</td><td>3274</td><td>1479</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>SD/RJ/33005/330455</td><td>origem</td><td>11372</td><td>1347</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>SD/ES/32002/320520</td><td>origem</td><td>3171</td><td>1215</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>ND/CE/23002/230370</td><td>origem</td><td>2763</td><td>1213</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>ND/PE/26010/260290</td><td>origem</td><td>1671</td><td>1153</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>SD/SP/35016/355030</td><td>origem</td><td>43210</td><td>1147</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>SD/SP/35013/351500</td><td>origem</td><td>1743</td><td>1134</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>SL/RS/43010/432300</td><td>origem</td><td>1558</td><td>1110</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>CO/GO/52002/520140</td><td>origem</td><td>3565</td><td>1098</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">34,262</td><td>1</td><td>1</td><td>SL/SC/42013/420260/2665085</td><td>destino</td><td>15</td><td>0</td></tr>
+    <tr><td class="row_index">34,263</td><td>1</td><td>1</td><td>SL/SC/42013/420455/2300478</td><td>destino</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">34,264</td><td>1</td><td>1</td><td>SL/SC/42013/421890/2300885</td><td>destino</td><td>19</td><td>0</td></tr>
+    <tr><td class="row_index">34,265</td><td>1</td><td>1</td><td>SL/SC/42015/421120/2419378</td><td>destino</td><td>2</td><td>0</td></tr>
+    <tr><td class="row_index">34,266</td><td>1</td><td>1</td><td>SL/SC/42016/421840/2778858</td><td>destino</td><td>2</td><td>0</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">34,267 rows × 6 columns</div>
+  </div>
+</div>
+</div>
 </div>
 </section>
-</section>
-<section id="gerando-tabela" class="level1">
-<h1>Gerando tabela</h1>
-<section id="carregando-tabela" class="level2">
-<h2 class="anchored" data-anchor-id="carregando-tabela">Carregando tabela</h2>
+<section id="exportando-tabela" class="level1">
+<h1>Exportando tabela</h1>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># path_zip_sih = '/Volumes/SanDisk/Databases/SIH/SIHSUS.zip'</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>path_zip_sih <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Qual o caminho para o arquivo zip da base de dados SIHSUS?'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>output_counts <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'contagens.csv.gzip'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_counts.to_csv(output_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> data_load(path_zip_sih, cols_sih, filter_sih)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>100%|██████████| 4400/4400 [20:32&lt;00:00,  3.57it/s]</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>ano</th><th>parto_normal</th><th>cnes</th><th>idade</th><th>hosp_cod_municipio</th><th>cod_municipio</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>codigo</th><th>referencial</th><th>count_total</th><th>count_critic</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>2010</td><td>310010039</td><td>2001020</td><td>23</td><td>120005</td><td>120005</td></tr>
-    <tr><td class="row_index">1</td><td>2010</td><td>310010039</td><td>2000733</td><td>28</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">2</td><td>2010</td><td>310010039</td><td>2000733</td><td>38</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">3</td><td>2010</td><td>310010039</td><td>2000733</td><td>16</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">4</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">5</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">6</td><td>2010</td><td>310010039</td><td>2000733</td><td>27</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">7</td><td>2010</td><td>310010039</td><td>2001020</td><td>31</td><td>120005</td><td>120005</td></tr>
-    <tr><td class="row_index">8</td><td>2010</td><td>310010039</td><td>2000733</td><td>30</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">9</td><td>2010</td><td>310010039</td><td>2000733</td><td>18</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">10</td><td>2010</td><td>310010039</td><td>2001020</td><td>28</td><td>120005</td><td>120005</td></tr>
-    <tr><td class="row_index">11</td><td>2010</td><td>310010039</td><td>2000733</td><td>32</td><td>120040</td><td>120038</td></tr>
-    <tr><td class="row_index">12</td><td>2010</td><td>310010039</td><td>2000733</td><td>30</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">13</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>120001</td></tr>
-    <tr><td class="row_index">14</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>120040</td></tr>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>NT/PA/15006/150080</td><td>origem</td><td>6816</td><td>2638</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>ND/PE/26010/261160</td><td>origem</td><td>5177</td><td>2605</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>SD/ES/32002/320500</td><td>origem</td><td>4080</td><td>2263</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>SD/RJ/33005/330350</td><td>origem</td><td>2730</td><td>1951</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>CO/MT/51002/510840</td><td>origem</td><td>2061</td><td>1873</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>SD/ES/32002/320130</td><td>origem</td><td>3685</td><td>1525</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>ND/PE/26010/260790</td><td>origem</td><td>3274</td><td>1479</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>SD/RJ/33005/330455</td><td>origem</td><td>11372</td><td>1347</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>SD/ES/32002/320520</td><td>origem</td><td>3171</td><td>1215</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>ND/CE/23002/230370</td><td>origem</td><td>2763</td><td>1213</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>ND/PE/26010/260290</td><td>origem</td><td>1671</td><td>1153</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>SD/SP/35016/355030</td><td>origem</td><td>43210</td><td>1147</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>SD/SP/35013/351500</td><td>origem</td><td>1743</td><td>1134</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>SL/RS/43010/432300</td><td>origem</td><td>1558</td><td>1110</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>CO/GO/52002/520140</td><td>origem</td><td>3565</td><td>1098</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">17,106,396</td><td>2019</td><td>411010034</td><td>2765640</td><td>24</td><td>170930</td><td>171840</td></tr>
-    <tr><td class="row_index">17,106,397</td><td>2019</td><td>411010034</td><td>2765640</td><td>27</td><td>170930</td><td>171670</td></tr>
-    <tr><td class="row_index">17,106,398</td><td>2019</td><td>411010034</td><td>2765640</td><td>22</td><td>170930</td><td>171670</td></tr>
-    <tr><td class="row_index">17,106,399</td><td>2019</td><td>411010034</td><td>2765640</td><td>25</td><td>170930</td><td>170930</td></tr>
-    <tr><td class="row_index">17,106,400</td><td>2019</td><td>411010034</td><td>2755149</td><td>21</td><td>171610</td><td>171250</td></tr>
+    <tr><td class="row_index">34,262</td><td>1</td><td>1</td><td>SL/SC/42013/420260/2665085</td><td>destino</td><td>15</td><td>0</td></tr>
+    <tr><td class="row_index">34,263</td><td>1</td><td>1</td><td>SL/SC/42013/420455/2300478</td><td>destino</td><td>1</td><td>0</td></tr>
+    <tr><td class="row_index">34,264</td><td>1</td><td>1</td><td>SL/SC/42013/421890/2300885</td><td>destino</td><td>19</td><td>0</td></tr>
+    <tr><td class="row_index">34,265</td><td>1</td><td>1</td><td>SL/SC/42015/421120/2419378</td><td>destino</td><td>2</td><td>0</td></tr>
+    <tr><td class="row_index">34,266</td><td>1</td><td>1</td><td>SL/SC/42016/421840/2778858</td><td>destino</td><td>2</td><td>0</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">17,106,401 rows × 6 columns</div>
-  </div>
-</div>
-</div>
-</div>
-<p>100%|██████████| 4400/4400 [20:32&lt;00:00, 3.57it/s]</p>
-</section>
-</section>
-<section id="exportar-tabela" class="level1">
-<h1>Exportar tabela</h1>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>output_sih <span class="op">=</span> path_zip_sih.replace(<span class="st">'SIHSUS.zip'</span>, <span class="st">'sih.jay'</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_sih.to_jay(output_sih)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> dt.fread(output_sih)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-
-<div class="datatable">
-  <table class="frame">
-  <thead>
-    <tr class="colnames"><td class="row_index"></td><th>ano</th><th>parto_normal</th><th>cnes</th><th>idade</th><th>hosp_cod_municipio</th><th>cod_municipio</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
-  </thead>
-  <tbody>
-    <tr><td class="row_index">0</td><td>2010</td><td>310010039</td><td>2001020</td><td>23</td><td>120005</td><td>120005</td></tr>
-    <tr><td class="row_index">1</td><td>2010</td><td>310010039</td><td>2000733</td><td>28</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">2</td><td>2010</td><td>310010039</td><td>2000733</td><td>38</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">3</td><td>2010</td><td>310010039</td><td>2000733</td><td>16</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">4</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">5</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">6</td><td>2010</td><td>310010039</td><td>2000733</td><td>27</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">7</td><td>2010</td><td>310010039</td><td>2001020</td><td>31</td><td>120005</td><td>120005</td></tr>
-    <tr><td class="row_index">8</td><td>2010</td><td>310010039</td><td>2000733</td><td>30</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">9</td><td>2010</td><td>310010039</td><td>2000733</td><td>18</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">10</td><td>2010</td><td>310010039</td><td>2001020</td><td>28</td><td>120005</td><td>120005</td></tr>
-    <tr><td class="row_index">11</td><td>2010</td><td>310010039</td><td>2000733</td><td>32</td><td>120040</td><td>120038</td></tr>
-    <tr><td class="row_index">12</td><td>2010</td><td>310010039</td><td>2000733</td><td>30</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">13</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>120001</td></tr>
-    <tr><td class="row_index">14</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">17,106,396</td><td>2019</td><td>411010034</td><td>2765640</td><td>24</td><td>170930</td><td>171840</td></tr>
-    <tr><td class="row_index">17,106,397</td><td>2019</td><td>411010034</td><td>2765640</td><td>27</td><td>170930</td><td>171670</td></tr>
-    <tr><td class="row_index">17,106,398</td><td>2019</td><td>411010034</td><td>2765640</td><td>22</td><td>170930</td><td>171670</td></tr>
-    <tr><td class="row_index">17,106,399</td><td>2019</td><td>411010034</td><td>2765640</td><td>25</td><td>170930</td><td>170930</td></tr>
-    <tr><td class="row_index">17,106,400</td><td>2019</td><td>411010034</td><td>2755149</td><td>21</td><td>171610</td><td>171250</td></tr>
-  </tbody>
-  </table>
-  <div class="footer">
-    <div class="frame_dimensions">17,106,401 rows × 6 columns</div>
+    <div class="frame_dimensions">34,267 rows × 6 columns</div>
   </div>
 </div>
 </div>

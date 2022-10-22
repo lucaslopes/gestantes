@@ -212,7 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/table_dists.html" class="sidebar-item-text sidebar-link">Distâncias</a>
+  <a href="../sections/table_dslc.html" class="sidebar-item-text sidebar-link">Deslocamentos</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -220,19 +220,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../sections/table_procs.html" class="sidebar-item-text sidebar-link active">Procedimentos</a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Rankings</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/rank_munic.html" class="sidebar-item-text sidebar-link">Rank Município</a>
+  <a href="../sections/table_counts.html" class="sidebar-item-text sidebar-link">Contagens</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_ranks.html" class="sidebar-item-text sidebar-link">Rankings</a>
   </div>
 </li>
       </ul>
@@ -349,35 +344,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>codigo</th><th>cod_municipio</th><th>nome_municipio</th><th>capital</th><th>cod_regiao_saude</th><th>nome_regiao_saude</th><th>cod_uf</th><th>uf</th><th>nome_uf</th><th>regiao</th><th>socioecon</th><th>latitude</th><th>longitude</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>codigo</th><th>cod_municipio</th><th>nome_municipio</th><th>capital</th><th>cod_regiao_saude</th><th>nome_regiao_saude</th><th>cod_uf</th><th>uf</th><th>nome_uf</th><th>sigla_regiao</th><th>nome_regiao</th><th>socioecon</th><th>latitude</th><th>longitude</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>CO/GO/52001/520005</td><td>520005</td><td>Abadia de Goiás</td><td>0</td><td>52001</td><td>Central</td><td>52</td><td>GO</td><td>Goiás</td><td>Centro-Oeste</td><td>5</td><td>−16.7573</td><td>−49.4412</td></tr>
-    <tr><td class="row_index">1</td><td>SD/MG/31052/310010</td><td>310010</td><td>Abadia dos Dourados</td><td>0</td><td>31052</td><td>Patrocínio Monte Carmelo</td><td>31</td><td>MG</td><td>Minas Gerais</td><td>Sudeste</td><td>2</td><td>−18.4831</td><td>−47.3916</td></tr>
-    <tr><td class="row_index">2</td><td>CO/GO/52011/520010</td><td>520010</td><td>Abadiânia</td><td>0</td><td>52011</td><td>Pirineus</td><td>52</td><td>GO</td><td>Goiás</td><td>Centro-Oeste</td><td>3</td><td>−16.197</td><td>−48.7057</td></tr>
-    <tr><td class="row_index">3</td><td>SD/MG/31067/310020</td><td>310020</td><td>Abaeté</td><td>0</td><td>31067</td><td>Sete Lagoas</td><td>31</td><td>MG</td><td>Minas Gerais</td><td>Sudeste</td><td>3</td><td>−19.1551</td><td>−45.4444</td></tr>
-    <tr><td class="row_index">4</td><td>NT/PA/15011/150010</td><td>150010</td><td>Abaetetuba</td><td>0</td><td>15011</td><td>Tocantins</td><td>15</td><td>PA</td><td>Pará</td><td>Norte</td><td>1</td><td>−1.72183</td><td>−48.8788</td></tr>
-    <tr><td class="row_index">5</td><td>ND/CE/23019/230010</td><td>230010</td><td>Abaiara</td><td>0</td><td>23019</td><td>19ª Região Brejo Santo</td><td>23</td><td>CE</td><td>Ceará</td><td>Nordeste</td><td>1</td><td>−7.34588</td><td>−39.0416</td></tr>
-    <tr><td class="row_index">6</td><td>ND/BA/29023/290010</td><td>290010</td><td>Abaíra</td><td>0</td><td>29023</td><td>Seabra</td><td>29</td><td>BA</td><td>Bahia</td><td>Nordeste</td><td>1</td><td>−13.2488</td><td>−41.6619</td></tr>
-    <tr><td class="row_index">7</td><td>ND/BA/29017/290020</td><td>290020</td><td>Abaré</td><td>0</td><td>29017</td><td>Paulo Afonso</td><td>29</td><td>BA</td><td>Bahia</td><td>Nordeste</td><td>1</td><td>−8.72073</td><td>−39.1162</td></tr>
-    <tr><td class="row_index">8</td><td>SL/PR/41018/410010</td><td>410010</td><td>Abatiá</td><td>0</td><td>41018</td><td>18ª RS Cornélio Procópio</td><td>41</td><td>PR</td><td>Paraná</td><td>Sul</td><td>3</td><td>−23.3049</td><td>−50.3133</td></tr>
-    <tr><td class="row_index">9</td><td>SL/SC/42008/420005</td><td>420005</td><td>Abdon Batista</td><td>0</td><td>42008</td><td>Meio Oeste</td><td>42</td><td>SC</td><td>Santa Catarina</td><td>Sul</td><td>3</td><td>−27.6126</td><td>−51.0233</td></tr>
-    <tr><td class="row_index">10</td><td>NT/PA/15003/150013</td><td>150013</td><td>Abel Figueiredo</td><td>0</td><td>15003</td><td>Carajás</td><td>15</td><td>PA</td><td>Pará</td><td>Norte</td><td>2</td><td>−4.95333</td><td>−48.3933</td></tr>
-    <tr><td class="row_index">11</td><td>SL/SC/42003/420010</td><td>420010</td><td>Abelardo Luz</td><td>0</td><td>42003</td><td>Xanxerê</td><td>42</td><td>SC</td><td>Santa Catarina</td><td>Sul</td><td>3</td><td>−26.5716</td><td>−52.3229</td></tr>
-    <tr><td class="row_index">12</td><td>SD/MG/31041/310030</td><td>310030</td><td>Abre Campo</td><td>0</td><td>31041</td><td>Manhuaçu</td><td>31</td><td>MG</td><td>Minas Gerais</td><td>Sudeste</td><td>1</td><td>−20.2996</td><td>−42.4743</td></tr>
-    <tr><td class="row_index">13</td><td>ND/PE/26010/260005</td><td>260005</td><td>Abreu e Lima</td><td>0</td><td>26010</td><td>Recife</td><td>26</td><td>PE</td><td>Pernambuco</td><td>Nordeste</td><td>5</td><td>−7.90072</td><td>−34.8984</td></tr>
-    <tr><td class="row_index">14</td><td>NT/TO/17007/170025</td><td>170025</td><td>Abreulândia</td><td>0</td><td>17007</td><td>Cantão</td><td>17</td><td>TO</td><td>Tocantins</td><td>Norte</td><td>2</td><td>−9.62101</td><td>−49.1518</td></tr>
-    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">5565</td><td>ND/BA/29010/293360</td><td>293360</td><td>Xique-Xique</td><td>0</td><td>29010</td><td>Irecê</td><td>29</td><td>BA</td><td>Bahia</td><td>Nordeste</td><td>1</td><td>−10.823</td><td>−42.7245</td></tr>
-    <tr><td class="row_index">5566</td><td>ND/PB/25005/251740</td><td>251740</td><td>Zabelê</td><td>0</td><td>25005</td><td>5ª Região</td><td>25</td><td>PB</td><td>Paraíba</td><td>Nordeste</td><td>1</td><td>−8.07901</td><td>−37.1057</td></tr>
-    <tr><td class="row_index">5567</td><td>SD/SP/35156/355715</td><td>355715</td><td>Zacarias</td><td>0</td><td>35156</td><td>José Bonifácio</td><td>35</td><td>SP</td><td>São Paulo</td><td>Sudeste</td><td>3</td><td>−21.0506</td><td>−50.0552</td></tr>
-    <tr><td class="row_index">5568</td><td>ND/MA/21019/211400</td><td>211400</td><td>Zé Doca</td><td>0</td><td>21019</td><td>Zé Doca</td><td>21</td><td>MA</td><td>Maranhão</td><td>Nordeste</td><td>1</td><td>−3.27014</td><td>−45.6553</td></tr>
-    <tr><td class="row_index">5569</td><td>SL/SC/42008/421985</td><td>421985</td><td>Zortéa</td><td>0</td><td>42008</td><td>Meio Oeste</td><td>42</td><td>SC</td><td>Santa Catarina</td><td>Sul</td><td>3</td><td>−27.4521</td><td>−51.552</td></tr>
+    <tr><td class="row_index">0</td><td>CO/GO/52001/520005</td><td>520005</td><td>Abadia de Goiás</td><td>0</td><td>52001</td><td>Central</td><td>52</td><td>GO</td><td>Goiás</td><td>CO</td><td>Centro-Oeste</td><td>5</td><td>−16.7573</td><td>−49.4412</td></tr>
+    <tr><td class="row_index">1</td><td>SD/MG/31052/310010</td><td>310010</td><td>Abadia dos Dourados</td><td>0</td><td>31052</td><td>Patrocínio Monte Carmelo</td><td>31</td><td>MG</td><td>Minas Gerais</td><td>SD</td><td>Sudeste</td><td>2</td><td>−18.4831</td><td>−47.3916</td></tr>
+    <tr><td class="row_index">2</td><td>CO/GO/52011/520010</td><td>520010</td><td>Abadiânia</td><td>0</td><td>52011</td><td>Pirineus</td><td>52</td><td>GO</td><td>Goiás</td><td>CO</td><td>Centro-Oeste</td><td>3</td><td>−16.197</td><td>−48.7057</td></tr>
+    <tr><td class="row_index">3</td><td>SD/MG/31067/310020</td><td>310020</td><td>Abaeté</td><td>0</td><td>31067</td><td>Sete Lagoas</td><td>31</td><td>MG</td><td>Minas Gerais</td><td>SD</td><td>Sudeste</td><td>3</td><td>−19.1551</td><td>−45.4444</td></tr>
+    <tr><td class="row_index">4</td><td>NT/PA/15011/150010</td><td>150010</td><td>Abaetetuba</td><td>0</td><td>15011</td><td>Tocantins</td><td>15</td><td>PA</td><td>Pará</td><td>NT</td><td>Norte</td><td>1</td><td>−1.72183</td><td>−48.8788</td></tr>
+    <tr><td class="row_index">5</td><td>ND/CE/23019/230010</td><td>230010</td><td>Abaiara</td><td>0</td><td>23019</td><td>19ª Região Brejo Santo</td><td>23</td><td>CE</td><td>Ceará</td><td>ND</td><td>Nordeste</td><td>1</td><td>−7.34588</td><td>−39.0416</td></tr>
+    <tr><td class="row_index">6</td><td>ND/BA/29023/290010</td><td>290010</td><td>Abaíra</td><td>0</td><td>29023</td><td>Seabra</td><td>29</td><td>BA</td><td>Bahia</td><td>ND</td><td>Nordeste</td><td>1</td><td>−13.2488</td><td>−41.6619</td></tr>
+    <tr><td class="row_index">7</td><td>ND/BA/29017/290020</td><td>290020</td><td>Abaré</td><td>0</td><td>29017</td><td>Paulo Afonso</td><td>29</td><td>BA</td><td>Bahia</td><td>ND</td><td>Nordeste</td><td>1</td><td>−8.72073</td><td>−39.1162</td></tr>
+    <tr><td class="row_index">8</td><td>SL/PR/41018/410010</td><td>410010</td><td>Abatiá</td><td>0</td><td>41018</td><td>18ª RS Cornélio Procópio</td><td>41</td><td>PR</td><td>Paraná</td><td>SL</td><td>Sul</td><td>3</td><td>−23.3049</td><td>−50.3133</td></tr>
+    <tr><td class="row_index">9</td><td>SL/SC/42008/420005</td><td>420005</td><td>Abdon Batista</td><td>0</td><td>42008</td><td>Meio Oeste</td><td>42</td><td>SC</td><td>Santa Catarina</td><td>SL</td><td>Sul</td><td>3</td><td>−27.6126</td><td>−51.0233</td></tr>
+    <tr><td class="row_index">10</td><td>NT/PA/15003/150013</td><td>150013</td><td>Abel Figueiredo</td><td>0</td><td>15003</td><td>Carajás</td><td>15</td><td>PA</td><td>Pará</td><td>NT</td><td>Norte</td><td>2</td><td>−4.95333</td><td>−48.3933</td></tr>
+    <tr><td class="row_index">11</td><td>SL/SC/42003/420010</td><td>420010</td><td>Abelardo Luz</td><td>0</td><td>42003</td><td>Xanxerê</td><td>42</td><td>SC</td><td>Santa Catarina</td><td>SL</td><td>Sul</td><td>3</td><td>−26.5716</td><td>−52.3229</td></tr>
+    <tr><td class="row_index">12</td><td>SD/MG/31041/310030</td><td>310030</td><td>Abre Campo</td><td>0</td><td>31041</td><td>Manhuaçu</td><td>31</td><td>MG</td><td>Minas Gerais</td><td>SD</td><td>Sudeste</td><td>1</td><td>−20.2996</td><td>−42.4743</td></tr>
+    <tr><td class="row_index">13</td><td>ND/PE/26010/260005</td><td>260005</td><td>Abreu e Lima</td><td>0</td><td>26010</td><td>Recife</td><td>26</td><td>PE</td><td>Pernambuco</td><td>ND</td><td>Nordeste</td><td>5</td><td>−7.90072</td><td>−34.8984</td></tr>
+    <tr><td class="row_index">14</td><td>NT/TO/17007/170025</td><td>170025</td><td>Abreulândia</td><td>0</td><td>17007</td><td>Cantão</td><td>17</td><td>TO</td><td>Tocantins</td><td>NT</td><td>Norte</td><td>2</td><td>−9.62101</td><td>−49.1518</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">5565</td><td>ND/BA/29010/293360</td><td>293360</td><td>Xique-Xique</td><td>0</td><td>29010</td><td>Irecê</td><td>29</td><td>BA</td><td>Bahia</td><td>ND</td><td>Nordeste</td><td>1</td><td>−10.823</td><td>−42.7245</td></tr>
+    <tr><td class="row_index">5566</td><td>ND/PB/25005/251740</td><td>251740</td><td>Zabelê</td><td>0</td><td>25005</td><td>5ª Região</td><td>25</td><td>PB</td><td>Paraíba</td><td>ND</td><td>Nordeste</td><td>1</td><td>−8.07901</td><td>−37.1057</td></tr>
+    <tr><td class="row_index">5567</td><td>SD/SP/35156/355715</td><td>355715</td><td>Zacarias</td><td>0</td><td>35156</td><td>José Bonifácio</td><td>35</td><td>SP</td><td>São Paulo</td><td>SD</td><td>Sudeste</td><td>3</td><td>−21.0506</td><td>−50.0552</td></tr>
+    <tr><td class="row_index">5568</td><td>ND/MA/21019/211400</td><td>211400</td><td>Zé Doca</td><td>0</td><td>21019</td><td>Zé Doca</td><td>21</td><td>MA</td><td>Maranhão</td><td>ND</td><td>Nordeste</td><td>1</td><td>−3.27014</td><td>−45.6553</td></tr>
+    <tr><td class="row_index">5569</td><td>SL/SC/42008/421985</td><td>421985</td><td>Zortéa</td><td>0</td><td>42008</td><td>Meio Oeste</td><td>42</td><td>SC</td><td>Santa Catarina</td><td>SL</td><td>Sul</td><td>3</td><td>−27.4521</td><td>−51.552</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">5570 rows × 13 columns</div>
+    <div class="frame_dimensions">5570 rows × 14 columns</div>
   </div>
 </div>
 </div>
@@ -395,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>path_dist <span class="op">=</span> get_path(<span class="st">'DISTANCIAS'</span>, <span class="st">'distancias.csv.gzip'</span>)</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>path_dist <span class="op">=</span> get_path(<span class="st">'DISTANCIAS'</span>, <span class="st">'deslocamentos.csv.gzip'</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_dist <span class="op">=</span> dt.fread(path_dist, columns<span class="op">=</span>cols_dist)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df_dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
