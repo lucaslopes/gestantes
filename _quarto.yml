@@ -17,6 +17,7 @@ website:
       - section: 'Coleta de Dados'
         contents:
           - sections/database_sih.ipynb
+          - sections/database_cnes.ipynb
           - sections/database_municipios.ipynb
           - sections/database_indicadores.ipynb
           - sections/database_dists.ipynb
@@ -26,7 +27,7 @@ website:
           - sections/table_dslc.ipynb
           - sections/table_procs.ipynb
           - sections/table_counts.ipynb
-          - sections/table_ranks.ipynb
+          - sections/table_percent.ipynb
 
 format:
   html:
