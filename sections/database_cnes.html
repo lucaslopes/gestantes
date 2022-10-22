@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Deslocamento de Gestantes - CNES</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">CNES</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Deslocamento de Gestantes</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lucaslopes/gestantes" title="" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../README.html" class="sidebar-item-text sidebar-link">Introdução</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Coleta de Dados</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_sih.html" class="sidebar-item-text sidebar-link">SIH</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_cnes.html" class="sidebar-item-text sidebar-link active">CNES</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_municipios.html" class="sidebar-item-text sidebar-link">Municípios</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_indicadores.html" class="sidebar-item-text sidebar-link">Indicadores</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_dists.html" class="sidebar-item-text sidebar-link">Distâncias</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Tabelas Criadas</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_locs.html" class="sidebar-item-text sidebar-link">Localidades</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_dslc.html" class="sidebar-item-text sidebar-link">Deslocamentos</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_procs.html" class="sidebar-item-text sidebar-link">Procedimentos</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_counts.html" class="sidebar-item-text sidebar-link">Contagens</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_percent.html" class="sidebar-item-text sidebar-link">Percentuais</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#descrição" id="toc-descrição" class="nav-link active" data-scroll-target="#descrição">Descrição</a></li>
+  <li><a href="#fontes-de-dados" id="toc-fontes-de-dados" class="nav-link" data-scroll-target="#fontes-de-dados">Fontes de dados</a>
+  <ul class="collapse">
+  <li><a href="#sih" id="toc-sih" class="nav-link" data-scroll-target="#sih">SIH</a>
+  <ul class="collapse">
+  <li><a href="#colunas-da-tabela" id="toc-colunas-da-tabela" class="nav-link" data-scroll-target="#colunas-da-tabela">Colunas da tabela</a></li>
+  <li><a href="#tabela-agrupada" id="toc-tabela-agrupada" class="nav-link" data-scroll-target="#tabela-agrupada">Tabela agrupada</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#web-scrap" id="toc-web-scrap" class="nav-link" data-scroll-target="#web-scrap">Web Scrap</a></li>
+  <li><a href="#gerando-tabela" id="toc-gerando-tabela" class="nav-link" data-scroll-target="#gerando-tabela">Gerando tabela</a>
+  <ul class="collapse">
+  <li><a href="#cnes-coletados" id="toc-cnes-coletados" class="nav-link" data-scroll-target="#cnes-coletados">CNES coletados</a></li>
+  <li><a href="#concatenando-tabelas" id="toc-concatenando-tabelas" class="nav-link" data-scroll-target="#concatenando-tabelas">Concatenando tabelas</a></li>
+  <li><a href="#cnes-não-atendem-sus" id="toc-cnes-não-atendem-sus" class="nav-link" data-scroll-target="#cnes-não-atendem-sus">CNES não atendem SUS</a>
+  <ul class="collapse">
+  <li><a href="#quantidade-dos-que-atendem" id="toc-quantidade-dos-que-atendem" class="nav-link" data-scroll-target="#quantidade-dos-que-atendem">Quantidade dos que atendem</a></li>
+  <li><a href="#os-que-não-antendem" id="toc-os-que-não-antendem" class="nav-link" data-scroll-target="#os-que-não-antendem">Os que não antendem</a></li>
+  <li><a href="#uf" id="toc-uf" class="nav-link" data-scroll-target="#uf">UF</a></li>
+  <li><a href="#natureza-jurídicagrupo" id="toc-natureza-jurídicagrupo" class="nav-link" data-scroll-target="#natureza-jurídicagrupo">Natureza Jurídica(Grupo)</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#exportando-tabela" id="toc-exportando-tabela" class="nav-link" data-scroll-target="#exportando-tabela">Exportando tabela</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">CNES</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> os <span class="im">import</span> listdir</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> selenium <span class="im">import</span> webdriver</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> selenium.webdriver.common.by <span class="im">import</span> By</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> selenium.webdriver.common.keys <span class="im">import</span> Keys</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> selenium.webdriver.chrome.options <span class="im">import</span> Options</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, data_load, group_cols</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style type="text/css">
+.datatable table.frame { margin-bottom: 0; }
+.datatable table.frame thead { border-bottom: none; }
+.datatable table.frame tr.coltypes td {  color: #FFFFFF;  line-height: 6px;  padding: 0 0.5em;}
+.datatable .bool    { background: #DDDD99; }
+.datatable .object  { background: #565656; }
+.datatable .int     { background: #5D9E5D; }
+.datatable .float   { background: #4040CC; }
+.datatable .str     { background: #CC4040; }
+.datatable .time    { background: #40CC40; }
+.datatable .row_index {  background: var(--jp-border-color3);  border-right: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  font-size: 9px;}
+.datatable .frame tbody td { text-align: left; }
+.datatable .frame tr.coltypes .row_index {  background: var(--jp-border-color0);}
+.datatable th:nth-child(2) { padding-left: 12px; }
+.datatable .hellipsis {  color: var(--jp-cell-editor-border-color);}
+.datatable .vellipsis {  background: var(--jp-layout-color0);  color: var(--jp-cell-editor-border-color);}
+.datatable .na {  color: var(--jp-cell-editor-border-color);  font-size: 80%;}
+.datatable .sp {  opacity: 0.25;}
+.datatable .footer { font-size: 9px; }
+.datatable .frame_dimensions {  background: var(--jp-border-color3);  border-top: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  display: inline-block;  opacity: 0.6;  padding: 1px 10px 1px 5px;}
+</style>
+</div>
+</div>
+<section id="descrição" class="level1">
+<h1>Descrição</h1>
+<p>Entre os desafios mais urgentes do Sistema Único de Saúde (SUS) estão a ampliação do acesso e a adequação dos serviços ofertados. No Brasil, as relações existentes entre regiões e redes de atenção à saúde indicam que o avanço do processo de regionalização do SUS pode interferir positivamente na oferta de ações de serviços de saúde, tornando-a mais eficiente e abrangente.</p>
+<p><a href="https://www.resbr.net.br/apresentacao/">Saiba mais</a></p>
+<p><a href="https://indicadores.resbr.net.br/view/">Plataforma de acesso ao Banco de Indicadores</a></p>
+</section>
+<section id="fontes-de-dados" class="level1">
+<h1>Fontes de dados</h1>
+<section id="sih" class="level2">
+<h2 class="anchored" data-anchor-id="sih">SIH</h2>
+<section id="colunas-da-tabela" class="level3">
+<h3 class="anchored" data-anchor-id="colunas-da-tabela">Colunas da tabela</h3>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cols_sih <span class="op">=</span> [</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cnes'</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>path_sih <span class="op">=</span> get_path(<span class="st">'SIH'</span>, <span class="st">'sih.jay'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> dt.fread(path_sih)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> df_sih[:, cols_sih]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>cnes</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>2001020</td></tr>
+    <tr><td class="row_index">1</td><td>2000733</td></tr>
+    <tr><td class="row_index">2</td><td>2000733</td></tr>
+    <tr><td class="row_index">3</td><td>2000733</td></tr>
+    <tr><td class="row_index">4</td><td>2000733</td></tr>
+    <tr><td class="row_index">5</td><td>2000733</td></tr>
+    <tr><td class="row_index">6</td><td>2000733</td></tr>
+    <tr><td class="row_index">7</td><td>2001020</td></tr>
+    <tr><td class="row_index">8</td><td>2000733</td></tr>
+    <tr><td class="row_index">9</td><td>2000733</td></tr>
+    <tr><td class="row_index">10</td><td>2001020</td></tr>
+    <tr><td class="row_index">11</td><td>2000733</td></tr>
+    <tr><td class="row_index">12</td><td>2000733</td></tr>
+    <tr><td class="row_index">13</td><td>2000733</td></tr>
+    <tr><td class="row_index">14</td><td>2000733</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">17,106,396</td><td>2765640</td></tr>
+    <tr><td class="row_index">17,106,397</td><td>2765640</td></tr>
+    <tr><td class="row_index">17,106,398</td><td>2765640</td></tr>
+    <tr><td class="row_index">17,106,399</td><td>2765640</td></tr>
+    <tr><td class="row_index">17,106,400</td><td>2755149</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">17,106,401 rows × 1 column</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="tabela-agrupada" class="level3">
+<h3 class="anchored" data-anchor-id="tabela-agrupada">Tabela agrupada</h3>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> group_cols(df_sih, cols_sih).sort(<span class="op">-</span>f.count)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>cnes</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>2232</td><td>101955</td></tr>
+    <tr><td class="row_index">1</td><td>3151794</td><td>75209</td></tr>
+    <tr><td class="row_index">2</td><td>2323397</td><td>74712</td></tr>
+    <tr><td class="row_index">3</td><td>2311682</td><td>64833</td></tr>
+    <tr><td class="row_index">4</td><td>26794</td><td>63700</td></tr>
+    <tr><td class="row_index">5</td><td>2020068</td><td>59613</td></tr>
+    <tr><td class="row_index">6</td><td>6627595</td><td>58139</td></tr>
+    <tr><td class="row_index">7</td><td>2799278</td><td>57750</td></tr>
+    <tr><td class="row_index">8</td><td>10480</td><td>57201</td></tr>
+    <tr><td class="row_index">9</td><td>2077388</td><td>57055</td></tr>
+    <tr><td class="row_index">10</td><td>7011857</td><td>50402</td></tr>
+    <tr><td class="row_index">11</td><td>6303153</td><td>48546</td></tr>
+    <tr><td class="row_index">12</td><td>2755165</td><td>48341</td></tr>
+    <tr><td class="row_index">13</td><td>2344882</td><td>48078</td></tr>
+    <tr><td class="row_index">14</td><td>2079186</td><td>46585</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">4145</td><td>7320175</td><td>1</td></tr>
+    <tr><td class="row_index">4146</td><td>7603029</td><td>1</td></tr>
+    <tr><td class="row_index">4147</td><td>7621442</td><td>1</td></tr>
+    <tr><td class="row_index">4148</td><td>7704364</td><td>1</td></tr>
+    <tr><td class="row_index">4149</td><td>7743068</td><td>1</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">4150 rows × 2 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="web-scrap" class="level1">
+<h1>Web Scrap</h1>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_cnes_row(driver, url, cnes):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  driver.get(url <span class="op">+</span> cnes)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  soup <span class="op">=</span> BeautifulSoup(driver.page_source, <span class="st">'html.parser'</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  dict_cols <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  columns <span class="op">=</span> soup.find_all(<span class="st">'td'</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> col <span class="kw">in</span> columns[:<span class="op">-</span><span class="dv">1</span>]:</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    c_names <span class="op">=</span> re.findall(<span class="st">"'([^']+)'"</span>, col[<span class="st">'data-title'</span>])</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    c_name <span class="op">=</span> c_names[<span class="dv">0</span>] <span class="cf">if</span> <span class="bu">len</span>(c_names) <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> c_names[<span class="dv">1</span>] <span class="co"># {1: 'Nome Fantasia', 2: 'Nome Empresarial'}</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    value <span class="op">=</span> re.findall(<span class="st">"</span><span class="ch">\\</span><span class="st">t</span><span class="sc">{3}</span><span class="st">(.+)</span><span class="ch">\\</span><span class="st">n"</span>, col.contents[<span class="dv">0</span>])</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    dict_cols[c_name] <span class="op">=</span> value</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> pd.DataFrame.from_dict(dict_cols)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>options <span class="op">=</span> Options()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>options.add_argument(<span class="st">'--headless'</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>chromedriver <span class="op">=</span> <span class="st">'/Users/lucas/Desktop/chromedriver'</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>driver <span class="op">=</span> webdriver.Chrome(chromedriver, options<span class="op">=</span>options)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/9d/972tfrtd01z2hhl836z97zdr0000gn/T/ipykernel_58679/1031672721.py:4: DeprecationWarning:
+
+executable_path has been deprecated, please pass in a Service object
+</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'http://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp?search='</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cnes_list <span class="op">=</span> [(<span class="st">'0'</span> <span class="op">*</span> <span class="dv">7</span> <span class="op">+</span> <span class="bu">str</span>(c))[<span class="op">-</span><span class="dv">7</span>:] <span class="cf">for</span> c <span class="kw">in</span> df_sih[<span class="st">'cnes'</span>].to_list()[<span class="dv">0</span>]]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>dfs <span class="op">=</span> [get_cnes_row(driver, url, cnes) <span class="cf">for</span> cnes <span class="kw">in</span> tqdm(cnes_list)]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(dfs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 4150/4150 [14:17&lt;00:00,  4.84it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>4150</code></pre>
+</div>
+</div>
+<p>100%|██████████| 4150/4150 [14:17&lt;00:00, 4.84it/s]</p>
+</section>
+<section id="gerando-tabela" class="level1">
+<h1>Gerando tabela</h1>
+<section id="cnes-coletados" class="level2">
+<h2 class="anchored" data-anchor-id="cnes-coletados">CNES coletados</h2>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_cnes_collect <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df_cnes_collect[<span class="st">'cnes'</span>] <span class="op">=</span> cnes_list</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df_cnes_collect[<span class="st">'collected'</span>] <span class="op">=</span> [<span class="bu">len</span>(df) <span class="op">==</span>  <span class="dv">1</span> <span class="cf">for</span> df <span class="kw">in</span> dfs]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>df_cnes_collect</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>cnes</th>
+      <th>collected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0002232</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3151794</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2323397</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2311682</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0026794</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4145</th>
+      <td>7320175</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4146</th>
+      <td>7603029</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4147</th>
+      <td>7621442</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4148</th>
+      <td>7704364</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4149</th>
+      <td>7743068</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>4150 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>n_cnes <span class="op">=</span> df_cnes_collect.shape[<span class="dv">0</span>]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>n_collected <span class="op">=</span> df_cnes_collect[df_cnes_collect[<span class="st">'collected'</span>] <span class="op">==</span> <span class="va">True</span>].shape[<span class="dv">0</span>]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>percent_clct <span class="op">=</span> n_collected <span class="op">/</span> n_cnes</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Collected </span><span class="sc">{</span>n_collected<span class="sc">}</span><span class="ss"> cnes from </span><span class="sc">{</span>n_cnes<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>percent_clct<span class="sc">:.2f}</span><span class="ss">%)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Collected 3928 cnes from 4150 (0.95%)</code></pre>
+</div>
+</div>
+</section>
+<section id="concatenando-tabelas" class="level2">
+<h2 class="anchored" data-anchor-id="concatenando-tabelas">Concatenando tabelas</h2>
+<p>Concatenação das tabelas em uma</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_cnes <span class="op">=</span> pd.concat([df <span class="cf">for</span> df <span class="kw">in</span> dfs <span class="cf">if</span> <span class="bu">len</span>(df) <span class="op">==</span>  <span class="dv">1</span>])</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_cnes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>UF</th>
+      <th>Município</th>
+      <th>CNES</th>
+      <th>Nome Fantasia</th>
+      <th>Natureza Jurídica(Grupo)</th>
+      <th>Gestão</th>
+      <th>Atende SUS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>SE</td>
+      <td>ARACAJU</td>
+      <td>0002232</td>
+      <td>HOSPITAL E MATERNIDADE SANTA IZABEL</td>
+      <td>ENTIDADES SEM FINS LUCRATIVOS</td>
+      <td>M</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>AM</td>
+      <td>MANAUS</td>
+      <td>3151794</td>
+      <td>MATERNIDADE DE REFERENCIA ANA BRAGA</td>
+      <td>ADMINISTRAÇÃO PÚBLICA</td>
+      <td>E</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>PI</td>
+      <td>TERESINA</td>
+      <td>2323397</td>
+      <td>MATERNIDADE DONA EVANGELINA ROSA</td>
+      <td>ADMINISTRAÇÃO PÚBLICA</td>
+      <td>M</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>MT</td>
+      <td>CUIABA</td>
+      <td>2311682</td>
+      <td>HOSPITAL SANTA HELENA</td>
+      <td>ENTIDADES SEM FINS LUCRATIVOS</td>
+      <td>M</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>MG</td>
+      <td>BELO HORIZONTE</td>
+      <td>0026794</td>
+      <td>HOSPITAL SOFIA FELDMAN</td>
+      <td>ENTIDADES SEM FINS LUCRATIVOS</td>
+      <td>M</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>SP</td>
+      <td>SAO MIGUEL ARCANJO</td>
+      <td>7320175</td>
+      <td>HOSPITAL SAO MIGUEL ARCANJO</td>
+      <td>ENTIDADES SEM FINS LUCRATIVOS</td>
+      <td>M</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>MA</td>
+      <td>BOA VISTA DO GURUPI</td>
+      <td>7603029</td>
+      <td>HOSPITAL MUNICIPAL LENILDE OLIVEIRA</td>
+      <td>ADMINISTRAÇÃO PÚBLICA</td>
+      <td>M</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>ES</td>
+      <td>VITORIA</td>
+      <td>7621442</td>
+      <td>HOSPITAL ESTADUAL DE URGENCIA E EMERGENCIA</td>
+      <td>ADMINISTRAÇÃO PÚBLICA</td>
+      <td>E</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>RO</td>
+      <td>CACOAL</td>
+      <td>7704364</td>
+      <td>HOSPITAL DE URGENCIA E EMERGENCIA REGIONAL DE ...</td>
+      <td>ADMINISTRAÇÃO PÚBLICA</td>
+      <td>E</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>GO</td>
+      <td>GOIANIA</td>
+      <td>7743068</td>
+      <td>HOSPITAL ESTADUAL DE URGENCIAS GOV OTAVIO LAG ...</td>
+      <td>ADMINISTRAÇÃO PÚBLICA</td>
+      <td>E</td>
+      <td>SIM</td>
+    </tr>
+  </tbody>
+</table>
+<p>3928 rows × 7 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="cnes-não-atendem-sus" class="level2">
+<h2 class="anchored" data-anchor-id="cnes-não-atendem-sus">CNES não atendem SUS</h2>
+<section id="quantidade-dos-que-atendem" class="level3">
+<h3 class="anchored" data-anchor-id="quantidade-dos-que-atendem">Quantidade dos que atendem</h3>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_cnes[<span class="st">'Atende SUS'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>SIM    3814
+NÃO     114
+Name: Atende SUS, dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="os-que-não-antendem" class="level3">
+<h3 class="anchored" data-anchor-id="os-que-não-antendem">Os que não antendem</h3>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_not_sus <span class="op">=</span> df_cnes[df_cnes[<span class="st">'Atende SUS'</span>] <span class="op">==</span> <span class="st">'NÃO'</span>]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df_not_sus <span class="op">=</span>  df_not_sus.sort_values(by<span class="op">=</span><span class="st">'UF'</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df_not_sus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>UF</th>
+      <th>Município</th>
+      <th>CNES</th>
+      <th>Nome Fantasia</th>
+      <th>Natureza Jurídica(Grupo)</th>
+      <th>Gestão</th>
+      <th>Atende SUS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AL</td>
+      <td>MACEIO</td>
+      <td>2808889</td>
+      <td>HOSPITAL SAO RAFAEL</td>
+      <td>ENTIDADES EMPRESARIAIS</td>
+      <td>M</td>
+      <td>NÃO</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>AL</td>
+      <td>MACEIO</td>
+      <td>6782477</td>
+      <td>HOSPITAL GERAL E MATERNIDADE ALERTA MEDICO</td>
+      <td>ENTIDADES EMPRESARIAIS</td>
+      <td>M</td>
+      <td>NÃO</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>BA</td>
+      <td>IBIPEBA</td>
+      <td>2412985</td>
+      <td>HOSPITAL BOM JESUS DE NAZARE</td>
+      <td>ENTIDADES EMPRESARIAIS</td>
+      <td>E</td>
+      <td>NÃO</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>BA</td>
+      <td>IBIRATAIA</td>
+      <td>2413051</td>
+      <td>MATERNIDADE AURELINA VIRGILIA FAIR</td>
+      <td>ENTIDADES SEM FINS LUCRATIVOS</td>
+      <td>M</td>
+      <td>NÃO</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>BA</td>
+      <td>EUNAPOLIS</td>
+      <td>2556642</td>
+      <td>HOSPITAL E MATERNIDADE DE EUNAPOLIS</td>
+      <td>ENTIDADES EMPRESARIAIS</td>
+      <td>M</td>
+      <td>NÃO</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>SP</td>
+      <td>MORUNGABA</td>
+      <td>2026392</td>
+      <td>HOSPITAL SANTO ANTONIO</td>
+      <td>ENTIDADES EMPRESARIAIS</td>
+      <td>M</td>
+      <td>NÃO</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>SP</td>
+      <td>CAIEIRAS</td>
+      <td>6817203</td>
+      <td>HOSPITAL DE CLINICAS CAIEIRAS</td>
+      <td>ENTIDADES EMPRESARIAIS</td>
+      <td>M</td>
+      <td>NÃO</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>SP</td>
+      <td>SAO PAULO</td>
+      <td>2076934</td>
+      <td>HOSPITAL SOROCABANA</td>
+      <td>ENTIDADES SEM FINS LUCRATIVOS</td>
+      <td>M</td>
+      <td>NÃO</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>SP</td>
+      <td>TUPA</td>
+      <td>2080672</td>
+      <td>HOSPITAL SAO FRANCISCO TUPA</td>
+      <td>ENTIDADES SEM FINS LUCRATIVOS</td>
+      <td>M</td>
+      <td>NÃO</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>SP</td>
+      <td>TREMEMBE</td>
+      <td>2081326</td>
+      <td>HOSPITAL BOM JESUS DE TREMEMBE</td>
+      <td>ENTIDADES SEM FINS LUCRATIVOS</td>
+      <td>M</td>
+      <td>NÃO</td>
+    </tr>
+  </tbody>
+</table>
+<p>114 rows × 7 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="uf" class="level3">
+<h3 class="anchored" data-anchor-id="uf">UF</h3>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_not_sus[<span class="st">'UF'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>PA    18
+BA    15
+PR    14
+GO    10
+RJ     8
+PE     8
+CE     6
+SP     5
+MT     5
+MS     4
+MA     4
+MG     4
+PI     3
+ES     2
+RN     2
+AL     2
+SE     1
+RS     1
+PB     1
+DF     1
+Name: UF, dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="natureza-jurídicagrupo" class="level3">
+<h3 class="anchored" data-anchor-id="natureza-jurídicagrupo">Natureza Jurídica(Grupo)</h3>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df_not_sus[<span class="st">'Natureza Jurídica(Grupo)'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>ENTIDADES EMPRESARIAIS           95
+ENTIDADES SEM FINS LUCRATIVOS    17
+ADMINISTRAÇÃO PÚBLICA             2
+Name: Natureza Jurídica(Grupo), dtype: int64</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="exportando-tabela" class="level1">
+<h1>Exportando tabela</h1>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>path_cnes <span class="op">=</span> get_path(<span class="st">'LOCALIDADES'</span>, <span class="st">'cnes.csv.gzip'</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df_cnes.to_csv(path_cnes, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(path_cnes, low_memory<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>UF</th>
+      <th>Município</th>
+      <th>CNES</th>
+      <th>Nome Fantasia</th>
+      <th>Natureza Jurídica(Grupo)</th>
+      <th>Gestão</th>
+      <th>Atende SUS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>SE</td>
+      <td>ARACAJU</td>
+      <td>2232</td>
+      <td>HOSPITAL E MATERNIDADE SANTA IZABEL</td>
+      <td>ENTIDADES SEM FINS LUCRATIVOS</td>
+      <td>M</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AM</td>
+      <td>MANAUS</td>
+      <td>3151794</td>
+      <td>MATERNIDADE DE REFERENCIA ANA BRAGA</td>
+      <td>ADMINISTRAÇÃO PÚBLICA</td>
+      <td>E</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>PI</td>
+      <td>TERESINA</td>
+      <td>2323397</td>
+      <td>MATERNIDADE DONA EVANGELINA ROSA</td>
+      <td>ADMINISTRAÇÃO PÚBLICA</td>
+      <td>M</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MT</td>
+      <td>CUIABA</td>
+      <td>2311682</td>
+      <td>HOSPITAL SANTA HELENA</td>
+      <td>ENTIDADES SEM FINS LUCRATIVOS</td>
+      <td>M</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>MG</td>
+      <td>BELO HORIZONTE</td>
+      <td>26794</td>
+      <td>HOSPITAL SOFIA FELDMAN</td>
+      <td>ENTIDADES SEM FINS LUCRATIVOS</td>
+      <td>M</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3923</th>
+      <td>SP</td>
+      <td>SAO MIGUEL ARCANJO</td>
+      <td>7320175</td>
+      <td>HOSPITAL SAO MIGUEL ARCANJO</td>
+      <td>ENTIDADES SEM FINS LUCRATIVOS</td>
+      <td>M</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>3924</th>
+      <td>MA</td>
+      <td>BOA VISTA DO GURUPI</td>
+      <td>7603029</td>
+      <td>HOSPITAL MUNICIPAL LENILDE OLIVEIRA</td>
+      <td>ADMINISTRAÇÃO PÚBLICA</td>
+      <td>M</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>3925</th>
+      <td>ES</td>
+      <td>VITORIA</td>
+      <td>7621442</td>
+      <td>HOSPITAL ESTADUAL DE URGENCIA E EMERGENCIA</td>
+      <td>ADMINISTRAÇÃO PÚBLICA</td>
+      <td>E</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>3926</th>
+      <td>RO</td>
+      <td>CACOAL</td>
+      <td>7704364</td>
+      <td>HOSPITAL DE URGENCIA E EMERGENCIA REGIONAL DE ...</td>
+      <td>ADMINISTRAÇÃO PÚBLICA</td>
+      <td>E</td>
+      <td>SIM</td>
+    </tr>
+    <tr>
+      <th>3927</th>
+      <td>GO</td>
+      <td>GOIANIA</td>
+      <td>7743068</td>
+      <td>HOSPITAL ESTADUAL DE URGENCIAS GOV OTAVIO LAG ...</td>
+      <td>ADMINISTRAÇÃO PÚBLICA</td>
+      <td>E</td>
+      <td>SIM</td>
+    </tr>
+  </tbody>
+</table>
+<p>3928 rows × 7 columns</p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
