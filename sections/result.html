@@ -320,52 +320,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="gerando-tabela" class="level1">
 <h1>Gerando tabela</h1>
-<div class="cell">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_result <span class="op">=</span> dt.Frame()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exportando-tabela" class="level1">
 <h1>Exportando tabela</h1>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>output_result <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'resultados.csv.gzip'</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_result.to_csv(output_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="4">
 
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>parto_normal</th><th>bienio</th><th>escala</th><th>codigo</th><th>identificador</th><th>nome</th><th>criticidade</th><th>count</th><th>total</th><th>percent</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td></tr>
+    <tr class="coltypes"><td class="row_index"></td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>0</td><td>85068</td><td>100035</td><td>85.0382</td></tr>
-    <tr><td class="row_index">1</td><td>0</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>0</td><td>100995</td><td>124971</td><td>80.8147</td></tr>
-    <tr><td class="row_index">2</td><td>1</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>0</td><td>141604</td><td>167105</td><td>84.7395</td></tr>
-    <tr><td class="row_index">3</td><td>1</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>0</td><td>118221</td><td>151310</td><td>78.1317</td></tr>
-    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>1</td><td>8372</td><td>100035</td><td>8.36907</td></tr>
-    <tr><td class="row_index">5</td><td>0</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>1</td><td>13732</td><td>124971</td><td>10.9881</td></tr>
-    <tr><td class="row_index">6</td><td>1</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>1</td><td>13243</td><td>167105</td><td>7.92496</td></tr>
-    <tr><td class="row_index">7</td><td>1</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>1</td><td>16144</td><td>151310</td><td>10.6695</td></tr>
-    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>2</td><td>3465</td><td>100035</td><td>3.46379</td></tr>
-    <tr><td class="row_index">9</td><td>0</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>2</td><td>3834</td><td>124971</td><td>3.06791</td></tr>
-    <tr><td class="row_index">10</td><td>1</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>2</td><td>3758</td><td>167105</td><td>2.24889</td></tr>
-    <tr><td class="row_index">11</td><td>1</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>2</td><td>4273</td><td>151310</td><td>2.824</td></tr>
-    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>3</td><td>3004</td><td>100035</td><td>3.00295</td></tr>
-    <tr><td class="row_index">13</td><td>0</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>3</td><td>5817</td><td>124971</td><td>4.65468</td></tr>
-    <tr><td class="row_index">14</td><td>1</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>3</td><td>8296</td><td>167105</td><td>4.96454</td></tr>
-    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">93,060</td><td>0</td><td>1</td><td>cnes</td><td>SL/SC/42016/421870/2491710</td><td>2491710</td><td></td><td>2</td><td>59</td><td>550</td><td>10.7273</td></tr>
-    <tr><td class="row_index">93,061</td><td>1</td><td>0</td><td>cnes</td><td>SL/SC/42016/421870/2491710</td><td>2491710</td><td></td><td>2</td><td>14</td><td>561</td><td>2.49554</td></tr>
-    <tr><td class="row_index">93,062</td><td>1</td><td>1</td><td>cnes</td><td>SL/SC/42016/421870/2491710</td><td>2491710</td><td></td><td>2</td><td>125</td><td>1256</td><td>9.95223</td></tr>
-    <tr><td class="row_index">93,063</td><td>1</td><td>1</td><td>cnes</td><td>SL/SC/42016/421870/2491710</td><td>2491710</td><td></td><td>3</td><td>2</td><td>1256</td><td>0.159236</td></tr>
-    <tr><td class="row_index">93,064</td><td>1</td><td>1</td><td>cnes</td><td>SL/SC/42016/421870/2491710</td><td>2491710</td><td></td><td>4</td><td>2</td><td>1256</td><td>0.159236</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">93,065 rows × 10 columns</div>
+    <div class="frame_dimensions">0 rows × 0 columns</div>
   </div>
 </div>
 </div>
