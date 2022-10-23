@@ -232,6 +232,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Resultados</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/result.html" class="sidebar-item-text sidebar-link">TODO</a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -246,14 +261,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#cnes" id="toc-cnes" class="nav-link" data-scroll-target="#cnes">CNES</a></li>
   </ul></li>
-  <li><a href="#gerando-tabela" id="toc-gerando-tabela" class="nav-link" data-scroll-target="#gerando-tabela">Gerando tabela</a></li>
+  <li><a href="#gerando-tabela" id="toc-gerando-tabela" class="nav-link" data-scroll-target="#gerando-tabela">Gerando tabela</a>
+  <ul class="collapse">
   <li><a href="#infos" id="toc-infos" class="nav-link" data-scroll-target="#infos">Infos</a>
   <ul class="collapse">
   <li><a href="#nome-dos-cnes" id="toc-nome-dos-cnes" class="nav-link" data-scroll-target="#nome-dos-cnes">Nome dos CNES</a></li>
   <li><a href="#percent" id="toc-percent" class="nav-link" data-scroll-target="#percent">Percent</a></li>
+  <li><a href="#ordem-colunas" id="toc-ordem-colunas" class="nav-link" data-scroll-target="#ordem-colunas">Ordem colunas</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#exportando-tabela" id="toc-exportando-tabela" class="nav-link" data-scroll-target="#exportando-tabela">Exportando tabela</a>
   <ul class="collapse">
+  <li><a href="#brasil-regsau" id="toc-brasil-regsau" class="nav-link" data-scroll-target="#brasil-regsau">Brasil (regsau)</a></li>
   <li><a href="#rj" id="toc-rj" class="nav-link" data-scroll-target="#rj">RJ</a></li>
   </ul></li>
   </ul>
@@ -446,9 +465,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># cols_order = ['bienio', 'parto_normal', 'codigo', 'referencial', 'criticidade', 'count_critic', 'count_total']</span></span>
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co"># df_counts = df_counts[:, cols_order]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="infos" class="level1">
-<h1>Infos</h1>
+<section id="infos" class="level2">
+<h2 class="anchored" data-anchor-id="infos">Infos</h2>
 <div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rank_locs(df_counts, path_locs, scale):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  ref <span class="op">=</span> <span class="st">'destino'</span> <span class="cf">if</span> scale <span class="op">==</span> <span class="st">'cnes'</span> <span class="cf">else</span> <span class="st">'origem'</span></span>
@@ -517,8 +535,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<section id="nome-dos-cnes" class="level2">
-<h2 class="anchored" data-anchor-id="nome-dos-cnes">Nome dos CNES</h2>
+<section id="nome-dos-cnes" class="level3">
+<h3 class="anchored" data-anchor-id="nome-dos-cnes">Nome dos CNES</h3>
 <div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_cnes.key <span class="op">=</span> <span class="st">'identificador'</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_id_cnes <span class="op">=</span> df_counts[f.escala <span class="op">==</span> <span class="st">'cnes'</span>, [<span class="st">'identificador'</span>]]</span>
@@ -604,8 +622,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="percent" class="level2">
-<h2 class="anchored" data-anchor-id="percent">Percent</h2>
+<section id="percent" class="level3">
+<h3 class="anchored" data-anchor-id="percent">Percent</h3>
 <div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_total <span class="op">=</span> df_counts[:, [<span class="st">'bienio'</span>, <span class="st">'parto_normal'</span>, <span class="st">'identificador'</span>, <span class="st">'count'</span>]]</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_total <span class="op">=</span> df_total[:, dt.<span class="bu">sum</span>(f.count), by(df_total.names[:<span class="op">-</span><span class="dv">1</span>])]</span>
@@ -653,45 +671,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-</section>
-<section id="exportando-tabela" class="level1">
-<h1>Exportando tabela</h1>
+<section id="ordem-colunas" class="level3">
+<h3 class="anchored" data-anchor-id="ordem-colunas">Ordem colunas</h3>
 <div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>output_counts <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'contagens.csv.gzip'</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df_counts.to_csv(output_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cols_order <span class="op">=</span> [</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'parto_normal'</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'bienio'</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'escala'</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'codigo'</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'identificador'</span>,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'nome'</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'criticidade'</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">'count'</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">'total'</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">'percent'</span>,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_counts <span class="op">=</span> df_counts[:, cols_order]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>codigo</th><th>escala</th><th>nome</th><th>identificador</th><th>criticidade</th><th>count</th><th>total</th><th>percent</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>parto_normal</th><th>bienio</th><th>escala</th><th>codigo</th><th>identificador</th><th>nome</th><th>criticidade</th><th>count</th><th>total</th><th>percent</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>85068</td><td>100035</td><td>85.0382</td></tr>
-    <tr><td class="row_index">1</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>100995</td><td>124971</td><td>80.8147</td></tr>
-    <tr><td class="row_index">2</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>141604</td><td>167105</td><td>84.7395</td></tr>
-    <tr><td class="row_index">3</td><td>1</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>0</td><td>118221</td><td>151310</td><td>78.1317</td></tr>
-    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>8372</td><td>100035</td><td>8.36907</td></tr>
-    <tr><td class="row_index">5</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>13732</td><td>124971</td><td>10.9881</td></tr>
-    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>13243</td><td>167105</td><td>7.92496</td></tr>
-    <tr><td class="row_index">7</td><td>1</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>1</td><td>16144</td><td>151310</td><td>10.6695</td></tr>
-    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>3465</td><td>100035</td><td>3.46379</td></tr>
-    <tr><td class="row_index">9</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>3834</td><td>124971</td><td>3.06791</td></tr>
-    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>3758</td><td>167105</td><td>2.24889</td></tr>
-    <tr><td class="row_index">11</td><td>1</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>2</td><td>4273</td><td>151310</td><td>2.824</td></tr>
-    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>3</td><td>3004</td><td>100035</td><td>3.00295</td></tr>
-    <tr><td class="row_index">13</td><td>1</td><td>0</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>3</td><td>5817</td><td>124971</td><td>4.65468</td></tr>
-    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>CO</td><td>regiao</td><td>Centro-Oeste</td><td>CO</td><td>3</td><td>8296</td><td>167105</td><td>4.96454</td></tr>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>0</td><td>85068</td><td>100035</td><td>85.0382</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>0</td><td>100995</td><td>124971</td><td>80.8147</td></tr>
+    <tr><td class="row_index">2</td><td>1</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>0</td><td>141604</td><td>167105</td><td>84.7395</td></tr>
+    <tr><td class="row_index">3</td><td>1</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>0</td><td>118221</td><td>151310</td><td>78.1317</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>1</td><td>8372</td><td>100035</td><td>8.36907</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>1</td><td>13732</td><td>124971</td><td>10.9881</td></tr>
+    <tr><td class="row_index">6</td><td>1</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>1</td><td>13243</td><td>167105</td><td>7.92496</td></tr>
+    <tr><td class="row_index">7</td><td>1</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>1</td><td>16144</td><td>151310</td><td>10.6695</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>2</td><td>3465</td><td>100035</td><td>3.46379</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>2</td><td>3834</td><td>124971</td><td>3.06791</td></tr>
+    <tr><td class="row_index">10</td><td>1</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>2</td><td>3758</td><td>167105</td><td>2.24889</td></tr>
+    <tr><td class="row_index">11</td><td>1</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>2</td><td>4273</td><td>151310</td><td>2.824</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>3</td><td>3004</td><td>100035</td><td>3.00295</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>3</td><td>5817</td><td>124971</td><td>4.65468</td></tr>
+    <tr><td class="row_index">14</td><td>1</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>3</td><td>8296</td><td>167105</td><td>4.96454</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">93,060</td><td>1</td><td>0</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td></td><td>2491710</td><td>2</td><td>59</td><td>550</td><td>10.7273</td></tr>
-    <tr><td class="row_index">93,061</td><td>0</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td></td><td>2491710</td><td>2</td><td>14</td><td>561</td><td>2.49554</td></tr>
-    <tr><td class="row_index">93,062</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td></td><td>2491710</td><td>2</td><td>125</td><td>1256</td><td>9.95223</td></tr>
-    <tr><td class="row_index">93,063</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td></td><td>2491710</td><td>3</td><td>2</td><td>1256</td><td>0.159236</td></tr>
-    <tr><td class="row_index">93,064</td><td>1</td><td>1</td><td>SL/SC/42016/421870/2491710</td><td>cnes</td><td></td><td>2491710</td><td>4</td><td>2</td><td>1256</td><td>0.159236</td></tr>
+    <tr><td class="row_index">93,060</td><td>0</td><td>1</td><td>cnes</td><td>SL/SC/42016/421870/2491710</td><td>2491710</td><td><span class="na">NA</span></td><td>2</td><td>59</td><td>550</td><td>10.7273</td></tr>
+    <tr><td class="row_index">93,061</td><td>1</td><td>0</td><td>cnes</td><td>SL/SC/42016/421870/2491710</td><td>2491710</td><td><span class="na">NA</span></td><td>2</td><td>14</td><td>561</td><td>2.49554</td></tr>
+    <tr><td class="row_index">93,062</td><td>1</td><td>1</td><td>cnes</td><td>SL/SC/42016/421870/2491710</td><td>2491710</td><td><span class="na">NA</span></td><td>2</td><td>125</td><td>1256</td><td>9.95223</td></tr>
+    <tr><td class="row_index">93,063</td><td>1</td><td>1</td><td>cnes</td><td>SL/SC/42016/421870/2491710</td><td>2491710</td><td><span class="na">NA</span></td><td>3</td><td>2</td><td>1256</td><td>0.159236</td></tr>
+    <tr><td class="row_index">93,064</td><td>1</td><td>1</td><td>cnes</td><td>SL/SC/42016/421870/2491710</td><td>2491710</td><td><span class="na">NA</span></td><td>4</td><td>2</td><td>1256</td><td>0.159236</td></tr>
   </tbody>
   </table>
   <div class="footer">
@@ -700,13 +728,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<section id="rj" class="level2">
-<h2 class="anchored" data-anchor-id="rj">RJ</h2>
+</section>
+</section>
+</section>
+<section id="exportando-tabela" class="level1">
+<h1>Exportando tabela</h1>
 <div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_rj <span class="op">=</span> pd.read_csv(output_counts, dtype<span class="op">=</span>{<span class="st">'identificador'</span>: <span class="bu">str</span>})</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df_rj <span class="op">=</span> df_rj[df_rj[<span class="st">'codigo'</span>].<span class="bu">str</span>.contains(<span class="st">'/RJ'</span>)]</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>df_rj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>output_counts <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'contagens.csv.gzip'</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df_counts.to_csv(output_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>parto_normal</th><th>bienio</th><th>escala</th><th>codigo</th><th>identificador</th><th>nome</th><th>criticidade</th><th>count</th><th>total</th><th>percent</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>0</td><td>85068</td><td>100035</td><td>85.0382</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>0</td><td>100995</td><td>124971</td><td>80.8147</td></tr>
+    <tr><td class="row_index">2</td><td>1</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>0</td><td>141604</td><td>167105</td><td>84.7395</td></tr>
+    <tr><td class="row_index">3</td><td>1</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>0</td><td>118221</td><td>151310</td><td>78.1317</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>1</td><td>8372</td><td>100035</td><td>8.36907</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>1</td><td>13732</td><td>124971</td><td>10.9881</td></tr>
+    <tr><td class="row_index">6</td><td>1</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>1</td><td>13243</td><td>167105</td><td>7.92496</td></tr>
+    <tr><td class="row_index">7</td><td>1</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>1</td><td>16144</td><td>151310</td><td>10.6695</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>2</td><td>3465</td><td>100035</td><td>3.46379</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>2</td><td>3834</td><td>124971</td><td>3.06791</td></tr>
+    <tr><td class="row_index">10</td><td>1</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>2</td><td>3758</td><td>167105</td><td>2.24889</td></tr>
+    <tr><td class="row_index">11</td><td>1</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>2</td><td>4273</td><td>151310</td><td>2.824</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>3</td><td>3004</td><td>100035</td><td>3.00295</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>1</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>3</td><td>5817</td><td>124971</td><td>4.65468</td></tr>
+    <tr><td class="row_index">14</td><td>1</td><td>0</td><td>regiao</td><td>CO</td><td>CO</td><td>Centro-Oeste</td><td>3</td><td>8296</td><td>167105</td><td>4.96454</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">93,060</td><td>0</td><td>1</td><td>cnes</td><td>SL/SC/42016/421870/2491710</td><td>2491710</td><td></td><td>2</td><td>59</td><td>550</td><td>10.7273</td></tr>
+    <tr><td class="row_index">93,061</td><td>1</td><td>0</td><td>cnes</td><td>SL/SC/42016/421870/2491710</td><td>2491710</td><td></td><td>2</td><td>14</td><td>561</td><td>2.49554</td></tr>
+    <tr><td class="row_index">93,062</td><td>1</td><td>1</td><td>cnes</td><td>SL/SC/42016/421870/2491710</td><td>2491710</td><td></td><td>2</td><td>125</td><td>1256</td><td>9.95223</td></tr>
+    <tr><td class="row_index">93,063</td><td>1</td><td>1</td><td>cnes</td><td>SL/SC/42016/421870/2491710</td><td>2491710</td><td></td><td>3</td><td>2</td><td>1256</td><td>0.159236</td></tr>
+    <tr><td class="row_index">93,064</td><td>1</td><td>1</td><td>cnes</td><td>SL/SC/42016/421870/2491710</td><td>2491710</td><td></td><td>4</td><td>2</td><td>1256</td><td>0.159236</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">93,065 rows × 10 columns</div>
+  </div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_cnt <span class="op">=</span> pd.read_csv(output_counts, dtype<span class="op">=</span>{<span class="st">'identificador'</span>: <span class="bu">str</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_cnt[<span class="st">'escala'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>municipio       53557
+cnes            31299
+regiao_saude     7579
+uf                530
+regiao            100
+Name: escala, dtype: int64</code></pre>
+</div>
+</div>
+<section id="brasil-regsau" class="level2">
+<h2 class="anchored" data-anchor-id="brasil-regsau">Brasil (regsau)</h2>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_bra_regsau <span class="op">=</span> df_cnt[df_cnt[<span class="st">'escala'</span>].isin({<span class="st">'regiao'</span>, <span class="st">'uf'</span>, <span class="st">'regiao_saude'</span>})]</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_bra_regsau</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
 
 <div>
 
@@ -714,12 +804,192 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <thead>
     <tr>
       <th></th>
-      <th>bienio</th>
       <th>parto_normal</th>
-      <th>codigo</th>
+      <th>bienio</th>
       <th>escala</th>
-      <th>nome</th>
+      <th>codigo</th>
       <th>identificador</th>
+      <th>nome</th>
+      <th>criticidade</th>
+      <th>count</th>
+      <th>total</th>
+      <th>percent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>regiao</td>
+      <td>CO</td>
+      <td>CO</td>
+      <td>Centro-Oeste</td>
+      <td>0</td>
+      <td>85068</td>
+      <td>100035</td>
+      <td>85.038237</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>1</td>
+      <td>regiao</td>
+      <td>CO</td>
+      <td>CO</td>
+      <td>Centro-Oeste</td>
+      <td>0</td>
+      <td>100995</td>
+      <td>124971</td>
+      <td>80.814749</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0</td>
+      <td>regiao</td>
+      <td>CO</td>
+      <td>CO</td>
+      <td>Centro-Oeste</td>
+      <td>0</td>
+      <td>141604</td>
+      <td>167105</td>
+      <td>84.739535</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>1</td>
+      <td>regiao</td>
+      <td>CO</td>
+      <td>CO</td>
+      <td>Centro-Oeste</td>
+      <td>0</td>
+      <td>118221</td>
+      <td>151310</td>
+      <td>78.131650</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>regiao</td>
+      <td>CO</td>
+      <td>CO</td>
+      <td>Centro-Oeste</td>
+      <td>1</td>
+      <td>8372</td>
+      <td>100035</td>
+      <td>8.369071</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8204</th>
+      <td>0</td>
+      <td>0</td>
+      <td>regiao_saude</td>
+      <td>SL/SC/42016</td>
+      <td>42016</td>
+      <td>Laguna</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1221</td>
+      <td>0.081900</td>
+    </tr>
+    <tr>
+      <th>8205</th>
+      <td>0</td>
+      <td>1</td>
+      <td>regiao_saude</td>
+      <td>SL/SC/42016</td>
+      <td>42016</td>
+      <td>Laguna</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1805</td>
+      <td>0.055402</td>
+    </tr>
+    <tr>
+      <th>8206</th>
+      <td>0</td>
+      <td>1</td>
+      <td>regiao_saude</td>
+      <td>SL/SC/42016</td>
+      <td>42016</td>
+      <td>Laguna</td>
+      <td>4</td>
+      <td>2</td>
+      <td>1805</td>
+      <td>0.110803</td>
+    </tr>
+    <tr>
+      <th>8207</th>
+      <td>1</td>
+      <td>0</td>
+      <td>regiao_saude</td>
+      <td>SL/SC/42016</td>
+      <td>42016</td>
+      <td>Laguna</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1636</td>
+      <td>0.061125</td>
+    </tr>
+    <tr>
+      <th>8208</th>
+      <td>1</td>
+      <td>1</td>
+      <td>regiao_saude</td>
+      <td>SL/SC/42016</td>
+      <td>42016</td>
+      <td>Laguna</td>
+      <td>4</td>
+      <td>4</td>
+      <td>2170</td>
+      <td>0.184332</td>
+    </tr>
+  </tbody>
+</table>
+<p>8209 rows × 10 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>output_bra_regsau <span class="op">=</span> output_counts.replace(<span class="st">'.csv.gzip'</span>, <span class="st">'_bra_regsau.xlsx'</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>df_bra_regsau.to_excel(output_bra_regsau, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="rj" class="level2">
+<h2 class="anchored" data-anchor-id="rj">RJ</h2>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df_rj <span class="op">=</span> df_cnt[df_cnt[<span class="st">'codigo'</span>].<span class="bu">str</span>.contains(<span class="st">'/RJ'</span>)]</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df_rj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>parto_normal</th>
+      <th>bienio</th>
+      <th>escala</th>
+      <th>codigo</th>
+      <th>identificador</th>
+      <th>nome</th>
       <th>criticidade</th>
       <th>count</th>
       <th>total</th>
@@ -731,10 +1001,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <th>530</th>
       <td>0</td>
       <td>0</td>
-      <td>SD/RJ</td>
       <td>uf</td>
-      <td>Rio de Janeiro</td>
+      <td>SD/RJ</td>
       <td>RJ</td>
+      <td>Rio de Janeiro</td>
       <td>0</td>
       <td>31475</td>
       <td>39323</td>
@@ -742,12 +1012,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </tr>
     <tr>
       <th>531</th>
-      <td>1</td>
       <td>0</td>
-      <td>SD/RJ</td>
+      <td>1</td>
       <td>uf</td>
-      <td>Rio de Janeiro</td>
+      <td>SD/RJ</td>
       <td>RJ</td>
+      <td>Rio de Janeiro</td>
       <td>0</td>
       <td>64571</td>
       <td>82583</td>
@@ -755,12 +1025,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </tr>
     <tr>
       <th>532</th>
-      <td>0</td>
       <td>1</td>
-      <td>SD/RJ</td>
+      <td>0</td>
       <td>uf</td>
-      <td>Rio de Janeiro</td>
+      <td>SD/RJ</td>
       <td>RJ</td>
+      <td>Rio de Janeiro</td>
       <td>0</td>
       <td>126306</td>
       <td>148327</td>
@@ -770,10 +1040,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <th>533</th>
       <td>1</td>
       <td>1</td>
-      <td>SD/RJ</td>
       <td>uf</td>
-      <td>Rio de Janeiro</td>
+      <td>SD/RJ</td>
       <td>RJ</td>
+      <td>Rio de Janeiro</td>
       <td>0</td>
       <td>116113</td>
       <td>148010</td>
@@ -783,10 +1053,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <th>534</th>
       <td>0</td>
       <td>0</td>
-      <td>SD/RJ</td>
       <td>uf</td>
-      <td>Rio de Janeiro</td>
+      <td>SD/RJ</td>
       <td>RJ</td>
+      <td>Rio de Janeiro</td>
       <td>1</td>
       <td>7153</td>
       <td>39323</td>
@@ -809,10 +1079,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <th>84206</th>
       <td>0</td>
       <td>0</td>
-      <td>SD/RJ/33009/330590/3584968</td>
       <td>cnes</td>
-      <td>HOSPITAL FRANCISCO LIMONGI</td>
+      <td>SD/RJ/33009/330590/3584968</td>
       <td>3584968</td>
+      <td>HOSPITAL FRANCISCO LIMONGI</td>
       <td>0</td>
       <td>4</td>
       <td>4</td>
@@ -820,12 +1090,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </tr>
     <tr>
       <th>84207</th>
-      <td>0</td>
       <td>1</td>
-      <td>SD/RJ/33009/330590/3584968</td>
+      <td>0</td>
       <td>cnes</td>
-      <td>HOSPITAL FRANCISCO LIMONGI</td>
+      <td>SD/RJ/33009/330590/3584968</td>
       <td>3584968</td>
+      <td>HOSPITAL FRANCISCO LIMONGI</td>
       <td>0</td>
       <td>39</td>
       <td>39</td>
@@ -835,10 +1105,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <th>84208</th>
       <td>1</td>
       <td>1</td>
-      <td>SD/RJ/33009/330590/3584968</td>
       <td>cnes</td>
-      <td>HOSPITAL FRANCISCO LIMONGI</td>
+      <td>SD/RJ/33009/330590/3584968</td>
       <td>3584968</td>
+      <td>HOSPITAL FRANCISCO LIMONGI</td>
       <td>0</td>
       <td>6</td>
       <td>8</td>
@@ -848,10 +1118,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <th>84209</th>
       <td>1</td>
       <td>1</td>
-      <td>SD/RJ/33009/330590/3584968</td>
       <td>cnes</td>
-      <td>HOSPITAL FRANCISCO LIMONGI</td>
+      <td>SD/RJ/33009/330590/3584968</td>
       <td>3584968</td>
+      <td>HOSPITAL FRANCISCO LIMONGI</td>
       <td>1</td>
       <td>1</td>
       <td>8</td>
@@ -861,10 +1131,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <th>84210</th>
       <td>1</td>
       <td>1</td>
-      <td>SD/RJ/33009/330590/3584968</td>
       <td>cnes</td>
-      <td>HOSPITAL FRANCISCO LIMONGI</td>
+      <td>SD/RJ/33009/330590/3584968</td>
       <td>3584968</td>
+      <td>HOSPITAL FRANCISCO LIMONGI</td>
       <td>2</td>
       <td>1</td>
       <td>8</td>
@@ -876,9 +1146,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>output_rj <span class="op">=</span> output_counts.replace(<span class="st">'.csv.gzip'</span>, <span class="st">'_rj.xlsx'</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_rj.to_excel(output_rj, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>output_rj <span class="op">=</span> output_counts.replace(<span class="st">'.csv.gzip'</span>, <span class="st">'_rj.xlsx'</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df_rj.to_excel(output_rj, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
