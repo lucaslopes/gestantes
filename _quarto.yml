@@ -27,6 +27,10 @@ website:
           - sections/table_dslc.ipynb
           - sections/table_procs.ipynb
           - sections/table_counts.ipynb
+          - sections/table_flux.ipynb
+      - section: 'Resultados'
+        contents:
+          - sections/result.ipynb
 
 format:
   html:
