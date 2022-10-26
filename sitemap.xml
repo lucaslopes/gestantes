@@ -2,50 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lucaslopes.github.io/gestantes/README.html</loc>
-    <lastmod>2022-10-23T15:47:04.193Z</lastmod>
+    <lastmod>2022-10-26T16:34:45.224Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/database_cnes.html</loc>
-    <lastmod>2022-10-23T15:47:05.067Z</lastmod>
+    <lastmod>2022-10-26T16:34:45.980Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/database_dists.html</loc>
-    <lastmod>2022-10-23T15:47:05.987Z</lastmod>
+    <lastmod>2022-10-26T16:34:46.500Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/database_indicadores.html</loc>
-    <lastmod>2022-10-23T15:47:06.661Z</lastmod>
+    <lastmod>2022-10-26T16:34:46.991Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/database_municipios.html</loc>
-    <lastmod>2022-10-23T15:47:07.250Z</lastmod>
+    <lastmod>2022-10-26T16:34:47.476Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/database_sih.html</loc>
-    <lastmod>2022-10-23T15:47:07.672Z</lastmod>
+    <lastmod>2022-10-26T16:34:48.051Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/deslc_uf.html</loc>
-    <lastmod>2022-10-23T15:47:08.008Z</lastmod>
+    <lastmod>2022-10-26T16:34:48.427Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/result.html</loc>
-    <lastmod>2022-10-23T15:47:08.443Z</lastmod>
+    <lastmod>2022-10-26T16:34:48.767Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/table_counts.html</loc>
-    <lastmod>2022-10-23T15:47:09.173Z</lastmod>
+    <lastmod>2022-10-26T16:34:49.272Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/table_dslc.html</loc>
-    <lastmod>2022-10-23T15:47:09.679Z</lastmod>
+    <lastmod>2022-10-26T16:34:49.704Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucaslopes.github.io/gestantes/sections/table_flux.html</loc>
+    <lastmod>2022-10-26T16:34:50.199Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/table_locs.html</loc>
-    <lastmod>2022-10-23T15:47:10.244Z</lastmod>
+    <lastmod>2022-10-26T16:34:50.746Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/table_procs.html</loc>
-    <lastmod>2022-10-23T15:47:11.171Z</lastmod>
+    <lastmod>2022-10-26T16:34:51.513Z</lastmod>
   </url>
 </urlset>
