@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Deslocamento de Gestantes - Google Maps</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Google Maps</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Deslocamento de Gestantes</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lucaslopes/gestantes" title="" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../README.html" class="sidebar-item-text sidebar-link">Introdução</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Coleta de Dados</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_sih.html" class="sidebar-item-text sidebar-link">SIH</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_cnes.html" class="sidebar-item-text sidebar-link">CNES</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_municipios.html" class="sidebar-item-text sidebar-link">Municípios</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_indicadores.html" class="sidebar-item-text sidebar-link">Indicadores</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_dists.html" class="sidebar-item-text sidebar-link">Distâncias</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_gmaps.html" class="sidebar-item-text sidebar-link active">Google Maps</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Tabelas Criadas</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_locs.html" class="sidebar-item-text sidebar-link">Localidades</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_dslc.html" class="sidebar-item-text sidebar-link">Deslocamentos</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_procs.html" class="sidebar-item-text sidebar-link">Procedimentos</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_counts.html" class="sidebar-item-text sidebar-link">Contagens</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_flux.html" class="sidebar-item-text sidebar-link">Fluxos</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Resultados</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/result.html" class="sidebar-item-text sidebar-link">TODO</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#descrição" id="toc-descrição" class="nav-link active" data-scroll-target="#descrição">Descrição</a></li>
+  <li><a href="#fontes-de-dados" id="toc-fontes-de-dados" class="nav-link" data-scroll-target="#fontes-de-dados">Fontes de dados</a>
+  <ul class="collapse">
+  <li><a href="#procedimentos" id="toc-procedimentos" class="nav-link" data-scroll-target="#procedimentos">Procedimentos</a></li>
+  </ul></li>
+  <li><a href="#gerando-tabelas" id="toc-gerando-tabelas" class="nav-link" data-scroll-target="#gerando-tabelas">Gerando tabelas</a>
+  <ul class="collapse">
+  <li><a href="#rotas" id="toc-rotas" class="nav-link" data-scroll-target="#rotas">Rotas</a>
+  <ul class="collapse">
+  <li><a href="#intra-rj" id="toc-intra-rj" class="nav-link" data-scroll-target="#intra-rj">Intra RJ</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#coletando-dados" id="toc-coletando-dados" class="nav-link" data-scroll-target="#coletando-dados">Coletando dados</a></li>
+  <li><a href="#exportar-tabela" id="toc-exportar-tabela" class="nav-link" data-scroll-target="#exportar-tabela">Exportar tabela</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Google Maps</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> googlemaps <span class="im">as</span> gmaps</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, data_load</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>sys.path.insert(<span class="dv">0</span>, <span class="st">'../'</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> secret <span class="im">import</span> API_KEY</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style type="text/css">
+.datatable table.frame { margin-bottom: 0; }
+.datatable table.frame thead { border-bottom: none; }
+.datatable table.frame tr.coltypes td {  color: #FFFFFF;  line-height: 6px;  padding: 0 0.5em;}
+.datatable .bool    { background: #DDDD99; }
+.datatable .object  { background: #565656; }
+.datatable .int     { background: #5D9E5D; }
+.datatable .float   { background: #4040CC; }
+.datatable .str     { background: #CC4040; }
+.datatable .time    { background: #40CC40; }
+.datatable .row_index {  background: var(--jp-border-color3);  border-right: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  font-size: 9px;}
+.datatable .frame tbody td { text-align: left; }
+.datatable .frame tr.coltypes .row_index {  background: var(--jp-border-color0);}
+.datatable th:nth-child(2) { padding-left: 12px; }
+.datatable .hellipsis {  color: var(--jp-cell-editor-border-color);}
+.datatable .vellipsis {  background: var(--jp-layout-color0);  color: var(--jp-cell-editor-border-color);}
+.datatable .na {  color: var(--jp-cell-editor-border-color);  font-size: 80%;}
+.datatable .sp {  opacity: 0.25;}
+.datatable .footer { font-size: 9px; }
+.datatable .frame_dimensions {  background: var(--jp-border-color3);  border-top: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  display: inline-block;  opacity: 0.6;  padding: 1px 10px 1px 5px;}
+</style>
+</div>
+</div>
+<section id="descrição" class="level1">
+<h1>Descrição</h1>
+<p>Get the travel distance and time for a matrix of origins and destinations.</p>
+<p><a href="https://developers.google.com/maps/documentation/distance-matrix/start#maps_http_distancematrix_start-py">Documentação</a></p>
+<p><a href="https://github.com/googlemaps/google-maps-services-python">Repositório API Python</a></p>
+</section>
+<section id="fontes-de-dados" class="level1">
+<h1>Fontes de dados</h1>
+<section id="procedimentos" class="level2">
+<h2 class="anchored" data-anchor-id="procedimentos">Procedimentos</h2>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path_proc <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'procs_ano.csv.gzip'</span>) <span class="co"># procs_ano | procs_bienio</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_proc <span class="op">=</span> pd.read_csv(path_proc)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df_proc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ano</th>
+      <th>parto_normal</th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>distancia (km)</th>
+      <th>tempo (min)</th>
+      <th>dist_pond</th>
+      <th>tempo_pond</th>
+      <th>criticidade</th>
+      <th>capitais</th>
+      <th>socioecon</th>
+      <th>origem_latitude</th>
+      <th>origem_longitude</th>
+      <th>destino_latitude</th>
+      <th>destino_longitude</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2010</td>
+      <td>0</td>
+      <td>NT/RO/11005/110001</td>
+      <td>NT/RO/11005/110001/2679477</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>1_1</td>
+      <td>-11.9283</td>
+      <td>-61.9953</td>
+      <td>-11.92830</td>
+      <td>-61.9953</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2010</td>
+      <td>0</td>
+      <td>NT/RO/11005/110001</td>
+      <td>NT/RO/11003/110012/2495279</td>
+      <td>130.7705</td>
+      <td>152.868333</td>
+      <td>261.5410</td>
+      <td>305.736667</td>
+      <td>2</td>
+      <td>0_0</td>
+      <td>1_2</td>
+      <td>-11.9283</td>
+      <td>-61.9953</td>
+      <td>-10.87770</td>
+      <td>-61.9322</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2010</td>
+      <td>0</td>
+      <td>NT/RO/11005/110001</td>
+      <td>NT/RO/11001/110013/2808617</td>
+      <td>357.5110</td>
+      <td>427.840000</td>
+      <td>357.5110</td>
+      <td>427.840000</td>
+      <td>2</td>
+      <td>0_0</td>
+      <td>1_1</td>
+      <td>-11.9283</td>
+      <td>-61.9953</td>
+      <td>-9.44363</td>
+      <td>-61.9818</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2010</td>
+      <td>0</td>
+      <td>NT/RO/11005/110001</td>
+      <td>NT/RO/11002/110018/2496534</td>
+      <td>114.0612</td>
+      <td>112.283333</td>
+      <td>114.0612</td>
+      <td>112.283333</td>
+      <td>2</td>
+      <td>0_0</td>
+      <td>1_3</td>
+      <td>-11.9283</td>
+      <td>-61.9953</td>
+      <td>-11.67200</td>
+      <td>-61.1980</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2010</td>
+      <td>0</td>
+      <td>NT/RO/11005/110001</td>
+      <td>NT/RO/11005/110028/2495228</td>
+      <td>48.6099</td>
+      <td>50.140000</td>
+      <td>194.4396</td>
+      <td>200.560000</td>
+      <td>1</td>
+      <td>0_0</td>
+      <td>1_1</td>
+      <td>-11.9283</td>
+      <td>-61.9953</td>
+      <td>-11.72710</td>
+      <td>-61.7714</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>461847</th>
+      <td>2019</td>
+      <td>1</td>
+      <td>CO/DF/53001/530010</td>
+      <td>CO/DF/53001/530010/0010545</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>1_1</td>
+      <td>5_5</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>-15.77950</td>
+      <td>-47.9297</td>
+      <td>479</td>
+    </tr>
+    <tr>
+      <th>461848</th>
+      <td>2019</td>
+      <td>1</td>
+      <td>CO/DF/53001/530010</td>
+      <td>CO/DF/53001/530010/2645157</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>1_1</td>
+      <td>5_5</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>-15.77950</td>
+      <td>-47.9297</td>
+      <td>1373</td>
+    </tr>
+    <tr>
+      <th>461849</th>
+      <td>2019</td>
+      <td>1</td>
+      <td>CO/DF/53001/530010</td>
+      <td>CO/DF/53001/530010/2650355</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>1_1</td>
+      <td>5_5</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>-15.77950</td>
+      <td>-47.9297</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>461850</th>
+      <td>2019</td>
+      <td>1</td>
+      <td>CO/DF/53001/530010</td>
+      <td>CO/DF/53001/530010/2672197</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>1_1</td>
+      <td>5_5</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>-15.77950</td>
+      <td>-47.9297</td>
+      <td>2483</td>
+    </tr>
+    <tr>
+      <th>461851</th>
+      <td>2019</td>
+      <td>1</td>
+      <td>CO/DF/53001/530010</td>
+      <td>CO/DF/53001/530010/5717515</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>1_1</td>
+      <td>5_5</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>-15.77950</td>
+      <td>-47.9297</td>
+      <td>1086</td>
+    </tr>
+  </tbody>
+</table>
+<p>461852 rows × 16 columns</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="gerando-tabelas" class="level1">
+<h1>Gerando tabelas</h1>
+<section id="rotas" class="level2">
+<h2 class="anchored" data-anchor-id="rotas">Rotas</h2>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cols_route <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> df_proc.columns <span class="cf">if</span> <span class="st">'origem'</span> <span class="kw">in</span> c <span class="kw">or</span> <span class="st">'destino'</span> <span class="kw">in</span> c]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cols_route.append(<span class="st">'count'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_route <span class="op">=</span> df_proc.loc[:, cols_route]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_route[<span class="st">'destino'</span>] <span class="op">=</span> df_route[<span class="st">'destino'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[:<span class="op">-</span><span class="dv">8</span>])</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df_route <span class="op">=</span> df_route[df_route[<span class="st">'origem'</span>] <span class="op">!=</span> df_route[<span class="st">'destino'</span>]]</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df_route <span class="op">=</span> df_route.groupby(<span class="bu">list</span>(df_route.columns[:<span class="op">-</span><span class="dv">1</span>]), as_index<span class="op">=</span><span class="va">False</span>).<span class="bu">sum</span>()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>df_route <span class="op">=</span> df_route.sort_values(by<span class="op">=</span><span class="st">'count'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>df_route <span class="op">=</span> df_route.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>df_route</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>origem_latitude</th>
+      <th>origem_longitude</th>
+      <th>destino_latitude</th>
+      <th>destino_longitude</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CO/MT/51002/510840</td>
+      <td>CO/MT/51002/510340</td>
+      <td>-15.64580</td>
+      <td>-56.1322</td>
+      <td>-15.60100</td>
+      <td>-56.0974</td>
+      <td>22807</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>SD/MG/31008/315460</td>
+      <td>SD/MG/31008/310620</td>
+      <td>-19.76210</td>
+      <td>-44.0844</td>
+      <td>-19.91020</td>
+      <td>-43.9266</td>
+      <td>17147</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ND/PE/26010/260790</td>
+      <td>ND/PE/26010/261160</td>
+      <td>-8.11298</td>
+      <td>-35.0150</td>
+      <td>-8.04666</td>
+      <td>-34.8771</td>
+      <td>16012</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CO/GO/52004/521250</td>
+      <td>CO/DF/53001/530010</td>
+      <td>-16.25300</td>
+      <td>-47.9500</td>
+      <td>-15.77950</td>
+      <td>-47.9297</td>
+      <td>15461</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ND/SE/28006/280480</td>
+      <td>ND/SE/28001/280030</td>
+      <td>-10.84680</td>
+      <td>-37.1231</td>
+      <td>-10.90910</td>
+      <td>-37.0677</td>
+      <td>15090</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>68568</th>
+      <td>SD/ES/32004/320370</td>
+      <td>SD/MG/31041/313770</td>
+      <td>-20.46520</td>
+      <td>-41.4156</td>
+      <td>-20.15390</td>
+      <td>-41.6228</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>68569</th>
+      <td>ND/BA/29009/293270</td>
+      <td>ND/BA/29015/291760</td>
+      <td>-14.59630</td>
+      <td>-39.2851</td>
+      <td>-13.52480</td>
+      <td>-39.9640</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>68570</th>
+      <td>SD/ES/32004/320380</td>
+      <td>SD/ES/32004/320230</td>
+      <td>-20.95090</td>
+      <td>-41.3460</td>
+      <td>-20.76680</td>
+      <td>-41.6734</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>68571</th>
+      <td>SD/ES/32004/320380</td>
+      <td>SD/ES/32004/320480</td>
+      <td>-20.95090</td>
+      <td>-41.3460</td>
+      <td>-21.02740</td>
+      <td>-41.6636</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>68572</th>
+      <td>SL/SC/42016/421870</td>
+      <td>SL/SC/42016/421710</td>
+      <td>-28.47130</td>
+      <td>-49.0144</td>
+      <td>-28.16090</td>
+      <td>-48.9867</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>68573 rows × 7 columns</p>
+</div>
+</div>
+</div>
+<section id="intra-rj" class="level3">
+<h3 class="anchored" data-anchor-id="intra-rj">Intra RJ</h3>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>origem_rj <span class="op">=</span> df_route[<span class="st">'origem'</span>].<span class="bu">str</span>.contains(<span class="st">'/RJ/'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>destino_rj <span class="op">=</span> df_route[<span class="st">'destino'</span>].<span class="bu">str</span>.contains(<span class="st">'/RJ/'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df_route_rj <span class="op">=</span> df_route[origem_rj <span class="op">&amp;</span> destino_rj]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df_route_rj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>origem_latitude</th>
+      <th>origem_longitude</th>
+      <th>destino_latitude</th>
+      <th>destino_longitude</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>SD/RJ/33005/330350</td>
+      <td>SD/RJ/33005/330285</td>
+      <td>-22.7556</td>
+      <td>-43.4603</td>
+      <td>-22.8028</td>
+      <td>-43.4601</td>
+      <td>14875</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>SD/RJ/33005/330045</td>
+      <td>SD/RJ/33005/330285</td>
+      <td>-22.7640</td>
+      <td>-43.3992</td>
+      <td>-22.8028</td>
+      <td>-43.4601</td>
+      <td>11761</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>SD/RJ/33005/330350</td>
+      <td>SD/RJ/33005/330045</td>
+      <td>-22.7556</td>
+      <td>-43.4603</td>
+      <td>-22.7640</td>
+      <td>-43.3992</td>
+      <td>11658</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>SD/RJ/33006/330490</td>
+      <td>SD/RJ/33006/330330</td>
+      <td>-22.8268</td>
+      <td>-43.0634</td>
+      <td>-22.8832</td>
+      <td>-43.1034</td>
+      <td>7848</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>SD/RJ/33005/330045</td>
+      <td>SD/RJ/33005/330510</td>
+      <td>-22.7640</td>
+      <td>-43.3992</td>
+      <td>-22.8058</td>
+      <td>-43.3729</td>
+      <td>7263</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>63432</th>
+      <td>SD/RJ/33002/330130</td>
+      <td>SD/RJ/33002/330020</td>
+      <td>-22.4812</td>
+      <td>-42.2066</td>
+      <td>-22.8697</td>
+      <td>-42.3326</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>63435</th>
+      <td>SD/RJ/33002/330130</td>
+      <td>SD/RJ/33006/330330</td>
+      <td>-22.4812</td>
+      <td>-42.2066</td>
+      <td>-22.8832</td>
+      <td>-43.1034</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>63439</th>
+      <td>SD/RJ/33002/330130</td>
+      <td>SD/RJ/33008/330415</td>
+      <td>-22.4812</td>
+      <td>-42.2066</td>
+      <td>-22.1031</td>
+      <td>-41.4693</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>63440</th>
+      <td>SD/RJ/33002/330130</td>
+      <td>SD/RJ/33009/330080</td>
+      <td>-22.4812</td>
+      <td>-42.2066</td>
+      <td>-22.4658</td>
+      <td>-42.6523</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>63441</th>
+      <td>SD/RJ/33002/330130</td>
+      <td>SD/RJ/33009/330340</td>
+      <td>-22.4812</td>
+      <td>-42.2066</td>
+      <td>-22.2932</td>
+      <td>-42.5377</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>1316 rows × 7 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cols_code <span class="op">=</span> [<span class="st">'origem'</span>, <span class="st">'destino'</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>cols_latlon <span class="op">=</span> <span class="bu">list</span>(df_route_rj.columns[<span class="dv">2</span>:<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>rows_code <span class="op">=</span> df_route_rj[cols_code].groupby(by<span class="op">=</span>cols_code, as_index<span class="op">=</span><span class="va">False</span>).<span class="bu">sum</span>().shape[<span class="dv">0</span>]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>rows_latlon <span class="op">=</span> df_route_rj[cols_latlon].groupby(by<span class="op">=</span>cols_latlon, as_index<span class="op">=</span><span class="va">False</span>).<span class="bu">sum</span>().shape[<span class="dv">0</span>]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>rows_code <span class="op">==</span> rows_latlon <span class="op">==</span> df_route_rj.shape[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>True</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="coletando-dados" class="level1">
+<h1>Coletando dados</h1>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gmaps <span class="op">=</span> gmaps.Client(key<span class="op">=</span>API_KEY)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_matrix(origens, destinos):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> gmaps.distance_matrix(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    origins <span class="op">=</span> origens,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    destinations <span class="op">=</span> destinos,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    mode <span class="op">=</span> <span class="st">'transit'</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    language <span class="op">=</span> <span class="st">'pt-BR'</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    units <span class="op">=</span> <span class="st">'metric'</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    departure_time <span class="op">=</span> datetime(year<span class="op">=</span><span class="dv">2022</span>, month<span class="op">=</span><span class="dv">11</span>, day<span class="op">=</span><span class="dv">7</span>, hour<span class="op">=</span><span class="dv">6</span>),</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    traffic_model <span class="op">=</span> <span class="st">'best_guess'</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>infos <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, row <span class="kw">in</span> tqdm(df_route_rj.iterrows(), total<span class="op">=</span>df_route_rj.shape[<span class="dv">0</span>]):</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  origin <span class="op">=</span> [(row[<span class="st">'origem_latitude'</span>], row[<span class="st">'origem_longitude'</span>])]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  destin <span class="op">=</span> [(row[<span class="st">'destino_latitude'</span>], row[<span class="st">'destino_longitude'</span>])]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  res <span class="op">=</span> get_matrix(origin, destin)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  elem <span class="op">=</span> res[<span class="st">'rows'</span>][<span class="dv">0</span>][<span class="st">'elements'</span>][<span class="dv">0</span>]</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> elem[<span class="st">'status'</span>] <span class="op">==</span> <span class="st">'OK'</span>:</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> info <span class="kw">in</span> [<span class="st">'distance'</span>, <span class="st">'duration'</span>]:</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> i_type <span class="kw">in</span> [<span class="st">'text'</span>, <span class="st">'value'</span>]:</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        col_name <span class="op">=</span> <span class="st">'_'</span>.join([info, i_type])</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        d[col_name] <span class="op">=</span> elem[info][i_type]</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    infos.append(d)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># break</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    infos.append(<span class="va">None</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(infos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 1316/1316 [03:27&lt;00:00,  6.33it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>1316</code></pre>
+</div>
+</div>
+<p>100%|██████████| 1398/1398 [03:25&lt;00:00, 6.82it/s]</p>
+<p>100%|██████████| 1316/1316 [03:27&lt;00:00, 6.33it/s]</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'missing: </span><span class="sc">{</span>infos<span class="sc">.</span>count(<span class="va">None</span>)<span class="sc">}</span><span class="ss"> out of </span><span class="sc">{</span><span class="bu">len</span>(infos)<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>(<span class="dv">626</span><span class="op">/</span><span class="dv">1316</span><span class="op">*</span><span class="dv">100</span>)<span class="sc">:.2f}</span><span class="ss">%)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>missing: 626 out of 1316 (47.57%)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> infos:</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">!=</span> <span class="va">None</span>:</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'distance_text': '10,3 km', 'distance_value': 10281, 'duration_text': '1 hora 16 minutos', 'duration_value': 4587}</code></pre>
+</div>
+</div>
+</section>
+<section id="exportar-tabela" class="level1">
+<h1>Exportar tabela</h1>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>path_infos <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'gmaps/infos_6am.pickle'</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(path_infos, <span class="st">'wb'</span>) <span class="im">as</span> f:</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    pickle.dump(infos, f, protocol<span class="op">=</span>pickle.HIGHEST_PROTOCOL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(path_infos, <span class="st">'rb'</span>) <span class="im">as</span> f:</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> pickle.load(f)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(infos <span class="op">==</span> b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>path_miss <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'gmaps/missing.xlsx'</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_route_rj[[i <span class="op">==</span> <span class="va">None</span> <span class="cf">for</span> i <span class="kw">in</span> infos]].to_excel(path_miss, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
