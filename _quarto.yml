@@ -21,6 +21,7 @@ website:
           - sections/database_municipios.ipynb
           - sections/database_indicadores.ipynb
           - sections/database_dists.ipynb
+          - sections/database_gmaps.ipynb
       - section: 'Tabelas Criadas'
         contents:
           - sections/table_locs.ipynb
