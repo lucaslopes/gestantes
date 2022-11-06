@@ -269,17 +269,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#descrição" id="toc-descrição" class="nav-link active" data-scroll-target="#descrição">Descrição</a></li>
   <li><a href="#fontes-de-dados" id="toc-fontes-de-dados" class="nav-link" data-scroll-target="#fontes-de-dados">Fontes de dados</a>
   <ul class="collapse">
-  <li><a href="#procedimentos" id="toc-procedimentos" class="nav-link" data-scroll-target="#procedimentos">Procedimentos</a></li>
-  </ul></li>
-  <li><a href="#gerando-tabelas" id="toc-gerando-tabelas" class="nav-link" data-scroll-target="#gerando-tabelas">Gerando tabelas</a>
+  <li><a href="#municípios" id="toc-municípios" class="nav-link" data-scroll-target="#municípios">Municípios</a></li>
+  <li><a href="#sih" id="toc-sih" class="nav-link" data-scroll-target="#sih">SIH</a>
   <ul class="collapse">
-  <li><a href="#rotas" id="toc-rotas" class="nav-link" data-scroll-target="#rotas">Rotas</a>
+  <li><a href="#colunas" id="toc-colunas" class="nav-link" data-scroll-target="#colunas">Colunas</a></li>
+  <li><a href="#carregando-tabela" id="toc-carregando-tabela" class="nav-link" data-scroll-target="#carregando-tabela">Carregando tabela</a></li>
+  <li><a href="#lat-lon" id="toc-lat-lon" class="nav-link" data-scroll-target="#lat-lon">Lat &amp; Lon</a></li>
+  <li><a href="#parâmetros" id="toc-parâmetros" class="nav-link" data-scroll-target="#parâmetros">Parâmetros</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#modelo-de-coleta" id="toc-modelo-de-coleta" class="nav-link" data-scroll-target="#modelo-de-coleta">Modelo de Coleta</a></li>
+  <li><a href="#filtros" id="toc-filtros" class="nav-link" data-scroll-target="#filtros">Filtros</a>
   <ul class="collapse">
   <li><a href="#intra-rj" id="toc-intra-rj" class="nav-link" data-scroll-target="#intra-rj">Intra RJ</a></li>
   </ul></li>
+  <li><a href="#coletando-dados" id="toc-coletando-dados" class="nav-link" data-scroll-target="#coletando-dados">Coletando dados</a>
+  <ul class="collapse">
+  <li><a href="#seleção-parâmetros" id="toc-seleção-parâmetros" class="nav-link" data-scroll-target="#seleção-parâmetros">Seleção parâmetros</a></li>
+  <li><a href="#consulta-api" id="toc-consulta-api" class="nav-link" data-scroll-target="#consulta-api">Consulta API</a></li>
   </ul></li>
-  <li><a href="#coletando-dados" id="toc-coletando-dados" class="nav-link" data-scroll-target="#coletando-dados">Coletando dados</a></li>
-  <li><a href="#exportar-tabela" id="toc-exportar-tabela" class="nav-link" data-scroll-target="#exportar-tabela">Exportar tabela</a></li>
   </ul>
 </nav>
     </div>
@@ -309,11 +317,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> googlemaps <span class="im">as</span> gmaps</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, data_load</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>sys.path.insert(<span class="dv">0</span>, <span class="st">'../'</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> secret <span class="im">import</span> API_KEY</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, data_load</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>sys.path.insert(<span class="dv">0</span>, <span class="st">'../'</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> secret <span class="im">import</span> API_KEY</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style type="text/css">
@@ -347,413 +356,198 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="fontes-de-dados" class="level1">
 <h1>Fontes de dados</h1>
-<section id="procedimentos" class="level2">
-<h2 class="anchored" data-anchor-id="procedimentos">Procedimentos</h2>
+<section id="municípios" class="level2">
+<h2 class="anchored" data-anchor-id="municípios">Municípios</h2>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path_proc <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'procs_ano.csv.gzip'</span>) <span class="co"># procs_ano | procs_bienio</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_proc <span class="op">=</span> pd.read_csv(path_proc)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df_proc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path_munic <span class="op">=</span> get_path(<span class="st">'LOCALIDADES'</span>, <span class="st">'municipios.csv.gzip'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_munic <span class="op">=</span> dt.fread(path_munic)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df_munic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 
-<div>
-
-<table class="dataframe table table-sm table-striped">
+<div class="datatable">
+  <table class="frame">
   <thead>
-    <tr>
-      <th></th>
-      <th>ano</th>
-      <th>parto_normal</th>
-      <th>origem</th>
-      <th>destino</th>
-      <th>distancia (km)</th>
-      <th>tempo (min)</th>
-      <th>dist_pond</th>
-      <th>tempo_pond</th>
-      <th>criticidade</th>
-      <th>capitais</th>
-      <th>socioecon</th>
-      <th>origem_latitude</th>
-      <th>origem_longitude</th>
-      <th>destino_latitude</th>
-      <th>destino_longitude</th>
-      <th>count</th>
-    </tr>
+    <tr class="colnames"><td class="row_index"></td><th>cod_municipio</th><th>nome_municipio</th><th>capital</th><th>uf</th><th>cod_uf</th><th>nome_uf</th><th>regiao</th><th>latitude</th><th>longitude</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr>
-      <th>0</th>
-      <td>2010</td>
-      <td>0</td>
-      <td>NT/RO/11005/110001</td>
-      <td>NT/RO/11005/110001/2679477</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0_0</td>
-      <td>1_1</td>
-      <td>-11.9283</td>
-      <td>-61.9953</td>
-      <td>-11.92830</td>
-      <td>-61.9953</td>
-      <td>49</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2010</td>
-      <td>0</td>
-      <td>NT/RO/11005/110001</td>
-      <td>NT/RO/11003/110012/2495279</td>
-      <td>130.7705</td>
-      <td>152.868333</td>
-      <td>261.5410</td>
-      <td>305.736667</td>
-      <td>2</td>
-      <td>0_0</td>
-      <td>1_2</td>
-      <td>-11.9283</td>
-      <td>-61.9953</td>
-      <td>-10.87770</td>
-      <td>-61.9322</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2010</td>
-      <td>0</td>
-      <td>NT/RO/11005/110001</td>
-      <td>NT/RO/11001/110013/2808617</td>
-      <td>357.5110</td>
-      <td>427.840000</td>
-      <td>357.5110</td>
-      <td>427.840000</td>
-      <td>2</td>
-      <td>0_0</td>
-      <td>1_1</td>
-      <td>-11.9283</td>
-      <td>-61.9953</td>
-      <td>-9.44363</td>
-      <td>-61.9818</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2010</td>
-      <td>0</td>
-      <td>NT/RO/11005/110001</td>
-      <td>NT/RO/11002/110018/2496534</td>
-      <td>114.0612</td>
-      <td>112.283333</td>
-      <td>114.0612</td>
-      <td>112.283333</td>
-      <td>2</td>
-      <td>0_0</td>
-      <td>1_3</td>
-      <td>-11.9283</td>
-      <td>-61.9953</td>
-      <td>-11.67200</td>
-      <td>-61.1980</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2010</td>
-      <td>0</td>
-      <td>NT/RO/11005/110001</td>
-      <td>NT/RO/11005/110028/2495228</td>
-      <td>48.6099</td>
-      <td>50.140000</td>
-      <td>194.4396</td>
-      <td>200.560000</td>
-      <td>1</td>
-      <td>0_0</td>
-      <td>1_1</td>
-      <td>-11.9283</td>
-      <td>-61.9953</td>
-      <td>-11.72710</td>
-      <td>-61.7714</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>461847</th>
-      <td>2019</td>
-      <td>1</td>
-      <td>CO/DF/53001/530010</td>
-      <td>CO/DF/53001/530010/0010545</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>1_1</td>
-      <td>5_5</td>
-      <td>-15.7795</td>
-      <td>-47.9297</td>
-      <td>-15.77950</td>
-      <td>-47.9297</td>
-      <td>479</td>
-    </tr>
-    <tr>
-      <th>461848</th>
-      <td>2019</td>
-      <td>1</td>
-      <td>CO/DF/53001/530010</td>
-      <td>CO/DF/53001/530010/2645157</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>1_1</td>
-      <td>5_5</td>
-      <td>-15.7795</td>
-      <td>-47.9297</td>
-      <td>-15.77950</td>
-      <td>-47.9297</td>
-      <td>1373</td>
-    </tr>
-    <tr>
-      <th>461849</th>
-      <td>2019</td>
-      <td>1</td>
-      <td>CO/DF/53001/530010</td>
-      <td>CO/DF/53001/530010/2650355</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>1_1</td>
-      <td>5_5</td>
-      <td>-15.7795</td>
-      <td>-47.9297</td>
-      <td>-15.77950</td>
-      <td>-47.9297</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>461850</th>
-      <td>2019</td>
-      <td>1</td>
-      <td>CO/DF/53001/530010</td>
-      <td>CO/DF/53001/530010/2672197</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>1_1</td>
-      <td>5_5</td>
-      <td>-15.7795</td>
-      <td>-47.9297</td>
-      <td>-15.77950</td>
-      <td>-47.9297</td>
-      <td>2483</td>
-    </tr>
-    <tr>
-      <th>461851</th>
-      <td>2019</td>
-      <td>1</td>
-      <td>CO/DF/53001/530010</td>
-      <td>CO/DF/53001/530010/5717515</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>1_1</td>
-      <td>5_5</td>
-      <td>-15.7795</td>
-      <td>-47.9297</td>
-      <td>-15.77950</td>
-      <td>-47.9297</td>
-      <td>1086</td>
-    </tr>
+    <tr><td class="row_index">0</td><td>520005</td><td>Abadia de Goiás</td><td>0</td><td>GO</td><td>52</td><td>Goiás</td><td>Centro-Oeste</td><td>−16.7573</td><td>−49.4412</td></tr>
+    <tr><td class="row_index">1</td><td>310010</td><td>Abadia dos Dourados</td><td>0</td><td>MG</td><td>31</td><td>Minas Gerais</td><td>Sudeste</td><td>−18.4831</td><td>−47.3916</td></tr>
+    <tr><td class="row_index">2</td><td>520010</td><td>Abadiânia</td><td>0</td><td>GO</td><td>52</td><td>Goiás</td><td>Centro-Oeste</td><td>−16.197</td><td>−48.7057</td></tr>
+    <tr><td class="row_index">3</td><td>310020</td><td>Abaeté</td><td>0</td><td>MG</td><td>31</td><td>Minas Gerais</td><td>Sudeste</td><td>−19.1551</td><td>−45.4444</td></tr>
+    <tr><td class="row_index">4</td><td>150010</td><td>Abaetetuba</td><td>0</td><td>PA</td><td>15</td><td>Pará</td><td>Norte</td><td>−1.72183</td><td>−48.8788</td></tr>
+    <tr><td class="row_index">5</td><td>230010</td><td>Abaiara</td><td>0</td><td>CE</td><td>23</td><td>Ceará</td><td>Nordeste</td><td>−7.34588</td><td>−39.0416</td></tr>
+    <tr><td class="row_index">6</td><td>290010</td><td>Abaíra</td><td>0</td><td>BA</td><td>29</td><td>Bahia</td><td>Nordeste</td><td>−13.2488</td><td>−41.6619</td></tr>
+    <tr><td class="row_index">7</td><td>290020</td><td>Abaré</td><td>0</td><td>BA</td><td>29</td><td>Bahia</td><td>Nordeste</td><td>−8.72073</td><td>−39.1162</td></tr>
+    <tr><td class="row_index">8</td><td>410010</td><td>Abatiá</td><td>0</td><td>PR</td><td>41</td><td>Paraná</td><td>Sul</td><td>−23.3049</td><td>−50.3133</td></tr>
+    <tr><td class="row_index">9</td><td>420005</td><td>Abdon Batista</td><td>0</td><td>SC</td><td>42</td><td>Santa Catarina</td><td>Sul</td><td>−27.6126</td><td>−51.0233</td></tr>
+    <tr><td class="row_index">10</td><td>150013</td><td>Abel Figueiredo</td><td>0</td><td>PA</td><td>15</td><td>Pará</td><td>Norte</td><td>−4.95333</td><td>−48.3933</td></tr>
+    <tr><td class="row_index">11</td><td>420010</td><td>Abelardo Luz</td><td>0</td><td>SC</td><td>42</td><td>Santa Catarina</td><td>Sul</td><td>−26.5716</td><td>−52.3229</td></tr>
+    <tr><td class="row_index">12</td><td>310030</td><td>Abre Campo</td><td>0</td><td>MG</td><td>31</td><td>Minas Gerais</td><td>Sudeste</td><td>−20.2996</td><td>−42.4743</td></tr>
+    <tr><td class="row_index">13</td><td>260005</td><td>Abreu e Lima</td><td>0</td><td>PE</td><td>26</td><td>Pernambuco</td><td>Nordeste</td><td>−7.90072</td><td>−34.8984</td></tr>
+    <tr><td class="row_index">14</td><td>170025</td><td>Abreulândia</td><td>0</td><td>TO</td><td>17</td><td>Tocantins</td><td>Norte</td><td>−9.62101</td><td>−49.1518</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">5565</td><td>293360</td><td>Xique-Xique</td><td>0</td><td>BA</td><td>29</td><td>Bahia</td><td>Nordeste</td><td>−10.823</td><td>−42.7245</td></tr>
+    <tr><td class="row_index">5566</td><td>251740</td><td>Zabelê</td><td>0</td><td>PB</td><td>25</td><td>Paraíba</td><td>Nordeste</td><td>−8.07901</td><td>−37.1057</td></tr>
+    <tr><td class="row_index">5567</td><td>355715</td><td>Zacarias</td><td>0</td><td>SP</td><td>35</td><td>São Paulo</td><td>Sudeste</td><td>−21.0506</td><td>−50.0552</td></tr>
+    <tr><td class="row_index">5568</td><td>211400</td><td>Zé Doca</td><td>0</td><td>MA</td><td>21</td><td>Maranhão</td><td>Nordeste</td><td>−3.27014</td><td>−45.6553</td></tr>
+    <tr><td class="row_index">5569</td><td>421985</td><td>Zortéa</td><td>0</td><td>SC</td><td>42</td><td>Santa Catarina</td><td>Sul</td><td>−27.4521</td><td>−51.552</td></tr>
   </tbody>
-</table>
-<p>461852 rows × 16 columns</p>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">5570 rows × 9 columns</div>
+  </div>
 </div>
 </div>
 </div>
 </section>
-</section>
-<section id="gerando-tabelas" class="level1">
-<h1>Gerando tabelas</h1>
-<section id="rotas" class="level2">
-<h2 class="anchored" data-anchor-id="rotas">Rotas</h2>
+<section id="sih" class="level2">
+<h2 class="anchored" data-anchor-id="sih">SIH</h2>
+<section id="colunas" class="level3">
+<h3 class="anchored" data-anchor-id="colunas">Colunas</h3>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cols_route <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> df_proc.columns <span class="cf">if</span> <span class="st">'origem'</span> <span class="kw">in</span> c <span class="kw">or</span> <span class="st">'destino'</span> <span class="kw">in</span> c]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cols_route.append(<span class="st">'count'</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_route <span class="op">=</span> df_proc.loc[:, cols_route]</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_route[<span class="st">'destino'</span>] <span class="op">=</span> df_route[<span class="st">'destino'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[:<span class="op">-</span><span class="dv">8</span>])</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df_route <span class="op">=</span> df_route[df_route[<span class="st">'origem'</span>] <span class="op">!=</span> df_route[<span class="st">'destino'</span>]]</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df_route <span class="op">=</span> df_route.groupby(<span class="bu">list</span>(df_route.columns[:<span class="op">-</span><span class="dv">1</span>]), as_index<span class="op">=</span><span class="va">False</span>).<span class="bu">sum</span>()</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>df_route <span class="op">=</span> df_route.sort_values(by<span class="op">=</span><span class="st">'count'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>df_route <span class="op">=</span> df_route.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>df_route</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>origem</th>
-      <th>destino</th>
-      <th>origem_latitude</th>
-      <th>origem_longitude</th>
-      <th>destino_latitude</th>
-      <th>destino_longitude</th>
-      <th>count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>CO/MT/51002/510840</td>
-      <td>CO/MT/51002/510340</td>
-      <td>-15.64580</td>
-      <td>-56.1322</td>
-      <td>-15.60100</td>
-      <td>-56.0974</td>
-      <td>22807</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>SD/MG/31008/315460</td>
-      <td>SD/MG/31008/310620</td>
-      <td>-19.76210</td>
-      <td>-44.0844</td>
-      <td>-19.91020</td>
-      <td>-43.9266</td>
-      <td>17147</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>ND/PE/26010/260790</td>
-      <td>ND/PE/26010/261160</td>
-      <td>-8.11298</td>
-      <td>-35.0150</td>
-      <td>-8.04666</td>
-      <td>-34.8771</td>
-      <td>16012</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>CO/GO/52004/521250</td>
-      <td>CO/DF/53001/530010</td>
-      <td>-16.25300</td>
-      <td>-47.9500</td>
-      <td>-15.77950</td>
-      <td>-47.9297</td>
-      <td>15461</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>ND/SE/28006/280480</td>
-      <td>ND/SE/28001/280030</td>
-      <td>-10.84680</td>
-      <td>-37.1231</td>
-      <td>-10.90910</td>
-      <td>-37.0677</td>
-      <td>15090</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>68568</th>
-      <td>SD/ES/32004/320370</td>
-      <td>SD/MG/31041/313770</td>
-      <td>-20.46520</td>
-      <td>-41.4156</td>
-      <td>-20.15390</td>
-      <td>-41.6228</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>68569</th>
-      <td>ND/BA/29009/293270</td>
-      <td>ND/BA/29015/291760</td>
-      <td>-14.59630</td>
-      <td>-39.2851</td>
-      <td>-13.52480</td>
-      <td>-39.9640</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>68570</th>
-      <td>SD/ES/32004/320380</td>
-      <td>SD/ES/32004/320230</td>
-      <td>-20.95090</td>
-      <td>-41.3460</td>
-      <td>-20.76680</td>
-      <td>-41.6734</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>68571</th>
-      <td>SD/ES/32004/320380</td>
-      <td>SD/ES/32004/320480</td>
-      <td>-20.95090</td>
-      <td>-41.3460</td>
-      <td>-21.02740</td>
-      <td>-41.6636</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>68572</th>
-      <td>SL/SC/42016/421870</td>
-      <td>SL/SC/42016/421710</td>
-      <td>-28.47130</td>
-      <td>-49.0144</td>
-      <td>-28.16090</td>
-      <td>-48.9867</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-<p>68573 rows × 7 columns</p>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cols_sih <span class="op">=</span> {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cod_municipio'</span>: <span class="st">'origem'</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'hosp_cod_municipio'</span>: <span class="st">'destino'</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-<section id="intra-rj" class="level3">
-<h3 class="anchored" data-anchor-id="intra-rj">Intra RJ</h3>
+</section>
+<section id="carregando-tabela" class="level3">
+<h3 class="anchored" data-anchor-id="carregando-tabela">Carregando tabela</h3>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>origem_rj <span class="op">=</span> df_route[<span class="st">'origem'</span>].<span class="bu">str</span>.contains(<span class="st">'/RJ/'</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>destino_rj <span class="op">=</span> df_route[<span class="st">'destino'</span>].<span class="bu">str</span>.contains(<span class="st">'/RJ/'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df_route_rj <span class="op">=</span> df_route[origem_rj <span class="op">&amp;</span> destino_rj]</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df_route_rj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>path_sih <span class="op">=</span> get_path(<span class="st">'SIH'</span>, <span class="st">'sih.jay'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> dt.fread(path_sih, columns<span class="op">=</span>cols_sih)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df_sih.names <span class="op">=</span> cols_sih</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> df_sih[:, <span class="bu">list</span>(cols_sih.values())]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> df_sih[f.origem <span class="op">!=</span> f.destino, :]</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>df_sih[<span class="st">'count'</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> df_sih[:, dt.<span class="bu">sum</span>(f.count), by(<span class="st">'origem'</span>, <span class="st">'destino'</span>)]</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> df_sih.sort(<span class="op">-</span>f.count)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>origem</th><th>destino</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>510840</td><td>510340</td><td>22807</td></tr>
+    <tr><td class="row_index">1</td><td>315460</td><td>310620</td><td>17147</td></tr>
+    <tr><td class="row_index">2</td><td>260790</td><td>261160</td><td>16012</td></tr>
+    <tr><td class="row_index">3</td><td>521250</td><td>530010</td><td>15461</td></tr>
+    <tr><td class="row_index">4</td><td>280480</td><td>280030</td><td>15090</td></tr>
+    <tr><td class="row_index">5</td><td>330350</td><td>330285</td><td>14875</td></tr>
+    <tr><td class="row_index">6</td><td>230370</td><td>230440</td><td>14545</td></tr>
+    <tr><td class="row_index">7</td><td>320500</td><td>320530</td><td>14543</td></tr>
+    <tr><td class="row_index">8</td><td>150080</td><td>150140</td><td>14521</td></tr>
+    <tr><td class="row_index">9</td><td>432300</td><td>431490</td><td>14273</td></tr>
+    <tr><td class="row_index">10</td><td>520025</td><td>530010</td><td>13577</td></tr>
+    <tr><td class="row_index">11</td><td>351500</td><td>355280</td><td>13106</td></tr>
+    <tr><td class="row_index">12</td><td>520140</td><td>520870</td><td>12745</td></tr>
+    <tr><td class="row_index">13</td><td>410040</td><td>410690</td><td>12717</td></tr>
+    <tr><td class="row_index">14</td><td>522185</td><td>530010</td><td>12112</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">68,568</td><td>530010</td><td>521308</td><td>1</td></tr>
+    <tr><td class="row_index">68,569</td><td>530010</td><td>521770</td><td>1</td></tr>
+    <tr><td class="row_index">68,570</td><td>530010</td><td>522000</td><td>1</td></tr>
+    <tr><td class="row_index">68,571</td><td>530010</td><td>522020</td><td>1</td></tr>
+    <tr><td class="row_index">68,572</td><td>530010</td><td>522045</td><td>1</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">68,573 rows × 3 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="lat-lon" class="level3">
+<h3 class="anchored" data-anchor-id="lat-lon">Lat &amp; Lon</h3>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_latlon_table_by_ref(df_munic, ref):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  cols_latlon <span class="op">=</span> [<span class="st">'cod_municipio'</span>, <span class="st">'latitude'</span>, <span class="st">'longitude'</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  df_latlon <span class="op">=</span> df_munic[:, cols_latlon]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  df_latlon.names <span class="op">=</span> {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'cod_municipio'</span>: ref,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'latitude'</span>: <span class="ss">f'</span><span class="sc">{</span>ref<span class="sc">}</span><span class="ss">_latitude'</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'longitude'</span>: <span class="ss">f'</span><span class="sc">{</span>ref<span class="sc">}</span><span class="ss">_longitude'</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  df_latlon.key <span class="op">=</span> ref</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df_latlon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_latlon_orig <span class="op">=</span> get_latlon_table_by_ref(df_munic, <span class="st">'origem'</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_latlon_dest <span class="op">=</span> get_latlon_table_by_ref(df_munic, <span class="st">'destino'</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> df_sih[:, :, dt.join(df_latlon_orig)]</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> df_sih[:, :, dt.join(df_latlon_dest)]</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>origem</th><th>destino</th><th>count</th><th>origem_latitude</th><th>origem_longitude</th><th>destino_latitude</th><th>destino_longitude</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>510840</td><td>510340</td><td>22807</td><td>−15.6458</td><td>−56.1322</td><td>−15.601</td><td>−56.0974</td></tr>
+    <tr><td class="row_index">1</td><td>315460</td><td>310620</td><td>17147</td><td>−19.7621</td><td>−44.0844</td><td>−19.9102</td><td>−43.9266</td></tr>
+    <tr><td class="row_index">2</td><td>260790</td><td>261160</td><td>16012</td><td>−8.11298</td><td>−35.015</td><td>−8.04666</td><td>−34.8771</td></tr>
+    <tr><td class="row_index">3</td><td>521250</td><td>530010</td><td>15461</td><td>−16.253</td><td>−47.95</td><td>−15.7795</td><td>−47.9297</td></tr>
+    <tr><td class="row_index">4</td><td>280480</td><td>280030</td><td>15090</td><td>−10.8468</td><td>−37.1231</td><td>−10.9091</td><td>−37.0677</td></tr>
+    <tr><td class="row_index">5</td><td>330350</td><td>330285</td><td>14875</td><td>−22.7556</td><td>−43.4603</td><td>−22.8028</td><td>−43.4601</td></tr>
+    <tr><td class="row_index">6</td><td>230370</td><td>230440</td><td>14545</td><td>−3.72797</td><td>−38.6619</td><td>−3.71664</td><td>−38.5423</td></tr>
+    <tr><td class="row_index">7</td><td>320500</td><td>320530</td><td>14543</td><td>−20.121</td><td>−40.3074</td><td>−20.3155</td><td>−40.3128</td></tr>
+    <tr><td class="row_index">8</td><td>150080</td><td>150140</td><td>14521</td><td>−1.36391</td><td>−48.3743</td><td>−1.4554</td><td>−48.4898</td></tr>
+    <tr><td class="row_index">9</td><td>432300</td><td>431490</td><td>14273</td><td>−30.0819</td><td>−51.0194</td><td>−30.0318</td><td>−51.2065</td></tr>
+    <tr><td class="row_index">10</td><td>520025</td><td>530010</td><td>13577</td><td>−15.7617</td><td>−48.2816</td><td>−15.7795</td><td>−47.9297</td></tr>
+    <tr><td class="row_index">11</td><td>351500</td><td>355280</td><td>13106</td><td>−23.6437</td><td>−46.8579</td><td>−23.6019</td><td>−46.7526</td></tr>
+    <tr><td class="row_index">12</td><td>520140</td><td>520870</td><td>12745</td><td>−16.8198</td><td>−49.2469</td><td>−16.6864</td><td>−49.2643</td></tr>
+    <tr><td class="row_index">13</td><td>410040</td><td>410690</td><td>12717</td><td>−25.3188</td><td>−49.3037</td><td>−25.4195</td><td>−49.2646</td></tr>
+    <tr><td class="row_index">14</td><td>522185</td><td>530010</td><td>12112</td><td>−16.0651</td><td>−47.9757</td><td>−15.7795</td><td>−47.9297</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">68,568</td><td>530010</td><td>521308</td><td>1</td><td>−15.7795</td><td>−47.9297</td><td>−13.5304</td><td>−48.2206</td></tr>
+    <tr><td class="row_index">68,569</td><td>530010</td><td>521770</td><td>1</td><td>−15.7795</td><td>−47.9297</td><td>−17.5225</td><td>−49.4489</td></tr>
+    <tr><td class="row_index">68,570</td><td>530010</td><td>522000</td><td>1</td><td>−15.7795</td><td>−47.9297</td><td>−14.7048</td><td>−47.5228</td></tr>
+    <tr><td class="row_index">68,571</td><td>530010</td><td>522020</td><td>1</td><td>−15.7795</td><td>−47.9297</td><td>−13.2731</td><td>−50.1634</td></tr>
+    <tr><td class="row_index">68,572</td><td>530010</td><td>522045</td><td>1</td><td>−15.7795</td><td>−47.9297</td><td>−16.7084</td><td>−49.0914</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">68,573 rows × 7 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="parâmetros" class="level3">
+<h3 class="anchored" data-anchor-id="parâmetros">Parâmetros</h3>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> params_in_cols(df):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  dfs <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> mode <span class="kw">in</span> [<span class="st">'driving'</span>, <span class="st">'transit'</span>]: <span class="co"># driving | transit | bicycling | walking</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> hour <span class="kw">in</span> [<span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">18</span>]: <span class="co"># [6, 12, 18] | [7, 13, 19]</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> traffic_model <span class="kw">in</span> [<span class="st">'best_guess'</span>, <span class="st">'optimistic'</span>, <span class="st">'pessimistic'</span>]: <span class="co"># best_guess | optimistic | pessimistic</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> mode <span class="op">!=</span> <span class="st">'driving'</span> <span class="kw">and</span> traffic_model <span class="op">!=</span> <span class="st">'best_guess'</span>:</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>          <span class="cf">continue</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        df_ <span class="op">=</span> df.copy()</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        df_[<span class="st">'mode'</span>] <span class="op">=</span> mode</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        df_[<span class="st">'traffic_model'</span>] <span class="op">=</span> traffic_model</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        df_[<span class="st">'hour'</span>] <span class="op">=</span> hour</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        dfs.append(df_)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  df_param <span class="op">=</span> pd.concat(dfs)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  df_param <span class="op">=</span> df_param.sort_values(by<span class="op">=</span>[</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'origem'</span>, <span class="st">'destino'</span>, <span class="st">'mode'</span>, <span class="st">'traffic_model'</span>, <span class="st">'hour'</span>])</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  df_param <span class="op">=</span> df_param.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df_param</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_param <span class="op">=</span> params_in_cols(df_sih.to_pandas())</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_param</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+
 <div>
 
 <table class="dataframe table table-sm table-striped">
@@ -762,63 +556,81 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <th></th>
       <th>origem</th>
       <th>destino</th>
+      <th>count</th>
       <th>origem_latitude</th>
       <th>origem_longitude</th>
       <th>destino_latitude</th>
       <th>destino_longitude</th>
-      <th>count</th>
+      <th>mode</th>
+      <th>traffic_model</th>
+      <th>hour</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>5</th>
-      <td>SD/RJ/33005/330350</td>
-      <td>SD/RJ/33005/330285</td>
-      <td>-22.7556</td>
-      <td>-43.4603</td>
-      <td>-22.8028</td>
-      <td>-43.4601</td>
-      <td>14875</td>
+      <th>0</th>
+      <td>110001</td>
+      <td>110002</td>
+      <td>2</td>
+      <td>-11.9283</td>
+      <td>-61.9953</td>
+      <td>-9.90571</td>
+      <td>-63.0325</td>
+      <td>driving</td>
+      <td>best_guess</td>
+      <td>6</td>
     </tr>
     <tr>
-      <th>16</th>
-      <td>SD/RJ/33005/330045</td>
-      <td>SD/RJ/33005/330285</td>
-      <td>-22.7640</td>
-      <td>-43.3992</td>
-      <td>-22.8028</td>
-      <td>-43.4601</td>
-      <td>11761</td>
+      <th>1</th>
+      <td>110001</td>
+      <td>110002</td>
+      <td>2</td>
+      <td>-11.9283</td>
+      <td>-61.9953</td>
+      <td>-9.90571</td>
+      <td>-63.0325</td>
+      <td>driving</td>
+      <td>best_guess</td>
+      <td>12</td>
     </tr>
     <tr>
-      <th>17</th>
-      <td>SD/RJ/33005/330350</td>
-      <td>SD/RJ/33005/330045</td>
-      <td>-22.7556</td>
-      <td>-43.4603</td>
-      <td>-22.7640</td>
-      <td>-43.3992</td>
-      <td>11658</td>
+      <th>2</th>
+      <td>110001</td>
+      <td>110002</td>
+      <td>2</td>
+      <td>-11.9283</td>
+      <td>-61.9953</td>
+      <td>-9.90571</td>
+      <td>-63.0325</td>
+      <td>driving</td>
+      <td>best_guess</td>
+      <td>18</td>
     </tr>
     <tr>
-      <th>27</th>
-      <td>SD/RJ/33006/330490</td>
-      <td>SD/RJ/33006/330330</td>
-      <td>-22.8268</td>
-      <td>-43.0634</td>
-      <td>-22.8832</td>
-      <td>-43.1034</td>
-      <td>7848</td>
+      <th>3</th>
+      <td>110001</td>
+      <td>110002</td>
+      <td>2</td>
+      <td>-11.9283</td>
+      <td>-61.9953</td>
+      <td>-9.90571</td>
+      <td>-63.0325</td>
+      <td>driving</td>
+      <td>optimistic</td>
+      <td>6</td>
     </tr>
     <tr>
-      <th>29</th>
-      <td>SD/RJ/33005/330045</td>
-      <td>SD/RJ/33005/330510</td>
-      <td>-22.7640</td>
-      <td>-43.3992</td>
-      <td>-22.8058</td>
-      <td>-43.3729</td>
-      <td>7263</td>
+      <th>4</th>
+      <td>110001</td>
+      <td>110002</td>
+      <td>2</td>
+      <td>-11.9283</td>
+      <td>-61.9953</td>
+      <td>-9.90571</td>
+      <td>-63.0325</td>
+      <td>driving</td>
+      <td>optimistic</td>
+      <td>12</td>
     </tr>
     <tr>
       <th>...</th>
@@ -829,157 +641,524 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>...</td>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>63432</th>
-      <td>SD/RJ/33002/330130</td>
-      <td>SD/RJ/33002/330020</td>
-      <td>-22.4812</td>
-      <td>-42.2066</td>
-      <td>-22.8697</td>
-      <td>-42.3326</td>
-      <td>1</td>
+      <th>822871</th>
+      <td>530010</td>
+      <td>522200</td>
+      <td>2</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>-16.74050</td>
+      <td>-48.5159</td>
+      <td>driving</td>
+      <td>pessimistic</td>
+      <td>12</td>
     </tr>
     <tr>
-      <th>63435</th>
-      <td>SD/RJ/33002/330130</td>
-      <td>SD/RJ/33006/330330</td>
-      <td>-22.4812</td>
-      <td>-42.2066</td>
-      <td>-22.8832</td>
-      <td>-43.1034</td>
-      <td>1</td>
+      <th>822872</th>
+      <td>530010</td>
+      <td>522200</td>
+      <td>2</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>-16.74050</td>
+      <td>-48.5159</td>
+      <td>driving</td>
+      <td>pessimistic</td>
+      <td>18</td>
     </tr>
     <tr>
-      <th>63439</th>
-      <td>SD/RJ/33002/330130</td>
-      <td>SD/RJ/33008/330415</td>
-      <td>-22.4812</td>
-      <td>-42.2066</td>
-      <td>-22.1031</td>
-      <td>-41.4693</td>
-      <td>1</td>
+      <th>822873</th>
+      <td>530010</td>
+      <td>522200</td>
+      <td>2</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>-16.74050</td>
+      <td>-48.5159</td>
+      <td>transit</td>
+      <td>best_guess</td>
+      <td>6</td>
     </tr>
     <tr>
-      <th>63440</th>
-      <td>SD/RJ/33002/330130</td>
-      <td>SD/RJ/33009/330080</td>
-      <td>-22.4812</td>
-      <td>-42.2066</td>
-      <td>-22.4658</td>
-      <td>-42.6523</td>
-      <td>1</td>
+      <th>822874</th>
+      <td>530010</td>
+      <td>522200</td>
+      <td>2</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>-16.74050</td>
+      <td>-48.5159</td>
+      <td>transit</td>
+      <td>best_guess</td>
+      <td>12</td>
     </tr>
     <tr>
-      <th>63441</th>
-      <td>SD/RJ/33002/330130</td>
-      <td>SD/RJ/33009/330340</td>
-      <td>-22.4812</td>
-      <td>-42.2066</td>
-      <td>-22.2932</td>
-      <td>-42.5377</td>
-      <td>1</td>
+      <th>822875</th>
+      <td>530010</td>
+      <td>522200</td>
+      <td>2</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>-16.74050</td>
+      <td>-48.5159</td>
+      <td>transit</td>
+      <td>best_guess</td>
+      <td>18</td>
     </tr>
   </tbody>
 </table>
-<p>1316 rows × 7 columns</p>
+<p>822876 rows × 10 columns</p>
 </div>
-</div>
-</div>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cols_code <span class="op">=</span> [<span class="st">'origem'</span>, <span class="st">'destino'</span>]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>cols_latlon <span class="op">=</span> <span class="bu">list</span>(df_route_rj.columns[<span class="dv">2</span>:<span class="op">-</span><span class="dv">1</span>])</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>rows_code <span class="op">=</span> df_route_rj[cols_code].groupby(by<span class="op">=</span>cols_code, as_index<span class="op">=</span><span class="va">False</span>).<span class="bu">sum</span>().shape[<span class="dv">0</span>]</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>rows_latlon <span class="op">=</span> df_route_rj[cols_latlon].groupby(by<span class="op">=</span>cols_latlon, as_index<span class="op">=</span><span class="va">False</span>).<span class="bu">sum</span>().shape[<span class="dv">0</span>]</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>rows_code <span class="op">==</span> rows_latlon <span class="op">==</span> df_route_rj.shape[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>True</code></pre>
 </div>
 </div>
 </section>
+</section>
+</section>
+<section id="modelo-de-coleta" class="level1">
+<h1>Modelo de Coleta</h1>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_backup_path(data):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  hour <span class="op">=</span> data[<span class="st">'hour'</span>]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  fname <span class="op">=</span> <span class="st">'-'</span>.join([</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">'mode'</span>],</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">'traffic_model'</span>],</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f'</span><span class="sc">{</span>hour<span class="sc">}</span><span class="ss">h'</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">str</span>(data[<span class="st">'origem'</span>]),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">str</span>(data[<span class="st">'destino'</span>])</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  ])</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> get_path(<span class="st">'LOCALIDADES'</span>, <span class="ss">f'gmaps/</span><span class="sc">{</span>fname<span class="sc">}</span><span class="ss">.json'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_travel_info(row):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  departure_time <span class="op">=</span> datetime(year<span class="op">=</span><span class="dv">2022</span>, month<span class="op">=</span><span class="dv">11</span>, day<span class="op">=</span><span class="dv">7</span>, hour<span class="op">=</span>row[<span class="st">'hour'</span>])</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  info <span class="op">=</span> row.copy()</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  info[<span class="st">'departure_time'</span>] <span class="op">=</span> <span class="bu">str</span>(departure_time)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  res <span class="op">=</span> gmaps.distance_matrix(</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    origins <span class="op">=</span> [(row[<span class="st">'origem_latitude'</span>], row[<span class="st">'origem_longitude'</span>])],</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    destinations <span class="op">=</span> [(row[<span class="st">'destino_latitude'</span>], row[<span class="st">'destino_longitude'</span>])],</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    mode <span class="op">=</span> row[<span class="st">'mode'</span>],</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    traffic_model <span class="op">=</span> row[<span class="st">'traffic_model'</span>],</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    departure_time <span class="op">=</span> departure_time,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    language <span class="op">=</span> <span class="st">'pt-BR'</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    units <span class="op">=</span> <span class="st">'metric'</span>,)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  info[<span class="st">'origin_addresses'</span>] <span class="op">=</span> res[<span class="st">'origin_addresses'</span>][<span class="dv">0</span>]</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  info[<span class="st">'destination_addresses'</span>] <span class="op">=</span> res[<span class="st">'destination_addresses'</span>][<span class="dv">0</span>]</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  elem <span class="op">=</span> res[<span class="st">'rows'</span>][<span class="dv">0</span>][<span class="st">'elements'</span>][<span class="dv">0</span>]</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  info[<span class="st">'status'</span>] <span class="op">=</span> elem[<span class="st">'status'</span>]</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> col <span class="kw">in</span> <span class="bu">list</span>(elem):</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> col <span class="op">==</span> <span class="st">'status'</span>:</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>      <span class="cf">continue</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i_type <span class="kw">in</span> [<span class="st">'text'</span>, <span class="st">'value'</span>]:</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>      col_name <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>i_type<span class="sc">}</span><span class="ss">)'</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> elem[<span class="st">'status'</span>] <span class="op">==</span> <span class="st">'OK'</span>:</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        info[col_name] <span class="op">=</span> elem[col][i_type]</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>      <span class="cf">else</span>:</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        info[col_name] <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> info</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> request_travel_infos(df):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> row <span class="kw">in</span> tqdm(df.to_dict(orient<span class="op">=</span><span class="st">'records'</span>)):</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    fpath <span class="op">=</span> get_backup_path(row)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> Path(fpath).is_file():</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>      <span class="cf">continue</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    info <span class="op">=</span> get_travel_info(row)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(fpath, <span class="st">'w'</span>) <span class="im">as</span> fp:</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>      json.dump(info, fp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="filtros" class="level1">
+<h1>Filtros</h1>
+<section id="intra-rj" class="level2">
+<h2 class="anchored" data-anchor-id="intra-rj">Intra RJ</h2>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>origem_rj <span class="op">=</span> df_param[<span class="st">'origem'</span>].astype(<span class="bu">str</span>).<span class="bu">str</span>.startswith(<span class="st">'33'</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>destino_rj <span class="op">=</span> df_param[<span class="st">'destino'</span>].astype(<span class="bu">str</span>).<span class="bu">str</span>.startswith(<span class="st">'33'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df_route_rj <span class="op">=</span> df_param[origem_rj <span class="op">&amp;</span> destino_rj]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>df_route_rj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>count</th>
+      <th>origem_latitude</th>
+      <th>origem_longitude</th>
+      <th>destino_latitude</th>
+      <th>destino_longitude</th>
+      <th>mode</th>
+      <th>traffic_model</th>
+      <th>hour</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>497964</th>
+      <td>330010</td>
+      <td>330023</td>
+      <td>1</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>-22.7528</td>
+      <td>-41.8846</td>
+      <td>driving</td>
+      <td>best_guess</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>497965</th>
+      <td>330010</td>
+      <td>330023</td>
+      <td>1</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>-22.7528</td>
+      <td>-41.8846</td>
+      <td>driving</td>
+      <td>best_guess</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>497966</th>
+      <td>330010</td>
+      <td>330023</td>
+      <td>1</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>-22.7528</td>
+      <td>-41.8846</td>
+      <td>driving</td>
+      <td>best_guess</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>497967</th>
+      <td>330010</td>
+      <td>330023</td>
+      <td>1</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>-22.7528</td>
+      <td>-41.8846</td>
+      <td>driving</td>
+      <td>optimistic</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>497968</th>
+      <td>330010</td>
+      <td>330023</td>
+      <td>1</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>-22.7528</td>
+      <td>-41.8846</td>
+      <td>driving</td>
+      <td>optimistic</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>519643</th>
+      <td>330630</td>
+      <td>330620</td>
+      <td>1</td>
+      <td>-22.5202</td>
+      <td>-44.0996</td>
+      <td>-22.4059</td>
+      <td>-43.6686</td>
+      <td>driving</td>
+      <td>pessimistic</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>519644</th>
+      <td>330630</td>
+      <td>330620</td>
+      <td>1</td>
+      <td>-22.5202</td>
+      <td>-44.0996</td>
+      <td>-22.4059</td>
+      <td>-43.6686</td>
+      <td>driving</td>
+      <td>pessimistic</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>519645</th>
+      <td>330630</td>
+      <td>330620</td>
+      <td>1</td>
+      <td>-22.5202</td>
+      <td>-44.0996</td>
+      <td>-22.4059</td>
+      <td>-43.6686</td>
+      <td>transit</td>
+      <td>best_guess</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>519646</th>
+      <td>330630</td>
+      <td>330620</td>
+      <td>1</td>
+      <td>-22.5202</td>
+      <td>-44.0996</td>
+      <td>-22.4059</td>
+      <td>-43.6686</td>
+      <td>transit</td>
+      <td>best_guess</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>519647</th>
+      <td>330630</td>
+      <td>330620</td>
+      <td>1</td>
+      <td>-22.5202</td>
+      <td>-44.0996</td>
+      <td>-22.4059</td>
+      <td>-43.6686</td>
+      <td>transit</td>
+      <td>best_guess</td>
+      <td>18</td>
+    </tr>
+  </tbody>
+</table>
+<p>15792 rows × 10 columns</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="coletando-dados" class="level1">
 <h1>Coletando dados</h1>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gmaps <span class="op">=</span> gmaps.Client(key<span class="op">=</span>API_KEY)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="seleção-parâmetros" class="level2">
+<h2 class="anchored" data-anchor-id="seleção-parâmetros">Seleção parâmetros</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_select <span class="op">=</span> df_route_rj[</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  (</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    df_route_rj[<span class="st">'mode'</span>] <span class="op">==</span> <span class="st">'driving'</span> <span class="co"># driving | transit | bicycling | walking</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">&amp;</span> (</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    df_route_rj[<span class="st">'traffic_model'</span>] <span class="op">==</span> <span class="st">'best_guess'</span> <span class="co"># best_guess | optimistic | pessimistic</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">&amp;</span> (</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    df_route_rj[<span class="st">'hour'</span>] <span class="op">==</span> <span class="dv">18</span> <span class="co"># [6, 12, 18] | [7, 13, 19]</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>].sort_values(by<span class="op">=</span><span class="st">'count'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>df_select</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>count</th>
+      <th>origem_latitude</th>
+      <th>origem_longitude</th>
+      <th>destino_latitude</th>
+      <th>destino_longitude</th>
+      <th>mode</th>
+      <th>traffic_model</th>
+      <th>hour</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>508934</th>
+      <td>330350</td>
+      <td>330285</td>
+      <td>14875</td>
+      <td>-22.7556</td>
+      <td>-43.4603</td>
+      <td>-22.8028</td>
+      <td>-43.4601</td>
+      <td>driving</td>
+      <td>best_guess</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>499910</th>
+      <td>330045</td>
+      <td>330285</td>
+      <td>11761</td>
+      <td>-22.7640</td>
+      <td>-43.3992</td>
+      <td>-22.8028</td>
+      <td>-43.4601</td>
+      <td>driving</td>
+      <td>best_guess</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>508802</th>
+      <td>330350</td>
+      <td>330045</td>
+      <td>11658</td>
+      <td>-22.7556</td>
+      <td>-43.4603</td>
+      <td>-22.7640</td>
+      <td>-43.3992</td>
+      <td>driving</td>
+      <td>best_guess</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>515858</th>
+      <td>330490</td>
+      <td>330330</td>
+      <td>7848</td>
+      <td>-22.8268</td>
+      <td>-43.0634</td>
+      <td>-22.8832</td>
+      <td>-43.1034</td>
+      <td>driving</td>
+      <td>best_guess</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>500042</th>
+      <td>330045</td>
+      <td>330510</td>
+      <td>7263</td>
+      <td>-22.7640</td>
+      <td>-43.3992</td>
+      <td>-22.8058</td>
+      <td>-43.3729</td>
+      <td>driving</td>
+      <td>best_guess</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>507530</th>
+      <td>330310</td>
+      <td>330090</td>
+      <td>1</td>
+      <td>-21.0390</td>
+      <td>-41.9697</td>
+      <td>-21.5691</td>
+      <td>-41.9187</td>
+      <td>driving</td>
+      <td>best_guess</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>507542</th>
+      <td>330310</td>
+      <td>330170</td>
+      <td>1</td>
+      <td>-21.0390</td>
+      <td>-41.9697</td>
+      <td>-22.7858</td>
+      <td>-43.3049</td>
+      <td>driving</td>
+      <td>best_guess</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>507554</th>
+      <td>330310</td>
+      <td>330205</td>
+      <td>1</td>
+      <td>-21.0390</td>
+      <td>-41.9697</td>
+      <td>-21.4296</td>
+      <td>-41.7014</td>
+      <td>driving</td>
+      <td>best_guess</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>507590</th>
+      <td>330310</td>
+      <td>330490</td>
+      <td>1</td>
+      <td>-21.0390</td>
+      <td>-41.9697</td>
+      <td>-22.8268</td>
+      <td>-43.0634</td>
+      <td>driving</td>
+      <td>best_guess</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>519638</th>
+      <td>330630</td>
+      <td>330620</td>
+      <td>1</td>
+      <td>-22.5202</td>
+      <td>-44.0996</td>
+      <td>-22.4059</td>
+      <td>-43.6686</td>
+      <td>driving</td>
+      <td>best_guess</td>
+      <td>18</td>
+    </tr>
+  </tbody>
+</table>
+<p>1316 rows × 10 columns</p>
 </div>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_matrix(origens, destinos):</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> gmaps.distance_matrix(</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    origins <span class="op">=</span> origens,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    destinations <span class="op">=</span> destinos,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    mode <span class="op">=</span> <span class="st">'transit'</span>,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    language <span class="op">=</span> <span class="st">'pt-BR'</span>,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    units <span class="op">=</span> <span class="st">'metric'</span>,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    departure_time <span class="op">=</span> datetime(year<span class="op">=</span><span class="dv">2022</span>, month<span class="op">=</span><span class="dv">11</span>, day<span class="op">=</span><span class="dv">7</span>, hour<span class="op">=</span><span class="dv">6</span>),</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    traffic_model <span class="op">=</span> <span class="st">'best_guess'</span>,</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>infos <span class="op">=</span> <span class="bu">list</span>()</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, row <span class="kw">in</span> tqdm(df_route_rj.iterrows(), total<span class="op">=</span>df_route_rj.shape[<span class="dv">0</span>]):</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  origin <span class="op">=</span> [(row[<span class="st">'origem_latitude'</span>], row[<span class="st">'origem_longitude'</span>])]</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  destin <span class="op">=</span> [(row[<span class="st">'destino_latitude'</span>], row[<span class="st">'destino_longitude'</span>])]</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  res <span class="op">=</span> get_matrix(origin, destin)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  elem <span class="op">=</span> res[<span class="st">'rows'</span>][<span class="dv">0</span>][<span class="st">'elements'</span>][<span class="dv">0</span>]</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> elem[<span class="st">'status'</span>] <span class="op">==</span> <span class="st">'OK'</span>:</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> <span class="bu">dict</span>()</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> info <span class="kw">in</span> [<span class="st">'distance'</span>, <span class="st">'duration'</span>]:</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> i_type <span class="kw">in</span> [<span class="st">'text'</span>, <span class="st">'value'</span>]:</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        col_name <span class="op">=</span> <span class="st">'_'</span>.join([info, i_type])</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        d[col_name] <span class="op">=</span> elem[info][i_type]</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    infos.append(d)</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># break</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    infos.append(<span class="va">None</span>)</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(infos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>100%|██████████| 1316/1316 [03:27&lt;00:00,  6.33it/s]</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>1316</code></pre>
-</div>
-</div>
-<p>100%|██████████| 1398/1398 [03:25&lt;00:00, 6.82it/s]</p>
-<p>100%|██████████| 1316/1316 [03:27&lt;00:00, 6.33it/s]</p>
-<div class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'missing: </span><span class="sc">{</span>infos<span class="sc">.</span>count(<span class="va">None</span>)<span class="sc">}</span><span class="ss"> out of </span><span class="sc">{</span><span class="bu">len</span>(infos)<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>(<span class="dv">626</span><span class="op">/</span><span class="dv">1316</span><span class="op">*</span><span class="dv">100</span>)<span class="sc">:.2f}</span><span class="ss">%)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>missing: 626 out of 1316 (47.57%)</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> infos:</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">!=</span> <span class="va">None</span>:</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>{'distance_text': '10,3 km', 'distance_value': 10281, 'duration_text': '1 hora 16 minutos', 'duration_value': 4587}</code></pre>
 </div>
 </div>
 </section>
-<section id="exportar-tabela" class="level1">
-<h1>Exportar tabela</h1>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>path_infos <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'gmaps/infos_6am.pickle'</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(path_infos, <span class="st">'wb'</span>) <span class="im">as</span> f:</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    pickle.dump(infos, f, protocol<span class="op">=</span>pickle.HIGHEST_PROTOCOL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(path_infos, <span class="st">'rb'</span>) <span class="im">as</span> f:</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> pickle.load(f)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(infos <span class="op">==</span> b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>True</code></pre>
-</div>
-</div>
+<section id="consulta-api" class="level2">
+<h2 class="anchored" data-anchor-id="consulta-api">Consulta API</h2>
 <div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>path_miss <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'gmaps/missing.xlsx'</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_route_rj[[i <span class="op">==</span> <span class="va">None</span> <span class="cf">for</span> i <span class="kw">in</span> infos]].to_excel(path_miss, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>gmaps <span class="op">=</span> gmaps.Client(key<span class="op">=</span>API_KEY)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>request_travel_infos(df_select)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 1316/1316 [04:29&lt;00:00,  4.89it/s]</code></pre>
+</div>
+</div>
+<p>RJ driving best_guess 6h</p>
+<p>100%|██████████| 1316/1316 [04:07&lt;00:00, 5.32it/s]</p>
+<p>RJ driving best_guess 12h</p>
+<p>100%|██████████| 1316/1316 [04:28&lt;00:00, 4.91it/s]</p>
+<p>RJ driving best_guess 18h</p>
+<p>100%|██████████| 1316/1316 [04:29&lt;00:00, 4.89it/s]</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
