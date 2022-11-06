@@ -60,7 +60,7 @@
     "href": "sections/database_gmaps.html",
     "title": "Google Maps",
     "section": "",
-    "text": "import sys\nimport json\nimport pickle\nimport pandas as pd\nimport googlemaps as gmaps\nfrom tqdm import tqdm\nfrom pathlib import Path\nfrom datatable import dt, f, by\nfrom datetime import datetime\nfrom utils import get_path, data_load\nsys.path.insert(0, '../')\nfrom secret import API_KEY"
+    "text": "import sys\nimport json\nimport pickle\nimport numpy as np\nimport pandas as pd\nimport googlemaps as gmaps\n\nfrom os import listdir, walk\nfrom tqdm import tqdm\nfrom pathlib import Path\nfrom datetime import datetime\nfrom datatable import dt, f, by\n\nfrom plotly import express as px, io as pio\npd.options.plotting.backend = 'plotly'\npio.renderers.default = 'plotly_mimetype+notebook_connected'\n\nfrom utils import get_path, data_load\nsys.path.insert(0, '../')\nfrom secret import API_KEY"
   },
   {
     "objectID": "sections/database_gmaps.html#municípios",
@@ -95,7 +95,7 @@
     "href": "sections/database_gmaps.html#consulta-api",
     "title": "Google Maps",
     "section": "Consulta API",
-    "text": "Consulta API\n\ngmaps = gmaps.Client(key=API_KEY)\n\n\nrequest_travel_infos(df_select)\n\n100%|██████████| 1316/1316 [04:29<00:00,  4.89it/s]\n\n\nRJ driving best_guess 6h\n100%|██████████| 1316/1316 [04:07<00:00, 5.32it/s]\nRJ driving best_guess 12h\n100%|██████████| 1316/1316 [04:28<00:00, 4.91it/s]\nRJ driving best_guess 18h\n100%|██████████| 1316/1316 [04:29<00:00, 4.89it/s]"
+    "text": "Consulta API\n\ngmaps = gmaps.Client(key=API_KEY)\n\n\nrequest_travel_infos(df_select)\n\n100%|██████████| 1316/1316 [00:00<00:00, 26719.06it/s]\n\n\nRJ driving best_guess 6h\n100%|██████████| 1316/1316 [04:07<00:00, 5.32it/s]\nRJ driving best_guess 12h\n100%|██████████| 1316/1316 [04:28<00:00, 4.91it/s]\nRJ driving best_guess 18h\n100%|██████████| 1316/1316 [04:29<00:00, 4.89it/s]"
   },
   {
     "objectID": "sections/database_indicadores.html",
