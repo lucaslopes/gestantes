@@ -305,6 +305,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#ano" id="toc-ano" class="nav-link" data-scroll-target="#ano">Ano</a></li>
   <li><a href="#biênio" id="toc-biênio" class="nav-link" data-scroll-target="#biênio">Biênio</a></li>
   </ul></li>
+  <li><a href="#unindo-com-gmaps" id="toc-unindo-com-gmaps" class="nav-link" data-scroll-target="#unindo-com-gmaps">Unindo com Gmaps</a>
+  <ul class="collapse">
+  <li><a href="#fontes-de-dados" id="toc-fontes-de-dados" class="nav-link" data-scroll-target="#fontes-de-dados">Fontes de dados</a>
+  <ul class="collapse">
+  <li><a href="#procedimentos" id="toc-procedimentos" class="nav-link" data-scroll-target="#procedimentos">Procedimentos</a></li>
+  <li><a href="#rotas-gmaps" id="toc-rotas-gmaps" class="nav-link" data-scroll-target="#rotas-gmaps">Rotas (Gmaps)</a></li>
+  </ul></li>
+  <li><a href="#gerando-tabela-1" id="toc-gerando-tabela-1" class="nav-link" data-scroll-target="#gerando-tabela-1">Gerando tabela</a>
+  <ul class="collapse">
+  <li><a href="#combinando-tabelas" id="toc-combinando-tabelas" class="nav-link" data-scroll-target="#combinando-tabelas">Combinando tabelas</a></li>
+  <li><a href="#ordenando" id="toc-ordenando" class="nav-link" data-scroll-target="#ordenando">Ordenando</a></li>
+  </ul></li>
+  <li><a href="#exportando-tabela-resultante" id="toc-exportando-tabela-resultante" class="nav-link" data-scroll-target="#exportando-tabela-resultante">Exportando tabela resultante</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -327,33 +341,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, group_cols</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by, as_type</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-
-<style type="text/css">
-.datatable table.frame { margin-bottom: 0; }
-.datatable table.frame thead { border-bottom: none; }
-.datatable table.frame tr.coltypes td {  color: #FFFFFF;  line-height: 6px;  padding: 0 0.5em;}
-.datatable .bool    { background: #DDDD99; }
-.datatable .object  { background: #565656; }
-.datatable .int     { background: #5D9E5D; }
-.datatable .float   { background: #4040CC; }
-.datatable .str     { background: #CC4040; }
-.datatable .time    { background: #40CC40; }
-.datatable .row_index {  background: var(--jp-border-color3);  border-right: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  font-size: 9px;}
-.datatable .frame tbody td { text-align: left; }
-.datatable .frame tr.coltypes .row_index {  background: var(--jp-border-color0);}
-.datatable th:nth-child(2) { padding-left: 12px; }
-.datatable .hellipsis {  color: var(--jp-cell-editor-border-color);}
-.datatable .vellipsis {  background: var(--jp-layout-color0);  color: var(--jp-cell-editor-border-color);}
-.datatable .na {  color: var(--jp-cell-editor-border-color);  font-size: 80%;}
-.datatable .sp {  opacity: 0.25;}
-.datatable .footer { font-size: 9px; }
-.datatable .frame_dimensions {  background: var(--jp-border-color3);  border-top: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  display: inline-block;  opacity: 0.6;  padding: 1px 10px 1px 5px;}
-</style>
-</div>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, group_cols</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by, as_type</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="descrição" class="level1">
 <h1>Descrição</h1>
@@ -1301,6 +1292,1351 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </div>
 </div>
+</div>
+</section>
+</section>
+<section id="unindo-com-gmaps" class="level1">
+<h1>Unindo com Gmaps</h1>
+<section id="fontes-de-dados" class="level2">
+<h2 class="anchored" data-anchor-id="fontes-de-dados">Fontes de dados</h2>
+<section id="procedimentos" class="level3">
+<h3 class="anchored" data-anchor-id="procedimentos">Procedimentos</h3>
+<div class="cell" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df_bienio <span class="op">=</span> pd.read_csv(output_proc_bienio)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df_bienio <span class="op">=</span> df_bienio.rename(columns<span class="op">=</span>{</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  ref: <span class="ss">f'codigo_</span><span class="sc">{</span>ref<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> ref <span class="kw">in</span> [<span class="st">'origem'</span>, <span class="st">'destino'</span>]})</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>df_bienio[<span class="st">'origem'</span>] <span class="op">=</span> df_bienio[<span class="st">'codigo_origem'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">int</span>(x.split(<span class="st">'/'</span>)[<span class="op">-</span><span class="dv">1</span>]))</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>df_bienio[<span class="st">'destino'</span>] <span class="op">=</span> df_bienio[<span class="st">'codigo_destino'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">int</span>(x.split(<span class="st">'/'</span>)[<span class="op">-</span><span class="dv">2</span>]))</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>df_bienio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="79">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>bienio</th>
+      <th>parto_normal</th>
+      <th>codigo_origem</th>
+      <th>codigo_destino</th>
+      <th>distancia (km)</th>
+      <th>tempo (min)</th>
+      <th>dist_pond</th>
+      <th>tempo_pond</th>
+      <th>criticidade</th>
+      <th>capitais</th>
+      <th>socioecon</th>
+      <th>origem_latitude</th>
+      <th>origem_longitude</th>
+      <th>destino_latitude</th>
+      <th>destino_longitude</th>
+      <th>count</th>
+      <th>origem</th>
+      <th>destino</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>CO/DF/53001/530010</td>
+      <td>CO/DF/53001/530010/0010464</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>1_1</td>
+      <td>5_5</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>260</td>
+      <td>530010</td>
+      <td>530010</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>CO/DF/53001/530010</td>
+      <td>CO/DF/53001/530010/0010472</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>1_1</td>
+      <td>5_5</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>282</td>
+      <td>530010</td>
+      <td>530010</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>CO/DF/53001/530010</td>
+      <td>CO/DF/53001/530010/0010480</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>1_1</td>
+      <td>5_5</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>3323</td>
+      <td>530010</td>
+      <td>530010</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>CO/DF/53001/530010</td>
+      <td>CO/DF/53001/530010/0010499</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>1_1</td>
+      <td>5_5</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>3368</td>
+      <td>530010</td>
+      <td>530010</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>CO/DF/53001/530010</td>
+      <td>CO/DF/53001/530010/0010502</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>1_1</td>
+      <td>5_5</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>-15.7795</td>
+      <td>-47.9297</td>
+      <td>964</td>
+      <td>530010</td>
+      <td>530010</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>167211</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SL/SC/42016/421870</td>
+      <td>SL/SC/42007/420540/3157245</td>
+      <td>138.4773</td>
+      <td>104.940000</td>
+      <td>138.4773</td>
+      <td>104.940000</td>
+      <td>2</td>
+      <td>0_1</td>
+      <td>3_5</td>
+      <td>-28.4713</td>
+      <td>-49.0144</td>
+      <td>-27.5945</td>
+      <td>-48.5477</td>
+      <td>1</td>
+      <td>421870</td>
+      <td>420540</td>
+    </tr>
+    <tr>
+      <th>167212</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SL/SC/42016/421870</td>
+      <td>SL/SC/42015/420460/2594277</td>
+      <td>54.6210</td>
+      <td>49.316667</td>
+      <td>54.6210</td>
+      <td>49.316667</td>
+      <td>2</td>
+      <td>0_0</td>
+      <td>3_4</td>
+      <td>-28.4713</td>
+      <td>-49.0144</td>
+      <td>-28.6723</td>
+      <td>-49.3729</td>
+      <td>1</td>
+      <td>421870</td>
+      <td>420460</td>
+    </tr>
+    <tr>
+      <th>167213</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SL/SC/42016/421870</td>
+      <td>SL/SC/42016/420280/2665883</td>
+      <td>35.5439</td>
+      <td>37.493333</td>
+      <td>71.0878</td>
+      <td>74.986667</td>
+      <td>1</td>
+      <td>0_0</td>
+      <td>3_3</td>
+      <td>-28.4713</td>
+      <td>-49.0144</td>
+      <td>-28.2681</td>
+      <td>-49.1701</td>
+      <td>2</td>
+      <td>421870</td>
+      <td>420280</td>
+    </tr>
+    <tr>
+      <th>167214</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SL/SC/42016/421870</td>
+      <td>SL/SC/42016/420730/2385880</td>
+      <td>53.9610</td>
+      <td>45.353333</td>
+      <td>53.9610</td>
+      <td>45.353333</td>
+      <td>1</td>
+      <td>0_0</td>
+      <td>3_3</td>
+      <td>-28.4713</td>
+      <td>-49.0144</td>
+      <td>-28.2284</td>
+      <td>-48.6659</td>
+      <td>1</td>
+      <td>421870</td>
+      <td>420730</td>
+    </tr>
+    <tr>
+      <th>167215</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SL/SC/42016/421870</td>
+      <td>SL/SC/42016/421870/2491710</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>3_3</td>
+      <td>-28.4713</td>
+      <td>-49.0144</td>
+      <td>-28.4713</td>
+      <td>-49.0144</td>
+      <td>441</td>
+      <td>421870</td>
+      <td>421870</td>
+    </tr>
+  </tbody>
+</table>
+<p>167216 rows × 18 columns</p>
+</div>
+</div>
+</div>
+<section id="biênio-rj" class="level4">
+<h4 class="anchored" data-anchor-id="biênio-rj">Biênio RJ</h4>
+<div class="cell" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>origem_rj <span class="op">=</span> df_bienio[<span class="st">'origem'</span>].astype(<span class="bu">str</span>).<span class="bu">str</span>.startswith(<span class="st">'33'</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>destino_rj <span class="op">=</span> df_bienio[<span class="st">'destino'</span>].astype(<span class="bu">str</span>).<span class="bu">str</span>.startswith(<span class="st">'33'</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>df_bienio_rj <span class="op">=</span> df_bienio[origem_rj <span class="op">&amp;</span> destino_rj]</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>df_bienio_rj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="80">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>bienio</th>
+      <th>parto_normal</th>
+      <th>codigo_origem</th>
+      <th>codigo_destino</th>
+      <th>distancia (km)</th>
+      <th>tempo (min)</th>
+      <th>dist_pond</th>
+      <th>tempo_pond</th>
+      <th>criticidade</th>
+      <th>capitais</th>
+      <th>socioecon</th>
+      <th>origem_latitude</th>
+      <th>origem_longitude</th>
+      <th>destino_latitude</th>
+      <th>destino_longitude</th>
+      <th>count</th>
+      <th>origem</th>
+      <th>destino</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>27698</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SD/RJ/33001/330010</td>
+      <td>SD/RJ/33001/330010/2280868</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>4_4</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>533</td>
+      <td>330010</td>
+      <td>330010</td>
+    </tr>
+    <tr>
+      <th>27699</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SD/RJ/33001/330010</td>
+      <td>SD/RJ/33001/330010/2281384</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>4_4</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>116</td>
+      <td>330010</td>
+      <td>330010</td>
+    </tr>
+    <tr>
+      <th>27701</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SD/RJ/33001/330260</td>
+      <td>SD/RJ/33001/330010/2280868</td>
+      <td>56.7885</td>
+      <td>47.100000</td>
+      <td>56.7885</td>
+      <td>47.100000</td>
+      <td>1</td>
+      <td>0_0</td>
+      <td>4_4</td>
+      <td>-22.9594</td>
+      <td>-44.0409</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>1</td>
+      <td>330260</td>
+      <td>330010</td>
+    </tr>
+    <tr>
+      <th>27702</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SD/RJ/33001/330260</td>
+      <td>SD/RJ/33001/330010/2280868</td>
+      <td>56.7885</td>
+      <td>47.100000</td>
+      <td>170.3655</td>
+      <td>141.300000</td>
+      <td>1</td>
+      <td>0_0</td>
+      <td>4_4</td>
+      <td>-22.9594</td>
+      <td>-44.0409</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>3</td>
+      <td>330260</td>
+      <td>330010</td>
+    </tr>
+    <tr>
+      <th>27703</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SD/RJ/33001/330260</td>
+      <td>SD/RJ/33001/330260/2288109</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>4_4</td>
+      <td>-22.9594</td>
+      <td>-44.0409</td>
+      <td>-22.9594</td>
+      <td>-44.0409</td>
+      <td>183</td>
+      <td>330260</td>
+      <td>330260</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>156313</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590</td>
+      <td>SD/RJ/33006/330330/0012521</td>
+      <td>186.0775</td>
+      <td>184.508333</td>
+      <td>186.0775</td>
+      <td>184.508333</td>
+      <td>2</td>
+      <td>0_0</td>
+      <td>3_5</td>
+      <td>-22.0638</td>
+      <td>-42.0643</td>
+      <td>-22.8832</td>
+      <td>-43.1034</td>
+      <td>1</td>
+      <td>330590</td>
+      <td>330330</td>
+    </tr>
+    <tr>
+      <th>156314</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590</td>
+      <td>SD/RJ/33008/330240/5412447</td>
+      <td>80.5919</td>
+      <td>75.171667</td>
+      <td>80.5919</td>
+      <td>75.171667</td>
+      <td>2</td>
+      <td>0_0</td>
+      <td>3_5</td>
+      <td>-22.0638</td>
+      <td>-42.0643</td>
+      <td>-22.3768</td>
+      <td>-41.7848</td>
+      <td>1</td>
+      <td>330590</td>
+      <td>330240</td>
+    </tr>
+    <tr>
+      <th>156315</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590</td>
+      <td>SD/RJ/33008/330415/2267209</td>
+      <td>79.7153</td>
+      <td>75.683333</td>
+      <td>79.7153</td>
+      <td>75.683333</td>
+      <td>2</td>
+      <td>0_0</td>
+      <td>3_5</td>
+      <td>-22.0638</td>
+      <td>-42.0643</td>
+      <td>-22.1031</td>
+      <td>-41.4693</td>
+      <td>1</td>
+      <td>330590</td>
+      <td>330415</td>
+    </tr>
+    <tr>
+      <th>156316</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590</td>
+      <td>SD/RJ/33009/330340/2271826</td>
+      <td>81.5882</td>
+      <td>79.888333</td>
+      <td>81.5882</td>
+      <td>79.888333</td>
+      <td>1</td>
+      <td>0_0</td>
+      <td>3_3</td>
+      <td>-22.0638</td>
+      <td>-42.0643</td>
+      <td>-22.2932</td>
+      <td>-42.5377</td>
+      <td>1</td>
+      <td>330590</td>
+      <td>330340</td>
+    </tr>
+    <tr>
+      <th>156317</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590</td>
+      <td>SD/RJ/33009/330590/3584968</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>3_3</td>
+      <td>-22.0638</td>
+      <td>-42.0643</td>
+      <td>-22.0638</td>
+      <td>-42.0643</td>
+      <td>6</td>
+      <td>330590</td>
+      <td>330590</td>
+    </tr>
+  </tbody>
+</table>
+<p>4177 rows × 18 columns</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="rotas-gmaps" class="level3">
+<h3 class="anchored" data-anchor-id="rotas-gmaps">Rotas (Gmaps)</h3>
+<div class="cell" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>path_route <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="ss">f'gmaps/route_exp.csv.gzip'</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df_route <span class="op">=</span> pd.read_csv(path_route)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>df_route</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="81">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>mode</th>
+      <th>traffic_model</th>
+      <th>hour</th>
+      <th>duration</th>
+      <th>distance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>330010</td>
+      <td>330023</td>
+      <td>transit</td>
+      <td>best_guess</td>
+      <td>6</td>
+      <td>363.616667</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>330010</td>
+      <td>330023</td>
+      <td>driving</td>
+      <td>pessimistic</td>
+      <td>18</td>
+      <td>167.316667</td>
+      <td>317.920</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>330010</td>
+      <td>330040</td>
+      <td>transit</td>
+      <td>best_guess</td>
+      <td>6</td>
+      <td>242.583333</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>330010</td>
+      <td>330040</td>
+      <td>driving</td>
+      <td>pessimistic</td>
+      <td>18</td>
+      <td>178.166667</td>
+      <td>96.636</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>330010</td>
+      <td>330045</td>
+      <td>transit</td>
+      <td>best_guess</td>
+      <td>6</td>
+      <td>115.983333</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2627</th>
+      <td>330630</td>
+      <td>330490</td>
+      <td>driving</td>
+      <td>pessimistic</td>
+      <td>18</td>
+      <td>NaN</td>
+      <td>147.459</td>
+    </tr>
+    <tr>
+      <th>2628</th>
+      <td>330630</td>
+      <td>330610</td>
+      <td>transit</td>
+      <td>best_guess</td>
+      <td>6</td>
+      <td>NaN</td>
+      <td>52.143</td>
+    </tr>
+    <tr>
+      <th>2629</th>
+      <td>330630</td>
+      <td>330610</td>
+      <td>driving</td>
+      <td>pessimistic</td>
+      <td>18</td>
+      <td>NaN</td>
+      <td>67.130</td>
+    </tr>
+    <tr>
+      <th>2630</th>
+      <td>330630</td>
+      <td>330620</td>
+      <td>transit</td>
+      <td>best_guess</td>
+      <td>6</td>
+      <td>NaN</td>
+      <td>49.690</td>
+    </tr>
+    <tr>
+      <th>2631</th>
+      <td>330630</td>
+      <td>330620</td>
+      <td>driving</td>
+      <td>pessimistic</td>
+      <td>18</td>
+      <td>NaN</td>
+      <td>55.708</td>
+    </tr>
+  </tbody>
+</table>
+<p>2632 rows × 7 columns</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="gerando-tabela-1" class="level2">
+<h2 class="anchored" data-anchor-id="gerando-tabela-1">Gerando tabela</h2>
+<section id="combinando-tabelas" class="level3">
+<h3 class="anchored" data-anchor-id="combinando-tabelas">Combinando tabelas</h3>
+<div class="cell" data-execution_count="82">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df_proc_gmaps <span class="op">=</span> pd.merge(df_bienio_rj, df_route, how<span class="op">=</span><span class="st">'left'</span>, on<span class="op">=</span>[<span class="st">'origem'</span>, <span class="st">'destino'</span>])</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df_proc_gmaps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="82">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>bienio</th>
+      <th>parto_normal</th>
+      <th>codigo_origem</th>
+      <th>codigo_destino</th>
+      <th>distancia (km)</th>
+      <th>tempo (min)</th>
+      <th>dist_pond</th>
+      <th>tempo_pond</th>
+      <th>criticidade</th>
+      <th>capitais</th>
+      <th>...</th>
+      <th>destino_latitude</th>
+      <th>destino_longitude</th>
+      <th>count</th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>mode</th>
+      <th>traffic_model</th>
+      <th>hour</th>
+      <th>duration</th>
+      <th>distance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SD/RJ/33001/330010</td>
+      <td>SD/RJ/33001/330010/2280868</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>...</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>533</td>
+      <td>330010</td>
+      <td>330010</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SD/RJ/33001/330010</td>
+      <td>SD/RJ/33001/330010/2281384</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>...</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>116</td>
+      <td>330010</td>
+      <td>330010</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SD/RJ/33001/330260</td>
+      <td>SD/RJ/33001/330010/2280868</td>
+      <td>56.7885</td>
+      <td>47.100000</td>
+      <td>56.7885</td>
+      <td>47.100000</td>
+      <td>1</td>
+      <td>0_0</td>
+      <td>...</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>1</td>
+      <td>330260</td>
+      <td>330010</td>
+      <td>transit</td>
+      <td>best_guess</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>100.250</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SD/RJ/33001/330260</td>
+      <td>SD/RJ/33001/330010/2280868</td>
+      <td>56.7885</td>
+      <td>47.100000</td>
+      <td>56.7885</td>
+      <td>47.100000</td>
+      <td>1</td>
+      <td>0_0</td>
+      <td>...</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>1</td>
+      <td>330260</td>
+      <td>330010</td>
+      <td>driving</td>
+      <td>pessimistic</td>
+      <td>18.0</td>
+      <td>NaN</td>
+      <td>55.915</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SD/RJ/33001/330260</td>
+      <td>SD/RJ/33001/330010/2280868</td>
+      <td>56.7885</td>
+      <td>47.100000</td>
+      <td>170.3655</td>
+      <td>141.300000</td>
+      <td>1</td>
+      <td>0_0</td>
+      <td>...</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>3</td>
+      <td>330260</td>
+      <td>330010</td>
+      <td>transit</td>
+      <td>best_guess</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>100.250</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>7939</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590</td>
+      <td>SD/RJ/33008/330415/2267209</td>
+      <td>79.7153</td>
+      <td>75.683333</td>
+      <td>79.7153</td>
+      <td>75.683333</td>
+      <td>2</td>
+      <td>0_0</td>
+      <td>...</td>
+      <td>-22.1031</td>
+      <td>-41.4693</td>
+      <td>1</td>
+      <td>330590</td>
+      <td>330415</td>
+      <td>transit</td>
+      <td>best_guess</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>7940</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590</td>
+      <td>SD/RJ/33008/330415/2267209</td>
+      <td>79.7153</td>
+      <td>75.683333</td>
+      <td>79.7153</td>
+      <td>75.683333</td>
+      <td>2</td>
+      <td>0_0</td>
+      <td>...</td>
+      <td>-22.1031</td>
+      <td>-41.4693</td>
+      <td>1</td>
+      <td>330590</td>
+      <td>330415</td>
+      <td>driving</td>
+      <td>pessimistic</td>
+      <td>18.0</td>
+      <td>NaN</td>
+      <td>79.265</td>
+    </tr>
+    <tr>
+      <th>7941</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590</td>
+      <td>SD/RJ/33009/330340/2271826</td>
+      <td>81.5882</td>
+      <td>79.888333</td>
+      <td>81.5882</td>
+      <td>79.888333</td>
+      <td>1</td>
+      <td>0_0</td>
+      <td>...</td>
+      <td>-22.2932</td>
+      <td>-42.5377</td>
+      <td>1</td>
+      <td>330590</td>
+      <td>330340</td>
+      <td>transit</td>
+      <td>best_guess</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>7942</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590</td>
+      <td>SD/RJ/33009/330340/2271826</td>
+      <td>81.5882</td>
+      <td>79.888333</td>
+      <td>81.5882</td>
+      <td>79.888333</td>
+      <td>1</td>
+      <td>0_0</td>
+      <td>...</td>
+      <td>-22.2932</td>
+      <td>-42.5377</td>
+      <td>1</td>
+      <td>330590</td>
+      <td>330340</td>
+      <td>driving</td>
+      <td>pessimistic</td>
+      <td>18.0</td>
+      <td>NaN</td>
+      <td>86.455</td>
+    </tr>
+    <tr>
+      <th>7943</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590</td>
+      <td>SD/RJ/33009/330590/3584968</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>...</td>
+      <td>-22.0638</td>
+      <td>-42.0643</td>
+      <td>6</td>
+      <td>330590</td>
+      <td>330590</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>7944 rows × 23 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="ordenando" class="level3">
+<h3 class="anchored" data-anchor-id="ordenando">Ordenando</h3>
+<section id="colunas" class="level4">
+<h4 class="anchored" data-anchor-id="colunas">Colunas</h4>
+<div class="cell" data-execution_count="83">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>cols_order_gmaps <span class="op">=</span> [</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'bienio'</span>, <span class="st">'parto_normal'</span>,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'codigo_origem'</span>, <span class="st">'codigo_destino'</span>, <span class="st">'origem'</span>, <span class="st">'destino'</span>,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'mode'</span>, <span class="st">'traffic_model'</span>, <span class="st">'hour'</span>,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'distance'</span>, <span class="st">'duration'</span>,</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'distancia (km)'</span>, <span class="st">'tempo (min)'</span>,</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'dist_pond'</span>, <span class="st">'tempo_pond'</span>,</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'criticidade'</span>, <span class="st">'capitais'</span>, <span class="st">'socioecon'</span>,</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">'origem_latitude'</span>, <span class="st">'origem_longitude'</span>,</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">'destino_latitude'</span>, <span class="st">'destino_longitude'</span>,</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">'count'</span>,</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="linhas" class="level4">
+<h4 class="anchored" data-anchor-id="linhas">Linhas</h4>
+<div class="cell" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df_proc_gmaps <span class="op">=</span> df_proc_gmaps[cols_order_gmaps]</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>df_proc_gmaps <span class="op">=</span> df_proc_gmaps.sort_values([</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'codigo_origem'</span>, <span class="st">'codigo_destino'</span>])</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>df_proc_gmaps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="84">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>bienio</th>
+      <th>parto_normal</th>
+      <th>codigo_origem</th>
+      <th>codigo_destino</th>
+      <th>origem</th>
+      <th>destino</th>
+      <th>mode</th>
+      <th>traffic_model</th>
+      <th>hour</th>
+      <th>distance</th>
+      <th>...</th>
+      <th>dist_pond</th>
+      <th>tempo_pond</th>
+      <th>criticidade</th>
+      <th>capitais</th>
+      <th>socioecon</th>
+      <th>origem_latitude</th>
+      <th>origem_longitude</th>
+      <th>destino_latitude</th>
+      <th>destino_longitude</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SD/RJ/33001/330010</td>
+      <td>SD/RJ/33001/330010/2280868</td>
+      <td>330010</td>
+      <td>330010</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>4_4</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>533</td>
+    </tr>
+    <tr>
+      <th>1228</th>
+      <td>0</td>
+      <td>1</td>
+      <td>SD/RJ/33001/330010</td>
+      <td>SD/RJ/33001/330010/2280868</td>
+      <td>330010</td>
+      <td>330010</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>4_4</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>1457</td>
+    </tr>
+    <tr>
+      <th>3101</th>
+      <td>1</td>
+      <td>0</td>
+      <td>SD/RJ/33001/330010</td>
+      <td>SD/RJ/33001/330010/2280868</td>
+      <td>330010</td>
+      <td>330010</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>4_4</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>1698</td>
+    </tr>
+    <tr>
+      <th>5523</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SD/RJ/33001/330010</td>
+      <td>SD/RJ/33001/330010/2280868</td>
+      <td>330010</td>
+      <td>330010</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>4_4</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>1781</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SD/RJ/33001/330010</td>
+      <td>SD/RJ/33001/330010/2281384</td>
+      <td>330010</td>
+      <td>330010</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>4_4</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>-23.0011</td>
+      <td>-44.3196</td>
+      <td>116</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3098</th>
+      <td>0</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590</td>
+      <td>SD/RJ/33009/330460/5095824</td>
+      <td>330590</td>
+      <td>330460</td>
+      <td>transit</td>
+      <td>best_guess</td>
+      <td>6.0</td>
+      <td>0.000</td>
+      <td>...</td>
+      <td>303.05</td>
+      <td>321.633333</td>
+      <td>1</td>
+      <td>0_0</td>
+      <td>3_3</td>
+      <td>-22.0638</td>
+      <td>-42.0643</td>
+      <td>-21.9547</td>
+      <td>-42.0098</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>3099</th>
+      <td>0</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590</td>
+      <td>SD/RJ/33009/330460/5095824</td>
+      <td>330590</td>
+      <td>330460</td>
+      <td>driving</td>
+      <td>pessimistic</td>
+      <td>18.0</td>
+      <td>29.805</td>
+      <td>...</td>
+      <td>303.05</td>
+      <td>321.633333</td>
+      <td>1</td>
+      <td>0_0</td>
+      <td>3_3</td>
+      <td>-22.0638</td>
+      <td>-42.0643</td>
+      <td>-21.9547</td>
+      <td>-42.0098</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>1227</th>
+      <td>0</td>
+      <td>0</td>
+      <td>SD/RJ/33009/330590</td>
+      <td>SD/RJ/33009/330590/3584968</td>
+      <td>330590</td>
+      <td>330590</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>3_3</td>
+      <td>-22.0638</td>
+      <td>-42.0643</td>
+      <td>-22.0638</td>
+      <td>-42.0643</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>3100</th>
+      <td>0</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590</td>
+      <td>SD/RJ/33009/330590/3584968</td>
+      <td>330590</td>
+      <td>330590</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>3_3</td>
+      <td>-22.0638</td>
+      <td>-42.0643</td>
+      <td>-22.0638</td>
+      <td>-42.0643</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <th>7943</th>
+      <td>1</td>
+      <td>1</td>
+      <td>SD/RJ/33009/330590</td>
+      <td>SD/RJ/33009/330590/3584968</td>
+      <td>330590</td>
+      <td>330590</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0_0</td>
+      <td>3_3</td>
+      <td>-22.0638</td>
+      <td>-42.0643</td>
+      <td>-22.0638</td>
+      <td>-42.0643</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+<p>7944 rows × 23 columns</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="exportando-tabela-resultante" class="level2">
+<h2 class="anchored" data-anchor-id="exportando-tabela-resultante">Exportando tabela resultante</h2>
+<div class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>path_routes_rj <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="ss">f'gmaps/routes_rj.xlsx'</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>df_proc_gmaps.to_excel(path_routes_rj, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
