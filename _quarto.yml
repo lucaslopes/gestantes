@@ -31,7 +31,7 @@ website:
           - sections/table_flux.ipynb
       - section: 'Resultados'
         contents:
-          - sections/result.ipynb
+          - sections/result_osm_gmaps.ipynb
 
 format:
   html:
