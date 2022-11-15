@@ -292,13 +292,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#procedimentos" id="toc-procedimentos" class="nav-link" data-scroll-target="#procedimentos">Procedimentos</a>
   <ul class="collapse">
   <li><a href="#carregando-tabela" id="toc-carregando-tabela" class="nav-link" data-scroll-target="#carregando-tabela">Carregando tabela</a></li>
-  <li><a href="#filtrando-uf-rj" id="toc-filtrando-uf-rj" class="nav-link" data-scroll-target="#filtrando-uf-rj">Filtrando <code>UF = RJ</code></a></li>
-  <li><a href="#contabilizando-ocorrências" id="toc-contabilizando-ocorrências" class="nav-link" data-scroll-target="#contabilizando-ocorrências">Contabilizando ocorrências</a></li>
+  </ul></li>
+  <li><a href="#localidades" id="toc-localidades" class="nav-link" data-scroll-target="#localidades">Localidades</a>
+  <ul class="collapse">
+  <li><a href="#carregando-tabela-1" id="toc-carregando-tabela-1" class="nav-link" data-scroll-target="#carregando-tabela-1">Carregando tabela</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados">Resultados</a>
   <ul class="collapse">
-  <li><a href="#partos-realizados-no-sus" id="toc-partos-realizados-no-sus" class="nav-link" data-scroll-target="#partos-realizados-no-sus">Partos realizados no SUS</a></li>
+  <li><a href="#partos-no-sus-por-residência" id="toc-partos-no-sus-por-residência" class="nav-link" data-scroll-target="#partos-no-sus-por-residência">Partos no SUS por residência</a>
+  <ul class="collapse">
+  <li><a href="#por-região" id="toc-por-região" class="nav-link" data-scroll-target="#por-região">Por Região</a></li>
+  <li><a href="#uf" id="toc-uf" class="nav-link" data-scroll-target="#uf">UF</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -326,16 +332,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotly <span class="im">import</span> express <span class="im">as</span> px, io <span class="im">as</span> pio</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>pd.options.plotting.backend <span class="op">=</span> <span class="st">'plotly'</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>pio.renderers.default <span class="op">=</span> <span class="st">'plotly_mimetype+notebook_connected'</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, data_load</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>sys.path.insert(<span class="dv">0</span>, <span class="st">'../'</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> secret <span class="im">import</span> API_KEY</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotly <span class="im">import</span> express <span class="im">as</span> px, io <span class="im">as</span> pio</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>pd.options.plotting.backend <span class="op">=</span> <span class="st">'plotly'</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>pio.renderers.default <span class="op">=</span> <span class="st">'plotly_mimetype+notebook_connected'</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, data_load</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>sys.path.insert(<span class="dv">0</span>, <span class="st">'../'</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> secret <span class="im">import</span> API_KEY</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style type="text/css">
@@ -614,18 +621,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="filtrando-uf-rj" class="level3">
-<h3 class="anchored" data-anchor-id="filtrando-uf-rj">Filtrando <code>UF = RJ</code></h3>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_proc <span class="op">=</span> df_proc_bienio[</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  (</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    df_proc_bienio[<span class="st">'origem'</span>].<span class="bu">str</span>.contains(<span class="st">'/RJ/'</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">&amp;</span> (</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">True</span> <span class="co"># df_proc_bienio['destino'].str.contains('/RJ/')</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>df_proc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+</section>
+<section id="localidades" class="level2">
+<h2 class="anchored" data-anchor-id="localidades">Localidades</h2>
+<section id="carregando-tabela-1" class="level3">
+<h3 class="anchored" data-anchor-id="carregando-tabela-1">Carregando tabela</h3>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>path_locs <span class="op">=</span> get_path(<span class="st">'LOCALIDADES'</span>, <span class="st">'localidades.csv.gzip'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_locs <span class="op">=</span> pd.read_csv(path_locs)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_locs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
 
 <div>
 
@@ -633,119 +638,107 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <thead>
     <tr>
       <th></th>
-      <th>bienio</th>
-      <th>parto_normal</th>
-      <th>origem</th>
-      <th>destino</th>
-      <th>distancia (km)</th>
-      <th>tempo (min)</th>
-      <th>dist_pond</th>
-      <th>tempo_pond</th>
-      <th>criticidade</th>
-      <th>capitais</th>
+      <th>codigo</th>
+      <th>cod_municipio</th>
+      <th>nome_municipio</th>
+      <th>capital</th>
+      <th>cod_regiao_saude</th>
+      <th>nome_regiao_saude</th>
+      <th>cod_uf</th>
+      <th>uf</th>
+      <th>nome_uf</th>
+      <th>sigla_regiao</th>
+      <th>nome_regiao</th>
       <th>socioecon</th>
-      <th>origem_latitude</th>
-      <th>origem_longitude</th>
-      <th>destino_latitude</th>
-      <th>destino_longitude</th>
-      <th>count</th>
+      <th>latitude</th>
+      <th>longitude</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>27697</th>
+      <th>0</th>
+      <td>CO/GO/52001/520005</td>
+      <td>520005</td>
+      <td>Abadia de Goiás</td>
       <td>0</td>
+      <td>52001</td>
+      <td>Central</td>
+      <td>52</td>
+      <td>GO</td>
+      <td>Goiás</td>
+      <td>CO</td>
+      <td>Centro-Oeste</td>
+      <td>5</td>
+      <td>-16.75730</td>
+      <td>-49.4412</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>SD/MG/31052/310010</td>
+      <td>310010</td>
+      <td>Abadia dos Dourados</td>
       <td>0</td>
-      <td>SD/RJ/33001/330010</td>
-      <td>SD/ES/32002/320245/2448203</td>
-      <td>614.6130</td>
-      <td>459.768333</td>
-      <td>1229.2260</td>
-      <td>919.536667</td>
-      <td>3</td>
-      <td>0_0</td>
-      <td>4_5</td>
-      <td>-23.0011</td>
-      <td>-44.3196</td>
-      <td>-20.2347</td>
-      <td>-41.5087</td>
+      <td>31052</td>
+      <td>Patrocínio Monte Carmelo</td>
+      <td>31</td>
+      <td>MG</td>
+      <td>Minas Gerais</td>
+      <td>SD</td>
+      <td>Sudeste</td>
       <td>2</td>
+      <td>-18.48310</td>
+      <td>-47.3916</td>
     </tr>
     <tr>
-      <th>27698</th>
+      <th>2</th>
+      <td>CO/GO/52011/520010</td>
+      <td>520010</td>
+      <td>Abadiânia</td>
       <td>0</td>
-      <td>0</td>
-      <td>SD/RJ/33001/330010</td>
-      <td>SD/RJ/33001/330010/2280868</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0_0</td>
-      <td>4_4</td>
-      <td>-23.0011</td>
-      <td>-44.3196</td>
-      <td>-23.0011</td>
-      <td>-44.3196</td>
-      <td>533</td>
-    </tr>
-    <tr>
-      <th>27699</th>
-      <td>0</td>
-      <td>0</td>
-      <td>SD/RJ/33001/330010</td>
-      <td>SD/RJ/33001/330010/2281384</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0_0</td>
-      <td>4_4</td>
-      <td>-23.0011</td>
-      <td>-44.3196</td>
-      <td>-23.0011</td>
-      <td>-44.3196</td>
-      <td>116</td>
-    </tr>
-    <tr>
-      <th>27700</th>
-      <td>0</td>
-      <td>0</td>
-      <td>SD/RJ/33001/330010</td>
-      <td>SD/SP/35172/351840/2081512</td>
-      <td>222.9879</td>
-      <td>208.666667</td>
-      <td>222.9879</td>
-      <td>208.666667</td>
+      <td>52011</td>
+      <td>Pirineus</td>
+      <td>52</td>
+      <td>GO</td>
+      <td>Goiás</td>
+      <td>CO</td>
+      <td>Centro-Oeste</td>
       <td>3</td>
-      <td>0_0</td>
-      <td>4_4</td>
-      <td>-23.0011</td>
-      <td>-44.3196</td>
-      <td>-22.8075</td>
-      <td>-45.1938</td>
-      <td>1</td>
+      <td>-16.19700</td>
+      <td>-48.7057</td>
     </tr>
     <tr>
-      <th>27701</th>
+      <th>3</th>
+      <td>SD/MG/31067/310020</td>
+      <td>310020</td>
+      <td>Abaeté</td>
       <td>0</td>
+      <td>31067</td>
+      <td>Sete Lagoas</td>
+      <td>31</td>
+      <td>MG</td>
+      <td>Minas Gerais</td>
+      <td>SD</td>
+      <td>Sudeste</td>
+      <td>3</td>
+      <td>-19.15510</td>
+      <td>-45.4444</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NT/PA/15011/150010</td>
+      <td>150010</td>
+      <td>Abaetetuba</td>
       <td>0</td>
-      <td>SD/RJ/33001/330260</td>
-      <td>SD/RJ/33001/330010/2280868</td>
-      <td>56.7885</td>
-      <td>47.100000</td>
-      <td>56.7885</td>
-      <td>47.100000</td>
+      <td>15011</td>
+      <td>Tocantins</td>
+      <td>15</td>
+      <td>PA</td>
+      <td>Pará</td>
+      <td>NT</td>
+      <td>Norte</td>
       <td>1</td>
-      <td>0_0</td>
-      <td>4_4</td>
-      <td>-22.9594</td>
-      <td>-44.0409</td>
-      <td>-23.0011</td>
-      <td>-44.3196</td>
-      <td>1</td>
+      <td>-1.72183</td>
+      <td>-48.8788</td>
     </tr>
     <tr>
       <th>...</th>
@@ -763,177 +756,95 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
-      <th>156313</th>
-      <td>1</td>
-      <td>1</td>
-      <td>SD/RJ/33009/330590</td>
-      <td>SD/RJ/33006/330330/0012521</td>
-      <td>186.0775</td>
-      <td>184.508333</td>
-      <td>186.0775</td>
-      <td>184.508333</td>
-      <td>2</td>
-      <td>0_0</td>
-      <td>3_5</td>
-      <td>-22.0638</td>
-      <td>-42.0643</td>
-      <td>-22.8832</td>
-      <td>-43.1034</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>156314</th>
-      <td>1</td>
-      <td>1</td>
-      <td>SD/RJ/33009/330590</td>
-      <td>SD/RJ/33008/330240/5412447</td>
-      <td>80.5919</td>
-      <td>75.171667</td>
-      <td>80.5919</td>
-      <td>75.171667</td>
-      <td>2</td>
-      <td>0_0</td>
-      <td>3_5</td>
-      <td>-22.0638</td>
-      <td>-42.0643</td>
-      <td>-22.3768</td>
-      <td>-41.7848</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>156315</th>
-      <td>1</td>
-      <td>1</td>
-      <td>SD/RJ/33009/330590</td>
-      <td>SD/RJ/33008/330415/2267209</td>
-      <td>79.7153</td>
-      <td>75.683333</td>
-      <td>79.7153</td>
-      <td>75.683333</td>
-      <td>2</td>
-      <td>0_0</td>
-      <td>3_5</td>
-      <td>-22.0638</td>
-      <td>-42.0643</td>
-      <td>-22.1031</td>
-      <td>-41.4693</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>156316</th>
-      <td>1</td>
-      <td>1</td>
-      <td>SD/RJ/33009/330590</td>
-      <td>SD/RJ/33009/330340/2271826</td>
-      <td>81.5882</td>
-      <td>79.888333</td>
-      <td>81.5882</td>
-      <td>79.888333</td>
-      <td>1</td>
-      <td>0_0</td>
-      <td>3_3</td>
-      <td>-22.0638</td>
-      <td>-42.0643</td>
-      <td>-22.2932</td>
-      <td>-42.5377</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>156317</th>
-      <td>1</td>
-      <td>1</td>
-      <td>SD/RJ/33009/330590</td>
-      <td>SD/RJ/33009/330590/3584968</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
+      <th>5565</th>
+      <td>ND/BA/29010/293360</td>
+      <td>293360</td>
+      <td>Xique-Xique</td>
       <td>0</td>
-      <td>0_0</td>
-      <td>3_3</td>
-      <td>-22.0638</td>
-      <td>-42.0643</td>
-      <td>-22.0638</td>
-      <td>-42.0643</td>
-      <td>6</td>
+      <td>29010</td>
+      <td>Irecê</td>
+      <td>29</td>
+      <td>BA</td>
+      <td>Bahia</td>
+      <td>ND</td>
+      <td>Nordeste</td>
+      <td>1</td>
+      <td>-10.82300</td>
+      <td>-42.7245</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>ND/PB/25005/251740</td>
+      <td>251740</td>
+      <td>Zabelê</td>
+      <td>0</td>
+      <td>25005</td>
+      <td>5ª Região</td>
+      <td>25</td>
+      <td>PB</td>
+      <td>Paraíba</td>
+      <td>ND</td>
+      <td>Nordeste</td>
+      <td>1</td>
+      <td>-8.07901</td>
+      <td>-37.1057</td>
+    </tr>
+    <tr>
+      <th>5567</th>
+      <td>SD/SP/35156/355715</td>
+      <td>355715</td>
+      <td>Zacarias</td>
+      <td>0</td>
+      <td>35156</td>
+      <td>José Bonifácio</td>
+      <td>35</td>
+      <td>SP</td>
+      <td>São Paulo</td>
+      <td>SD</td>
+      <td>Sudeste</td>
+      <td>3</td>
+      <td>-21.05060</td>
+      <td>-50.0552</td>
+    </tr>
+    <tr>
+      <th>5568</th>
+      <td>ND/MA/21019/211400</td>
+      <td>211400</td>
+      <td>Zé Doca</td>
+      <td>0</td>
+      <td>21019</td>
+      <td>Zé Doca</td>
+      <td>21</td>
+      <td>MA</td>
+      <td>Maranhão</td>
+      <td>ND</td>
+      <td>Nordeste</td>
+      <td>1</td>
+      <td>-3.27014</td>
+      <td>-45.6553</td>
+    </tr>
+    <tr>
+      <th>5569</th>
+      <td>SL/SC/42008/421985</td>
+      <td>421985</td>
+      <td>Zortéa</td>
+      <td>0</td>
+      <td>42008</td>
+      <td>Meio Oeste</td>
+      <td>42</td>
+      <td>SC</td>
+      <td>Santa Catarina</td>
+      <td>SL</td>
+      <td>Sul</td>
+      <td>3</td>
+      <td>-27.45210</td>
+      <td>-51.5520</td>
     </tr>
   </tbody>
 </table>
-<p>4512 rows × 16 columns</p>
-</div>
-</div>
-</div>
-</section>
-<section id="contabilizando-ocorrências" class="level3">
-<h3 class="anchored" data-anchor-id="contabilizando-ocorrências">Contabilizando ocorrências</h3>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cols_proc <span class="op">=</span> [</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'bienio'</span>,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'parto_normal'</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'count'</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_proc <span class="op">=</span> df_proc[cols_proc]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_proc <span class="op">=</span> df_proc.groupby(cols_proc[:<span class="dv">2</span>], as_index<span class="op">=</span><span class="va">False</span>).<span class="bu">sum</span>()</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df_proc[<span class="st">'bienio'</span>] <span class="op">=</span> df_proc[<span class="st">'bienio'</span>].<span class="bu">map</span>({</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>: <span class="st">'2010-2011'</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>: <span class="st">'2018-2019'</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>df_proc[<span class="st">'parto_normal'</span>] <span class="op">=</span> df_proc[<span class="st">'parto_normal'</span>].<span class="bu">map</span>({</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>: <span class="st">'Parto Cesárea'</span>,</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>: <span class="st">'Parto Normal'</span>,</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>df_proc <span class="op">=</span> df_proc.rename(columns<span class="op">=</span>{</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">'bienio'</span>: <span class="st">'Biênio'</span>,</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">'parto_normal'</span>: <span class="st">'Parto'</span>,</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">'count'</span>: <span class="st">'Procedimentos'</span>,</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>df_proc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Biênio</th>
-      <th>Parto</th>
-      <th>Procedimentos</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2010-2011</td>
-      <td>Parto Cesárea</td>
-      <td>39323</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2010-2011</td>
-      <td>Parto Normal</td>
-      <td>148327</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2018-2019</td>
-      <td>Parto Cesárea</td>
-      <td>82583</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2018-2019</td>
-      <td>Parto Normal</td>
-      <td>148010</td>
-    </tr>
-  </tbody>
-</table>
+<p>5570 rows × 14 columns</p>
 </div>
 </div>
 </div>
@@ -942,25 +853,125 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="resultados" class="level1">
 <h1>Resultados</h1>
-<section id="partos-realizados-no-sus" class="level2">
-<h2 class="anchored" data-anchor-id="partos-realizados-no-sus">Partos realizados no SUS</h2>
-<p>Residentes do estado do Rio de Janeiro.</p>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>px.bar(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  df_proc,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  x<span class="op">=</span><span class="st">'Parto'</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  y<span class="op">=</span><span class="st">'Procedimentos'</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  color<span class="op">=</span><span class="st">'Biênio'</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  barmode<span class="op">=</span><span class="st">'group'</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  title<span class="op">=</span><span class="st">'Número total de partos realizados no SUS (residentes RJ)'</span>,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  color_discrete_map<span class="op">=</span>{<span class="st">'2010-2011'</span>: <span class="st">'#31A885'</span>, <span class="st">'2018-2019'</span>: <span class="st">'#DD6F1C'</span>},</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  text_auto<span class="op">=</span><span class="va">True</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="partos-no-sus-por-residência" class="level2">
+<h2 class="anchored" data-anchor-id="partos-no-sus-por-residência">Partos no SUS por residência</h2>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_df_loc(df_proc, df_locs, loc<span class="op">=</span><span class="st">'nome_regiao'</span>, ref<span class="op">=</span><span class="st">'origem'</span>):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  cols_locs <span class="op">=</span> [<span class="st">'codigo'</span>, loc]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df_proc.merge(df_locs[cols_locs], left_on<span class="op">=</span>ref, right_on<span class="op">=</span><span class="st">'codigo'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> [<span class="st">'bienio'</span>, <span class="st">'parto_normal'</span>, loc, <span class="st">'count'</span>]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df[cols]</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df.groupby(by<span class="op">=</span>cols[:<span class="op">-</span><span class="dv">1</span>], as_index<span class="op">=</span><span class="va">False</span>).<span class="bu">sum</span>()</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'bienio'</span>] <span class="op">=</span> df[<span class="st">'bienio'</span>].<span class="bu">map</span>(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    {<span class="dv">0</span>: <span class="st">'2010-2011'</span>, <span class="dv">1</span>: <span class="st">'2018-2019'</span>})</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'parto_normal'</span>] <span class="op">=</span> df[<span class="st">'parto_normal'</span>].<span class="bu">map</span>(</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    {<span class="dv">0</span>: <span class="st">'Parto Cesárea'</span>, <span class="dv">1</span>: <span class="st">'Parto Normal'</span>})</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df.rename(columns<span class="op">=</span>{</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'bienio'</span>: <span class="st">'Biênio'</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'parto_normal'</span>: <span class="st">'Parto'</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    loc: <span class="st">'Localidade'</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'count'</span>: <span class="st">'Procedimentos'</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df.pivot_table(<span class="st">'Procedimentos'</span>, [<span class="st">'Parto'</span>, <span class="st">'Localidade'</span>], <span class="st">'Biênio'</span>, sort<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df.reset_index(level<span class="op">=</span>[<span class="st">'Parto'</span>, <span class="st">'Localidade'</span>])</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  df_total <span class="op">=</span> df[<span class="bu">list</span>(df.columns)[<span class="dv">1</span>:]]</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  df_total <span class="op">=</span> df_total.groupby(by<span class="op">=</span><span class="st">'Localidade'</span>, as_index<span class="op">=</span><span class="va">False</span>).<span class="bu">sum</span>()</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  df_total[<span class="st">'Parto'</span>] <span class="op">=</span> <span class="st">'Ambos'</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> pd.concat([df, df_total])</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df.sort_values(by<span class="op">=</span>[<span class="st">'Localidade'</span>, <span class="st">'Parto'</span>])</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> df.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fig_count_partos(df):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  fig <span class="op">=</span> go.Figure()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  colors <span class="op">=</span> [<span class="st">'#31A885'</span>,<span class="st">'#DD6F1C'</span>]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  items <span class="op">=</span> [<span class="st">'2010-2011'</span>,<span class="st">'2018-2019'</span>]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> item, color <span class="kw">in</span> <span class="bu">zip</span>(items, colors):</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>      fig.add_trace(</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        go.Bar(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>          x<span class="op">=</span>df[<span class="st">'Parto'</span>], y<span class="op">=</span>df[item],</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>          marker_color<span class="op">=</span>color,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>          text<span class="op">=</span>df[item], textposition<span class="op">=</span><span class="st">'auto'</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>          name<span class="op">=</span>item,))</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  buttons <span class="op">=</span> []</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> loc <span class="kw">in</span> df[<span class="st">'Localidade'</span>].unique():</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      buttons.append(<span class="bu">dict</span>(</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        method<span class="op">=</span><span class="st">'update'</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span>loc,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        args<span class="op">=</span>[{</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>          <span class="st">'y'</span>: df[df[<span class="st">'Localidade'</span>] <span class="op">==</span> loc][items].T.values</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        }]))</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  button_brasil <span class="op">=</span> <span class="bu">dict</span>(</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    method<span class="op">=</span><span class="st">'update'</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">'Brasil'</span>,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    args<span class="op">=</span>[{<span class="st">'y'</span>: df[items].T.values}])</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  buttons <span class="op">=</span> <span class="bu">sorted</span>(buttons, key<span class="op">=</span><span class="kw">lambda</span> d: d[<span class="st">'label'</span>])</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  buttons.insert(<span class="dv">0</span>, button_brasil)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  updatemenu<span class="op">=</span>[]</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  your_menu<span class="op">=</span><span class="bu">dict</span>()</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  updatemenu.append(your_menu)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  updatemenu[<span class="dv">0</span>][<span class="st">'buttons'</span>]<span class="op">=</span>buttons</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  updatemenu[<span class="dv">0</span>][<span class="st">'direction'</span>]<span class="op">=</span><span class="st">'down'</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  updatemenu[<span class="dv">0</span>][<span class="st">'showactive'</span>]<span class="op">=</span><span class="va">True</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  fig.update_layout(</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">'Número total de partos realizados no SUS'</span>,</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    legend_title<span class="op">=</span><span class="st">'Biênio'</span>,</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    updatemenus<span class="op">=</span>updatemenu)</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cols_proc <span class="op">=</span> [</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'bienio'</span>, <span class="st">'parto_normal'</span>, <span class="st">'origem'</span>, <span class="st">'destino'</span>, <span class="st">'count'</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="por-região" class="level3">
+<h3 class="anchored" data-anchor-id="por-região">Por Região</h3>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_regiao <span class="op">=</span> get_df_loc(df_proc_bienio[cols_proc], df_locs, loc<span class="op">=</span><span class="st">'nome_regiao'</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>fig_regiao <span class="op">=</span> fig_count_partos(df_regiao)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>fig_regiao.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
-<div>                            <div id="493c1907-0368-4653-97b6-429b803b1ae8" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("493c1907-0368-4653-97b6-429b803b1ae8")) {                    Plotly.newPlot(                        "493c1907-0368-4653-97b6-429b803b1ae8",                        [{"alignmentgroup":"True","hovertemplate":"Bi\u00eanio=2010-2011<br>Parto=%{x}<br>Procedimentos=%{y}<extra></extra>","legendgroup":"2010-2011","marker":{"color":"#31A885","pattern":{"shape":""}},"name":"2010-2011","offsetgroup":"2010-2011","orientation":"v","showlegend":true,"textposition":"auto","texttemplate":"%{y}","x":["Parto Ces\u00e1rea","Parto Normal"],"xaxis":"x","y":[39323,148327],"yaxis":"y","type":"bar"},{"alignmentgroup":"True","hovertemplate":"Bi\u00eanio=2018-2019<br>Parto=%{x}<br>Procedimentos=%{y}<extra></extra>","legendgroup":"2018-2019","marker":{"color":"#DD6F1C","pattern":{"shape":""}},"name":"2018-2019","offsetgroup":"2018-2019","orientation":"v","showlegend":true,"textposition":"auto","texttemplate":"%{y}","x":["Parto Ces\u00e1rea","Parto Normal"],"xaxis":"x","y":[82583,148010],"yaxis":"y","type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Parto"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Procedimentos"}},"legend":{"title":{"text":"Bi\u00eanio"},"tracegroupgap":0},"title":{"text":"N\u00famero total de partos realizados no SUS (residentes RJ)"},"barmode":"group"},                        {"responsive": true}                    ).then(function(){
+<div>                            <div id="3d512fe0-9297-4f25-9b7b-d7efd85c4272" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("3d512fe0-9297-4f25-9b7b-d7efd85c4272")) {                    Plotly.newPlot(                        "3d512fe0-9297-4f25-9b7b-d7efd85c4272",                        [{"marker":{"color":"#31A885"},"name":"2010-2011","text":[267140.0,100035.0,167105.0,1231047.0,413100.0,817947.0,438540.0,146771.0,291769.0,1200927.0,428772.0,772155.0,439477.0,166096.0,273381.0],"textposition":"auto","x":["Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal"],"y":[267140,100035,167105,1231047,413100,817947,438540,146771,291769,1200927,428772,772155,439477,166096,273381],"type":"bar"},{"marker":{"color":"#DD6F1C"},"name":"2018-2019","text":[276281.0,124971.0,151310.0,1063404.0,428756.0,634648.0,424483.0,172823.0,251660.0,1165012.0,463185.0,701827.0,424633.0,187972.0,236661.0],"textposition":"auto","x":["Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal"],"y":[276281,124971,151310,1063404,428756,634648,424483,172823,251660,1165012,463185,701827,424633,187972,236661],"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"title":{"text":"N\u00famero total de partos realizados no SUS"},"legend":{"title":{"text":"Bi\u00eanio"}},"updatemenus":[{"buttons":[{"args":[{"y":[[267140,100035,167105,1231047,413100,817947,438540,146771,291769,1200927,428772,772155,439477,166096,273381],[276281,124971,151310,1063404,428756,634648,424483,172823,251660,1165012,463185,701827,424633,187972,236661]]}],"label":"Brasil","method":"update"},{"args":[{"y":[[267140,100035,167105],[276281,124971,151310]]}],"label":"Centro-Oeste","method":"update"},{"args":[{"y":[[1231047,413100,817947],[1063404,428756,634648]]}],"label":"Nordeste","method":"update"},{"args":[{"y":[[438540,146771,291769],[424483,172823,251660]]}],"label":"Norte","method":"update"},{"args":[{"y":[[1200927,428772,772155],[1165012,463185,701827]]}],"label":"Sudeste","method":"update"},{"args":[{"y":[[439477,166096,273381],[424633,187972,236661]]}],"label":"Sul","method":"update"}],"direction":"down","showactive":true}]},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('493c1907-0368-4653-97b6-429b803b1ae8');
+var gd = document.getElementById('3d512fe0-9297-4f25-9b7b-d7efd85c4272');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
+</div>
+</section>
+<section id="uf" class="level3">
+<h3 class="anchored" data-anchor-id="uf">UF</h3>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_uf <span class="op">=</span> get_df_loc(df_proc_bienio[cols_proc], df_locs, loc<span class="op">=</span><span class="st">'nome_uf'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fig_uf <span class="op">=</span> fig_count_partos(df_uf)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>fig_uf.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>                            <div id="3bec90a3-73ca-4b0f-b3bd-c7a0c3e1ed5b" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("3bec90a3-73ca-4b0f-b3bd-c7a0c3e1ed5b")) {                    Plotly.newPlot(                        "3bec90a3-73ca-4b0f-b3bd-c7a0c3e1ed5b",                        [{"marker":{"color":"#31A885"},"name":"2010-2011","text":[22342.0,6267.0,16075.0,88380.0,43062.0,45318.0,22905.0,4716.0,18189.0,99961.0,28630.0,71331.0,325291.0,91326.0,233965.0,186380.0,72178.0,114202.0,61923.0,20920.0,41003.0,64477.0,28427.0,36050.0,87912.0,33194.0,54718.0,166273.0,34070.0,132203.0,60738.0,21613.0,39125.0,56567.0,24308.0,32259.0,330766.0,130590.0,200176.0,172131.0,61084.0,111047.0,85218.0,35500.0,49718.0,216873.0,83250.0,133623.0,178644.0,64582.0,114062.0,82420.0,33079.0,49341.0,67605.0,27924.0,39681.0,166710.0,64228.0,102482.0,187650.0,39323.0,148327.0,27414.0,9382.0,18032.0,9276.0,332.0,8944.0,100636.0,40784.0,59852.0,50836.0,11379.0,39457.0,618034.0,230432.0,387602.0,39769.0,14194.0,25575.0],"textposition":"auto","x":["Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal"],"y":[22342,6267,16075,88380,43062,45318,22905,4716,18189,99961,28630,71331,325291,91326,233965,186380,72178,114202,61923,20920,41003,64477,28427,36050,87912,33194,54718,166273,34070,132203,60738,21613,39125,56567,24308,32259,330766,130590,200176,172131,61084,111047,85218,35500,49718,216873,83250,133623,178644,64582,114062,82420,33079,49341,67605,27924,39681,166710,64228,102482,187650,39323,148327,27414,9382,18032,9276,332,8944,100636,40784,59852,50836,11379,39457,618034,230432,387602,39769,14194,25575],"type":"bar"},{"marker":{"color":"#DD6F1C"},"name":"2018-2019","text":[16191.0,7029.0,9162.0,80149.0,35599.0,44550.0,25285.0,7879.0,17406.0,112215.0,39183.0,73032.0,270824.0,90353.0,180471.0,159458.0,84752.0,74706.0,53514.0,20059.0,33455.0,61301.0,28897.0,32404.0,100650.0,48433.0,52217.0,161614.0,59297.0,102317.0,67660.0,29821.0,37839.0,54457.0,26658.0,27799.0,280215.0,122021.0,158194.0,159239.0,69141.0,90098.0,69823.0,33203.0,36620.0,198262.0,87879.0,110383.0,151410.0,50640.0,100770.0,67853.0,32156.0,35697.0,59410.0,30478.0,28932.0,166245.0,79867.0,86378.0,230593.0,82583.0,148010.0,29826.0,15060.0,14766.0,10892.0,1564.0,9328.0,99149.0,38964.0,60185.0,42863.0,12278.0,30585.0,592903.0,229684.0,363219.0,31812.0,14229.0,17583.0],"textposition":"auto","x":["Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal","Ambos","Parto Ces\u00e1rea","Parto Normal"],"y":[16191,7029,9162,80149,35599,44550,25285,7879,17406,112215,39183,73032,270824,90353,180471,159458,84752,74706,53514,20059,33455,61301,28897,32404,100650,48433,52217,161614,59297,102317,67660,29821,37839,54457,26658,27799,280215,122021,158194,159239,69141,90098,69823,33203,36620,198262,87879,110383,151410,50640,100770,67853,32156,35697,59410,30478,28932,166245,79867,86378,230593,82583,148010,29826,15060,14766,10892,1564,9328,99149,38964,60185,42863,12278,30585,592903,229684,363219,31812,14229,17583],"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"title":{"text":"N\u00famero total de partos realizados no SUS"},"legend":{"title":{"text":"Bi\u00eanio"}},"updatemenus":[{"buttons":[{"args":[{"y":[[22342,6267,16075,88380,43062,45318,22905,4716,18189,99961,28630,71331,325291,91326,233965,186380,72178,114202,61923,20920,41003,64477,28427,36050,87912,33194,54718,166273,34070,132203,60738,21613,39125,56567,24308,32259,330766,130590,200176,172131,61084,111047,85218,35500,49718,216873,83250,133623,178644,64582,114062,82420,33079,49341,67605,27924,39681,166710,64228,102482,187650,39323,148327,27414,9382,18032,9276,332,8944,100636,40784,59852,50836,11379,39457,618034,230432,387602,39769,14194,25575],[16191,7029,9162,80149,35599,44550,25285,7879,17406,112215,39183,73032,270824,90353,180471,159458,84752,74706,53514,20059,33455,61301,28897,32404,100650,48433,52217,161614,59297,102317,67660,29821,37839,54457,26658,27799,280215,122021,158194,159239,69141,90098,69823,33203,36620,198262,87879,110383,151410,50640,100770,67853,32156,35697,59410,30478,28932,166245,79867,86378,230593,82583,148010,29826,15060,14766,10892,1564,9328,99149,38964,60185,42863,12278,30585,592903,229684,363219,31812,14229,17583]]}],"label":"Brasil","method":"update"},{"args":[{"y":[[22342,6267,16075],[16191,7029,9162]]}],"label":"Acre","method":"update"},{"args":[{"y":[[88380,43062,45318],[80149,35599,44550]]}],"label":"Alagoas","method":"update"},{"args":[{"y":[[22905,4716,18189],[25285,7879,17406]]}],"label":"Amap\u00e1","method":"update"},{"args":[{"y":[[99961,28630,71331],[112215,39183,73032]]}],"label":"Amazonas","method":"update"},{"args":[{"y":[[325291,91326,233965],[270824,90353,180471]]}],"label":"Bahia","method":"update"},{"args":[{"y":[[186380,72178,114202],[159458,84752,74706]]}],"label":"Cear\u00e1","method":"update"},{"args":[{"y":[[61923,20920,41003],[53514,20059,33455]]}],"label":"Distrito Federal","method":"update"},{"args":[{"y":[[64477,28427,36050],[61301,28897,32404]]}],"label":"Esp\u00edrito Santo","method":"update"},{"args":[{"y":[[87912,33194,54718],[100650,48433,52217]]}],"label":"Goi\u00e1s","method":"update"},{"args":[{"y":[[166273,34070,132203],[161614,59297,102317]]}],"label":"Maranh\u00e3o","method":"update"},{"args":[{"y":[[60738,21613,39125],[67660,29821,37839]]}],"label":"Mato Grosso","method":"update"},{"args":[{"y":[[56567,24308,32259],[54457,26658,27799]]}],"label":"Mato Grosso do Sul","method":"update"},{"args":[{"y":[[330766,130590,200176],[280215,122021,158194]]}],"label":"Minas Gerais","method":"update"},{"args":[{"y":[[172131,61084,111047],[159239,69141,90098]]}],"label":"Paran\u00e1","method":"update"},{"args":[{"y":[[85218,35500,49718],[69823,33203,36620]]}],"label":"Para\u00edba","method":"update"},{"args":[{"y":[[216873,83250,133623],[198262,87879,110383]]}],"label":"Par\u00e1","method":"update"},{"args":[{"y":[[178644,64582,114062],[151410,50640,100770]]}],"label":"Pernambuco","method":"update"},{"args":[{"y":[[82420,33079,49341],[67853,32156,35697]]}],"label":"Piau\u00ed","method":"update"},{"args":[{"y":[[67605,27924,39681],[59410,30478,28932]]}],"label":"Rio Grande do Norte","method":"update"},{"args":[{"y":[[166710,64228,102482],[166245,79867,86378]]}],"label":"Rio Grande do Sul","method":"update"},{"args":[{"y":[[187650,39323,148327],[230593,82583,148010]]}],"label":"Rio de Janeiro","method":"update"},{"args":[{"y":[[27414,9382,18032],[29826,15060,14766]]}],"label":"Rond\u00f4nia","method":"update"},{"args":[{"y":[[9276,332,8944],[10892,1564,9328]]}],"label":"Roraima","method":"update"},{"args":[{"y":[[100636,40784,59852],[99149,38964,60185]]}],"label":"Santa Catarina","method":"update"},{"args":[{"y":[[50836,11379,39457],[42863,12278,30585]]}],"label":"Sergipe","method":"update"},{"args":[{"y":[[618034,230432,387602],[592903,229684,363219]]}],"label":"S\u00e3o Paulo","method":"update"},{"args":[{"y":[[39769,14194,25575],[31812,14229,17583]]}],"label":"Tocantins","method":"update"}],"direction":"down","showactive":true}]},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('3bec90a3-73ca-4b0f-b3bd-c7a0c3e1ed5b');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -987,6 +998,7 @@ if (outputEl) {{
 </div>
 
 
+</section>
 </section>
 </section>
 
