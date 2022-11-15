@@ -32,6 +32,7 @@ website:
       - section: 'Resultados'
         contents:
           - sections/result_osm_gmaps.ipynb
+          - sections/result_occurences.ipynb
 
 format:
   html:

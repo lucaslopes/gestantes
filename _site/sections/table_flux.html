@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Deslocamento de Gestantes - Fluxos</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Fluxos</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Deslocamento de Gestantes</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lucaslopes/gestantes" title="" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../README.html" class="sidebar-item-text sidebar-link">Introdução</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Coleta de Dados</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_sih.html" class="sidebar-item-text sidebar-link">SIH</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_cnes.html" class="sidebar-item-text sidebar-link">CNES</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_municipios.html" class="sidebar-item-text sidebar-link">Municípios</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_indicadores.html" class="sidebar-item-text sidebar-link">Indicadores</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_dists.html" class="sidebar-item-text sidebar-link">Distâncias</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/database_gmaps.html" class="sidebar-item-text sidebar-link">Google Maps</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Tabelas Criadas</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_locs.html" class="sidebar-item-text sidebar-link">Localidades</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_dslc.html" class="sidebar-item-text sidebar-link">Deslocamentos</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_procs.html" class="sidebar-item-text sidebar-link">Procedimentos</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_counts.html" class="sidebar-item-text sidebar-link">Contagens</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_flux.html" class="sidebar-item-text sidebar-link active">Fluxos</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Resultados</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/result_osm_gmaps.html" class="sidebar-item-text sidebar-link">OSM vs Google Maps</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/result_occurences.html" class="sidebar-item-text sidebar-link">Ocorrências</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#descrição" id="toc-descrição" class="nav-link active" data-scroll-target="#descrição">Descrição</a></li>
+  <li><a href="#tabelas-base" id="toc-tabelas-base" class="nav-link" data-scroll-target="#tabelas-base">Tabelas base</a>
+  <ul class="collapse">
+  <li><a href="#procedimentos" id="toc-procedimentos" class="nav-link" data-scroll-target="#procedimentos">Procedimentos</a></li>
+  <li><a href="#cnes" id="toc-cnes" class="nav-link" data-scroll-target="#cnes">CNES</a></li>
+  </ul></li>
+  <li><a href="#gerando-tabela" id="toc-gerando-tabela" class="nav-link" data-scroll-target="#gerando-tabela">Gerando tabela</a>
+  <ul class="collapse">
+  <li><a href="#regsau---cnes" id="toc-regsau---cnes" class="nav-link" data-scroll-target="#regsau---cnes">REGSAU -&gt; CNES</a>
+  <ul class="collapse">
+  <li><a href="#apenas-rj" id="toc-apenas-rj" class="nav-link" data-scroll-target="#apenas-rj">Apenas RJ</a></li>
+  </ul></li>
+  <li><a href="#regsau---município-rj" id="toc-regsau---município-rj" class="nav-link" data-scroll-target="#regsau---município-rj">REGSAU -&gt; Município (RJ)</a></li>
+  <li><a href="#regsau---regsau-rj" id="toc-regsau---regsau-rj" class="nav-link" data-scroll-target="#regsau---regsau-rj">REGSAU -&gt; REGSAU (RJ)</a></li>
+  <li><a href="#município---município-rj" id="toc-município---município-rj" class="nav-link" data-scroll-target="#município---município-rj">Município -&gt; Município (RJ)</a></li>
+  <li><a href="#uf---região" id="toc-uf---região" class="nav-link" data-scroll-target="#uf---região">UF -&gt; Região</a></li>
+  </ul></li>
+  <li><a href="#exportando-tabela" id="toc-exportando-tabela" class="nav-link" data-scroll-target="#exportando-tabela">Exportando tabela</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Fluxos</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, group_cols</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style type="text/css">
+.datatable table.frame { margin-bottom: 0; }
+.datatable table.frame thead { border-bottom: none; }
+.datatable table.frame tr.coltypes td {  color: #FFFFFF;  line-height: 6px;  padding: 0 0.5em;}
+.datatable .bool    { background: #DDDD99; }
+.datatable .object  { background: #565656; }
+.datatable .int     { background: #5D9E5D; }
+.datatable .float   { background: #4040CC; }
+.datatable .str     { background: #CC4040; }
+.datatable .time    { background: #40CC40; }
+.datatable .row_index {  background: var(--jp-border-color3);  border-right: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  font-size: 9px;}
+.datatable .frame tbody td { text-align: left; }
+.datatable .frame tr.coltypes .row_index {  background: var(--jp-border-color0);}
+.datatable th:nth-child(2) { padding-left: 12px; }
+.datatable .hellipsis {  color: var(--jp-cell-editor-border-color);}
+.datatable .vellipsis {  background: var(--jp-layout-color0);  color: var(--jp-cell-editor-border-color);}
+.datatable .na {  color: var(--jp-cell-editor-border-color);  font-size: 80%;}
+.datatable .sp {  opacity: 0.25;}
+.datatable .footer { font-size: 9px; }
+.datatable .frame_dimensions {  background: var(--jp-border-color3);  border-top: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  display: inline-block;  opacity: 0.6;  padding: 1px 10px 1px 5px;}
+</style>
+</div>
+</div>
+<section id="descrição" class="level1">
+<h1>Descrição</h1>
+<p>Neste notebook iremos formar a tabela deslocamento, com origem e destino.</p>
+</section>
+<section id="tabelas-base" class="level1">
+<h1>Tabelas base</h1>
+<section id="procedimentos" class="level2">
+<h2 class="anchored" data-anchor-id="procedimentos">Procedimentos</h2>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path_proc <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'procs_bienio.csv.gzip'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_proc <span class="op">=</span> dt.fread(path_proc)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df_proc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>origem</th><th>destino</th><th>distancia (km)</th><th>tempo (min)</th><th>dist_pond</th><th>tempo_pond</th><th>criticidade</th><th>capitais</th><th class="vellipsis">…</th><th>origem_latitude</th><th>origem_longitude</th><th>destino_latitude</th><th>destino_longitude</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010464</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td class="vellipsis">…</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>260</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010472</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td class="vellipsis">…</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>282</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010480</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td class="vellipsis">…</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>3323</td></tr>
+    <tr><td class="row_index">3</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010499</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td class="vellipsis">…</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>3368</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010502</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td class="vellipsis">…</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>964</td></tr>
+    <tr><td class="row_index">5</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010510</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td class="vellipsis">…</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>832</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010529</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td class="vellipsis">…</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>1831</td></tr>
+    <tr><td class="row_index">7</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010537</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td class="vellipsis">…</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>3707</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010545</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td class="vellipsis">…</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>728</td></tr>
+    <tr><td class="row_index">9</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/0010561</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td class="vellipsis">…</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>1</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/2645157</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td class="vellipsis">…</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>2251</td></tr>
+    <tr><td class="row_index">11</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/2672197</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td class="vellipsis">…</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>1561</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/DF/53001/530010/5717515</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1_1</td><td class="vellipsis">…</td><td>−15.7795</td><td>−47.9297</td><td>−15.7795</td><td>−47.9297</td><td>1798</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>CO/GO/52011/520110/2361787</td><td>152.625</td><td>132.723</td><td>305.25</td><td>265.447</td><td>3</td><td>1_0</td><td class="vellipsis">…</td><td>−15.7795</td><td>−47.9297</td><td>−16.3281</td><td>−48.953</td><td>4</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>CO/DF/53001/530010</td><td>ND/BA/29002/290320/3972925</td><td>630.949</td><td>466.705</td><td>630.949</td><td>466.705</td><td>4</td><td>1_0</td><td class="vellipsis">…</td><td>−15.7795</td><td>−47.9297</td><td>−12.1439</td><td>−44.9968</td><td>1</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">167,211</td><td>1</td><td>1</td><td>SL/SC/42016/421870</td><td>SL/SC/42007/420540/3157245</td><td>138.477</td><td>104.94</td><td>138.477</td><td>104.94</td><td>2</td><td>0_1</td><td class="vellipsis">…</td><td>−28.4713</td><td>−49.0144</td><td>−27.5945</td><td>−48.5477</td><td>1</td></tr>
+    <tr><td class="row_index">167,212</td><td>1</td><td>1</td><td>SL/SC/42016/421870</td><td>SL/SC/42015/420460/2594277</td><td>54.621</td><td>49.3167</td><td>54.621</td><td>49.3167</td><td>2</td><td>0_0</td><td class="vellipsis">…</td><td>−28.4713</td><td>−49.0144</td><td>−28.6723</td><td>−49.3729</td><td>1</td></tr>
+    <tr><td class="row_index">167,213</td><td>1</td><td>1</td><td>SL/SC/42016/421870</td><td>SL/SC/42016/420280/2665883</td><td>35.5439</td><td>37.4933</td><td>71.0878</td><td>74.9867</td><td>1</td><td>0_0</td><td class="vellipsis">…</td><td>−28.4713</td><td>−49.0144</td><td>−28.2681</td><td>−49.1701</td><td>2</td></tr>
+    <tr><td class="row_index">167,214</td><td>1</td><td>1</td><td>SL/SC/42016/421870</td><td>SL/SC/42016/420730/2385880</td><td>53.961</td><td>45.3533</td><td>53.961</td><td>45.3533</td><td>1</td><td>0_0</td><td class="vellipsis">…</td><td>−28.4713</td><td>−49.0144</td><td>−28.2284</td><td>−48.6659</td><td>1</td></tr>
+    <tr><td class="row_index">167,215</td><td>1</td><td>1</td><td>SL/SC/42016/421870</td><td>SL/SC/42016/421870/2491710</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0_0</td><td class="vellipsis">…</td><td>−28.4713</td><td>−49.0144</td><td>−28.4713</td><td>−49.0144</td><td>441</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">167,216 rows × 16 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="cnes" class="level2">
+<h2 class="anchored" data-anchor-id="cnes">CNES</h2>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cols_cnes <span class="op">=</span> {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'CNES'</span>: <span class="st">'id_destino'</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Nome Fantasia'</span>: <span class="st">'nome_destino'</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>path_cnes <span class="op">=</span> get_path(<span class="st">'LOCALIDADES'</span>, <span class="st">'cnes.csv.gzip'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_cnes <span class="op">=</span> pd.read_csv(path_cnes, dtype<span class="op">=</span>{<span class="st">'CNES'</span>: <span class="bu">str</span>})</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df_cnes <span class="op">=</span> df_cnes.rename(columns<span class="op">=</span>cols_cnes)[cols_cnes.values()]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df_cnes <span class="op">=</span> dt.Frame(df_cnes)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>df_cnes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>id_destino</th><th>nome_destino</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0002232</td><td>HOSPITAL E MATERNIDADE SANTA IZABEL</td></tr>
+    <tr><td class="row_index">1</td><td>3151794</td><td>MATERNIDADE DE REFERENCIA ANA BRAGA</td></tr>
+    <tr><td class="row_index">2</td><td>2323397</td><td>MATERNIDADE DONA EVANGELINA ROSA</td></tr>
+    <tr><td class="row_index">3</td><td>2311682</td><td>HOSPITAL SANTA HELENA</td></tr>
+    <tr><td class="row_index">4</td><td>0026794</td><td>HOSPITAL SOFIA FELDMAN</td></tr>
+    <tr><td class="row_index">5</td><td>2020068</td><td>SES AP HOSPITAL DA MULHER</td></tr>
+    <tr><td class="row_index">6</td><td>6627595</td><td>INSTITUTO DA MULHER DONA LINDU</td></tr>
+    <tr><td class="row_index">7</td><td>2799278</td><td>HOSPITAL INACIA PINTO DOS SANTOS</td></tr>
+    <tr><td class="row_index">8</td><td>0010480</td><td>HOSPITAL REGIONAL DE CEILANDIA</td></tr>
+    <tr><td class="row_index">9</td><td>2077388</td><td>HOSPITAL AMPARO MATERNAL</td></tr>
+    <tr><td class="row_index">10</td><td>7011857</td><td>SES RJ COMPLEXO REG DE MESQUITA MATERNID E CLINICA…</td></tr>
+    <tr><td class="row_index">11</td><td>6303153</td><td>HOSPITAL NOSSA SENHORA DA GUIA</td></tr>
+    <tr><td class="row_index">12</td><td>2755165</td><td>HOSPITAL DOM ORIONE DE ARAGUAINA</td></tr>
+    <tr><td class="row_index">13</td><td>2344882</td><td>HOSPITAL DO TRICENTENARIO</td></tr>
+    <tr><td class="row_index">14</td><td>2079186</td><td>HOSP MUN MAT ESC DR MARIO DE MORAES A SILVA</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">3923</td><td>7320175</td><td>HOSPITAL SAO MIGUEL ARCANJO</td></tr>
+    <tr><td class="row_index">3924</td><td>7603029</td><td>HOSPITAL MUNICIPAL LENILDE OLIVEIRA</td></tr>
+    <tr><td class="row_index">3925</td><td>7621442</td><td>HOSPITAL ESTADUAL DE URGENCIA E EMERGENCIA</td></tr>
+    <tr><td class="row_index">3926</td><td>7704364</td><td>HOSPITAL DE URGENCIA E EMERGENCIA REGIONAL DE CACO…</td></tr>
+    <tr><td class="row_index">3927</td><td>7743068</td><td>HOSPITAL ESTADUAL DE URGENCIAS GOV OTAVIO LAG SIQU…</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">3928 rows × 2 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="gerando-tabela" class="level1">
+<h1>Gerando tabela</h1>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cols_order <span class="op">=</span> [</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'bienio'</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'parto_normal'</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'origem'</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'destino'</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'escala_origem'</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'escala_destino'</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'id_origem'</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">'id_destino'</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">'nome_origem'</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">'nome_destino'</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">'criticidade'</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">'dist_pond'</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">'tempo_pond'</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">'count'</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>path_locs <span class="op">=</span> get_path(<span class="st">'LOCALIDADES'</span>, <span class="st">'localidades.csv.gzip'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_flux_table(scale_origin, scale_destin, df<span class="op">=</span>df_proc, df_cnes<span class="op">=</span>df_cnes, path_locs<span class="op">=</span>path_locs, cols_order<span class="op">=</span>cols_order):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  cols_origem <span class="op">=</span> {<span class="st">'codigo'</span>: <span class="st">'origem'</span>, <span class="ss">f'nome_</span><span class="sc">{</span>scale_origin<span class="sc">}</span><span class="ss">'</span>: <span class="st">'nome_origem'</span>, ...: <span class="va">None</span>}</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  cols_destino <span class="op">=</span> {<span class="st">'codigo'</span>: <span class="st">'destino'</span>, <span class="ss">f'nome_</span><span class="sc">{</span>scale_destin<span class="sc">}</span><span class="ss">'</span>: <span class="st">'nome_destino'</span>, ...: <span class="va">None</span>}</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  df_locs_orig <span class="op">=</span> dt.fread(path_locs, columns<span class="op">=</span>cols_origem)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  df_locs_dest <span class="op">=</span> dt.fread(path_locs, columns<span class="op">=</span>cols_destino)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  df_locs_orig.key <span class="op">=</span> <span class="st">'origem'</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  df_locs_dest.key <span class="op">=</span> <span class="st">'destino'</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  cols_proc <span class="op">=</span> [<span class="st">'bienio'</span>, <span class="st">'parto_normal'</span>, <span class="st">'origem'</span>, <span class="st">'destino'</span>, <span class="st">'criticidade'</span>, <span class="st">'dist_pond'</span>, <span class="st">'tempo_pond'</span>, <span class="st">'count'</span>]</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  df_flux <span class="op">=</span> df[:, cols_proc]</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  df_flux <span class="op">=</span> df_flux[:, :, dt.join(df_locs_orig)]</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> scale_destin <span class="op">==</span> <span class="st">'cnes'</span>:</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    df_locs_dest[<span class="st">'nome_destino'</span>] <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    df_flux[<span class="st">'destino'</span>] <span class="op">=</span> dt.Frame([<span class="st">'/'</span>.join(c.split(<span class="st">'/'</span>)[:<span class="op">-</span><span class="dv">1</span>]) <span class="cf">for</span> c <span class="kw">in</span> df_flux[<span class="st">'destino'</span>].to_list()[<span class="dv">0</span>]])</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  df_flux <span class="op">=</span> df_flux[:, :, dt.join(df_locs_dest)]</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  df_flux[<span class="st">'escala_origem'</span>] <span class="op">=</span> scale_origin</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  df_flux[<span class="st">'escala_destino'</span>] <span class="op">=</span> scale_destin</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  pos <span class="op">=</span> {<span class="st">'cnes'</span>: <span class="dv">5</span>, <span class="st">'municipio'</span>: <span class="dv">4</span>, <span class="st">'regiao_saude'</span>: <span class="dv">3</span>, <span class="st">'uf'</span>: <span class="dv">2</span>, <span class="st">'regiao'</span>: <span class="dv">1</span>}</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> ref <span class="kw">in</span> [<span class="st">'origem'</span>, <span class="st">'destino'</span>]:</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> pos[scale_origin] <span class="cf">if</span> ref <span class="op">==</span> <span class="st">'origem'</span> <span class="cf">else</span> pos[scale_destin]</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    codigos <span class="op">=</span> df_flux[ref].to_list()[<span class="dv">0</span>]</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    df_cods <span class="op">=</span> [<span class="st">'/'</span>.join(c.split(<span class="st">'/'</span>)[:i]) <span class="cf">for</span> c <span class="kw">in</span> codigos]</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    df_flux[ref] <span class="op">=</span> dt.Frame(df_cods)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    df_flux[<span class="ss">f'id_</span><span class="sc">{</span>ref<span class="sc">}</span><span class="ss">'</span>] <span class="op">=</span> dt.Frame([c.split(<span class="st">'/'</span>)[<span class="op">-</span><span class="dv">1</span>] <span class="cf">for</span> c <span class="kw">in</span> df_flux[ref].to_list()[<span class="dv">0</span>]])</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  df_flux <span class="op">=</span> df_flux[:, cols_order]</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  df_flux <span class="op">=</span> df_flux[:, [dt.<span class="bu">sum</span>(f.count), dt.<span class="bu">sum</span>(f.dist_pond), dt.<span class="bu">sum</span>(f.tempo_pond)], by(df_flux.names[:<span class="op">-</span><span class="dv">3</span>])]</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  df_total <span class="op">=</span> df_flux[:, [<span class="st">'bienio'</span>, <span class="st">'parto_normal'</span>, <span class="st">'id_origem'</span>, <span class="st">'id_destino'</span>, <span class="st">'count'</span>]]</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  df_total <span class="op">=</span> df_total[:, dt.<span class="bu">sum</span>(f.count), by(df_total.names[:<span class="op">-</span><span class="dv">1</span>])]</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  df_total.names <span class="op">=</span> {<span class="st">'count'</span>: <span class="st">'total'</span>}</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  df_total.key <span class="op">=</span> df_total.names[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  df_flux <span class="op">=</span> df_flux[:, :, dt.join(df_total)]</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  df_flux[:, dt.update(percent <span class="op">=</span> f.count <span class="op">/</span> f.total <span class="op">*</span> <span class="dv">100</span>)]</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> scale_destin <span class="op">==</span> <span class="st">'cnes'</span>:</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    df_cnes.key <span class="op">=</span> <span class="st">'id_destino'</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    df_id_cnes <span class="op">=</span> df_flux[f.escala_destino <span class="op">==</span> <span class="st">'cnes'</span>, [<span class="st">'id_destino'</span>]]</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    df_id_cnes <span class="op">=</span> df_id_cnes[:, :, dt.join(df_cnes)]</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    df_flux[f.escala_destino <span class="op">==</span> <span class="st">'cnes'</span>, [<span class="st">'id_destino'</span>, <span class="st">'nome_destino'</span>]] <span class="op">=</span> df_id_cnes</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>  df_flux <span class="op">=</span> df_flux.sort(f.origem, f.destino, f.criticidade, f.parto_normal, f.bienio)</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df_flux</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="regsau---cnes" class="level2">
+<h2 class="anchored" data-anchor-id="regsau---cnes">REGSAU -&gt; CNES</h2>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>scale_origin <span class="op">=</span> <span class="st">'regiao_saude'</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>scale_destin <span class="op">=</span> <span class="st">'cnes'</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df_regsau_cnes <span class="op">=</span> get_flux_table(scale_origin, scale_destin)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>df_regsau_cnes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>origem</th><th>destino</th><th>escala_origem</th><th>escala_destino</th><th>id_origem</th><th>id_destino</th><th>nome_origem</th><th>nome_destino</th><th class="vellipsis">…</th><th>count</th><th>dist_pond</th><th>tempo_pond</th><th>total</th><th>percent</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>CO/DF/53001</td><td>CO/DF/53001/530010/0010464</td><td>regiao_saude</td><td>cnes</td><td>53001</td><td>0010464</td><td>Distrito Federal</td><td>HRAN</td><td class="vellipsis">…</td><td>260</td><td>0</td><td>0</td><td>260</td><td>100</td></tr>
+    <tr><td class="row_index">1</td><td>1</td><td>0</td><td>CO/DF/53001</td><td>CO/DF/53001/530010/0010464</td><td>regiao_saude</td><td>cnes</td><td>53001</td><td>0010464</td><td>Distrito Federal</td><td>HRAN</td><td class="vellipsis">…</td><td>1954</td><td>0</td><td>0</td><td>1954</td><td>100</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>1</td><td>CO/DF/53001</td><td>CO/DF/53001/530010/0010464</td><td>regiao_saude</td><td>cnes</td><td>53001</td><td>0010464</td><td>Distrito Federal</td><td>HRAN</td><td class="vellipsis">…</td><td>2171</td><td>0</td><td>0</td><td>2171</td><td>100</td></tr>
+    <tr><td class="row_index">3</td><td>1</td><td>1</td><td>CO/DF/53001</td><td>CO/DF/53001/530010/0010464</td><td>regiao_saude</td><td>cnes</td><td>53001</td><td>0010464</td><td>Distrito Federal</td><td>HRAN</td><td class="vellipsis">…</td><td>2521</td><td>0</td><td>0</td><td>2521</td><td>100</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>CO/DF/53001</td><td>CO/DF/53001/530010/0010472</td><td>regiao_saude</td><td>cnes</td><td>53001</td><td>0010472</td><td>Distrito Federal</td><td>HRG</td><td class="vellipsis">…</td><td>282</td><td>0</td><td>0</td><td>282</td><td>100</td></tr>
+    <tr><td class="row_index">5</td><td>1</td><td>0</td><td>CO/DF/53001</td><td>CO/DF/53001/530010/0010472</td><td>regiao_saude</td><td>cnes</td><td>53001</td><td>0010472</td><td>Distrito Federal</td><td>HRG</td><td class="vellipsis">…</td><td>650</td><td>0</td><td>0</td><td>650</td><td>100</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>CO/DF/53001</td><td>CO/DF/53001/530010/0010472</td><td>regiao_saude</td><td>cnes</td><td>53001</td><td>0010472</td><td>Distrito Federal</td><td>HRG</td><td class="vellipsis">…</td><td>2739</td><td>0</td><td>0</td><td>2739</td><td>100</td></tr>
+    <tr><td class="row_index">7</td><td>1</td><td>1</td><td>CO/DF/53001</td><td>CO/DF/53001/530010/0010472</td><td>regiao_saude</td><td>cnes</td><td>53001</td><td>0010472</td><td>Distrito Federal</td><td>HRG</td><td class="vellipsis">…</td><td>1981</td><td>0</td><td>0</td><td>1981</td><td>100</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>CO/DF/53001</td><td>CO/DF/53001/530010/0010480</td><td>regiao_saude</td><td>cnes</td><td>53001</td><td>0010480</td><td>Distrito Federal</td><td>HOSPITAL REGIONAL DE CEILANDIA</td><td class="vellipsis">…</td><td>3323</td><td>0</td><td>0</td><td>3323</td><td>100</td></tr>
+    <tr><td class="row_index">9</td><td>1</td><td>0</td><td>CO/DF/53001</td><td>CO/DF/53001/530010/0010480</td><td>regiao_saude</td><td>cnes</td><td>53001</td><td>0010480</td><td>Distrito Federal</td><td>HOSPITAL REGIONAL DE CEILANDIA</td><td class="vellipsis">…</td><td>2840</td><td>0</td><td>0</td><td>2840</td><td>100</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>CO/DF/53001</td><td>CO/DF/53001/530010/0010480</td><td>regiao_saude</td><td>cnes</td><td>53001</td><td>0010480</td><td>Distrito Federal</td><td>HOSPITAL REGIONAL DE CEILANDIA</td><td class="vellipsis">…</td><td>8418</td><td>0</td><td>0</td><td>8418</td><td>100</td></tr>
+    <tr><td class="row_index">11</td><td>1</td><td>1</td><td>CO/DF/53001</td><td>CO/DF/53001/530010/0010480</td><td>regiao_saude</td><td>cnes</td><td>53001</td><td>0010480</td><td>Distrito Federal</td><td>HOSPITAL REGIONAL DE CEILANDIA</td><td class="vellipsis">…</td><td>6629</td><td>0</td><td>0</td><td>6629</td><td>100</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>CO/DF/53001</td><td>CO/DF/53001/530010/0010499</td><td>regiao_saude</td><td>cnes</td><td>53001</td><td>0010499</td><td>Distrito Federal</td><td>HRT HOSPITAL REGIONAL DE TAGUATINGA</td><td class="vellipsis">…</td><td>3368</td><td>0</td><td>0</td><td>3368</td><td>100</td></tr>
+    <tr><td class="row_index">13</td><td>1</td><td>0</td><td>CO/DF/53001</td><td>CO/DF/53001/530010/0010499</td><td>regiao_saude</td><td>cnes</td><td>53001</td><td>0010499</td><td>Distrito Federal</td><td>HRT HOSPITAL REGIONAL DE TAGUATINGA</td><td class="vellipsis">…</td><td>2294</td><td>0</td><td>0</td><td>2294</td><td>100</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>CO/DF/53001</td><td>CO/DF/53001/530010/0010499</td><td>regiao_saude</td><td>cnes</td><td>53001</td><td>0010499</td><td>Distrito Federal</td><td>HRT HOSPITAL REGIONAL DE TAGUATINGA</td><td class="vellipsis">…</td><td>4404</td><td>0</td><td>0</td><td>4404</td><td>100</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">52,414</td><td>1</td><td>1</td><td>SL/SC/42016</td><td>SL/SC/42016/421870/2491710</td><td>regiao_saude</td><td>cnes</td><td>42016</td><td>2491710</td><td>Laguna</td><td><span class="na">NA</span></td><td class="vellipsis">…</td><td>441</td><td>0</td><td>0</td><td>1127</td><td>39.1304</td></tr>
+    <tr><td class="row_index">52,415</td><td>0</td><td>0</td><td>SL/SC/42016</td><td>SL/SC/42016/421870/2491710</td><td>regiao_saude</td><td>cnes</td><td>42016</td><td>2491710</td><td>Laguna</td><td><span class="na">NA</span></td><td class="vellipsis">…</td><td>51</td><td>1238.14</td><td>1184.6</td><td>103</td><td>49.5146</td></tr>
+    <tr><td class="row_index">52,416</td><td>1</td><td>0</td><td>SL/SC/42016</td><td>SL/SC/42016/421870/2491710</td><td>regiao_saude</td><td>cnes</td><td>42016</td><td>2491710</td><td>Laguna</td><td><span class="na">NA</span></td><td class="vellipsis">…</td><td>301</td><td>9023.52</td><td>8390.26</td><td>491</td><td>61.3035</td></tr>
+    <tr><td class="row_index">52,417</td><td>0</td><td>1</td><td>SL/SC/42016</td><td>SL/SC/42016/421870/2491710</td><td>regiao_saude</td><td>cnes</td><td>42016</td><td>2491710</td><td>Laguna</td><td><span class="na">NA</span></td><td class="vellipsis">…</td><td>276</td><td>6539.27</td><td>6254.21</td><td>547</td><td>50.457</td></tr>
+    <tr><td class="row_index">52,418</td><td>1</td><td>1</td><td>SL/SC/42016</td><td>SL/SC/42016/421870/2491710</td><td>regiao_saude</td><td>cnes</td><td>42016</td><td>2491710</td><td>Laguna</td><td><span class="na">NA</span></td><td class="vellipsis">…</td><td>686</td><td>19590.9</td><td>17936.8</td><td>1127</td><td>60.8696</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">52,419 rows × 16 columns</div>
+  </div>
+</div>
+</div>
+</div>
+<section id="apenas-rj" class="level3">
+<h3 class="anchored" data-anchor-id="apenas-rj">Apenas RJ</h3>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_rj(df):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> [<span class="st">'SD/RJ'</span> <span class="kw">in</span> c <span class="cf">for</span> c <span class="kw">in</span> df[<span class="st">'origem'</span>].to_list()[<span class="dv">0</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_regsau_cnes[filter_rj(df_regsau_cnes), :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>origem</th><th>destino</th><th>escala_origem</th><th>escala_destino</th><th>id_origem</th><th>id_destino</th><th>nome_origem</th><th>nome_destino</th><th class="vellipsis">…</th><th>count</th><th>dist_pond</th><th>tempo_pond</th><th>total</th><th>percent</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>1</td><td>1</td><td>SD/RJ/33001</td><td>ND/PB/25012/250690/6644996</td><td>regiao_saude</td><td>cnes</td><td>33001</td><td>6644996</td><td>Baia da Ilha Grande</td><td>HOSPITAL REGIONAL DE ITABAIANA</td><td class="vellipsis">…</td><td>1</td><td>2485.74</td><td>1898.2</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">1</td><td>1</td><td>1</td><td>SD/RJ/33001</td><td>ND/PI/22005/220770/8015899</td><td>regiao_saude</td><td>cnes</td><td>33001</td><td>8015899</td><td>Baia da Ilha Grande</td><td>HOSPITAL ESTADUAL DIRCEU ARCOVERDE</td><td class="vellipsis">…</td><td>1</td><td>3067.57</td><td>2331.66</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>SD/RJ/33001</td><td>SD/ES/32002/320245/2448203</td><td>regiao_saude</td><td>cnes</td><td>33001</td><td>2448203</td><td>Baia da Ilha Grande</td><td>HOSPITAL DE IBATIBA</td><td class="vellipsis">…</td><td>2</td><td>1229.23</td><td>919.537</td><td>2</td><td>100</td></tr>
+    <tr><td class="row_index">3</td><td>1</td><td>1</td><td>SD/RJ/33001</td><td>SD/ES/32002/320245/2448203</td><td>regiao_saude</td><td>cnes</td><td>33001</td><td>2448203</td><td>Baia da Ilha Grande</td><td>HOSPITAL DE IBATIBA</td><td class="vellipsis">…</td><td>1</td><td>704.828</td><td>573.227</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010/2280868</td><td>regiao_saude</td><td>cnes</td><td>33001</td><td>2280868</td><td>Baia da Ilha Grande</td><td>HOSPITAL E MATERNIDADE DE ANGRA DOS REIS HMAR</td><td class="vellipsis">…</td><td>533</td><td>0</td><td>0</td><td>538</td><td>99.0706</td></tr>
+    <tr><td class="row_index">5</td><td>1</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010/2280868</td><td>regiao_saude</td><td>cnes</td><td>33001</td><td>2280868</td><td>Baia da Ilha Grande</td><td>HOSPITAL E MATERNIDADE DE ANGRA DOS REIS HMAR</td><td class="vellipsis">…</td><td>1698</td><td>0</td><td>0</td><td>1743</td><td>97.4182</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010/2280868</td><td>regiao_saude</td><td>cnes</td><td>33001</td><td>2280868</td><td>Baia da Ilha Grande</td><td>HOSPITAL E MATERNIDADE DE ANGRA DOS REIS HMAR</td><td class="vellipsis">…</td><td>1457</td><td>0</td><td>0</td><td>1490</td><td>97.7852</td></tr>
+    <tr><td class="row_index">7</td><td>1</td><td>1</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010/2280868</td><td>regiao_saude</td><td>cnes</td><td>33001</td><td>2280868</td><td>Baia da Ilha Grande</td><td>HOSPITAL E MATERNIDADE DE ANGRA DOS REIS HMAR</td><td class="vellipsis">…</td><td>1781</td><td>0</td><td>0</td><td>1822</td><td>97.7497</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010/2280868</td><td>regiao_saude</td><td>cnes</td><td>33001</td><td>2280868</td><td>Baia da Ilha Grande</td><td>HOSPITAL E MATERNIDADE DE ANGRA DOS REIS HMAR</td><td class="vellipsis">…</td><td>5</td><td>323.197</td><td>312.422</td><td>538</td><td>0.929368</td></tr>
+    <tr><td class="row_index">9</td><td>1</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010/2280868</td><td>regiao_saude</td><td>cnes</td><td>33001</td><td>2280868</td><td>Baia da Ilha Grande</td><td>HOSPITAL E MATERNIDADE DE ANGRA DOS REIS HMAR</td><td class="vellipsis">…</td><td>45</td><td>2415.21</td><td>2358.07</td><td>1743</td><td>2.58176</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010/2280868</td><td>regiao_saude</td><td>cnes</td><td>33001</td><td>2280868</td><td>Baia da Ilha Grande</td><td>HOSPITAL E MATERNIDADE DE ANGRA DOS REIS HMAR</td><td class="vellipsis">…</td><td>33</td><td>2109.55</td><td>2015.83</td><td>1490</td><td>2.21477</td></tr>
+    <tr><td class="row_index">11</td><td>1</td><td>1</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010/2280868</td><td>regiao_saude</td><td>cnes</td><td>33001</td><td>2280868</td><td>Baia da Ilha Grande</td><td>HOSPITAL E MATERNIDADE DE ANGRA DOS REIS HMAR</td><td class="vellipsis">…</td><td>41</td><td>2720.87</td><td>2700.32</td><td>1822</td><td>2.25027</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010/2281384</td><td>regiao_saude</td><td>cnes</td><td>33001</td><td>2281384</td><td>Baia da Ilha Grande</td><td>HOSPITAL DE PRAIA BRAVA</td><td class="vellipsis">…</td><td>116</td><td>0</td><td>0</td><td>127</td><td>91.3386</td></tr>
+    <tr><td class="row_index">13</td><td>1</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010/2281384</td><td>regiao_saude</td><td>cnes</td><td>33001</td><td>2281384</td><td>Baia da Ilha Grande</td><td>HOSPITAL DE PRAIA BRAVA</td><td class="vellipsis">…</td><td>77</td><td>0</td><td>0</td><td>79</td><td>97.4684</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010/2281384</td><td>regiao_saude</td><td>cnes</td><td>33001</td><td>2281384</td><td>Baia da Ilha Grande</td><td>HOSPITAL DE PRAIA BRAVA</td><td class="vellipsis">…</td><td>326</td><td>0</td><td>0</td><td>352</td><td>92.6136</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">1626</td><td>0</td><td>1</td><td>SD/RJ/33009</td><td>SD/RJ/33009/330590/3584968</td><td>regiao_saude</td><td>cnes</td><td>33009</td><td>3584968</td><td>Serrana</td><td>HOSPITAL FRANCISCO LIMONGI</td><td class="vellipsis">…</td><td>39</td><td>0</td><td>0</td><td>39</td><td>100</td></tr>
+    <tr><td class="row_index">1627</td><td>1</td><td>1</td><td>SD/RJ/33009</td><td>SD/RJ/33009/330590/3584968</td><td>regiao_saude</td><td>cnes</td><td>33009</td><td>3584968</td><td>Serrana</td><td>HOSPITAL FRANCISCO LIMONGI</td><td class="vellipsis">…</td><td>6</td><td>0</td><td>0</td><td>7</td><td>85.7143</td></tr>
+    <tr><td class="row_index">1628</td><td>1</td><td>1</td><td>SD/RJ/33009</td><td>SD/RJ/33009/330590/3584968</td><td>regiao_saude</td><td>cnes</td><td>33009</td><td>3584968</td><td>Serrana</td><td>HOSPITAL FRANCISCO LIMONGI</td><td class="vellipsis">…</td><td>1</td><td>30.305</td><td>32.1633</td><td>7</td><td>14.2857</td></tr>
+    <tr><td class="row_index">1629</td><td>1</td><td>0</td><td>SD/RJ/33009</td><td>SD/SP/35011/351830/2773333</td><td>regiao_saude</td><td>cnes</td><td>33009</td><td>2773333</td><td>Serrana</td><td>SANTA CASA DE GUARAREMA</td><td class="vellipsis">…</td><td>1</td><td>404.5</td><td>312.915</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">1630</td><td>1</td><td>1</td><td>SD/RJ/33009</td><td>SD/SP/35072/350950/2022621</td><td>regiao_saude</td><td>cnes</td><td>33009</td><td>2022621</td><td>Serrana</td><td>MATERNIDADE DE CAMPINAS</td><td class="vellipsis">…</td><td>1</td><td>507.879</td><td>389.573</td><td>1</td><td>100</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">1631 rows × 16 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="regsau---município-rj" class="level2">
+<h2 class="anchored" data-anchor-id="regsau---município-rj">REGSAU -&gt; Município (RJ)</h2>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>scale_origin <span class="op">=</span> <span class="st">'regiao_saude'</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>scale_destin <span class="op">=</span> <span class="st">'municipio'</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df_regsau_mun <span class="op">=</span> get_flux_table(scale_origin, scale_destin)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>df_regsau_mun[filter_rj(df_regsau_mun), :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>origem</th><th>destino</th><th>escala_origem</th><th>escala_destino</th><th>id_origem</th><th>id_destino</th><th>nome_origem</th><th>nome_destino</th><th class="vellipsis">…</th><th>count</th><th>dist_pond</th><th>tempo_pond</th><th>total</th><th>percent</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>1</td><td>1</td><td>SD/RJ/33001</td><td>ND/PB/25012/250690</td><td>regiao_saude</td><td>municipio</td><td>33001</td><td>250690</td><td>Baia da Ilha Grande</td><td>Itabaiana</td><td class="vellipsis">…</td><td>1</td><td>2485.74</td><td>1898.2</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">1</td><td>1</td><td>1</td><td>SD/RJ/33001</td><td>ND/PI/22005/220770</td><td>regiao_saude</td><td>municipio</td><td>33001</td><td>220770</td><td>Baia da Ilha Grande</td><td>Parnaíba</td><td class="vellipsis">…</td><td>1</td><td>3067.57</td><td>2331.66</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>SD/RJ/33001</td><td>SD/ES/32002/320245</td><td>regiao_saude</td><td>municipio</td><td>33001</td><td>320245</td><td>Baia da Ilha Grande</td><td>Ibatiba</td><td class="vellipsis">…</td><td>2</td><td>1229.23</td><td>919.537</td><td>2</td><td>100</td></tr>
+    <tr><td class="row_index">3</td><td>1</td><td>1</td><td>SD/RJ/33001</td><td>SD/ES/32002/320245</td><td>regiao_saude</td><td>municipio</td><td>33001</td><td>320245</td><td>Baia da Ilha Grande</td><td>Ibatiba</td><td class="vellipsis">…</td><td>1</td><td>704.828</td><td>573.227</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010</td><td>regiao_saude</td><td>municipio</td><td>33001</td><td>330010</td><td>Baia da Ilha Grande</td><td>Angra dos Reis</td><td class="vellipsis">…</td><td>649</td><td>0</td><td>0</td><td>665</td><td>97.594</td></tr>
+    <tr><td class="row_index">5</td><td>1</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010</td><td>regiao_saude</td><td>municipio</td><td>33001</td><td>330010</td><td>Baia da Ilha Grande</td><td>Angra dos Reis</td><td class="vellipsis">…</td><td>1775</td><td>0</td><td>0</td><td>1822</td><td>97.4204</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010</td><td>regiao_saude</td><td>municipio</td><td>33001</td><td>330010</td><td>Baia da Ilha Grande</td><td>Angra dos Reis</td><td class="vellipsis">…</td><td>1783</td><td>0</td><td>0</td><td>1842</td><td>96.797</td></tr>
+    <tr><td class="row_index">7</td><td>1</td><td>1</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010</td><td>regiao_saude</td><td>municipio</td><td>33001</td><td>330010</td><td>Baia da Ilha Grande</td><td>Angra dos Reis</td><td class="vellipsis">…</td><td>1863</td><td>0</td><td>0</td><td>1905</td><td>97.7953</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010</td><td>regiao_saude</td><td>municipio</td><td>33001</td><td>330010</td><td>Baia da Ilha Grande</td><td>Angra dos Reis</td><td class="vellipsis">…</td><td>16</td><td>1379.67</td><td>1676.66</td><td>665</td><td>2.40602</td></tr>
+    <tr><td class="row_index">9</td><td>1</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010</td><td>regiao_saude</td><td>municipio</td><td>33001</td><td>330010</td><td>Baia da Ilha Grande</td><td>Angra dos Reis</td><td class="vellipsis">…</td><td>47</td><td>2607.3</td><td>2606.12</td><td>1822</td><td>2.57958</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010</td><td>regiao_saude</td><td>municipio</td><td>33001</td><td>330010</td><td>Baia da Ilha Grande</td><td>Angra dos Reis</td><td class="vellipsis">…</td><td>59</td><td>4606.66</td><td>5240.39</td><td>1842</td><td>3.20304</td></tr>
+    <tr><td class="row_index">11</td><td>1</td><td>1</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330010</td><td>regiao_saude</td><td>municipio</td><td>33001</td><td>330010</td><td>Baia da Ilha Grande</td><td>Angra dos Reis</td><td class="vellipsis">…</td><td>42</td><td>2816.92</td><td>2824.34</td><td>1905</td><td>2.20472</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330260</td><td>regiao_saude</td><td>municipio</td><td>33001</td><td>330260</td><td>Baia da Ilha Grande</td><td>Mangaratiba</td><td class="vellipsis">…</td><td>183</td><td>0</td><td>0</td><td>183</td><td>100</td></tr>
+    <tr><td class="row_index">13</td><td>1</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330260</td><td>regiao_saude</td><td>municipio</td><td>33001</td><td>330260</td><td>Baia da Ilha Grande</td><td>Mangaratiba</td><td class="vellipsis">…</td><td>324</td><td>0</td><td>0</td><td>324</td><td>100</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>SD/RJ/33001</td><td>SD/RJ/33001/330260</td><td>regiao_saude</td><td>municipio</td><td>33001</td><td>330260</td><td>Baia da Ilha Grande</td><td>Mangaratiba</td><td class="vellipsis">…</td><td>589</td><td>0</td><td>0</td><td>589</td><td>100</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">1190</td><td>0</td><td>1</td><td>SD/RJ/33009</td><td>SD/RJ/33009/330590</td><td>regiao_saude</td><td>municipio</td><td>33009</td><td>330590</td><td>Serrana</td><td>Trajano de Moraes</td><td class="vellipsis">…</td><td>39</td><td>0</td><td>0</td><td>39</td><td>100</td></tr>
+    <tr><td class="row_index">1191</td><td>1</td><td>1</td><td>SD/RJ/33009</td><td>SD/RJ/33009/330590</td><td>regiao_saude</td><td>municipio</td><td>33009</td><td>330590</td><td>Serrana</td><td>Trajano de Moraes</td><td class="vellipsis">…</td><td>6</td><td>0</td><td>0</td><td>7</td><td>85.7143</td></tr>
+    <tr><td class="row_index">1192</td><td>1</td><td>1</td><td>SD/RJ/33009</td><td>SD/RJ/33009/330590</td><td>regiao_saude</td><td>municipio</td><td>33009</td><td>330590</td><td>Serrana</td><td>Trajano de Moraes</td><td class="vellipsis">…</td><td>1</td><td>30.305</td><td>32.1633</td><td>7</td><td>14.2857</td></tr>
+    <tr><td class="row_index">1193</td><td>1</td><td>0</td><td>SD/RJ/33009</td><td>SD/SP/35011/351830</td><td>regiao_saude</td><td>municipio</td><td>33009</td><td>351830</td><td>Serrana</td><td>Guararema</td><td class="vellipsis">…</td><td>1</td><td>404.5</td><td>312.915</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">1194</td><td>1</td><td>1</td><td>SD/RJ/33009</td><td>SD/SP/35072/350950</td><td>regiao_saude</td><td>municipio</td><td>33009</td><td>350950</td><td>Serrana</td><td>Campinas</td><td class="vellipsis">…</td><td>1</td><td>507.879</td><td>389.573</td><td>1</td><td>100</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">1195 rows × 16 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="regsau---regsau-rj" class="level2">
+<h2 class="anchored" data-anchor-id="regsau---regsau-rj">REGSAU -&gt; REGSAU (RJ)</h2>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>scale_origin <span class="op">=</span> <span class="st">'regiao_saude'</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>scale_destin <span class="op">=</span> <span class="st">'regiao_saude'</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df_regsau_regsau <span class="op">=</span> get_flux_table(scale_origin, scale_destin)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>df_regsau_regsau[filter_rj(df_regsau_regsau), :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>origem</th><th>destino</th><th>escala_origem</th><th>escala_destino</th><th>id_origem</th><th>id_destino</th><th>nome_origem</th><th>nome_destino</th><th class="vellipsis">…</th><th>count</th><th>dist_pond</th><th>tempo_pond</th><th>total</th><th>percent</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>1</td><td>1</td><td>SD/RJ/33001</td><td>ND/PB/25012</td><td>regiao_saude</td><td>regiao_saude</td><td>33001</td><td>25012</td><td>Baia da Ilha Grande</td><td>12ª Região</td><td class="vellipsis">…</td><td>1</td><td>2485.74</td><td>1898.2</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">1</td><td>1</td><td>1</td><td>SD/RJ/33001</td><td>ND/PI/22005</td><td>regiao_saude</td><td>regiao_saude</td><td>33001</td><td>22005</td><td>Baia da Ilha Grande</td><td>Planície Litorânea</td><td class="vellipsis">…</td><td>1</td><td>3067.57</td><td>2331.66</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>SD/RJ/33001</td><td>SD/ES/32002</td><td>regiao_saude</td><td>regiao_saude</td><td>33001</td><td>32002</td><td>Baia da Ilha Grande</td><td>Metropolitana</td><td class="vellipsis">…</td><td>2</td><td>1229.23</td><td>919.537</td><td>2</td><td>100</td></tr>
+    <tr><td class="row_index">3</td><td>1</td><td>1</td><td>SD/RJ/33001</td><td>SD/ES/32002</td><td>regiao_saude</td><td>regiao_saude</td><td>33001</td><td>32002</td><td>Baia da Ilha Grande</td><td>Metropolitana</td><td class="vellipsis">…</td><td>1</td><td>704.828</td><td>573.227</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33001</td><td>regiao_saude</td><td>regiao_saude</td><td>33001</td><td>33001</td><td>Baia da Ilha Grande</td><td>Baia da Ilha Grande</td><td class="vellipsis">…</td><td>923</td><td>0</td><td>0</td><td>939</td><td>98.2961</td></tr>
+    <tr><td class="row_index">5</td><td>1</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33001</td><td>regiao_saude</td><td>regiao_saude</td><td>33001</td><td>33001</td><td>Baia da Ilha Grande</td><td>Baia da Ilha Grande</td><td class="vellipsis">…</td><td>2445</td><td>0</td><td>0</td><td>2500</td><td>97.8</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>SD/RJ/33001</td><td>SD/RJ/33001</td><td>regiao_saude</td><td>regiao_saude</td><td>33001</td><td>33001</td><td>Baia da Ilha Grande</td><td>Baia da Ilha Grande</td><td class="vellipsis">…</td><td>2714</td><td>0</td><td>0</td><td>2773</td><td>97.8723</td></tr>
+    <tr><td class="row_index">7</td><td>1</td><td>1</td><td>SD/RJ/33001</td><td>SD/RJ/33001</td><td>regiao_saude</td><td>regiao_saude</td><td>33001</td><td>33001</td><td>Baia da Ilha Grande</td><td>Baia da Ilha Grande</td><td class="vellipsis">…</td><td>2564</td><td>0</td><td>0</td><td>2618</td><td>97.9374</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33001</td><td>regiao_saude</td><td>regiao_saude</td><td>33001</td><td>33001</td><td>Baia da Ilha Grande</td><td>Baia da Ilha Grande</td><td class="vellipsis">…</td><td>16</td><td>1379.67</td><td>1676.66</td><td>939</td><td>1.70394</td></tr>
+    <tr><td class="row_index">9</td><td>1</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33001</td><td>regiao_saude</td><td>regiao_saude</td><td>33001</td><td>33001</td><td>Baia da Ilha Grande</td><td>Baia da Ilha Grande</td><td class="vellipsis">…</td><td>55</td><td>3375.64</td><td>3598.29</td><td>2500</td><td>2.2</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>SD/RJ/33001</td><td>SD/RJ/33001</td><td>regiao_saude</td><td>regiao_saude</td><td>33001</td><td>33001</td><td>Baia da Ilha Grande</td><td>Baia da Ilha Grande</td><td class="vellipsis">…</td><td>59</td><td>4606.66</td><td>5240.39</td><td>2773</td><td>2.12766</td></tr>
+    <tr><td class="row_index">11</td><td>1</td><td>1</td><td>SD/RJ/33001</td><td>SD/RJ/33001</td><td>regiao_saude</td><td>regiao_saude</td><td>33001</td><td>33001</td><td>Baia da Ilha Grande</td><td>Baia da Ilha Grande</td><td class="vellipsis">…</td><td>54</td><td>3930.18</td><td>4235.68</td><td>2618</td><td>2.06264</td></tr>
+    <tr><td class="row_index">12</td><td>1</td><td>0</td><td>SD/RJ/33001</td><td>SD/RJ/33002</td><td>regiao_saude</td><td>regiao_saude</td><td>33001</td><td>33002</td><td>Baia da Ilha Grande</td><td>Baixada Litorânea</td><td class="vellipsis">…</td><td>4</td><td>1213.22</td><td>1003.06</td><td>4</td><td>100</td></tr>
+    <tr><td class="row_index">13</td><td>1</td><td>1</td><td>SD/RJ/33001</td><td>SD/RJ/33002</td><td>regiao_saude</td><td>regiao_saude</td><td>33001</td><td>33002</td><td>Baia da Ilha Grande</td><td>Baixada Litorânea</td><td class="vellipsis">…</td><td>2</td><td>370.711</td><td>333.317</td><td>2</td><td>100</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>1</td><td>SD/RJ/33001</td><td>SD/RJ/33003</td><td>regiao_saude</td><td>regiao_saude</td><td>33001</td><td>33003</td><td>Baia da Ilha Grande</td><td>Centro-Sul</td><td class="vellipsis">…</td><td>5</td><td>342.334</td><td>276.092</td><td>5</td><td>100</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">481</td><td>1</td><td>0</td><td>SD/RJ/33009</td><td>SD/RJ/33009</td><td>regiao_saude</td><td>regiao_saude</td><td>33009</td><td>33009</td><td>Serrana</td><td>Serrana</td><td class="vellipsis">…</td><td>311</td><td>9304.38</td><td>10170</td><td>5729</td><td>5.42852</td></tr>
+    <tr><td class="row_index">482</td><td>0</td><td>1</td><td>SD/RJ/33009</td><td>SD/RJ/33009</td><td>regiao_saude</td><td>regiao_saude</td><td>33009</td><td>33009</td><td>Serrana</td><td>Serrana</td><td class="vellipsis">…</td><td>154</td><td>6426.08</td><td>6418.99</td><td>7462</td><td>2.06379</td></tr>
+    <tr><td class="row_index">483</td><td>1</td><td>1</td><td>SD/RJ/33009</td><td>SD/RJ/33009</td><td>regiao_saude</td><td>regiao_saude</td><td>33009</td><td>33009</td><td>Serrana</td><td>Serrana</td><td class="vellipsis">…</td><td>280</td><td>10701.3</td><td>11439.1</td><td>6640</td><td>4.21687</td></tr>
+    <tr><td class="row_index">484</td><td>1</td><td>0</td><td>SD/RJ/33009</td><td>SD/SP/35011</td><td>regiao_saude</td><td>regiao_saude</td><td>33009</td><td>35011</td><td>Serrana</td><td>Alto do Tietê</td><td class="vellipsis">…</td><td>1</td><td>404.5</td><td>312.915</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">485</td><td>1</td><td>1</td><td>SD/RJ/33009</td><td>SD/SP/35072</td><td>regiao_saude</td><td>regiao_saude</td><td>33009</td><td>35072</td><td>Serrana</td><td>Região Metropolitana de Campinas</td><td class="vellipsis">…</td><td>1</td><td>507.879</td><td>389.573</td><td>1</td><td>100</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">486 rows × 16 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="município---município-rj" class="level2">
+<h2 class="anchored" data-anchor-id="município---município-rj">Município -&gt; Município (RJ)</h2>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>scale_origin <span class="op">=</span> <span class="st">'municipio'</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>scale_destin <span class="op">=</span> <span class="st">'municipio'</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>df_mun_mun <span class="op">=</span> get_flux_table(scale_origin, scale_destin)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>df_mun_mun_rj <span class="op">=</span> df_mun_mun[filter_rj(df_mun_mun), :]</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>df_mun_mun_rj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>origem</th><th>destino</th><th>escala_origem</th><th>escala_destino</th><th>id_origem</th><th>id_destino</th><th>nome_origem</th><th>nome_destino</th><th class="vellipsis">…</th><th>count</th><th>dist_pond</th><th>tempo_pond</th><th>total</th><th>percent</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>1</td><td>1</td><td>SD/RJ/33001/330010</td><td>ND/PI/22005/220770</td><td>municipio</td><td>municipio</td><td>330010</td><td>220770</td><td>Angra dos Reis</td><td>Parnaíba</td><td class="vellipsis">…</td><td>1</td><td>3067.57</td><td>2331.66</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>SD/RJ/33001/330010</td><td>SD/ES/32002/320245</td><td>municipio</td><td>municipio</td><td>330010</td><td>320245</td><td>Angra dos Reis</td><td>Ibatiba</td><td class="vellipsis">…</td><td>2</td><td>1229.23</td><td>919.537</td><td>2</td><td>100</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33001/330010</td><td>municipio</td><td>municipio</td><td>330010</td><td>330010</td><td>Angra dos Reis</td><td>Angra dos Reis</td><td class="vellipsis">…</td><td>649</td><td>0</td><td>0</td><td>649</td><td>100</td></tr>
+    <tr><td class="row_index">3</td><td>1</td><td>0</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33001/330010</td><td>municipio</td><td>municipio</td><td>330010</td><td>330010</td><td>Angra dos Reis</td><td>Angra dos Reis</td><td class="vellipsis">…</td><td>1775</td><td>0</td><td>0</td><td>1775</td><td>100</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>1</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33001/330010</td><td>municipio</td><td>municipio</td><td>330010</td><td>330010</td><td>Angra dos Reis</td><td>Angra dos Reis</td><td class="vellipsis">…</td><td>1783</td><td>0</td><td>0</td><td>1783</td><td>100</td></tr>
+    <tr><td class="row_index">5</td><td>1</td><td>1</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33001/330010</td><td>municipio</td><td>municipio</td><td>330010</td><td>330010</td><td>Angra dos Reis</td><td>Angra dos Reis</td><td class="vellipsis">…</td><td>1863</td><td>0</td><td>0</td><td>1863</td><td>100</td></tr>
+    <tr><td class="row_index">6</td><td>1</td><td>1</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33001/330260</td><td>municipio</td><td>municipio</td><td>330010</td><td>330260</td><td>Angra dos Reis</td><td>Mangaratiba</td><td class="vellipsis">…</td><td>1</td><td>56.7885</td><td>47.1</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">7</td><td>1</td><td>0</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33001/330380</td><td>municipio</td><td>municipio</td><td>330010</td><td>330380</td><td>Angra dos Reis</td><td>Paraty</td><td class="vellipsis">…</td><td>8</td><td>768.343</td><td>992.173</td><td>8</td><td>100</td></tr>
+    <tr><td class="row_index">8</td><td>1</td><td>1</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33001/330380</td><td>municipio</td><td>municipio</td><td>330010</td><td>330380</td><td>Angra dos Reis</td><td>Paraty</td><td class="vellipsis">…</td><td>11</td><td>1056.47</td><td>1364.24</td><td>11</td><td>100</td></tr>
+    <tr><td class="row_index">9</td><td>1</td><td>0</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33002/330023</td><td>municipio</td><td>municipio</td><td>330010</td><td>330023</td><td>Angra dos Reis</td><td>Armação dos Búzios</td><td class="vellipsis">…</td><td>1</td><td>317.318</td><td>254.032</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">10</td><td>1</td><td>0</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33002/330130</td><td>municipio</td><td>municipio</td><td>330010</td><td>330130</td><td>Angra dos Reis</td><td>Casimiro de Abreu</td><td class="vellipsis">…</td><td>1</td><td>279.628</td><td>216.798</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">11</td><td>1</td><td>0</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33002/330550</td><td>municipio</td><td>municipio</td><td>330010</td><td>330550</td><td>Angra dos Reis</td><td>Saquarema</td><td class="vellipsis">…</td><td>1</td><td>237.112</td><td>204.492</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">12</td><td>1</td><td>1</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33004/330040</td><td>municipio</td><td>municipio</td><td>330010</td><td>330040</td><td>Angra dos Reis</td><td>Barra Mansa</td><td class="vellipsis">…</td><td>1</td><td>95.8852</td><td>115.658</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>1</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33004/330400</td><td>municipio</td><td>municipio</td><td>330010</td><td>330400</td><td>Angra dos Reis</td><td>Piraí</td><td class="vellipsis">…</td><td>2</td><td>266.772</td><td>211.477</td><td>2</td><td>100</td></tr>
+    <tr><td class="row_index">14</td><td>1</td><td>0</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33004/330411</td><td>municipio</td><td>municipio</td><td>330010</td><td>330411</td><td>Angra dos Reis</td><td>Porto Real</td><td class="vellipsis">…</td><td>3</td><td>355.744</td><td>397.87</td><td>3</td><td>100</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">2481</td><td>0</td><td>0</td><td>SD/RJ/33009/330590</td><td>SD/RJ/33009/330460</td><td>municipio</td><td>municipio</td><td>330590</td><td>330460</td><td>Trajano de Moraes</td><td>Santa Maria Madalena</td><td class="vellipsis">…</td><td>5</td><td>151.525</td><td>160.817</td><td>5</td><td>100</td></tr>
+    <tr><td class="row_index">2482</td><td>0</td><td>1</td><td>SD/RJ/33009/330590</td><td>SD/RJ/33009/330460</td><td>municipio</td><td>municipio</td><td>330590</td><td>330460</td><td>Trajano de Moraes</td><td>Santa Maria Madalena</td><td class="vellipsis">…</td><td>15</td><td>454.575</td><td>482.45</td><td>15</td><td>100</td></tr>
+    <tr><td class="row_index">2483</td><td>0</td><td>0</td><td>SD/RJ/33009/330590</td><td>SD/RJ/33009/330590</td><td>municipio</td><td>municipio</td><td>330590</td><td>330590</td><td>Trajano de Moraes</td><td>Trajano de Moraes</td><td class="vellipsis">…</td><td>4</td><td>0</td><td>0</td><td>4</td><td>100</td></tr>
+    <tr><td class="row_index">2484</td><td>0</td><td>1</td><td>SD/RJ/33009/330590</td><td>SD/RJ/33009/330590</td><td>municipio</td><td>municipio</td><td>330590</td><td>330590</td><td>Trajano de Moraes</td><td>Trajano de Moraes</td><td class="vellipsis">…</td><td>39</td><td>0</td><td>0</td><td>39</td><td>100</td></tr>
+    <tr><td class="row_index">2485</td><td>1</td><td>1</td><td>SD/RJ/33009/330590</td><td>SD/RJ/33009/330590</td><td>municipio</td><td>municipio</td><td>330590</td><td>330590</td><td>Trajano de Moraes</td><td>Trajano de Moraes</td><td class="vellipsis">…</td><td>6</td><td>0</td><td>0</td><td>6</td><td>100</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">2486 rows × 16 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="uf---região" class="level2">
+<h2 class="anchored" data-anchor-id="uf---região">UF -&gt; Região</h2>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>scale_origin <span class="op">=</span> <span class="st">'uf'</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>scale_destin <span class="op">=</span> <span class="st">'regiao'</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>df_uf_regsau <span class="op">=</span> get_flux_table(scale_origin, scale_destin)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># df_uf_regsau[filter_rj(df_uf_regsau), :]</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>df_uf_regsau</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>origem</th><th>destino</th><th>escala_origem</th><th>escala_destino</th><th>id_origem</th><th>id_destino</th><th>nome_origem</th><th>nome_destino</th><th class="vellipsis">…</th><th>count</th><th>dist_pond</th><th>tempo_pond</th><th>total</th><th>percent</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>0</td><td>0</td><td>CO/DF</td><td>CO</td><td>uf</td><td>regiao</td><td>DF</td><td>CO</td><td>Distrito Federal</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>20906</td><td>0</td><td>0</td><td>20910</td><td>99.9809</td></tr>
+    <tr><td class="row_index">1</td><td>1</td><td>0</td><td>CO/DF</td><td>CO</td><td>uf</td><td>regiao</td><td>DF</td><td>CO</td><td>Distrito Federal</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>19949</td><td>0</td><td>0</td><td>19990</td><td>99.7949</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>1</td><td>CO/DF</td><td>CO</td><td>uf</td><td>regiao</td><td>DF</td><td>CO</td><td>Distrito Federal</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>40969</td><td>0</td><td>0</td><td>40981</td><td>99.9707</td></tr>
+    <tr><td class="row_index">3</td><td>1</td><td>1</td><td>CO/DF</td><td>CO</td><td>uf</td><td>regiao</td><td>DF</td><td>CO</td><td>Distrito Federal</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>33309</td><td>0</td><td>0</td><td>33351</td><td>99.8741</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>0</td><td>CO/DF</td><td>CO</td><td>uf</td><td>regiao</td><td>DF</td><td>CO</td><td>Distrito Federal</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>4</td><td>305.25</td><td>265.447</td><td>20910</td><td>0.0191296</td></tr>
+    <tr><td class="row_index">5</td><td>1</td><td>0</td><td>CO/DF</td><td>CO</td><td>uf</td><td>regiao</td><td>DF</td><td>CO</td><td>Distrito Federal</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>41</td><td>8201.44</td><td>6862.07</td><td>19990</td><td>0.205103</td></tr>
+    <tr><td class="row_index">6</td><td>0</td><td>1</td><td>CO/DF</td><td>CO</td><td>uf</td><td>regiao</td><td>DF</td><td>CO</td><td>Distrito Federal</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>12</td><td>3103.87</td><td>2606.93</td><td>40981</td><td>0.0292819</td></tr>
+    <tr><td class="row_index">7</td><td>1</td><td>1</td><td>CO/DF</td><td>CO</td><td>uf</td><td>regiao</td><td>DF</td><td>CO</td><td>Distrito Federal</td><td>Centro-Oeste</td><td class="vellipsis">…</td><td>42</td><td>6997.03</td><td>6154.23</td><td>33351</td><td>0.125933</td></tr>
+    <tr><td class="row_index">8</td><td>0</td><td>0</td><td>CO/DF</td><td>ND</td><td>uf</td><td>regiao</td><td>DF</td><td>ND</td><td>Distrito Federal</td><td>Nordeste</td><td class="vellipsis">…</td><td>2</td><td>2535.68</td><td>1909.4</td><td>2</td><td>100</td></tr>
+    <tr><td class="row_index">9</td><td>1</td><td>0</td><td>CO/DF</td><td>ND</td><td>uf</td><td>regiao</td><td>DF</td><td>ND</td><td>Distrito Federal</td><td>Nordeste</td><td class="vellipsis">…</td><td>57</td><td>98911.6</td><td>74126.8</td><td>57</td><td>100</td></tr>
+    <tr><td class="row_index">10</td><td>0</td><td>1</td><td>CO/DF</td><td>ND</td><td>uf</td><td>regiao</td><td>DF</td><td>ND</td><td>Distrito Federal</td><td>Nordeste</td><td class="vellipsis">…</td><td>8</td><td>12993.4</td><td>9598.6</td><td>8</td><td>100</td></tr>
+    <tr><td class="row_index">11</td><td>1</td><td>1</td><td>CO/DF</td><td>ND</td><td>uf</td><td>regiao</td><td>DF</td><td>ND</td><td>Distrito Federal</td><td>Nordeste</td><td class="vellipsis">…</td><td>83</td><td>139421</td><td>104657</td><td>83</td><td>100</td></tr>
+    <tr><td class="row_index">12</td><td>0</td><td>1</td><td>CO/DF</td><td>NT</td><td>uf</td><td>regiao</td><td>DF</td><td>NT</td><td>Distrito Federal</td><td>Norte</td><td class="vellipsis">…</td><td>4</td><td>5378.79</td><td>9122.13</td><td>4</td><td>100</td></tr>
+    <tr><td class="row_index">13</td><td>1</td><td>1</td><td>CO/DF</td><td>NT</td><td>uf</td><td>regiao</td><td>DF</td><td>NT</td><td>Distrito Federal</td><td>Norte</td><td class="vellipsis">…</td><td>2</td><td>3625.38</td><td>3392.12</td><td>2</td><td>100</td></tr>
+    <tr><td class="row_index">14</td><td>0</td><td>0</td><td>CO/DF</td><td>SD</td><td>uf</td><td>regiao</td><td>DF</td><td>SD</td><td>Distrito Federal</td><td>Sudeste</td><td class="vellipsis">…</td><td>8</td><td>3365.92</td><td>2773.14</td><td>8</td><td>100</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">779</td><td>1</td><td>1</td><td>SL/SC</td><td>SL</td><td>uf</td><td>regiao</td><td>SC</td><td>SL</td><td>Santa Catarina</td><td>Sul</td><td class="vellipsis">…</td><td>1261</td><td>79730.6</td><td>76301.6</td><td>60025</td><td>2.10079</td></tr>
+    <tr><td class="row_index">780</td><td>0</td><td>0</td><td>SL/SC</td><td>SL</td><td>uf</td><td>regiao</td><td>SC</td><td>SL</td><td>Santa Catarina</td><td>Sul</td><td class="vellipsis">…</td><td>106</td><td>9261.43</td><td>8267.82</td><td>40765</td><td>0.260027</td></tr>
+    <tr><td class="row_index">781</td><td>1</td><td>0</td><td>SL/SC</td><td>SL</td><td>uf</td><td>regiao</td><td>SC</td><td>SL</td><td>Santa Catarina</td><td>Sul</td><td class="vellipsis">…</td><td>136</td><td>27813.8</td><td>24446.8</td><td>38847</td><td>0.350091</td></tr>
+    <tr><td class="row_index">782</td><td>0</td><td>1</td><td>SL/SC</td><td>SL</td><td>uf</td><td>regiao</td><td>SC</td><td>SL</td><td>Santa Catarina</td><td>Sul</td><td class="vellipsis">…</td><td>162</td><td>13621.9</td><td>11980.6</td><td>59826</td><td>0.270785</td></tr>
+    <tr><td class="row_index">783</td><td>1</td><td>1</td><td>SL/SC</td><td>SL</td><td>uf</td><td>regiao</td><td>SC</td><td>SL</td><td>Santa Catarina</td><td>Sul</td><td class="vellipsis">…</td><td>158</td><td>38894.4</td><td>34123.3</td><td>60025</td><td>0.263224</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">784 rows × 16 columns</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exportando-tabela" class="level1">
+<h1>Exportando tabela</h1>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>output_flux <span class="op">=</span> get_path(<span class="st">'GESTANTES'</span>, <span class="st">'flux_mun_mun_rj.csv.gzip'</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_mun_mun_rj.to_csv(output_flux)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>dt.fread(output_flux)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+
+<div class="datatable">
+  <table class="frame">
+  <thead>
+    <tr class="colnames"><td class="row_index"></td><th>bienio</th><th>parto_normal</th><th>origem</th><th>destino</th><th>escala_origem</th><th>escala_destino</th><th>id_origem</th><th>id_destino</th><th>nome_origem</th><th>nome_destino</th><th class="vellipsis">…</th><th>count</th><th>dist_pond</th><th>tempo_pond</th><th>total</th><th>percent</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="bool" title="bool8">▪</td><td class="bool" title="bool8">▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td class="str" title="str32">▪▪▪▪</td><td></td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="float" title="float64">▪▪▪▪▪▪▪▪</td></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row_index">0</td><td>1</td><td>1</td><td>SD/RJ/33001/330010</td><td>ND/PI/22005/220770</td><td>municipio</td><td>municipio</td><td>330010</td><td>220770</td><td>Angra dos Reis</td><td>Parnaíba</td><td class="vellipsis">…</td><td>1</td><td>3067.57</td><td>2331.66</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">1</td><td>0</td><td>0</td><td>SD/RJ/33001/330010</td><td>SD/ES/32002/320245</td><td>municipio</td><td>municipio</td><td>330010</td><td>320245</td><td>Angra dos Reis</td><td>Ibatiba</td><td class="vellipsis">…</td><td>2</td><td>1229.23</td><td>919.537</td><td>2</td><td>100</td></tr>
+    <tr><td class="row_index">2</td><td>0</td><td>0</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33001/330010</td><td>municipio</td><td>municipio</td><td>330010</td><td>330010</td><td>Angra dos Reis</td><td>Angra dos Reis</td><td class="vellipsis">…</td><td>649</td><td>0</td><td>0</td><td>649</td><td>100</td></tr>
+    <tr><td class="row_index">3</td><td>1</td><td>0</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33001/330010</td><td>municipio</td><td>municipio</td><td>330010</td><td>330010</td><td>Angra dos Reis</td><td>Angra dos Reis</td><td class="vellipsis">…</td><td>1775</td><td>0</td><td>0</td><td>1775</td><td>100</td></tr>
+    <tr><td class="row_index">4</td><td>0</td><td>1</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33001/330010</td><td>municipio</td><td>municipio</td><td>330010</td><td>330010</td><td>Angra dos Reis</td><td>Angra dos Reis</td><td class="vellipsis">…</td><td>1783</td><td>0</td><td>0</td><td>1783</td><td>100</td></tr>
+    <tr><td class="row_index">5</td><td>1</td><td>1</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33001/330010</td><td>municipio</td><td>municipio</td><td>330010</td><td>330010</td><td>Angra dos Reis</td><td>Angra dos Reis</td><td class="vellipsis">…</td><td>1863</td><td>0</td><td>0</td><td>1863</td><td>100</td></tr>
+    <tr><td class="row_index">6</td><td>1</td><td>1</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33001/330260</td><td>municipio</td><td>municipio</td><td>330010</td><td>330260</td><td>Angra dos Reis</td><td>Mangaratiba</td><td class="vellipsis">…</td><td>1</td><td>56.7885</td><td>47.1</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">7</td><td>1</td><td>0</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33001/330380</td><td>municipio</td><td>municipio</td><td>330010</td><td>330380</td><td>Angra dos Reis</td><td>Paraty</td><td class="vellipsis">…</td><td>8</td><td>768.343</td><td>992.173</td><td>8</td><td>100</td></tr>
+    <tr><td class="row_index">8</td><td>1</td><td>1</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33001/330380</td><td>municipio</td><td>municipio</td><td>330010</td><td>330380</td><td>Angra dos Reis</td><td>Paraty</td><td class="vellipsis">…</td><td>11</td><td>1056.47</td><td>1364.24</td><td>11</td><td>100</td></tr>
+    <tr><td class="row_index">9</td><td>1</td><td>0</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33002/330023</td><td>municipio</td><td>municipio</td><td>330010</td><td>330023</td><td>Angra dos Reis</td><td>Armação dos Búzios</td><td class="vellipsis">…</td><td>1</td><td>317.318</td><td>254.032</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">10</td><td>1</td><td>0</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33002/330130</td><td>municipio</td><td>municipio</td><td>330010</td><td>330130</td><td>Angra dos Reis</td><td>Casimiro de Abreu</td><td class="vellipsis">…</td><td>1</td><td>279.628</td><td>216.798</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">11</td><td>1</td><td>0</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33002/330550</td><td>municipio</td><td>municipio</td><td>330010</td><td>330550</td><td>Angra dos Reis</td><td>Saquarema</td><td class="vellipsis">…</td><td>1</td><td>237.112</td><td>204.492</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">12</td><td>1</td><td>1</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33004/330040</td><td>municipio</td><td>municipio</td><td>330010</td><td>330040</td><td>Angra dos Reis</td><td>Barra Mansa</td><td class="vellipsis">…</td><td>1</td><td>95.8852</td><td>115.658</td><td>1</td><td>100</td></tr>
+    <tr><td class="row_index">13</td><td>0</td><td>1</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33004/330400</td><td>municipio</td><td>municipio</td><td>330010</td><td>330400</td><td>Angra dos Reis</td><td>Piraí</td><td class="vellipsis">…</td><td>2</td><td>266.772</td><td>211.477</td><td>2</td><td>100</td></tr>
+    <tr><td class="row_index">14</td><td>1</td><td>0</td><td>SD/RJ/33001/330010</td><td>SD/RJ/33004/330411</td><td>municipio</td><td>municipio</td><td>330010</td><td>330411</td><td>Angra dos Reis</td><td>Porto Real</td><td class="vellipsis">…</td><td>3</td><td>355.744</td><td>397.87</td><td>3</td><td>100</td></tr>
+    <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋱</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
+    <tr><td class="row_index">2481</td><td>0</td><td>0</td><td>SD/RJ/33009/330590</td><td>SD/RJ/33009/330460</td><td>municipio</td><td>municipio</td><td>330590</td><td>330460</td><td>Trajano de Moraes</td><td>Santa Maria Madalena</td><td class="vellipsis">…</td><td>5</td><td>151.525</td><td>160.817</td><td>5</td><td>100</td></tr>
+    <tr><td class="row_index">2482</td><td>0</td><td>1</td><td>SD/RJ/33009/330590</td><td>SD/RJ/33009/330460</td><td>municipio</td><td>municipio</td><td>330590</td><td>330460</td><td>Trajano de Moraes</td><td>Santa Maria Madalena</td><td class="vellipsis">…</td><td>15</td><td>454.575</td><td>482.45</td><td>15</td><td>100</td></tr>
+    <tr><td class="row_index">2483</td><td>0</td><td>0</td><td>SD/RJ/33009/330590</td><td>SD/RJ/33009/330590</td><td>municipio</td><td>municipio</td><td>330590</td><td>330590</td><td>Trajano de Moraes</td><td>Trajano de Moraes</td><td class="vellipsis">…</td><td>4</td><td>0</td><td>0</td><td>4</td><td>100</td></tr>
+    <tr><td class="row_index">2484</td><td>0</td><td>1</td><td>SD/RJ/33009/330590</td><td>SD/RJ/33009/330590</td><td>municipio</td><td>municipio</td><td>330590</td><td>330590</td><td>Trajano de Moraes</td><td>Trajano de Moraes</td><td class="vellipsis">…</td><td>39</td><td>0</td><td>0</td><td>39</td><td>100</td></tr>
+    <tr><td class="row_index">2485</td><td>1</td><td>1</td><td>SD/RJ/33009/330590</td><td>SD/RJ/33009/330590</td><td>municipio</td><td>municipio</td><td>330590</td><td>330590</td><td>Trajano de Moraes</td><td>Trajano de Moraes</td><td class="vellipsis">…</td><td>6</td><td>0</td><td>0</td><td>6</td><td>100</td></tr>
+  </tbody>
+  </table>
+  <div class="footer">
+    <div class="frame_dimensions">2486 rows × 16 columns</div>
+  </div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_rj <span class="op">=</span> pd.read_csv(output_flux)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>output_rj <span class="op">=</span> output_flux.replace(<span class="st">'.csv.gzip'</span>, <span class="st">'_rj.xlsx'</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df_rj.to_excel(output_rj, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
