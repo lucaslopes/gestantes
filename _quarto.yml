@@ -33,6 +33,7 @@ website:
         contents:
           - sections/result_osm_gmaps.ipynb
           - sections/result_occurences.ipynb
+          - sections/result_dist.ipynb
 
 format:
   html:
