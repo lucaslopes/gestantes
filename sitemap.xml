@@ -2,62 +2,66 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lucaslopes.github.io/gestantes/README.html</loc>
-    <lastmod>2022-11-16T14:21:24.565Z</lastmod>
+    <lastmod>2022-11-16T17:32:29.584Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/database_cnes.html</loc>
-    <lastmod>2022-11-16T14:21:25.813Z</lastmod>
+    <lastmod>2022-11-16T17:32:32.900Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/database_dists.html</loc>
-    <lastmod>2022-11-16T14:21:26.443Z</lastmod>
+    <lastmod>2022-11-16T17:32:34.790Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/database_gmaps.html</loc>
-    <lastmod>2022-11-16T14:21:28.378Z</lastmod>
+    <lastmod>2022-11-16T17:32:39.568Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/database_indicadores.html</loc>
-    <lastmod>2022-11-16T14:21:29.114Z</lastmod>
+    <lastmod>2022-11-16T17:32:41.421Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/database_municipios.html</loc>
-    <lastmod>2022-11-16T14:21:29.916Z</lastmod>
+    <lastmod>2022-11-16T17:32:43.631Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/database_sih.html</loc>
-    <lastmod>2022-11-16T14:21:30.426Z</lastmod>
+    <lastmod>2022-11-16T17:32:45.387Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/deslc_uf.html</loc>
-    <lastmod>2022-11-16T14:21:30.911Z</lastmod>
+    <lastmod>2022-11-16T17:32:46.913Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lucaslopes.github.io/gestantes/sections/result_dist.html</loc>
+    <lastmod>2022-11-16T17:32:48.515Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/result_occurences.html</loc>
-    <lastmod>2022-11-16T14:21:31.887Z</lastmod>
+    <lastmod>2022-11-16T17:32:50.633Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/result_osm_gmaps.html</loc>
-    <lastmod>2022-11-16T14:21:33.782Z</lastmod>
+    <lastmod>2022-11-16T17:32:54.674Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/table_counts.html</loc>
-    <lastmod>2022-11-16T14:21:34.632Z</lastmod>
+    <lastmod>2022-11-16T17:32:57.339Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/table_dslc.html</loc>
-    <lastmod>2022-11-16T14:21:35.201Z</lastmod>
+    <lastmod>2022-11-16T17:32:59.430Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/table_flux.html</loc>
-    <lastmod>2022-11-16T14:21:36.059Z</lastmod>
+    <lastmod>2022-11-16T17:33:02.228Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/table_locs.html</loc>
-    <lastmod>2022-11-16T14:21:36.982Z</lastmod>
+    <lastmod>2022-11-16T17:33:03.976Z</lastmod>
   </url>
   <url>
     <loc>https://lucaslopes.github.io/gestantes/sections/table_procs.html</loc>
-    <lastmod>2022-11-16T14:21:38.015Z</lastmod>
+    <lastmod>2022-11-16T17:33:06.037Z</lastmod>
   </url>
 </urlset>
