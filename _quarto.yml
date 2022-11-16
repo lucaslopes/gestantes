@@ -34,6 +34,7 @@ website:
           - sections/result_osm_gmaps.ipynb
           - sections/result_occurences.ipynb
           - sections/result_dist.ipynb
+          - sections/result_geoplot.ipynb
 
 format:
   html:
