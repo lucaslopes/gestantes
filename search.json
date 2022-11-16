@@ -308,6 +308,20 @@
     "text": "Média ponderada"
   },
   {
+    "objectID": "sections/result_geoplot.html",
+    "href": "sections/result_geoplot.html",
+    "title": "Network Geoplot",
+    "section": "",
+    "text": "import sys\nimport numpy as np\nimport pandas as pd\nimport plotly.graph_objects as go\n\nfrom tqdm import tqdm\nfrom datatable import dt, f, by\n\nfrom itables import init_notebook_mode\ninit_notebook_mode(all_interactive=True)\n\nfrom plotly import express as px, io as pio\npd.options.plotting.backend = 'plotly'\npio.renderers.default = 'plotly_mimetype+notebook_connected'\n\nfrom utils import get_path, data_load\nsys.path.insert(0, '../')\nfrom secret import API_KEY"
+  },
+  {
+    "objectID": "sections/result_geoplot.html#procedimentos",
+    "href": "sections/result_geoplot.html#procedimentos",
+    "title": "Network Geoplot",
+    "section": "Procedimentos",
+    "text": "Procedimentos\n\nColunas\n\ncols_proc = [\n  'bienio', 'parto_normal', 'criticidade',\n  'origem_latitude', 'origem_longitude',\n  'destino_latitude', 'destino_longitude',\n  'count',\n]\n\n\n\nCarregando tabela\n\npath_proc = get_path('GESTANTES', f'procs.csv.gzip')\ndf_proc = df_proc_bienio = pd.read_csv(path_proc)\ndf_proc = df_proc[cols_proc]\ndf_proc = df_proc[df_proc['criticidade'] > 0]\ndf_proc = df_proc.drop('criticidade', axis=1)\ndf_proc = df_proc.groupby(\n  by=list(df_proc.columns[:-1]),\n  as_index=False\n).sum()\ndf_proc\n\n\n\n\n\n    \n      \n      bienio\n      parto_normal\n      origem_latitude\n      origem_longitude\n      destino_latitude\n      destino_longitude\n      count\n    \n  Loading... (need help?)"
+  },
+  {
     "objectID": "sections/result_occurences.html",
     "href": "sections/result_occurences.html",
     "title": "Ocorrências",
