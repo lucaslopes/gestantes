@@ -192,17 +192,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/database_indicadores.html" class="sidebar-item-text sidebar-link">Indicadores</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../sections/database_dists.html" class="sidebar-item-text sidebar-link">Distâncias</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/database_gmaps.html" class="sidebar-item-text sidebar-link">Google Maps</a>
+  <a href="../sections/database_indicadores.html" class="sidebar-item-text sidebar-link">Indicadores</a>
   </div>
 </li>
       </ul>
@@ -217,12 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/table_locs.html" class="sidebar-item-text sidebar-link">Localidades</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../sections/table_dslc.html" class="sidebar-item-text sidebar-link">Deslocamentos</a>
+  <a href="../sections/table_nomes.html" class="sidebar-item-text sidebar-link">Nomeclaturas</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -232,7 +222,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/table_counts.html" class="sidebar-item-text sidebar-link">Contagens</a>
+  <a href="../sections/table_locs.html" class="sidebar-item-text sidebar-link">Localidades</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_trend.html" class="sidebar-item-text sidebar-link">Tendências</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -268,6 +263,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sections/result_geoplot.html" class="sidebar-item-text sidebar-link">Network Geoplot</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/brasil.html" class="sidebar-item-text sidebar-link">Brasil</a>
   </div>
 </li>
       </ul>
@@ -326,7 +326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<div class="cell" data-execution_count="1">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
@@ -341,30 +341,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> selenium.webdriver.common.keys <span class="im">import</span> Keys</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> selenium.webdriver.chrome.options <span class="im">import</span> Options</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, data_load, group_cols</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-
-<style type="text/css">
-.datatable table.frame { margin-bottom: 0; }
-.datatable table.frame thead { border-bottom: none; }
-.datatable table.frame tr.coltypes td {  color: #FFFFFF;  line-height: 6px;  padding: 0 0.5em;}
-.datatable .bool    { background: #DDDD99; }
-.datatable .object  { background: #565656; }
-.datatable .int     { background: #5D9E5D; }
-.datatable .float   { background: #4040CC; }
-.datatable .str     { background: #CC4040; }
-.datatable .time    { background: #40CC40; }
-.datatable .row_index {  background: var(--jp-border-color3);  border-right: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  font-size: 9px;}
-.datatable .frame tbody td { text-align: left; }
-.datatable .frame tr.coltypes .row_index {  background: var(--jp-border-color0);}
-.datatable th:nth-child(2) { padding-left: 12px; }
-.datatable .hellipsis {  color: var(--jp-cell-editor-border-color);}
-.datatable .vellipsis {  background: var(--jp-layout-color0);  color: var(--jp-cell-editor-border-color);}
-.datatable .na {  color: var(--jp-cell-editor-border-color);  font-size: 80%;}
-.datatable .sp {  opacity: 0.25;}
-.datatable .footer { font-size: 9px; }
-.datatable .frame_dimensions {  background: var(--jp-border-color3);  border-top: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  display: inline-block;  opacity: 0.6;  padding: 1px 10px 1px 5px;}
-</style>
-</div>
 </div>
 <section id="descrição" class="level1">
 <h1>Descrição</h1>
@@ -378,17 +354,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="sih">SIH</h2>
 <section id="colunas-da-tabela" class="level3">
 <h3 class="anchored" data-anchor-id="colunas-da-tabela">Colunas da tabela</h3>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cols_sih <span class="op">=</span> [</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'cnes'</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>path_sih <span class="op">=</span> get_path(<span class="st">'SIH'</span>, <span class="st">'sih.jay'</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> dt.fread(path_sih)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> df_sih[:, cols_sih]</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="5">
 
 <div class="datatable">
   <table class="frame">
@@ -397,31 +373,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>2001020</td></tr>
-    <tr><td class="row_index">1</td><td>2000733</td></tr>
-    <tr><td class="row_index">2</td><td>2000733</td></tr>
-    <tr><td class="row_index">3</td><td>2000733</td></tr>
-    <tr><td class="row_index">4</td><td>2000733</td></tr>
-    <tr><td class="row_index">5</td><td>2000733</td></tr>
-    <tr><td class="row_index">6</td><td>2000733</td></tr>
-    <tr><td class="row_index">7</td><td>2001020</td></tr>
-    <tr><td class="row_index">8</td><td>2000733</td></tr>
-    <tr><td class="row_index">9</td><td>2000733</td></tr>
-    <tr><td class="row_index">10</td><td>2001020</td></tr>
-    <tr><td class="row_index">11</td><td>2000733</td></tr>
-    <tr><td class="row_index">12</td><td>2000733</td></tr>
-    <tr><td class="row_index">13</td><td>2000733</td></tr>
-    <tr><td class="row_index">14</td><td>2000733</td></tr>
+    <tr><td class="row_index">0</td><td>2679477</td></tr>
+    <tr><td class="row_index">1</td><td>2679477</td></tr>
+    <tr><td class="row_index">2</td><td>2679477</td></tr>
+    <tr><td class="row_index">3</td><td>2679477</td></tr>
+    <tr><td class="row_index">4</td><td>2679477</td></tr>
+    <tr><td class="row_index">5</td><td>2679477</td></tr>
+    <tr><td class="row_index">6</td><td>2679477</td></tr>
+    <tr><td class="row_index">7</td><td>2679477</td></tr>
+    <tr><td class="row_index">8</td><td>2679477</td></tr>
+    <tr><td class="row_index">9</td><td>2679477</td></tr>
+    <tr><td class="row_index">10</td><td>2679477</td></tr>
+    <tr><td class="row_index">11</td><td>2679477</td></tr>
+    <tr><td class="row_index">12</td><td>2679477</td></tr>
+    <tr><td class="row_index">13</td><td>2679477</td></tr>
+    <tr><td class="row_index">14</td><td>2679477</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">17,106,396</td><td>2765640</td></tr>
-    <tr><td class="row_index">17,106,397</td><td>2765640</td></tr>
-    <tr><td class="row_index">17,106,398</td><td>2765640</td></tr>
-    <tr><td class="row_index">17,106,399</td><td>2765640</td></tr>
-    <tr><td class="row_index">17,106,400</td><td>2755149</td></tr>
+    <tr><td class="row_index">608,898</td><td>5717515</td></tr>
+    <tr><td class="row_index">608,899</td><td>5717515</td></tr>
+    <tr><td class="row_index">608,900</td><td>5717515</td></tr>
+    <tr><td class="row_index">608,901</td><td>5717515</td></tr>
+    <tr><td class="row_index">608,902</td><td>5717515</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">17,106,401 rows × 1 column</div>
+    <div class="frame_dimensions">608,903 rows × 1 column</div>
   </div>
 </div>
 </div>
@@ -429,10 +405,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="tabela-agrupada" class="level3">
 <h3 class="anchored" data-anchor-id="tabela-agrupada">Tabela agrupada</h3>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> group_cols(df_sih, cols_sih).sort(<span class="op">-</span>f.count)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="6">
 
 <div class="datatable">
   <table class="frame">
@@ -441,31 +417,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>2232</td><td>101955</td></tr>
-    <tr><td class="row_index">1</td><td>3151794</td><td>75209</td></tr>
-    <tr><td class="row_index">2</td><td>2323397</td><td>74712</td></tr>
-    <tr><td class="row_index">3</td><td>2311682</td><td>64833</td></tr>
-    <tr><td class="row_index">4</td><td>26794</td><td>63700</td></tr>
-    <tr><td class="row_index">5</td><td>2020068</td><td>59613</td></tr>
-    <tr><td class="row_index">6</td><td>6627595</td><td>58139</td></tr>
-    <tr><td class="row_index">7</td><td>2799278</td><td>57750</td></tr>
-    <tr><td class="row_index">8</td><td>10480</td><td>57201</td></tr>
-    <tr><td class="row_index">9</td><td>2077388</td><td>57055</td></tr>
-    <tr><td class="row_index">10</td><td>7011857</td><td>50402</td></tr>
-    <tr><td class="row_index">11</td><td>6303153</td><td>48546</td></tr>
-    <tr><td class="row_index">12</td><td>2755165</td><td>48341</td></tr>
-    <tr><td class="row_index">13</td><td>2344882</td><td>48078</td></tr>
-    <tr><td class="row_index">14</td><td>2079186</td><td>46585</td></tr>
+    <tr><td class="row_index">0</td><td>2323397</td><td>6023</td></tr>
+    <tr><td class="row_index">1</td><td>26794</td><td>5307</td></tr>
+    <tr><td class="row_index">2</td><td>2362287</td><td>4746</td></tr>
+    <tr><td class="row_index">3</td><td>2339196</td><td>3991</td></tr>
+    <tr><td class="row_index">4</td><td>434</td><td>3981</td></tr>
+    <tr><td class="row_index">5</td><td>3956369</td><td>3786</td></tr>
+    <tr><td class="row_index">6</td><td>2409208</td><td>3756</td></tr>
+    <tr><td class="row_index">7</td><td>2427427</td><td>3531</td></tr>
+    <tr><td class="row_index">8</td><td>2351994</td><td>3299</td></tr>
+    <tr><td class="row_index">9</td><td>2711613</td><td>2902</td></tr>
+    <tr><td class="row_index">10</td><td>2752700</td><td>2799</td></tr>
+    <tr><td class="row_index">11</td><td>396</td><td>2785</td></tr>
+    <tr><td class="row_index">12</td><td>418</td><td>2771</td></tr>
+    <tr><td class="row_index">13</td><td>2499363</td><td>2683</td></tr>
+    <tr><td class="row_index">14</td><td>2755157</td><td>2629</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">4145</td><td>7320175</td><td>1</td></tr>
-    <tr><td class="row_index">4146</td><td>7603029</td><td>1</td></tr>
-    <tr><td class="row_index">4147</td><td>7621442</td><td>1</td></tr>
-    <tr><td class="row_index">4148</td><td>7704364</td><td>1</td></tr>
-    <tr><td class="row_index">4149</td><td>7743068</td><td>1</td></tr>
+    <tr><td class="row_index">4148</td><td>7320175</td><td>1</td></tr>
+    <tr><td class="row_index">4149</td><td>7603029</td><td>1</td></tr>
+    <tr><td class="row_index">4150</td><td>7621442</td><td>1</td></tr>
+    <tr><td class="row_index">4151</td><td>7704364</td><td>1</td></tr>
+    <tr><td class="row_index">4152</td><td>7743068</td><td>1</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">4150 rows × 2 columns</div>
+    <div class="frame_dimensions">4153 rows × 2 columns</div>
   </div>
 </div>
 </div>

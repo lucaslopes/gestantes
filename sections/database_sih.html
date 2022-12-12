@@ -192,17 +192,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/database_indicadores.html" class="sidebar-item-text sidebar-link">Indicadores</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../sections/database_dists.html" class="sidebar-item-text sidebar-link">Distâncias</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/database_gmaps.html" class="sidebar-item-text sidebar-link">Google Maps</a>
+  <a href="../sections/database_indicadores.html" class="sidebar-item-text sidebar-link">Indicadores</a>
   </div>
 </li>
       </ul>
@@ -217,12 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/table_locs.html" class="sidebar-item-text sidebar-link">Localidades</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../sections/table_dslc.html" class="sidebar-item-text sidebar-link">Deslocamentos</a>
+  <a href="../sections/table_nomes.html" class="sidebar-item-text sidebar-link">Nomeclaturas</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -232,7 +222,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/table_counts.html" class="sidebar-item-text sidebar-link">Contagens</a>
+  <a href="../sections/table_locs.html" class="sidebar-item-text sidebar-link">Localidades</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/table_trend.html" class="sidebar-item-text sidebar-link">Tendências</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -268,6 +263,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sections/result_geoplot.html" class="sidebar-item-text sidebar-link">Network Geoplot</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/brasil.html" class="sidebar-item-text sidebar-link">Brasil</a>
   </div>
 </li>
       </ul>
@@ -315,8 +315,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> data_load</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> get_path, data_load</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datatable <span class="im">import</span> dt, f, by</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <style type="text/css">
@@ -339,6 +339,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 .datatable .sp {  opacity: 0.25;}
 .datatable .footer { font-size: 9px; }
 .datatable .frame_dimensions {  background: var(--jp-border-color3);  border-top: 1px solid var(--jp-border-color0);  color: var(--jp-ui-font-color3);  display: inline-block;  opacity: 0.6;  padding: 1px 10px 1px 5px;}
+.datatable .frame thead tr.colnames {  background-image: url('data:image/png;base64,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');  background-repeat: repeat-x;  background-size: 14px;  height: 28px;}
 </style>
 </div>
 </div>
@@ -353,19 +354,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="filtro-de-colunas">Filtro de Colunas</h2>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cols_sih <span class="op">=</span> {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'ano_internacao'</span>: <span class="st">'ano'</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'PROC_REA'</span>: <span class="st">'parto_normal'</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_codigo_adotado'</span>: <span class="st">'origem'</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'int_codigo_adotado'</span>: <span class="st">'destino'</span>,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'CNES'</span>: <span class="st">'cnes'</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'def_idade_anos'</span>: <span class="st">'idade'</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'int_codigo_adotado'</span>: <span class="st">'hosp_cod_municipio'</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'res_codigo_adotado'</span>: <span class="st">'cod_municipio'</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'ano_internacao'</span>: <span class="st">'ano'</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'PROC_REA'</span>: <span class="st">'procedimento'</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 'def_procedimento_realizado': 'tipo_parto',</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'def_idade_anos'</span>: <span class="st">'idade'</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="filtro-de-linhas" class="level2">
 <h2 class="anchored" data-anchor-id="filtro-de-linhas">Filtro de Linhas</h2>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_sih(df, cols):</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_sih(df, cols, procs_partos):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> <span class="bu">list</span>(cols.values())[:<span class="op">-</span><span class="dv">1</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> cols <span class="cf">if</span> c <span class="kw">in</span> df.names]</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  df_filtered <span class="op">=</span> df[</span>
@@ -374,13 +376,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'idade'</span>] <span class="op">&gt;</span> <span class="dv">9</span>) <span class="op">&amp;</span> (f[<span class="st">'idade'</span>] <span class="op">&lt;</span> <span class="dv">50</span>)</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'parto_normal'</span>] <span class="op">==</span> <span class="dv">310010039</span>) <span class="op">|</span> (f[<span class="st">'parto_normal'</span>] <span class="op">==</span> <span class="dv">411010034</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      ((f[<span class="st">'origem'</span>] <span class="op">!=</span> <span class="va">None</span>) <span class="op">&amp;</span> (f[<span class="st">'destino'</span>] <span class="op">!=</span> <span class="va">None</span>))</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      ((f[<span class="st">'hosp_cod_municipio'</span>] <span class="op">!=</span> <span class="va">None</span>) <span class="op">&amp;</span> (f[<span class="st">'cod_municipio'</span>] <span class="op">!=</span> <span class="va">None</span>))</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'cnes'</span>] <span class="op">!=</span> <span class="va">None</span>)</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&amp;</span> (</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>      (f[<span class="st">'cnes'</span>] <span class="op">!=</span> <span class="va">None</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    ), cols]</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df_filtered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>      (</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        f[<span class="st">'procedimento'</span>] <span class="op">==</span> procs_partos[<span class="dv">0</span>]</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>      ) <span class="op">|</span> (</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        f[<span class="st">'procedimento'</span>] <span class="op">==</span> procs_partos[<span class="dv">1</span>]</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>      ) <span class="op">|</span> (</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        f[<span class="st">'procedimento'</span>] <span class="op">==</span> procs_partos[<span class="dv">2</span>]</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>      ) <span class="op">|</span> (</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        f[<span class="st">'procedimento'</span>] <span class="op">==</span> procs_partos[<span class="dv">3</span>]</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>      ) <span class="op">|</span> (</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        f[<span class="st">'procedimento'</span>] <span class="op">==</span> procs_partos[<span class="dv">4</span>]</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>      ) <span class="op">|</span> (</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        f[<span class="st">'procedimento'</span>] <span class="op">==</span> procs_partos[<span class="dv">5</span>]</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>      ) <span class="op">|</span> (</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        f[<span class="st">'procedimento'</span>] <span class="op">==</span> procs_partos[<span class="dv">6</span>]</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    ), cols]</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df_filtered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>procs_partos <span class="op">=</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">411010034</span>: <span class="st">'PARTO CESARIANO'</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">411010042</span>: <span class="st">'PARTO CESARIANO C/ LAQUEADURA TUBARINA'</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">411010026</span>: <span class="st">'PARTO CESARIANO EM GESTACAO DE ALTO RISCO'</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">310010039</span>: <span class="st">'PARTO NORMAL'</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">310010055</span>: <span class="st">'PARTO NORMAL EM CENTRO DE PARTO NORMAL (CPN)'</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">310010047</span>: <span class="st">'PARTO NORMAL EM GESTACAO DE ALTO RISCO'</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">310010012</span>: <span class="st">'ASSISTÊNCIA AO PARTO SEM DISTOCIA'</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -388,100 +415,106 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>Gerando tabela</h1>
 <section id="carregando-tabela" class="level2">
 <h2 class="anchored" data-anchor-id="carregando-tabela">Carregando tabela</h2>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># path_zip_sih = '/Volumes/SanDisk/Databases/SIH/SIHSUS.zip'</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>path_zip_sih <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Qual o caminho para o arquivo zip da base de dados SIHSUS?'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> data_load(path_zip_sih, cols_sih, filter_sih)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>100%|██████████| 4400/4400 [20:32&lt;00:00,  3.57it/s]</code></pre>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># path_zip_sih = '/Volumes/SanDisk/Databases/SIH/SIHSUS.zip'</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>path_zip_sih <span class="op">=</span> get_path(<span class="st">'SIH'</span>, <span class="st">'SIHSUS.zip'</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># path_zip_sih = input('Qual o caminho para o arquivo zip da base de dados SIHSUS?')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> data_load(path_zip_sih, cols_sih, filter_sih, procs_partos)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 4400/4400 [23:30&lt;00:00,  3.12it/s]  </code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="6">
 
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>ano</th><th>parto_normal</th><th>cnes</th><th>idade</th><th>hosp_cod_municipio</th><th>cod_municipio</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>origem</th><th>destino</th><th>cnes</th><th>ano</th><th>procedimento</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>2010</td><td>310010039</td><td>2001020</td><td>23</td><td>120005</td><td>120005</td></tr>
-    <tr><td class="row_index">1</td><td>2010</td><td>310010039</td><td>2000733</td><td>28</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">2</td><td>2010</td><td>310010039</td><td>2000733</td><td>38</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">3</td><td>2010</td><td>310010039</td><td>2000733</td><td>16</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">4</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">5</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">6</td><td>2010</td><td>310010039</td><td>2000733</td><td>27</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">7</td><td>2010</td><td>310010039</td><td>2001020</td><td>31</td><td>120005</td><td>120005</td></tr>
-    <tr><td class="row_index">8</td><td>2010</td><td>310010039</td><td>2000733</td><td>30</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">9</td><td>2010</td><td>310010039</td><td>2000733</td><td>18</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">10</td><td>2010</td><td>310010039</td><td>2001020</td><td>28</td><td>120005</td><td>120005</td></tr>
-    <tr><td class="row_index">11</td><td>2010</td><td>310010039</td><td>2000733</td><td>32</td><td>120040</td><td>120038</td></tr>
-    <tr><td class="row_index">12</td><td>2010</td><td>310010039</td><td>2000733</td><td>30</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">13</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>120001</td></tr>
-    <tr><td class="row_index">14</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>120040</td></tr>
+    <tr><td class="row_index">0</td><td>110001</td><td>110001</td><td>2679477</td><td>2010</td><td>310010039</td><td>141</td></tr>
+    <tr><td class="row_index">1</td><td>110001</td><td>110001</td><td>2679477</td><td>2010</td><td>411010034</td><td>49</td></tr>
+    <tr><td class="row_index">2</td><td>110001</td><td>110001</td><td>2679477</td><td>2011</td><td>310010039</td><td>95</td></tr>
+    <tr><td class="row_index">3</td><td>110001</td><td>110001</td><td>2679477</td><td>2011</td><td>411010034</td><td>31</td></tr>
+    <tr><td class="row_index">4</td><td>110001</td><td>110001</td><td>2679477</td><td>2012</td><td>310010039</td><td>73</td></tr>
+    <tr><td class="row_index">5</td><td>110001</td><td>110001</td><td>2679477</td><td>2012</td><td>411010034</td><td>28</td></tr>
+    <tr><td class="row_index">6</td><td>110001</td><td>110001</td><td>2679477</td><td>2013</td><td>310010039</td><td>67</td></tr>
+    <tr><td class="row_index">7</td><td>110001</td><td>110001</td><td>2679477</td><td>2013</td><td>411010034</td><td>25</td></tr>
+    <tr><td class="row_index">8</td><td>110001</td><td>110001</td><td>2679477</td><td>2014</td><td>310010039</td><td>46</td></tr>
+    <tr><td class="row_index">9</td><td>110001</td><td>110001</td><td>2679477</td><td>2014</td><td>411010034</td><td>57</td></tr>
+    <tr><td class="row_index">10</td><td>110001</td><td>110001</td><td>2679477</td><td>2015</td><td>310010039</td><td>36</td></tr>
+    <tr><td class="row_index">11</td><td>110001</td><td>110001</td><td>2679477</td><td>2015</td><td>411010034</td><td>57</td></tr>
+    <tr><td class="row_index">12</td><td>110001</td><td>110001</td><td>2679477</td><td>2016</td><td>310010039</td><td>47</td></tr>
+    <tr><td class="row_index">13</td><td>110001</td><td>110001</td><td>2679477</td><td>2016</td><td>411010034</td><td>33</td></tr>
+    <tr><td class="row_index">14</td><td>110001</td><td>110001</td><td>2679477</td><td>2017</td><td>310010039</td><td>47</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">17,106,396</td><td>2019</td><td>411010034</td><td>2765640</td><td>24</td><td>170930</td><td>171840</td></tr>
-    <tr><td class="row_index">17,106,397</td><td>2019</td><td>411010034</td><td>2765640</td><td>27</td><td>170930</td><td>171670</td></tr>
-    <tr><td class="row_index">17,106,398</td><td>2019</td><td>411010034</td><td>2765640</td><td>22</td><td>170930</td><td>171670</td></tr>
-    <tr><td class="row_index">17,106,399</td><td>2019</td><td>411010034</td><td>2765640</td><td>25</td><td>170930</td><td>170930</td></tr>
-    <tr><td class="row_index">17,106,400</td><td>2019</td><td>411010034</td><td>2755149</td><td>21</td><td>171610</td><td>171250</td></tr>
+    <tr><td class="row_index">608,898</td><td>530010</td><td>530010</td><td>5717515</td><td>2018</td><td>411010034</td><td>737</td></tr>
+    <tr><td class="row_index">608,899</td><td>530010</td><td>530010</td><td>5717515</td><td>2018</td><td>411010042</td><td>11</td></tr>
+    <tr><td class="row_index">608,900</td><td>530010</td><td>530010</td><td>5717515</td><td>2019</td><td>310010039</td><td>1086</td></tr>
+    <tr><td class="row_index">608,901</td><td>530010</td><td>530010</td><td>5717515</td><td>2019</td><td>411010034</td><td>839</td></tr>
+    <tr><td class="row_index">608,902</td><td>530010</td><td>530010</td><td>5717515</td><td>2019</td><td>411010042</td><td>22</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">17,106,401 rows × 6 columns</div>
+    <div class="frame_dimensions">608,903 rows × 6 columns</div>
   </div>
 </div>
 </div>
 </div>
+<p>SSD Externo:</p>
 <p>100%|██████████| 4400/4400 [20:32&lt;00:00, 3.57it/s]</p>
+<p>SSD Interno:</p>
+<p>100%|██████████| 4400/4400 [15:51&lt;00:00, 4.63it/s]</p>
+<p>SSD Interno (c/ 7 procedimentos):</p>
+<p>100%|██████████| 4400/4400 [23:30&lt;00:00, 3.12it/s]</p>
 </section>
 </section>
 <section id="exportar-tabela" class="level1">
 <h1>Exportar tabela</h1>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>output_sih <span class="op">=</span> path_zip_sih.replace(<span class="st">'SIHSUS.zip'</span>, <span class="st">'sih.jay'</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_sih.to_jay(output_sih)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> dt.fread(output_sih)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>output_sih <span class="op">=</span> path_zip_sih.replace(<span class="st">'SIHSUS.zip'</span>, <span class="st">'sih.jay'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_sih.to_jay(output_sih)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_sih <span class="op">=</span> dt.fread(output_sih)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_sih</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
 
 <div class="datatable">
   <table class="frame">
   <thead>
-    <tr class="colnames"><td class="row_index"></td><th>ano</th><th>parto_normal</th><th>cnes</th><th>idade</th><th>hosp_cod_municipio</th><th>cod_municipio</th></tr>
-    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td></tr>
+    <tr class="colnames"><td class="row_index"></td><th>origem</th><th>destino</th><th>cnes</th><th>ano</th><th>procedimento</th><th>count</th></tr>
+    <tr class="coltypes"><td class="row_index"></td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int32">▪▪▪▪</td><td class="int" title="int64">▪▪▪▪▪▪▪▪</td></tr>
   </thead>
   <tbody>
-    <tr><td class="row_index">0</td><td>2010</td><td>310010039</td><td>2001020</td><td>23</td><td>120005</td><td>120005</td></tr>
-    <tr><td class="row_index">1</td><td>2010</td><td>310010039</td><td>2000733</td><td>28</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">2</td><td>2010</td><td>310010039</td><td>2000733</td><td>38</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">3</td><td>2010</td><td>310010039</td><td>2000733</td><td>16</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">4</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">5</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">6</td><td>2010</td><td>310010039</td><td>2000733</td><td>27</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">7</td><td>2010</td><td>310010039</td><td>2001020</td><td>31</td><td>120005</td><td>120005</td></tr>
-    <tr><td class="row_index">8</td><td>2010</td><td>310010039</td><td>2000733</td><td>30</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">9</td><td>2010</td><td>310010039</td><td>2000733</td><td>18</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">10</td><td>2010</td><td>310010039</td><td>2001020</td><td>28</td><td>120005</td><td>120005</td></tr>
-    <tr><td class="row_index">11</td><td>2010</td><td>310010039</td><td>2000733</td><td>32</td><td>120040</td><td>120038</td></tr>
-    <tr><td class="row_index">12</td><td>2010</td><td>310010039</td><td>2000733</td><td>30</td><td>120040</td><td>120040</td></tr>
-    <tr><td class="row_index">13</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>120001</td></tr>
-    <tr><td class="row_index">14</td><td>2010</td><td>310010039</td><td>2000733</td><td>26</td><td>120040</td><td>120040</td></tr>
+    <tr><td class="row_index">0</td><td>110001</td><td>110001</td><td>2679477</td><td>2010</td><td>310010039</td><td>141</td></tr>
+    <tr><td class="row_index">1</td><td>110001</td><td>110001</td><td>2679477</td><td>2010</td><td>411010034</td><td>49</td></tr>
+    <tr><td class="row_index">2</td><td>110001</td><td>110001</td><td>2679477</td><td>2011</td><td>310010039</td><td>95</td></tr>
+    <tr><td class="row_index">3</td><td>110001</td><td>110001</td><td>2679477</td><td>2011</td><td>411010034</td><td>31</td></tr>
+    <tr><td class="row_index">4</td><td>110001</td><td>110001</td><td>2679477</td><td>2012</td><td>310010039</td><td>73</td></tr>
+    <tr><td class="row_index">5</td><td>110001</td><td>110001</td><td>2679477</td><td>2012</td><td>411010034</td><td>28</td></tr>
+    <tr><td class="row_index">6</td><td>110001</td><td>110001</td><td>2679477</td><td>2013</td><td>310010039</td><td>67</td></tr>
+    <tr><td class="row_index">7</td><td>110001</td><td>110001</td><td>2679477</td><td>2013</td><td>411010034</td><td>25</td></tr>
+    <tr><td class="row_index">8</td><td>110001</td><td>110001</td><td>2679477</td><td>2014</td><td>310010039</td><td>46</td></tr>
+    <tr><td class="row_index">9</td><td>110001</td><td>110001</td><td>2679477</td><td>2014</td><td>411010034</td><td>57</td></tr>
+    <tr><td class="row_index">10</td><td>110001</td><td>110001</td><td>2679477</td><td>2015</td><td>310010039</td><td>36</td></tr>
+    <tr><td class="row_index">11</td><td>110001</td><td>110001</td><td>2679477</td><td>2015</td><td>411010034</td><td>57</td></tr>
+    <tr><td class="row_index">12</td><td>110001</td><td>110001</td><td>2679477</td><td>2016</td><td>310010039</td><td>47</td></tr>
+    <tr><td class="row_index">13</td><td>110001</td><td>110001</td><td>2679477</td><td>2016</td><td>411010034</td><td>33</td></tr>
+    <tr><td class="row_index">14</td><td>110001</td><td>110001</td><td>2679477</td><td>2017</td><td>310010039</td><td>47</td></tr>
     <tr><td class="row_index">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td><td class="hellipsis">⋮</td></tr>
-    <tr><td class="row_index">17,106,396</td><td>2019</td><td>411010034</td><td>2765640</td><td>24</td><td>170930</td><td>171840</td></tr>
-    <tr><td class="row_index">17,106,397</td><td>2019</td><td>411010034</td><td>2765640</td><td>27</td><td>170930</td><td>171670</td></tr>
-    <tr><td class="row_index">17,106,398</td><td>2019</td><td>411010034</td><td>2765640</td><td>22</td><td>170930</td><td>171670</td></tr>
-    <tr><td class="row_index">17,106,399</td><td>2019</td><td>411010034</td><td>2765640</td><td>25</td><td>170930</td><td>170930</td></tr>
-    <tr><td class="row_index">17,106,400</td><td>2019</td><td>411010034</td><td>2755149</td><td>21</td><td>171610</td><td>171250</td></tr>
+    <tr><td class="row_index">608,898</td><td>530010</td><td>530010</td><td>5717515</td><td>2018</td><td>411010034</td><td>737</td></tr>
+    <tr><td class="row_index">608,899</td><td>530010</td><td>530010</td><td>5717515</td><td>2018</td><td>411010042</td><td>11</td></tr>
+    <tr><td class="row_index">608,900</td><td>530010</td><td>530010</td><td>5717515</td><td>2019</td><td>310010039</td><td>1086</td></tr>
+    <tr><td class="row_index">608,901</td><td>530010</td><td>530010</td><td>5717515</td><td>2019</td><td>411010034</td><td>839</td></tr>
+    <tr><td class="row_index">608,902</td><td>530010</td><td>530010</td><td>5717515</td><td>2019</td><td>411010042</td><td>22</td></tr>
   </tbody>
   </table>
   <div class="footer">
-    <div class="frame_dimensions">17,106,401 rows × 6 columns</div>
+    <div class="frame_dimensions">608,903 rows × 6 columns</div>
   </div>
 </div>
 </div>
